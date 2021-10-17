@@ -1,0 +1,28 @@
+@use "src/styles/abstracts/constants" as *;
+@use "src/styles/abstracts/mixins" as *;
+
+article {
+  margin-left: calc(-1 * #{$spacing});
+  margin-right: calc(-1 * #{$spacing});
+  background: $accent;
+  @include p-default;
+
+  p {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  a {
+    color: $shadow;
+  }
+
+  svg.svg-inline--fa {
+    width: 1.5em!important;
+    height: 1.5em;
+
+    &:not(:first-of-type) {
+      margin-left: $spacing;
+    }
+  }
+}

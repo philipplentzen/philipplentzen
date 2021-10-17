@@ -1,0 +1,18 @@
+@use "src/styles/abstracts/constants" as *;
+@use "src/styles/abstracts/mixins" as *;
+
+.logo {
+  position: absolute;
+  width: 300px;
+  @include p-default;
+  text-align: center;
+  line-height: 5rem;
+  z-index: 1;
+
+  background: $accent;
+
+  @include small {
+    width: 200px;
+    line-height: 4rem;
+  }
+}

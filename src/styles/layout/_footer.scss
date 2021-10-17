@@ -1,0 +1,73 @@
+@use "src/styles/abstracts/constants" as *;
+@use "src/styles/abstracts/mixins" as *;
+
+body.contact {
+  footer {
+    width: fit-content;
+    display: block;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .contact {
+      display: none;
+    }
+  }
+}
+
+footer {
+  position: absolute;
+  width: 100vw;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9em;
+  z-index: 997;
+
+  .contact, .legal {
+    padding: calc(#{$spacing} / 2);
+    background: #{$blue};
+  }
+
+  .contact {
+    a {
+      @include codeFamily;
+      border-bottom: none;
+      color: #{$yellow};
+      @include transition(color);
+
+      &:hover {
+        color: #{$white};
+      }
+    }
+  }
+
+  .legal {
+
+    ul {
+      display: inline-block;
+      @include reset-list;
+
+      li {
+        display: inline-block;
+        font-size: .9em;
+
+        &:not(:last-of-type)::after {
+          content: "|";
+          display: inline-block;
+          width: 10px;
+          text-align: center;
+        }
+
+        a {
+          color: #{$white};
+          border-bottom: none;
+          @include transition(color);
+
+          &:hover {
+            color: #{$turquoise};
+          }
+        }
+      }
+    }
+  }
+}

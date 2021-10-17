@@ -1,0 +1,12 @@
+@use "src/styles/abstracts/constants" as *;
+@use "src/styles/abstracts/mixins" as *;
+
+main {
+  height: inherit;
+  padding-top: calc(#{$header-height} + 2 * #{$spacing});
+  margin-bottom: calc(#{$spacing} * 8);
+
+  @include small {
+    padding-top: calc(#{$header-height});
+  }
+}

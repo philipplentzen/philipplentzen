@@ -1,0 +1,20 @@
+@use "src/styles/abstracts/constants" as *;
+@use "src/styles/abstracts/mixins" as *;
+
+.thumbnail {
+  position: relative;
+  padding-top: calc(4 * #{$spacing});
+
+  &.portfolio {
+    .gatsby-image-wrapper {
+      border: 4px solid $text;
+    }
+  }
+
+  .overlay {
+    position: absolute;
+    top: calc(4 * #{$spacing});
+    left: 0;
+    mix-blend-mode: screen;
+  }
+}

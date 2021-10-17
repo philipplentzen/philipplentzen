@@ -1,0 +1,38 @@
+@use "src/styles/abstracts/constants" as *;
+@use "src/styles/abstracts/mixins" as *;
+
+.title {
+  max-width: 100%;
+  width: max-content;
+  margin-bottom: calc(#{$spacing} * 2);
+  position: relative;
+  z-index: 1;
+
+  h1, h2, h3, h4 {
+    margin: 0!important;
+    word-wrap: anywhere;
+  }
+
+  h2, h4, span {
+    position: relative;
+    @include ph-default;
+    @include shadow($accent, $shadow);
+
+    a {
+      color: $text;
+      border-bottom: 1px solid $text;
+    }
+
+    @include small {
+      @include p-0;
+    }
+  }
+
+  h3 {
+    @include h1;
+  }
+
+  h4, span {
+    @include h2;
+  }
+}

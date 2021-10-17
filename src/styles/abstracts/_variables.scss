@@ -1,0 +1,18 @@
+@use "constants" as *;
+@use "mixins" as *;
+
+:root {
+  // Colors
+  --background: #{$yellow};
+  --text: #{$white};
+  --accent: #{$turquoise};
+  --shadow: #{$blue};
+
+  // Values
+  --spacing: 0.8rem;
+  --header-height: 97px;
+
+  @include medium {
+    --spacing: 1rem;
+  }
+}

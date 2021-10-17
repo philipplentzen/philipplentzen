@@ -1,0 +1,115 @@
+@use "src/styles/abstracts/constants" as *;
+@use "src/styles/abstracts/mixins" as *;
+
+.content {
+  width: 95%;
+  max-width: $max-width;
+  position: relative;
+  @include clearfix;
+  @include mh-center;
+  @include ph-default;
+
+  @include medium {
+    width: 80%;
+  }
+}
+
+.row {
+  margin-left: calc(-1 * #{$spacing});
+  margin-right: calc(-1 * #{$spacing});
+  @include clearfix;
+}
+
+.grid {
+  display: grid;
+  margin-left: calc(-1 * #{$spacing});
+  margin-right: calc(-1 * #{$spacing});
+  grid-row-gap: calc(2 * #{$spacing});;
+
+  @include small {
+    @include m-0;
+  }
+
+  @for $i from 1 through $grid-size {
+    $repeat: $grid-size / $i;
+
+    &[sm='#{$i}'] {
+      grid-template-columns: repeat(#{$repeat}, 1fr);
+    }
+
+    @include medium {
+      &[md='#{$i}'] {
+        grid-template-columns: repeat(#{$repeat}, 1fr) !important;
+      }
+    }
+
+    @include large {
+      &[lg='#{$i}'] {
+        grid-template-columns: repeat(#{$repeat}, 1fr) !important;
+      }
+    }
+  }
+}
+
+.column {
+  float: left;
+  position: relative;
+  @include ph-default;
+
+  @for $i from 0 through $grid-size {
+    &[sm='#{$i}'] {
+      width: calc(100% / #{$grid-size} * #{$i});
+    }
+
+    &[offset='#{$i}'] {
+      margin-left: calc(100% / #{$grid-size} * #{$i});
+    }
+
+    &[inset='#{$i}'] {
+      margin-left: calc((100% / #{$grid-size} * #{$i}) * -1);
+    }
+
+    &[inset-follows='#{$i}'] > * {
+      padding-right: calc((100% / #{$grid-size} * #{$i}) + 2 * #{$spacing});
+    }
+
+    @include medium {
+      &[md='#{$i}'] {
+        width: calc(100% / #{$grid-size} * #{$i}) !important;
+      }
+
+      &[offset-md='#{$i}'] {
+        margin-left: calc(100% / #{$grid-size} * #{$i}) !important;
+      }
+
+      &[inset-md='#{$i}'] {
+        margin-left: calc((100% / #{$grid-size} * #{$i}) * -1) !important;
+      }
+
+      &[inset-follows-md='#{$i}'] > * {
+        padding-right: calc((100% / #{$grid-size} * #{$i}) + 2 * #{$spacing}) !important;
+      }
+    }
+
+    @include large {
+      &[lg='#{$i}'] {
+        width: calc(100% / #{$grid-size} * #{$i}) !important;
+      }
+
+      &[offset-lg='#{$i}'] {
+        margin-left: calc(100% / #{$grid-size} * #{$i}) !important;
+      }
+
+      &[inset-lg='#{$i}'] {
+        margin-left: calc((100% / #{$grid-size} * #{$i}) * -1) !important;
+      }
+
+      &[inset-follows-lg='#{$i}'] > * {
+        padding-right: calc((100% / #{$grid-size} * #{$i}) + 2 * #{$spacing}) !important;
+      }
+    }
+  }
+}
+
+
+

@@ -1,0 +1,49 @@
+@use "src/styles/abstracts/constants" as *;
+@use "src/styles/abstracts/mixins" as *;
+
+.poster {
+  position: relative;
+  width: calc(100% - #{$spacing});
+  border-bottom: none;
+  color: $text;
+
+  .title {
+    position: absolute;
+    width: fit-content;
+    max-width: calc(100% - 6 * #{$spacing});
+    right: calc(2 * #{$spacing});
+    top: calc(2 * #{$spacing});
+    font-size: 0.6em;
+    text-align: left;
+
+    h2::after {
+      --accent: #{$yellow};
+      box-shadow: none;
+    }
+
+    @include small {
+      right: $spacing;
+      top: $spacing;
+    }
+  }
+
+  .tech {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+
+    > i {
+      line-height: 2.5em;
+      font-size: 1.5em;
+    }
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    mix-blend-mode: screen;
+  }
+}

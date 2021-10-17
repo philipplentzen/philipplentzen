@@ -1,0 +1,13 @@
+@use "src/styles/abstracts/constants" as *;
+
+::-webkit-scrollbar {
+  width: $thickness;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $accent;
+}

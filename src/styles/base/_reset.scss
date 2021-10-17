@@ -1,0 +1,43 @@
+@use "src/styles/abstracts/mixins" as *;
+
+// Everything
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100vw;
+  height: 100%;
+  overflow: hidden;
+}
+
+#___gatsby,
+#gatsby-focus-wrapper {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  ::-webkit-scrollbar {
+    display: unset;
+  }
+
+  * {
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+.tl-edges {
+  overflow: visible;
+  height: 100%;
+  @include clearfix;
+}
+
+.tl-wrapper {
+  height: 100%;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

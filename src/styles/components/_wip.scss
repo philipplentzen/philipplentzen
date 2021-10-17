@@ -1,0 +1,15 @@
+.wipAlert {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .8);
+  z-index: 99999;
+
+  .title {
+    position: absolute;
+    left: 50%!important;
+    top: 50%!important;
+    bottom: auto!important;
+    transform: translate(-50%, -50%)!important;
+  }
+}

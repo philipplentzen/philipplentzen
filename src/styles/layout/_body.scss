@@ -1,0 +1,47 @@
+@use "src/styles/abstracts/mixins" as *;
+@use "src/styles/abstracts/constants" as *;
+
+// Body
+body {
+  position: relative;
+  background-color: $background;
+  background-image: url("../images/background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  @include font;
+  @include blockAfter;
+
+  @include medium {
+    overflow-y: auto!important;
+  }
+
+  &::after {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $background;
+    z-index: -2;
+  }
+
+  &.light {
+    --background: #{$turquoise};
+    --text: #{$white};
+    --accent: #{$blue};
+    --shadow: #{$yellow};
+  }
+
+  &.dark {
+    --background: #{$blue};
+    --text: #{$white};
+    --accent: #{$turquoise};
+    --shadow: #{$yellow};
+  }
+
+  .content#main {
+    @include transition(width);
+  }
+}

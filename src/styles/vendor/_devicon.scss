@@ -1,0 +1,10 @@
+@use "src/styles/abstracts/constants" as *;
+@import "~devicon/devicon.min.css";
+
+[class^="devicon-"] {
+  font-size: 2.5em;
+
+  &:not(:first-of-type) {
+    margin-left: $spacing;
+  }
+}

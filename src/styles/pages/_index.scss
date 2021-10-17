@@ -1,0 +1,113 @@
+@use "src/styles/abstracts/constants" as *;
+@use "src/styles/abstracts/mixins" as *;
+
+body.home {
+  &::after {
+    background-color: transparent;
+  }
+
+  .content#main {
+    max-width: $max-width;
+    width: 100%;
+    height: 100%;
+    background-color: $background;
+
+    @include medium {
+      width: 32em;
+    }
+
+    @include large {
+      width: 36em;
+    }
+  }
+
+  main {
+    padding-top: $header-height;
+  }
+
+  .title {
+    position: absolute;
+    transform: translateX(-50%) translateZ(1000px);
+    bottom: calc(0.81 * 32em);
+    left: 50%;
+    font-size: 1.2em;
+    text-align: center;
+
+    z-index: 10;
+
+    @media (max-width: 414px) {
+      bottom: calc(105vw);
+    }
+
+    @include large {
+      bottom: calc(0.81 * 36em);
+    }
+  }
+
+  .description {
+    position: absolute;
+    transform: translateX(-50%);
+    bottom: 10%;
+    left: 50%;
+    text-align: center;
+    z-index: 1;
+
+    @include small {
+      bottom: 15%;
+    }
+
+    h2 {
+      position: relative;
+      width: max-content;
+      @include h3;
+      line-height: 1.1em;
+      @include m-0;
+      @include shadow($shadow, $text);
+
+      &:after {
+        top: -20%;
+        bottom: -30%;
+        left: -30%;
+        right: -30%;
+
+        @include small {
+          left: -7%;
+          right: -7%;
+        }
+      }
+
+      span {
+        font-size: 0.8em;
+        color: $background;
+        @include codeFamily;
+      }
+    }
+  }
+
+  .background {
+    position: absolute;
+    width: calc(100% + 2 * #{$spacing});
+    height: calc(100vh - #{$header-height});
+    margin-left: calc(-1 * #{$spacing});
+    margin-right: calc(-1 * #{$spacing});
+    bottom:0;
+    z-index: -1;
+    overflow: hidden;
+
+    @include small {
+      width: calc(110% + 2 * #{$spacing});
+      margin-left: calc(-5% - 1 * #{$spacing});
+      margin-right: calc(5% * #{$spacing});
+    }
+
+    .gatsby-image-wrapper {
+      position: absolute;
+      bottom: 0;
+
+      &:first-of-type {
+        transform: translateZ(-100px);
+        filter: drop-shadow(10px 10px 20px #{$blue});
+      }
+    }
+  }
+}

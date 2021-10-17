@@ -1,0 +1,23 @@
+// Sizes
+$spacing: var(--spacing);
+$max-width: 64rem;
+$header-height: var(--header-height);
+$thickness: 8px;
+
+// Grid
+$grid-size: 12;
+
+// Breakpoints default < 40em < md < 70em < lg
+$sizes: md, lg;
+$breakpoint-md: 40em;
+$breakpoint-lg: 75em;
+
+// Colors
+$background: var(--background);
+$text: var(--text);
+$accent: var(--accent);
+$shadow: var(--shadow);
+$yellow: #FCBA04;
+$blue: #1E3F56;
+$turquoise: #18A999;
+$white: #F6F7EB;

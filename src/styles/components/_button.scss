@@ -1,0 +1,100 @@
+@use "src/styles/abstracts/constants" as *;
+@use "src/styles/abstracts/mixins" as *;
+
+button, .button {
+  &#full-page-navigation {
+    position: relative;
+    width: 31px;
+    height: 21px;
+    z-index: 1;
+
+    &:hover {
+      span {
+        &:first-child {
+          left: 30%;
+        }
+        &:last-child {
+          left: 50%;
+        }
+      }
+    }
+
+    span {
+      display: block;
+      position: absolute;
+      height: 3px;
+      left: 0;
+      background: $text;
+      @include transition(left);
+
+      &:first-child {
+        width: 70%;
+        top: 0px;
+      }
+
+      &:nth-child(2) {
+        width: 100%;
+        top: 9px;
+      }
+
+      &:last-child {
+        width: 50%;
+        bottom: 0;
+      }
+    }
+  }
+
+  &.back {
+    display: block;
+    margin-bottom: $spacing;
+    border: none;
+    color: $text;
+  }
+}
+
+[role="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+  display: block;
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+  padding: 0;
+  -webkit-appearance: button;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+input::-moz-focus-inner,
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+[role="button"] {
+  color: inherit;
+  cursor: default;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  white-space: pre;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}

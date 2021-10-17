@@ -1,0 +1,260 @@
+@use "constants" as *;
+
+@mixin clearfix {
+  &::before {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin blockBefore {
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+  }
+}
+
+@mixin blockAfter {
+  &::after {
+    content: "";
+    position: absolute;
+  }
+}
+
+@mixin shadow($bg, $sh) {
+  @include blockAfter;
+  &::after {
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    background: $bg;
+    z-index: -1;
+    box-shadow: 10px -10px $sh;
+
+    @include small {
+      top: -8px;
+      left: -8px;
+      right: -8px;
+      bottom: -8px;
+    }
+  }
+}
+
+/**
+  Breakpoints
+ */
+
+@mixin small {
+  @media (max-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin medium {
+  @media (min-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media (min-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin landscape {
+  @media (orientation: landscape) {
+    @content
+  }
+}
+
+@mixin portrait {
+  @media (orientation: portrait) {
+    @content
+  }
+}
+
+/**
+  Margin
+ */
+
+@mixin m-0 {
+  margin: 0;
+}
+
+@mixin m-default {
+  margin: $spacing;
+}
+
+@mixin m-only-bottom {
+  margin: 0 0 $spacing;
+}
+
+@mixin mh-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin mv-center {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/**
+  Padding
+ */
+
+@mixin p-0 {
+  padding: 0;
+}
+
+@mixin p-default {
+  padding: $spacing;
+}
+
+@mixin ph-default {
+  padding-left: $spacing;
+  padding-right: $spacing;
+}
+
+/**
+  List
+ */
+
+@mixin reset-list {
+  position: relative;
+  list-style: none;
+  @include m-0;
+  @include p-0;
+}
+
+/**
+  Transition
+ */
+
+@mixin transition($properties...) {
+  $transition: ();
+  @each $property in $properties {
+    $transition: append(
+      $transition, ($property 0.3s ease-in-out), $separator: comma
+    );
+  }
+  transition: $transition;
+}
+
+@mixin no-transition {
+  transition: none;
+}
+
+/**
+  Font
+ */
+
+@mixin textFamily {
+  font-family: 'Kanit', sans-serif;
+}
+
+@mixin codeFamily {
+  font-family: "Anonymous Pro", monospace;
+}
+
+@mixin font {
+  @include textFamily;
+  font-weight: 200;
+  font-size: 14px;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  color: $text;
+
+  @include small {
+    font-size: 12px;
+  }
+
+  @include large {
+    font-size: 16px;
+  }
+}
+
+@mixin h1 {
+  font-weight: 900;
+  font-size: 3.3em;
+
+  &:not(:only-child) {
+    @include m-only-bottom;
+  }
+}
+
+@mixin h2 {
+  font-weight: 700;
+  font-size: 1.2em;
+  @include codeFamily;
+
+  &:not(:only-child) {
+    @include m-only-bottom;
+  }
+}
+
+@mixin h3 {
+  font-weight: 300;
+  font-size: 1.9em;
+  @include textFamily;
+
+  &:not(:only-child) {
+    @include m-only-bottom;
+  }
+
+  b {
+    font-weight: 900;
+  }
+}
+
+@mixin h4 {
+  font-weight: 500;
+  font-size: 1.5em;
+
+  &:not(:only-child) {
+    @include m-only-bottom;
+  }
+}
+
+@mixin h5 {
+  font-weight: 700;
+  font-size: 1.6em;
+
+  &:not(:only-child) {
+    @include m-only-bottom;
+  }
+}
+
+@mixin h6 {
+  font-weight: 700;
+  font-size: 1.3em;
+
+  &:not(:only-child) {
+    @include m-only-bottom;
+  }
+}
+
+@mixin p {
+  font-size: 1em;
+  line-height: 1.1em;
+  letter-spacing: 0;
+
+  &:not(:only-child) {
+    @include m-only-bottom;
+  }
+}
+
+@mixin a {
+  color: $accent;
+  text-decoration: none;
+  border-bottom: 1px solid $accent;
+}

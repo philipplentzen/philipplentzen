@@ -43,8 +43,8 @@ jobs:
       - name: ⬇️ Download artifacts
         uses: actions/download-artifact@v2
         with:
-          name: build
-          path: ./build
+          name: public
+          path: ./public
 
       - name: ☁️ Deploy artifacts
         uses: SamKirkland/FTP-Deploy-Action@4.1.0

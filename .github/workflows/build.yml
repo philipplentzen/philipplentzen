@@ -1,0 +1,56 @@
+name: 🚀 Build & Deploy
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    name: 🔨 Build
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 🚚 Checkout
+      uses: actions/checkout@v2
+
+    - name: Install Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+        cache: 'npm'
+
+    - name: 📦 Install Packages
+      run: npm ci
+
+    - name: 🔨 Build project
+      run: npm run build
+
+    - name: ⬆️ Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: build
+        path: ./build
+
+  deploy:
+    name: ☁️ Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+
+    steps:
+      - name: ⬇️ Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: build
+          path: ./build
+
+      - name: ☁️ Deploy artifacts
+        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+        with:
+          server: ${{ secrets.SERVER_NAME }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: ./build/

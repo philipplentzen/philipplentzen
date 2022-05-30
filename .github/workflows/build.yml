@@ -3,8 +3,6 @@ name: 🚀 Build & Deploy
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 jobs:
   build:
@@ -14,19 +12,15 @@ jobs:
     steps:
     - name: 🚚 Checkout
       uses: actions/checkout@v2
-
     - name: 💻 Install Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '14'
-        cache: 'npm'
-
+        node-version: 14
+        cache: npm
     - name: 📦 Install Packages
       run: npm ci
-
     - name: 🔨 Build project
       run: npm run build
-
     - name: ⬆️ Upload artifacts
       uses: actions/upload-artifact@v2
       with:
@@ -37,7 +31,6 @@ jobs:
     name: ☁️ Deploy
     needs: build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
 
     steps:
       - name: ⬇️ Download artifacts
@@ -46,11 +39,9 @@ jobs:
           name: public
           path: ./public
 
-      - name: ☁️ Deploy artifacts
-        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+      - name: 🚀 Deploy artifacts
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          server: ${{ secrets.SERVER_NAME }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps
-          local-dir: ./public/
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          cname: v1.philipplentzen.dev

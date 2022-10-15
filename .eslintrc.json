@@ -1,3 +1,17 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "semi": "error",
+    "quotes": [
+      "error",
+      "backtick"
+    ],
+    "indent": [
+      "error",
+      "tab"
+    ]
+  }
 }

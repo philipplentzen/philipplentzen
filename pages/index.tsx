@@ -11,7 +11,7 @@ const Home: NextPage = () => {
 			<Head>
 				<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
 			</Head>
-			<div className={`pl-relative pl-min-h-screen pl-bg-white pl-pt-16 pl-px-8`}>
+			<div className={`pl-relative pl-min-h-screen pl-bg-white pl-pt-16 pl-px-8 pl-overflow-hidden`}>
 				<header className={`pl-max-w-screen-2xl pl-h-7 pl-mx-auto pl-flex pl-justify-between`}>
 					<div className={`-pl-mt-5`}>
 						<Image src={logoImg} />

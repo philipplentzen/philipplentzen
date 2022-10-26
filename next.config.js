@@ -4,8 +4,8 @@ const nextConfig = {
 	output: `standalone`,
 	swcMinify: true,
 	i18n: {
-		locales: [`en`],
-		defaultLocale: `en`
+		locales: [`de`],
+		defaultLocale: `de`
 	},
 	webpack(config) {
 		config.module.rules.push({

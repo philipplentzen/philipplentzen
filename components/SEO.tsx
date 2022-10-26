@@ -3,23 +3,26 @@ import Head from "next/head";
 import {withRouter} from "next/router";
 import {WithRouterProps} from "next/dist/client/with-router";
 
-const title = `Philipp Lentzen - Web Development`;
+interface Props extends WithRouterProps {
+	title?: string;
+}
 
-export const SEO = withRouter(({router}) => {
-	console.log(router);
+export const SEO = withRouter<Props>(({router}) => {
+	const title = `Philipp Lentzen - Web Development`;
+
 	return (
 		<Head>
 			<title>{title}</title>
 			<meta charSet="UTF-8" />
 			<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
 
-			<OpenGraph router={router} />
+			<OpenGraph title={title} router={router} />
 			<Favicons />
 		</Head>
 	);
 });
 
-const OpenGraph = ({router}: WithRouterProps) => (
+const OpenGraph = ({title, router}: Props) => (
 	<>
 		<meta property={`og:type`} key={`og:type`} content={`website`} />
 		<meta property={`og:title`} key={`og:title`} content={title} />

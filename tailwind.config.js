@@ -13,8 +13,17 @@ module.exports = {
 				yellow: `#FCBA04`,
 				blue: `#1E3F56`,
 				cyan: `#18A999`
+			},
+			typography: {
+				DEFAULT: {
+					css: {
+						color: `#0F1E29`
+					}
+				}
 			}
 		},
 	},
-	plugins: [],
+	plugins: [
+		require(`@tailwindcss/typography`)
+	],
 };

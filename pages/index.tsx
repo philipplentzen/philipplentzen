@@ -4,9 +4,9 @@ import {SocialLink} from "../components/Link";
 
 const Home: NextPage = () => {
 	return (
-		<>
+		<article className={`pl-h-full pl-flex pl-flex-col pl-justify-center pl-items-center`}>
 			<h3 className={`pl-text-sm pl-text-black/25`}>
-						Currently WIP
+				Currently WIP
 			</h3>
 			<h1 className={`pl-w-11/12 md:pl-w-6/12 pl-leading-4  pl-mt-3`}>
 				<Logo title={`Philipp Lentzen`} />
@@ -20,7 +20,7 @@ const Home: NextPage = () => {
 					<SocialLink href={`https://www.linkedin.com/in/philipplentzen/`} target={`_blank`} icon={`linkedin`} title={`LinkedIn`} className={`pl-w-1/2 !pl-bg-cyan`} />
 				</div>
 			</aside>
-		</>
+		</article>
 	);
 };
 

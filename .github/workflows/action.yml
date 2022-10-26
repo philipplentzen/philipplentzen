@@ -18,7 +18,7 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
-          registry: hub.cloud.philipplentzen.dev
+          registry: ${{ secrets.DOCKERHUB_URL }}
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Build & Push
@@ -26,4 +26,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: hub.cloud.philipplentzen.dev/philipplentzen:latest, hub.cloud.philipplentzen.dev/philipplentzen:${{ github.sha }}
+          tags: ${{ secrets.DOCKERHUB_URL }}/philipplentzen:latest, ${{ secrets.DOCKERHUB_URL }}/philipplentzen:${{ github.sha }}

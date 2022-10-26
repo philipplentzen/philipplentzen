@@ -24,6 +24,7 @@ const OpenGraph = ({router}: WithRouterProps) => (
 		<meta property={`og:type`} key={`og:type`} content={`website`} />
 		<meta property={`og:title`} key={`og:title`} content={title} />
 		<meta property={`og:url`} key={`og:url`} content={`https://philipplentzen.dev${router.pathname}`} />
+		<meta property={`og:image`} key={`og:image`} content={`https://philipplentzen.dev/favicons/favicon-96x96.png`} />
 	</>
 );
 

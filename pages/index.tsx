@@ -1,5 +1,4 @@
 import type { NextPage } from 'next';
-import Head from "next/head";
 import Logo from "../public/philipplentzen.svg";
 import {SocialLink} from "../components/Link";
 import {SEO} from "../components/SEO";

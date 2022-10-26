@@ -1,87 +1,42 @@
 import type { NextPage } from 'next';
-import Image from "next/image";
-import logoImg from "../public/logo.png";
-import meImg from "../public/me.png";
-import grassyImg from "../public/grassy.png";
 import Head from "next/head";
-import {useEffect, useRef} from "react";
+import Image from "next/image";
+import Logo from "../public/assets/philipplentzen.svg";
+import {Icon} from "../components/Icon";
+import Link from "next/link";
 
 const Home: NextPage = () => {
-	const headerRef = useRef<HTMLElement>(null);
-
-	const introHelloRef = useRef<HTMLDivElement>(null);
-	const introMyNameRef = useRef<HTMLDivElement>(null);
-	const introDevRef = useRef<HTMLDivElement>(null);
-	const introBasedRef = useRef<HTMLDivElement>(null);
-
-	const contentMeRef = useRef<HTMLDivElement>(null);
-	const contentGrassRef = useRef<HTMLDivElement>(null);
-	const contentSearchRef = useRef<HTMLDivElement>(null);
-
-	useEffect(() => {
-		setTimeout(() => {
-			headerRef.current!.style.opacity = `1`;
-		}, 2400);
-
-		setTimeout(() => {
-			introMyNameRef.current!.style.opacity = `1`;
-		}, 600);
-		setTimeout(() => {
-			introDevRef.current!.style.opacity = `1`;
-		}, 1200);
-		setTimeout(() => {
-			introBasedRef.current!.style.opacity = `1`;
-		}, 1800);
-
-		setTimeout(() => {
-			contentMeRef.current!.style.opacity = `1`;
-		}, 3400);
-		setTimeout(() => {
-			contentGrassRef.current!.style.opacity = `1`;
-		}, 3000);
-		setTimeout(() => {
-			contentSearchRef.current!.style.opacity = `1`;
-		}, 4000);
-	}, []);
 
 	return (
 		<>
 			<Head>
 				<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
 			</Head>
-			<div className={`pl-relative pl-min-h-screen pl-bg-white pl-pt-16 pl-px-8 pl-overflow-hidden`}>
-				<header className={`pl-max-w-screen-2xl pl-h-7 pl-mx-auto pl-flex pl-justify-between pl-opacity-0`} ref={headerRef}>
-					<div className={`-pl-mt-5`}>
-						<Image src={logoImg} />
-					</div>
-					<div className={`pl-relative pl-w-1/12 pl-h-full`}>
-						<div className={`pl-absolute pl-w-full pl-h-2 pl-bg-black pl-top-0`}></div>
-						<div className={`pl-absolute pl-w-full pl-h-2 pl-bg-black pl-bottom-0`}></div>
-					</div>
-				</header>
-				<main className={`pl-min-h-full pl-max-w-screen-2xl pl-mx-auto`}>
-					<section className={`sm:pl-flex pl-hidden pl-absolute pl-w-screen pl-h-screen pl-top-0 pl-left-0 pl-flex-col pl-justify-center pl-items-center pl-opacity-25`}>
-						<div className={`pl-text-[24rem] pl-font-bold pl-text-yellow pl-leading-[20rem]`} ref={introHelloRef}>Hello!</div>
-						<div className={`pl-text-6xl pl-font-bold pl-text-blue pl-opacity-0`} ref={introMyNameRef}>My name is Philipp. I’m a</div>
-						<div className={`pl-text-6xl pl-font-bold pl-text-cyan pl-font-mono pl-opacity-0`} ref={introDevRef}>{`<web developer />`}</div>
-						<div className={`pl-text-6xl pl-font-bold pl-text-blue pl-mb-10 pl-opacity-0`} ref={introBasedRef}>based in Aachen, DE</div>
-					</section>
-					<section className={`pl-relative pl-w-full pl-h-[calc(100vh-5.75rem)]`}>
-						<div className={`pl-absolute pl-h-full pl-left-1/2 -pl-translate-x-1/2 pl-top-0 pl-overflow-hidden pl-z-10 pl-opacity-0`} ref={contentMeRef}>
-							<Image src={meImg} />
+			<div className={`pl-relative pl-w-screen pl-h-screen pl-bg-white pl-text-black pl-py-24 pl-px-6`}>
+				<main className={`pl-max-w-screen-lg pl-h-full pl-mx-auto pl-flex pl-flex-col pl-justify-center pl-items-center`}>
+					<h3 className={`pl-text-sm pl-text-black/25`}>
+						Currently WIP
+					</h3>
+					<h1 className={`pl-w-6/12 pl-leading-4  pl-mt-3`}>
+						<Logo title={`Philipp Lentzen`} />
+					</h1>
+					<h2 className={`pl-text-2xl pl-font-mono pl-tracking-tight pl-text-yellow pl-mt-6`}>
+						<b>&#47;&#47; TODO:</b> Start coding
+					</h2>
+					<aside className={`pl-w-2/12 pl-mx-auto pl-mt-12 pl-text-white`}>
+						<div className={`pl-w-full pl-flex `}>
+							<Link href={`https://github.com/philipplentzen`}>
+								<a target={`_blank`} className={`pl-block pl-w-1/2 pl-aspect-square pl-bg-blue pl-p-6`}>
+									<Icon name={`github`} title={`GitHub`} />
+								</a>
+							</Link>
+							<Link href={`https://www.linkedin.com/in/philipplentzen/`}>
+								<a target={`_blank`} className={`pl-w-1/2 pl-aspect-square pl-bg-cyan pl-p-6`}>
+									<Icon name={`linkedin`} title={`LinkedIn`} />
+								</a>
+							</Link>
 						</div>
-						<div className={`pl-absolute pl-w-[1920px] pl-left-1/2 -pl-translate-x-1/2 pl-bottom-0 pl-z-20 pl-opacity-0`} ref={contentGrassRef}>
-							<Image src={grassyImg} layout={`responsive`} className={`!pl-mt-8`} />
-						</div>
-						<div className={`pl-relative pl-w-full pl-h-full pl-flex pl-justify-center pl-items-center pl-z-30 pl-opacity-0`} ref={contentSearchRef}>
-							<div className={`sm:pl-w-2/12 pl-w-3/4 pl-bg-black pl-leading-[4rem] pl-font-mono pl-text-white pl-text-lg pl-text-center`}>
-								Who am I?
-							</div>
-							<div className={`sm:pl-block pl-hidden pl-w-4/12 pl-h-16 pl-bg-white pl-leading-[3.5rem] pl-font-mono pl-text-lg pl-px-8 pl-border-4 pl-border-black`}>
-								&gt; <span className={`pl-text-black/25`}>Type ‚help‘ for more information.</span>
-							</div>
-						</div>
-					</section>
+					</aside>
 				</main>
 			</div>
 		</>

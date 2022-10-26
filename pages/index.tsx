@@ -2,16 +2,13 @@ import type { NextPage } from 'next';
 import Head from "next/head";
 import Logo from "../public/philipplentzen.svg";
 import {SocialLink} from "../components/Link";
+import {SEO} from "../components/SEO";
 
 const Home: NextPage = () => {
 
 	return (
 		<>
-			<Head>
-				<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-
-				<title>Philipp Lentzen</title>
-			</Head>
+			<SEO />
 			<div className={`pl-relative pl-w-screen pl-h-full pl-min-h-0 pl-text-black pl-py-24 pl-px-6 lg:pl-px-0`}>
 				<main className={`pl-max-w-screen-lg pl-h-full pl-mx-auto pl-flex pl-flex-col pl-justify-center pl-items-center`}>
 					<h3 className={`pl-text-sm pl-text-black/25`}>

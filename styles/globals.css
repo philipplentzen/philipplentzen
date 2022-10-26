@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    html {
+        @apply pl-h-full pl-bg-white;
+    }
+
+    body {
+        @apply pl-h-full
+    }
+
+    #__next {
+        @apply pl-h-full
+    }
+}

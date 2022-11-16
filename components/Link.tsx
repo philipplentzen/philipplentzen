@@ -12,10 +12,8 @@ interface Props {
 
 const GenericLink = forwardRef<HTMLAnchorElement, Props>(({children, className, href, target}, ref) => {
 	return (
-		<Link href={href} ref={ref}>
-			<a target={target} className={classNames(className)}>
-				{children}
-			</a>
+		<Link href={href} ref={ref} target={target} className={classNames(className)}>
+			{children}
 		</Link>
 	);
 });

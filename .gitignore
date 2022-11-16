@@ -132,6 +132,9 @@ dist
 # JetBrains .idea
 .idea/
 
+#VSCode
+.vscode/
+
 # .DS_STORE
 .DS_Store
 /test-results/

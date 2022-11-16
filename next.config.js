@@ -3,6 +3,9 @@ const nextConfig = {
 	reactStrictMode: true,
 	output: `standalone`,
 	swcMinify: true,
+	experimental: {
+		appDir: true
+	},
 	i18n: {
 		locales: [`de`],
 		defaultLocale: `de`

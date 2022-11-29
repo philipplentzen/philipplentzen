@@ -20,7 +20,7 @@ const GenericLink = forwardRef<HTMLAnchorElement, Props>(({children, className, 
 GenericLink.displayName = `GenericLink`;
 
 export const SocialLink = forwardRef<HTMLAnchorElement, Omit<Props, `children`> & {icon: IconName, title: string}>(({className, icon, title, ...props}, ref) => (
-	<GenericLink className={classNames(`pl-aspect-square pl-p-3 pl-bg-black`, className)} ref={ref} {...props}>
+	<GenericLink className={classNames(`pl-aspect-square pl-p-3 lg:pl-p-6 pl-bg-black`, className)} ref={ref} {...props}>
 		<Icon name={icon} title={title} />
 	</GenericLink>
 ));

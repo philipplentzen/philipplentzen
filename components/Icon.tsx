@@ -1,7 +1,7 @@
 import React, {Suspense, SVGProps} from "react";
 import dynamic from "next/dynamic";
 
-export type IconName = `github` | `linkedin`;
+export type IconName = `github` | `linkedin` | `mail`;
 
 interface Props extends SVGProps<SVGSVGElement> {
 	name: IconName;

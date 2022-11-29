@@ -4,12 +4,6 @@ import {SocialLink} from "../components/Link";
 const Home = () => {
 	return (
 		<article className={`pl-h-full pl-flex pl-flex-col pl-justify-center pl-items-center`}>
-			<h3 className={`pl-text-sm pl-text-black/60`}>
-				Currently WIP
-			</h3>
-			<h1 className={`pl-w-11/12 md:pl-w-6/12 pl-leading-4  pl-mt-3`}>
-				<Logo title={`Philipp Lentzen`} />
-			</h1>
 			<h2 className={`pl-text-xl md:pl-text-2xl pl-font-mono pl-tracking-tight pl-text-yellow pl-mt-6`}>
 				<b>&#47;&#47; TODO:</b> Start coding
 			</h2>

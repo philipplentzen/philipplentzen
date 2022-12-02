@@ -3,13 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-    html {
-        @apply pl-min-h-full pl-h-full pl-bg-white pl-text-black;
-    }
-
-    body {
-        @apply pl-h-full;
-    }
 
     #__next {
         @apply pl-relative pl-min-h-full;

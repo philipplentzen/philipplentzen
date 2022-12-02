@@ -3,9 +3,8 @@ const nextConfig = {
 	reactStrictMode: true,
 	output: `standalone`,
 	swcMinify: true,
-	i18n: {
-		locales: [`de`],
-		defaultLocale: `de`
+	experimental: {
+		appDir: true
 	},
 	webpack(config) {
 		config.module.rules.push({

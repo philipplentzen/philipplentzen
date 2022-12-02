@@ -11,7 +11,7 @@ const Home = () => {
 				<div className={`pl-w-full pl-flex`}>
 					<SocialLink href={`https://github.com/philipplentzen`} target={`_blank`} icon={`github`} title={`GitHub`} className={`pl-w-1/3 !pl-bg-blue`} />
 					<SocialLink href={`https://www.linkedin.com/in/philipplentzen/`} target={`_blank`} icon={`linkedin`} title={`LinkedIn`} className={`pl-w-1/3 !pl-bg-cyan`} />
-					<SocialLink href={`mailto:kontakt@philipplentzen.dev`} target={`_blank`} icon={`mail`} title={`GitHub`} className={`pl-w-1/3`} />
+					<SocialLink href={`mailto:kontakt@philipplentzen.dev`} target={`_blank`} icon={`mail`} title={`E-Mail`} className={`pl-w-1/3`} />
 				</div>
 			</aside>
 		</article>

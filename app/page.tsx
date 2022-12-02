@@ -1,11 +1,10 @@
-import Logo from "../public/philipplentzen.svg";
 import {SocialLink} from "../components/Link";
 
 const Home = () => {
 	return (
 		<article className={`pl-h-full pl-flex pl-flex-col pl-justify-center pl-items-center`}>
 			<h2 className={`pl-text-xl md:pl-text-2xl pl-font-mono pl-tracking-tight pl-text-yellow pl-mt-6`}>
-				<b>&#47;&#47; TODO:</b> Start coding
+				<b>&#47;&#47; TODO:</b> Get in contact
 			</h2>
 			<aside className={`pl-w-6/12 sm:pl-w-3/12 pl-mx-auto pl-mt-12 pl-text-white`}>
 				<div className={`pl-w-full pl-flex`}>

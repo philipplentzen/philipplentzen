@@ -2,7 +2,6 @@ import "../styles/globals.css";
 import Link from "next/link";
 import React from "react";
 import Logo from "../public/philipplentzen.svg";
-import {SocialLink} from "../components/Link";
 import {Content} from "../components/Content";
 import {Metadata} from "next";
 
@@ -44,12 +43,9 @@ const Layout = ({children}: {children: React.ReactNode}) => {
 			<body className={`pl-min-h-full pl-text-black pl-leading-4`}>
 				<aside className={`pl-w-full pl-h-6 pl-bg-cyan pl-text-white`}>
 					<Content className={`pl-flex`}>
-						<SocialLink href={`https://www.linkedin.com/in/philipplentzen/`} target={`_blank`} icon={`linkedin`} title={`LinkedIn`} className={`pl-h-6 pl-p-1`} />
-						<SocialLink href={`https://github.com/philipplentzen`} target={`_blank`} icon={`github`} title={`GitHub`} className={`pl-h-6 pl-p-1`} />
-						<SocialLink href={`mailto:kontakt@philipplentzen.dev`} target={`_blank`} icon={`mail`} title={`E-Mail`} className={`pl-h-6 pl-p-1`} />
 					</Content>
 				</aside>
-				<header className={`pl-mt-12 md:pl-mt-24`}>
+				<header className={`pl-mt-12 md:pl-mt-20`}>
 					<Content className={`pl-flex pl-justify-between`}>
 						<Link href={`/`} className={`pl-block pl-w-6/12 md:pl-w-3/12 pl-pb-[4.5%] md:pl-pb-[2.2%] pl-h-0`}>
 							<h1 className={`pl-mt-[-4%]`}>

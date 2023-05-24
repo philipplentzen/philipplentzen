@@ -1,7 +1,7 @@
 import "../styles/globals.css";
 import Link from "next/link";
 import React from "react";
-import Logo from "../public/philipplentzen.svg";
+import Logo from "/public/philipplentzen.svg";
 import {Content} from "../components/Content";
 import {Metadata} from "next";
 
@@ -41,7 +41,7 @@ const Layout = ({children}: {children: React.ReactNode}) => {
 	return (
 		<html className={`pl-bg-white pl-text-black pl-bg-[url('/images/grain.png')]`} lang={`de`}>
 			<body className={`pl-min-h-full pl-text-black pl-leading-4`}>
-				<header className={`pl-fixed pl-w-screen pl-max-w-screen-xl pl-mx-auto pl-left-0 pl-right-0 pl-px-0 pl-mt-20`}>
+				<header className={`pl-fixed pl-w-screen pl-max-w-screen-xl pl-mx-auto pl-top-0 pl-left-0 pl-right-0 pl-px-0 pl-mt-20 pl-z-50`}>
 					<div className={`pl-w-full pl-flex pl-justify-between`}>
 						<Link href={`/`} className={`pl-block pl-w-2/12 pl-pb-[1.5%] pl-h-0`}>
 							<h1 className={`pl-mt-[-4%]`}>

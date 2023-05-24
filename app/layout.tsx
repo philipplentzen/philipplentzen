@@ -39,7 +39,7 @@ export const metadata: Metadata = {
 
 const Layout = ({children}: {children: React.ReactNode}) => {
 	return (
-		<html className={`pl-bg-white pl-text-black`} lang={`de`}>
+		<html className={`pl-bg-white pl-text-black pl-bg-[url('/images/grain.png')]`} lang={`de`}>
 			<body className={`pl-min-h-full pl-text-black pl-leading-4`}>
 				<header className={`pl-fixed pl-w-screen pl-max-w-screen-xl pl-mx-auto pl-left-0 pl-right-0 pl-px-0 pl-mt-20`}>
 					<div className={`pl-w-full pl-flex pl-justify-between`}>

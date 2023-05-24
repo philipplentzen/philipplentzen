@@ -9,7 +9,9 @@ interface Props {
 export const Content: React.FC<Props> = ({children, className}) => {
 	return (
 		<div className={classNames(`pl-max-w-screen-xl pl-mx-auto pl-px-6 lg:pl-px-0`, className)}>
-			{children}
+			<div className={`pl-w-11/12 pl-mx-auto`}>
+				{children}
+			</div>
 		</div>
 	);
 };

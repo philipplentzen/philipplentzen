@@ -41,8 +41,8 @@ const Layout = ({children}: {children: React.ReactNode}) => {
 	return (
 		<html className={`pl-bg-white pl-text-black`} lang={`de`}>
 			<body className={`pl-min-h-full pl-text-black pl-leading-4`}>
-				<header className={`pl-max-w-screen-xl pl-mx-auto pl-px-6 lg:pl-px-0 pl-mt-12 md:pl-mt-20`}>
-					<div className={`pl-flex pl-justify-between`}>
+				<header className={`pl-fixed pl-w-screen pl-max-w-screen-xl pl-mx-auto pl-left-0 pl-right-0 pl-px-0 pl-mt-20`}>
+					<div className={`pl-w-full pl-flex pl-justify-between`}>
 						<Link href={`/`} className={`pl-block pl-w-2/12 pl-pb-[1.5%] pl-h-0`}>
 							<h1 className={`pl-mt-[-4%]`}>
 								<Logo title={`Philipp Lentzen`} className={`pl-w-full`} />
@@ -54,7 +54,7 @@ const Layout = ({children}: {children: React.ReactNode}) => {
 						</button>
 					</div>
 				</header>
-				<main className={`pl-mt-6`}>
+				<main>
 					<Content>
 						{children}
 					</Content>

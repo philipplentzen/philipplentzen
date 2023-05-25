@@ -40,7 +40,7 @@ export const metadata: Metadata = {
 const Layout = ({children}: {children: React.ReactNode}) => {
 	return (
 		<html className={`pl-bg-white pl-text-black pl-bg-[url('/images/grain.png')]`} lang={`de`}>
-			<body className={`pl-min-h-full pl-text-black pl-leading-4`}>
+			<body className={`pl-min-h-full pl-text-black pl-leading-4 pl-flow-root`}>
 				<header className={`pl-fixed pl-w-screen pl-max-w-screen-xl pl-mx-auto pl-top-0 pl-left-0 pl-right-0 pl-px-0 pl-mt-20 pl-z-50`}>
 					<div className={`pl-w-full pl-flex pl-justify-between`}>
 						<Link href={`/`} className={`pl-block pl-w-2/12 pl-pb-[1.5%] pl-h-0`}>
@@ -57,9 +57,9 @@ const Layout = ({children}: {children: React.ReactNode}) => {
 				<main>
 					{children}
 				</main>
-				<footer className={`pl-my-3 pl-text-center`}>
+				<footer className={`pl-py-3 pl-text-center pl-bg-black pl-text-white`}>
 					<Content>
-						<Link href={`/impressum`} className={`pl-text-black/30 pl-mb-0 pl-text-xs`}>
+						<Link href={`/impressum`} className={`pl-mb-0 pl-text-xs`}>
 							impressum
 						</Link>
 					</Content>

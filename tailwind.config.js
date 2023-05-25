@@ -22,6 +22,9 @@ module.exports = {
 				}
 			}
 		},
+		supports: {
+			ios: `-webkit-touch-callout: none`
+		}
 	},
 	plugins: [
 		require(`@tailwindcss/typography`)

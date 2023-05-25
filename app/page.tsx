@@ -8,7 +8,7 @@ const Home = () => {
 		<>
 			<section className={`pl-relative pl-h-screen supports-ios:pl-h-[100svh] pl-flow-root pl-bg-gradient-to-b pl-from-cyan/20 pl-to-transparent`}>
 				<div className={`pl-relative pl-max-w-screen-xl pl-mx-auto pl-mt-[21rem] lg:pl-mt-[18rem] xl:pl-mt-[24rem] pl-px-6 lg:pl-px-0`}>
-					<div className={`pl-w-10/12 lg:pl-w-8/12 pl-mx-auto pl-h-12 xl:pl-h-24 pl-flow-root`}>
+					<div className={`pl-w-10/12 lg:pl-w-8/12 pl-mx-auto pl-h-12 lg:pl-h-24 pl-flow-root`}>
 						<div className={`pl-mt-[-3.8%]`}>
 							<LogoBig className={``} />
 						</div>

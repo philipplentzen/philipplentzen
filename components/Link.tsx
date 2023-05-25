@@ -12,7 +12,7 @@ interface Props {
 
 const GenericLink = forwardRef<HTMLAnchorElement, Props>(({children, className, href, target}, ref) => {
 	return (
-		<Link href={href} ref={ref} target={target} className={classNames(`pl-block`, className)}>
+		<Link href={href} ref={ref} target={target} className={classNames(`pl-block pl-bg-black pl-text-white pl-p-2 md:pl-p-3`, className)}>
 			{children}
 		</Link>
 	);

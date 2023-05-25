@@ -40,7 +40,7 @@ export const metadata: Metadata = {
 
 const Header = () => {
 	return (
-		<header className={`pl-fixed pl-inset-0 pl-z-50 pl-mx-auto pl-mt-12 xl:pl-mt-24 pl-w-screen pl-max-w-screen-xl pl-px-6 sm:pl-px-12 xl:pl-px-0`}>
+		<header className={`pl-fixed pl-inset-0 pl-bottom-auto pl-z-50 pl-mx-auto pl-mt-12 xl:pl-mt-24 pl-w-screen pl-max-w-screen-xl pl-px-6 sm:pl-px-12 xl:pl-px-0`}>
 			<div className={`pl-flex pl-w-full pl-justify-between`}>
 				<Link href={`/`} className={`pl-block pl-h-0 pl-w-6/12 sm:pl-w-3/12 lg:pl-w-2/12 pl-pb-[4.5%] sm:pl-pb-[2.3%] lg:pl-pb-[1.5%]`}>
 					<h1 className={`pl-mt-[-4%]`}>

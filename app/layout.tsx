@@ -60,7 +60,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<html className={`pl-bg-white pl-bg-[url('/images/grain.png')] pl-text-black`} lang={`de`}>
 			<body className={`pl-flow-root pl-min-h-full pl-leading-4 pl-text-black`}>
-				{/*<Header />*/}
+				<Header />
 				<main className={`pl-w-screen pl-overflow-x-hidden`}>{children}</main>
 				<footer className={`pl-bg-black pl-py-3 pl-text-center pl-text-white`}>
 					<Content>

@@ -21,7 +21,7 @@ GenericLink.displayName = `GenericLink`;
 
 export const ButtonLink = forwardRef<HTMLAnchorElement, Props>(({className, ...props}, ref) => {
 	return(
-		<GenericLink ref={ref} className={classNames(`pl-block pl-bg-black pl-text-white pl-height-12 pl-leading-[3rem] pl-font-mono pl-w-2/12 pl-text-center`, className)} {...props} />
+		<GenericLink ref={ref} className={classNames(`pl-block pl-bg-black pl-text-white pl-height-12 pl-leading-[3rem] pl-font-mono pl-w-8/12 sm:pl-w-3/12 xl:pl-w-2/12 pl-text-center`, className)} {...props} />
 	);
 });
 ButtonLink.displayName = `ButtonLink`;

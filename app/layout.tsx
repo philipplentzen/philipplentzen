@@ -1,6 +1,5 @@
 import "../styles/globals.css";
 import Link from "next/link";
-import React from "react";
 import Logo from "/public/philipplentzen.svg";
 import { Content } from "../components/Content";
 import { Metadata } from "next";
@@ -44,11 +43,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 			<body className={`pl-flow-root pl-min-h-full pl-leading-4 pl-text-black`}>
 				<Header />
 				<main className={`pl-w-screen pl-overflow-x-hidden`}>{children}</main>
-				<footer className={`pl-bg-black pl-py-3 pl-text-center pl-text-white`}>
-					<Content>
-						<Link href={`/impressum`} className={`pl-mb-0 pl-text-xs`}>impressum</Link>
-					</Content>
-				</footer>
+				<Footer />
 			</body>
 		</html>
 	);
@@ -71,5 +66,15 @@ const Header = () => {
 				</button>
 			</div>
 		</header>
+	);
+};
+
+const Footer = () => {
+	return (
+		<footer className={`pl-bg-black pl-py-3 pl-text-center pl-text-white`}>
+			<Content>
+				<Link href={`/impressum`} className={`pl-mb-0 pl-text-xs`}>impressum</Link>
+			</Content>
+		</footer>
 	);
 };

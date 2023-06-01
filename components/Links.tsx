@@ -1,4 +1,4 @@
-import React, {forwardRef, HTMLAttributeAnchorTarget} from "react";
+import {forwardRef, HTMLAttributeAnchorTarget} from "react";
 import {Icon, IconName} from "./Icon";
 import Link from "next/link";
 import classNames from "classnames";

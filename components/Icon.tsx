@@ -1,4 +1,4 @@
-import React, {Suspense, SVGProps} from "react";
+import {Suspense, SVGProps} from "react";
 import dynamic from "next/dynamic";
 
 export type IconName = `github` | `linkedin` | `mail`;

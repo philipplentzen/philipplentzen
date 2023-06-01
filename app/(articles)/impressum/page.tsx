@@ -2,7 +2,7 @@ import React from "react";
 
 const Impressum = () => {
 	return (
-		<article className={`pl-prose`}>
+		<>
 			<h1>Impressum</h1>
 			<h2>Angaben gem&auml;&szlig; &sect; 5 TMG</h2>
 			<p>
@@ -76,7 +76,7 @@ const Impressum = () => {
 			<p>
 				Quelle: <a href="https://www.e-recht24.de">https://www.e-recht24.de</a>
 			</p>
-		</article>
+		</>
 	);
 };
 

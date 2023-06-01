@@ -2,9 +2,9 @@ import Image from "next/image";
 import Grass from "/public/images/grass.png";
 import Clouds from "/public/images/clouds.png";
 import LogoBig from "/public/philipplentzenbig.svg";
-import {ButtonLink} from "../components/Links";
 import classNames from "classnames";
 import React from "react";
+import {ButtonLink} from "./_components/links";
 
 const Home = () => {
 	return (

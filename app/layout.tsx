@@ -58,9 +58,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 					{children}
 				</main>
 				<footer className={`pl-bg-black pl-py-3 pl-text-center pl-text-white`}>
-					<Content>
-						<Link href={`/impressum`} className={`pl-mb-0 pl-text-xs`}>impressum</Link>
-					</Content>
+					<Link href={`/impressum`} className={`pl-mb-0 pl-text-xs`}>impressum</Link>
 				</footer>
 			</body>
 		</html>

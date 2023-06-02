@@ -1,4 +1,4 @@
-import {Content} from "../../components/Content";
+import {Content} from "../_components/content";
 
 const Layout = ({children}: {children: React.ReactNode}) => {
 	return (

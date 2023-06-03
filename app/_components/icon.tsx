@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 import {Suspense, SVGProps} from "react";
 
 interface Props extends SVGProps<SVGSVGElement> {
-	name: `github` | `linkedin` | `mail`;
+	name: `github` | `linkedin` | `mail` | `arrow-left` | `arrow-right`;
 	title: string;
 }
 

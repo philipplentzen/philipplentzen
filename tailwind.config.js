@@ -7,6 +7,9 @@ module.exports = {
 	],
 	theme: {
 		extend: {
+			aspectRatio: {
+				poster: `5 / 7`
+			},
 			colors: {
 				white: `#F2F7FA`,
 				black: `#0F1E29`,
@@ -21,6 +24,9 @@ module.exports = {
 					}
 				}
 			}
+		},
+		fontSize: {
+			"9xl": [`14rem`, {lineHeight: 0, letterSpacing: -0.025, fontWeight: 600}]
 		},
 		supports: {
 			ios: `-webkit-touch-callout: none`

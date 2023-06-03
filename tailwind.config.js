@@ -26,7 +26,7 @@ module.exports = {
 			}
 		},
 		fontSize: {
-			"9xl": [`14rem`, {lineHeight: 0, letterSpacing: -0.025, fontWeight: 600}]
+			"9xl": [`14rem`, {lineHeight: 0, letterSpacing: `-0.025em`, fontWeight: 600}]
 		},
 		supports: {
 			ios: `-webkit-touch-callout: none`

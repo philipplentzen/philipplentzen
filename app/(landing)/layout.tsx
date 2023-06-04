@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import {Container} from "../_components/container";
 
 const LandingLayout = ({hero, projects}) => {
 	const pages = [
@@ -15,11 +16,9 @@ const LandingLayout = ({hero, projects}) => {
 
 	return pages.map(({page, bg, text}, index) => {
 		return (
-			<section key={index} className={classNames(`pl-relative pl-flow-root pl-w-screen pl-h-[100svh] pl-overflow-hidden pl-snap-start pl-snap-always pl-bg-[url('/images/grain.png')]`, bg, text)}>
-				<div className={`pl-max-w-screen-xl pl-flow-root pl-mx-auto pl-mt-[7.5rem] lg:pl-mt-60`}>
-					{page}
-				</div>
-			</section>
+			<Container as={`section`} className={classNames(`pl-min-h-[100svh] pl-snap-start pl-snap-always pl-bg-[url('/images/grain.png')]`, bg, text)}>
+				{page}
+			</Container>
 		);
 	});
 };

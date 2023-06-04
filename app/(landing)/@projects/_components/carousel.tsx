@@ -27,8 +27,8 @@ export const ProjectsCarousel = () => {
 				<Poster />
 			</div>
 			<div className={`pl-text-right pl-space-x-2 pl-mt-6`}>
-				<IconButton href={`#projects`} name={`arrow-left`} />
-				<IconButton href={`#projects`} name={`arrow-right`} />
+				<IconButton href={`#projects`} name={`arrow-left`} title={`Links`} />
+				<IconButton href={`#projects`} name={`arrow-right`} title={`Rechts`} />
 			</div>
 		</>
 	);

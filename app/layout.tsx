@@ -3,6 +3,7 @@ import Link from "next/link";
 import Logo from "/public/philipplentzen.svg";
 import { Metadata } from "next";
 import {Container} from "./_components/container";
+import {NextLayout} from "./_types/next-layout";
 
 export const metadata: Metadata = {
 	title: {
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
 	viewport: `width=device-width, initial-scale=1.0, viewport-fit=cover`,
 };
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
+const Layout = ({ children }: NextLayout) => {
 	return (
 		<html className={`pl-bg-white pl-bg-[url('/images/grain.png')] pl-text-black pl-scroll-smooth selection:pl-bg-yellow selection:pl-text-cyan`} lang={`de`}>
 			<body className={`pl-flow-root pl-min-h-full pl-leading-4 pl-text-black`}>

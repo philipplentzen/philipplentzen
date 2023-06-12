@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import {Container} from "../_components/container";
 
-const LandingLayout = ({hero, projects}) => {
+const LandingLayout = ({hero, projects}: never) => {
 	const pages = [
 		{
 			page: hero,

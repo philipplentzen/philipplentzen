@@ -3,7 +3,7 @@ import React, {forwardRef, UIEvent, useCallback, useRef} from "react";
 import {IconButton} from "../../../_components/buttons";
 
 export const ProjectsCarousel = () => {
-	const element = useRef(null);
+	const element = useRef<HTMLDivElement>(null);
 	const handler = useCallback((event: UIEvent<HTMLDivElement>) => {
 		(element.current as HTMLDivElement).style.marginLeft = `-${(event.target as HTMLDivElement).scrollLeft}px`;
 	}, []);

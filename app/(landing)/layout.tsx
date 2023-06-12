@@ -16,7 +16,7 @@ const LandingLayout = ({hero, projects}) => {
 
 	return pages.map(({page, bg, text}, index) => {
 		return (
-			<Container as={`section`} className={classNames(`pl-min-h-[100svh] pl-snap-start pl-snap-always pl-bg-[url('/images/grain.png')]`, bg, text)}>
+			<Container key={index} as={`section`} className={classNames(`pl-min-h-[100svh] pl-snap-start pl-snap-always pl-bg-[url('/images/grain.png')]`, bg, text)}>
 				{page}
 			</Container>
 		);

@@ -4,8 +4,6 @@ import {Container} from "./_components/container";
 import LogoBig from "../public/philipplentzenbig.svg";
 import {LinkButton} from "./_components/buttons";
 import Image from "next/image";
-import Clouds from "../public/images/clouds.png";
-import Grass from "../public/images/grass.png";
 import React from "react";
 
 const IndexPage = () => {
@@ -30,8 +28,8 @@ const IndexPage = () => {
 						.scrollToExplore()
 					</LinkButton>
 				</div>
-				<Image src={Clouds} alt={``} className={`pl-absolute pl-top-12 xl:pl-top-0 pl-max-w-none pl-w-[200%] md:pl-w-full -pl-left-2/4 md:pl-left-0 pl-pointer-events-none`} />
-				<Image src={Grass} alt={``} className={`pl-absolute pl-bottom-0 pl-max-w-none pl-w-[200%] md:pl-w-full -pl-left-2/4 md:pl-left-0 pl-pointer-events-none`} />
+				<Image src={`/images/clouds.png`} alt={``} width={1920} height={967} sizes={`100vw`} className={`pl-absolute pl-top-12 xl:pl-top-0 pl-max-w-none pl-w-[200%] md:pl-w-full -pl-left-2/4 md:pl-left-0 pl-pointer-events-none`} priority />
+				<Image src={`/images/grass.png`} alt={``} width={1920} height={360} sizes={`100vw`} className={`pl-absolute pl-bottom-0 pl-max-w-none pl-w-[200%] md:pl-w-full -pl-left-2/4 md:pl-left-0 pl-pointer-events-none`} priority />
 			</Container>
 
 			{pages.map(({comp: Comp, bg, text}, index) => {

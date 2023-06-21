@@ -4,7 +4,8 @@ const nextConfig = {
 	output: `standalone`,
 	swcMinify: true,
 	experimental: {
-		appDir: true
+		appDir: true,
+		typedRoutes: true,
 	},
 	webpack(config) {
 		config.module.rules.push({

@@ -1,5 +1,5 @@
-import {Content} from "../../_components/content";
-import {NextLayout} from "../../_types/next-layout";
+import {Content} from "@/components/content";
+import {NextLayout} from "@/types/next-layout";
 
 const Layout = ({children}: NextLayout) => {
 	return (

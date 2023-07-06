@@ -1,18 +1,10 @@
-import ProjectsPage from "./()/projects/page";
 import classNames from "classnames";
-import {Container} from "./_components/container";
-import {LinkButton} from "./_components/buttons";
+import {Container} from "@/components/container";
+import {LinkButton} from "@/components/buttons";
 import Image from "next/image";
 import LogoBig from "/public/philipplentzenbig.svg";
 
 const IndexPage = () => {
-	const pages = [
-		{
-			comp: ProjectsPage,
-			bg: `pl-bg-blue`,
-			text: `pl-text-yellow`
-		}
-	];
 
 	return (
 		<>
@@ -28,16 +20,7 @@ const IndexPage = () => {
 					</LinkButton>
 				</div>
 				<Image src={`/images/clouds.png`} alt={``} width={1920} height={967} sizes={`100vw`} className={`pl-absolute pl-top-12 xl:pl-top-0 pl-max-w-none pl-w-[200%] md:pl-w-full -pl-left-2/4 md:pl-left-0 pl-pointer-events-none`} priority />
-				<Image src={`/images/grass.png`} alt={``} width={1920} height={360} sizes={`100vw`} className={`pl-absolute pl-bottom-0 pl-max-w-none pl-w-[200%] md:pl-w-full -pl-left-2/4 md:pl-left-0 pl-pointer-events-none`} priority />
 			</Container>
-
-			{pages.map(({comp: Comp, bg, text}, index) => {
-				return (
-					<Container key={index} as={`section`} className={classNames(`pl-min-h-[100svh] pl-snap-start pl-snap-always pl-bg-[url('/images/grain.png')]`, bg, text)}>
-						<Comp />
-					</Container>
-				);
-			})}
 		</>
 	);
 };

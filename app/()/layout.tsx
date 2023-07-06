@@ -1,6 +1,5 @@
-import {NextLayout} from "../_types/next-layout";
-import {Container} from "../_components/container";
-import React from "react";
+import {NextLayout} from "@/types/next-layout";
+import {Container} from "@/components/container";
 
 const Layout = ({children}: NextLayout) => {
 	return (

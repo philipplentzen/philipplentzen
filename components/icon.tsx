@@ -7,7 +7,7 @@ interface Props extends SVGProps<SVGSVGElement> {
 }
 
 export const Icon = ({name, ...props}: Props & SVGProps<SVGSVGElement>) => {
-	const DynamicIcon = dynamic(() => import(`../../public/icons/${name}.svg`));
+	const DynamicIcon = dynamic(() => import(`../public/icons/${name}.svg`));
 
 	return (
 		<Suspense>

@@ -16,23 +16,23 @@
   },
   "dependencies": {
     "classnames": "2.3.2",
-    "next": "13.4.3",
+    "next": "13.4.8",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@playwright/test": "1.34.2",
+    "@playwright/test": "1.35.1",
     "@svgr/webpack": "8.0.1",
     "@tailwindcss/typography": "0.5.9",
-    "@types/node": "20.2.3",
-    "@types/react": "18.2.6",
-    "@types/react-dom": "18.2.4",
-    "@typescript-eslint/eslint-plugin": "5.59.7",
+    "@types/node": "20.4.0",
+    "@types/react": "18.2.14",
+    "@types/react-dom": "18.2.6",
+    "@typescript-eslint/eslint-plugin": "5.61.0",
     "autoprefixer": "10.4.14",
-    "eslint": "8.41.0",
-    "eslint-config-next": "13.4.3",
-    "postcss": "8.4.23",
+    "eslint": "8.44.0",
+    "eslint-config-next": "13.4.8",
+    "postcss": "8.4.24",
     "tailwindcss": "3.3.2",
-    "typescript": "5.0.4"
+    "typescript": "5.1.6"
   }
 }

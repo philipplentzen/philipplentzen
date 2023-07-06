@@ -1,10 +1,9 @@
 import ProjectsPage from "./()/projects/page";
 import classNames from "classnames";
 import {Container} from "./_components/container";
-import LogoBig from "../public/philipplentzenbig.svg";
 import {LinkButton} from "./_components/buttons";
 import Image from "next/image";
-import React from "react";
+import LogoBig from "/public/philipplentzenbig.svg";
 
 const IndexPage = () => {
 	const pages = [

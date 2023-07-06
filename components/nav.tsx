@@ -1,7 +1,7 @@
 "use client";
 import {Content} from "./content";
 import Link from "next/link";
-import {Container} from "./container";
+import {Section} from "./section";
 import {usePathname} from "next/navigation";
 import classNames from "classnames";
 import {ComponentProps} from "react";
@@ -28,7 +28,7 @@ export const Nav = () => {
 
 	return (
 		<>
-			<Container as={`nav`} className={`!pl-fixed pl-z-50 pl-w-screen pl-h-screen pl-bg-black pl-text-white`}>
+			<Section as={`nav`} className={`!pl-fixed pl-z-50 pl-w-screen pl-h-screen pl-bg-black pl-text-white`}>
 				<Content>
 					<ol className={`pl-font-mono pl-text-7xl pl-font-light pl-tracking-tighter pl-space-y-12`} style={{counterReset: `nav -1`}}>
 						{links.map((link, index) => {
@@ -55,7 +55,7 @@ export const Nav = () => {
 						</li>
 					</ul>
 				</div>
-			</Container>
+			</Section>
 		</>
 	);
 };

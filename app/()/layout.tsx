@@ -1,11 +1,11 @@
 import {NextLayout} from "@/types/next-layout";
-import {Container} from "@/components/container";
+import {Section} from "@/components/section";
 
 const Layout = ({children}: NextLayout) => {
 	return (
-		<Container as={`section`}>
+		<Section as={`section`}>
 			{children}
-		</Container>
+		</Section>
 	);
 };
 

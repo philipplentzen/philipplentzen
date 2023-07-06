@@ -23,6 +23,9 @@ module.exports = {
 			fontSize: {
 				"9xl": [`14rem`, {lineHeight: 0, letterSpacing: `-0.025em`, fontWeight: 600}]
 			},
+			spacing: {
+				"30": `7.5rem`
+			},
 			typography: {
 				DEFAULT: {
 					css: {

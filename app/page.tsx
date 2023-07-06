@@ -1,6 +1,6 @@
 import Image from "next/image";
 import LogoBig from "/public/philipplentzenbig.svg";
-import {SocialLink} from "../components/Link";
+import {SocialLink} from "@/components/Link";
 
 const Home = () => {
 	return (

@@ -10,6 +10,9 @@ module.exports = {
 			aspectRatio: {
 				poster: `5 / 7`
 			},
+			backgroundImage: {
+				grain: `url('/images/grain.png'), linear-gradient(to bottom, rgba(24,169, 153, 0.4), transparent)`
+			},
 			colors: {
 				white: `#F2F7FA`,
 				black: `#0F1E29`,

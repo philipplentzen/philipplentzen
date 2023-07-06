@@ -39,7 +39,7 @@ export const metadata: Metadata = {
 
 const Layout = ({ children }: NextLayout) => {
 	return (
-		<html className={`pl-bg-white pl-bg-[url('/images/grain.png')] pl-text-black pl-scroll-smooth selection:pl-bg-yellow selection:pl-text-cyan`} lang={`de`}>
+		<html className={`pl-bg-white pl-bg-grain pl-text-black pl-scroll-smooth selection:pl-bg-yellow selection:pl-text-cyan`} lang={`de`}>
 			<body className={`pl-flow-root pl-min-h-full pl-leading-4 pl-text-black`}>
 				<header className={`pl-fixed pl-inset-0 pl-bottom-auto pl-z-50 pl-mx-auto pl-mt-12 xl:pl-mt-24 pl-w-screen pl-max-w-screen-xl pl-px-6 sm:pl-px-12 xl:pl-px-0`}>
 					<div className={`pl-flex pl-w-full pl-justify-between`}>
@@ -54,7 +54,7 @@ const Layout = ({ children }: NextLayout) => {
 						</button>
 					</div>
 				</header>
-				<main className={`pl-w-screen pl-min-h-screen pl-overflow-x-hidden pl-snap-y pl-snap-mandatory`}>
+				<main className={`pl-w-screen pl-min-h-screen pl-overflow-x-hidden`}>
 					{children}
 				</main>
 				<footer className={`pl-bg-black pl-py-3 pl-text-center pl-text-white`}>
@@ -64,5 +64,4 @@ const Layout = ({ children }: NextLayout) => {
 		</html>
 	);
 };
-
 export default Layout;

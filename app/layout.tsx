@@ -2,7 +2,7 @@ import "../styles/globals.css";
 import Link from "next/link";
 import React from "react";
 import Logo from "/public/philipplentzen.svg";
-import { Content } from "../components/Content";
+import { Content } from "@/components/Content";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

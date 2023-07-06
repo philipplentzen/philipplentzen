@@ -1,8 +1,9 @@
 import classNames from "classnames";
 import {Container} from "@/components/container";
-import {LinkButton} from "@/components/buttons";
+import {buttonVariants} from "@/components/ui/buttons";
 import Image from "next/image";
 import LogoBig from "/public/philipplentzenbig.svg";
+import Link from "next/link";
 
 const IndexPage = () => {
 
@@ -15,9 +16,9 @@ const IndexPage = () => {
 							<LogoBig className={``} />
 						</div>
 					</div>
-					<LinkButton href={`#projects`} className={`pl-mt-3 lg:pl-mt-12`}>
+					<Link href={`/`} className={buttonVariants()}>
 						.scrollToExplore()
-					</LinkButton>
+					</Link>
 				</div>
 				<Image src={`/images/clouds.png`} alt={``} width={1920} height={967} sizes={`100vw`} className={`pl-absolute pl-top-12 xl:pl-top-0 pl-max-w-none pl-w-[200%] md:pl-w-full -pl-left-2/4 md:pl-left-0 pl-pointer-events-none`} priority />
 			</Container>

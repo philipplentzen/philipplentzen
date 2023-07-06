@@ -20,7 +20,6 @@ const IndexPage = () => {
 						.scrollToExplore()
 					</Link>
 				</div>
-				<Image src={`/images/clouds.png`} alt={``} width={1920} height={967} sizes={`100vw`} className={`pl-absolute pl-top-12 xl:pl-top-0 pl-max-w-none pl-w-[200%] md:pl-w-full -pl-left-2/4 md:pl-left-0 pl-pointer-events-none`} priority />
 			</Container>
 		</>
 	);

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 import Logo from "@/public/philipplentzen.svg";
 import {NextLayout} from "@/types/next-layout";
+import Image from "next/image";
 
 export const metadata: Metadata = {
 	title: {
@@ -54,7 +55,8 @@ const Layout = ({ children }: NextLayout) => {
 						</button>
 					</div>
 				</header>
-				<main className={`pl-w-screen pl-min-h-screen pl-overflow-x-hidden`}>
+				<main className={`pl-relative pl-w-screen pl-min-h-screen pl-overflow-x-hidden pl-pt-[7.5rem]`}>
+					<Image src={`/images/clouds.png`} alt={``} width={1920} height={967} sizes={`100vw`} className={`pl-absolute pl-top-0 xl:pl-top-0 pl-max-w-none pl-w-[200%] md:pl-w-full -pl-left-2/4 md:pl-left-0 pl-pointer-events-none pl-z-10`} priority />
 					{children}
 				</main>
 				<footer className={`pl-bg-black pl-py-3 pl-text-center pl-text-white`}>

@@ -8,6 +8,8 @@ import Logo from "@/public/philipplentzen.svg";
 
 import { NextLayout } from "@/types/next-layout";
 import { cn } from "@/lib/utils";
+import { Section } from "@/components/ui/section";
+import { H2 } from "@/components/ui/typography";
 
 export const metadata: Metadata = {
   title: {
@@ -38,7 +40,16 @@ export const metadata: Metadata = {
       type: `images/png`,
     })),
   },
-  themeColor: `#C3E4E3`,
+  themeColor: [
+    {
+      media: `(prefers-color-scheme: light)`,
+      color: `#C3E4E3`,
+    },
+    {
+      media: `(prefers-color-scheme: dark)`,
+      color: `#18A999`,
+    },
+  ],
   viewport: `width=device-width, initial-scale=1.0, viewport-fit=cover`,
 };
 

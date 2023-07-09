@@ -10,7 +10,7 @@ module.exports = {
         poster: `5 / 7`,
       },
       backgroundImage: {
-        grain: `url('/images/grain.png'), linear-gradient(to bottom, rgba(24,169, 153, 0.4), transparent)`,
+        grain: `url('/images/grain.png'), linear-gradient(to bottom, rgba(24,169, 153, 0.5), transparent)`,
       },
       boxShadow: {
         inner: `inset 0 0 12px 0 rgba(15, 30, 41, 0.50)`,

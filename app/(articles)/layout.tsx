@@ -1,5 +1,5 @@
 import { NextLayout } from "@/types/next-layout";
-import { Section } from "@/components/section";
+import { Section } from "@/components/ui/section";
 
 const Layout = ({ children }: NextLayout) => {
   return (

@@ -7,7 +7,7 @@ import classNames from "classnames";
 
 import Logo from "../public/philipplentzen.svg";
 import { Content } from "./content";
-import { Section } from "./section";
+import { Section } from "./ui/section";
 
 type Link = {
   name: string;

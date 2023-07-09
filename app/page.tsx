@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Button, buttonVariants } from "@/components/ui/buttons";
-import { H1 } from "@/components/ui/typography";
-import { Section } from "@/components/section";
+import { Section } from "@/components/ui/section";
+import { H1, P } from "@/components/ui/typography";
 
 const IndexPage = () => {
   return (

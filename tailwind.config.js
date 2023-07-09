@@ -21,7 +21,7 @@ module.exports = {
 				cyan: `#18A999`
 			},
 			fontSize: {
-				"9xl": [`14rem`, {lineHeight: 0, letterSpacing: `-0.025em`, fontWeight: 600}]
+				"9xl": [`12rem`, {lineHeight: 0, letterSpacing: `-0.075em`, fontWeight: 600}]
 			},
 			spacing: {
 				"30": `7.5rem`

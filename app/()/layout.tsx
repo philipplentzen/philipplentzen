@@ -1,12 +1,8 @@
-import {NextLayout} from "@/types/next-layout";
-import {Section} from "@/components/section";
+import { NextLayout } from "@/types/next-layout";
+import { Section } from "@/components/section";
 
-const Layout = ({children}: NextLayout) => {
-	return (
-		<Section as={`section`}>
-			{children}
-		</Section>
-	);
+const Layout = ({ children }: NextLayout) => {
+  return <Section as={`section`}>{children}</Section>;
 };
 
 export default Layout;

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "next:dev": "next dev",
+    "next:dev": "concurrently \"contentlayer dev\" \"next dev\"",
     "next:build": "next build",
     "next:start": "next start",
     "lint": "next lint",

@@ -12,11 +12,12 @@
     "tailwindcss"
   ],
   "rules": {
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "quotes": ["error", "backtick"]
   },
   "settings": {
     "tailwindcss": {
-      "callees": ["cn"],
+      "callees": ["cn", "cva"],
       "config": "tailwind.config.js"
     },
     "next": {

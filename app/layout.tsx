@@ -42,15 +42,17 @@ export const metadata: Metadata = {
   viewport: `width=device-width, initial-scale=1.0, viewport-fit=cover`,
 };
 
+/* eslint-disable quotes */
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
 });
+/* eslint-enable quotes */
 
 const Layout = ({ children }: NextLayout) => {
   return (
-    <html className={inter.className} lang={`de`}>
+    <html className={`pl-scroll-smooth`} lang={`de`}>
       <head />
       <body
         className={cn(

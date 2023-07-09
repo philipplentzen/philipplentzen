@@ -11,7 +11,7 @@ export const Section = forwardRef<HTMLElement, ContainerProps>((props, ref) => {
   return (
     <section
       className={cn(
-        `pl-relative pl-mx-auto pl-flex pl-max-w-screen-xl pl-flex-col pl-items-center pl-gap-6 pl-pb-30 pl-pt-60`,
+        `pl-relative pl-mx-auto pl-flex pl-max-w-screen-xl pl-flex-col pl-items-center pl-gap-6 pl-py-30 first:pl-pt-60`,
         className
       )}
       ref={ref}

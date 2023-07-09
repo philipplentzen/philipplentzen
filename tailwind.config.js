@@ -1,4 +1,4 @@
-const { fontFamily } = require("tailwindcss/defaultTheme");
+const { fontFamily } = require(`tailwindcss/defaultTheme`);
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -12,6 +12,9 @@ module.exports = {
       backgroundImage: {
         grain: `url('/images/grain.png'), linear-gradient(to bottom, rgba(24,169, 153, 0.4), transparent)`,
       },
+      boxShadow: {
+        inner: `inset 0 0 12px 0 rgba(15, 30, 41, 0.50)`,
+      },
       colors: {
         white: `#F2F7FA`,
         black: `#0F1E29`,
@@ -20,7 +23,7 @@ module.exports = {
         cyan: `#18A999`,
       },
       fontFamily: {
-        sans: ["var(--font-inter)", ...fontFamily.sans],
+        sans: [`var(--font-inter)`, ...fontFamily.sans],
       },
       fontSize: {
         "9xl": [
@@ -38,6 +41,9 @@ module.exports = {
           },
         },
       },
+    },
+    dropShadow: {
+      DEFAULT: `6px 6px 6px rgba(15, 30, 41, 0.25)`,
     },
     supports: {
       ios: `-webkit-touch-callout: none`,

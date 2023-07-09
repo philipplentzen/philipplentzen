@@ -14,7 +14,7 @@ type Props = {
 };
 
 const findPage = (slug: Props[`params`][`slug`]): Page | null => {
-  const page = allPages.find((page) => page.slug === slug);
+  const page = allPages.find((page) => page.slug === `/` + slug);
 
   if (!page) return null;
   return page;

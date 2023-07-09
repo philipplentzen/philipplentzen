@@ -28,9 +28,9 @@ export const Nav = () => {
 
 	return (
 		<>
-			<Section as={`nav`} className={`!pl-fixed pl-z-50 pl-w-screen pl-h-screen pl-bg-black pl-text-white`}>
+			<Section as={`nav`} className={`!pl-fixed pl-z-50 pl-h-screen pl-w-screen pl-bg-black pl-text-white`}>
 				<Content>
-					<ol className={`pl-font-mono pl-text-7xl pl-font-light pl-tracking-tighter pl-space-y-12`} style={{counterReset: `nav -1`}}>
+					<ol className={`pl-space-y-12 pl-font-mono pl-text-7xl pl-font-light pl-tracking-tighter`} style={{counterReset: `nav -1`}}>
 						{links.map((link, index) => {
 							const isActive = pathname === link.href.toString();
 							console.log(pathname);
@@ -46,7 +46,7 @@ export const Nav = () => {
 						})}
 					</ol>
 				</Content>
-				<div className={`pl-absolute pl-w-full pl-bottom-0 pl-left-0 pl-py-6 pl-font-mono pl-text-right`}>
+				<div className={`pl-absolute pl-bottom-0 pl-left-0 pl-w-full pl-py-6 pl-text-right pl-font-mono`}>
 					<ul className={`pl-flex pl-justify-center`}>
 						<li>
 							<Link href={`/impressum`}>

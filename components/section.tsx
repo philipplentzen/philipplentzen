@@ -11,7 +11,7 @@ export const Section = forwardRef<HTMLElement, ContainerProps>((props, ref) => {
 	} = props;
 
 	return (
-		<section className={cn(`pl-relative pl-flex pl-flex-col pl-items-center pl-gap-6 pl-max-w-screen-xl pl-mx-auto pl-pt-60 pl-pb-30`, className)} ref={ref} {...other} />
+		<section className={cn(`pl-relative pl-mx-auto pl-flex pl-max-w-screen-xl pl-flex-col pl-items-center pl-gap-6 pl-pb-30 pl-pt-60`, className)} ref={ref} {...other} />
 	);
 });
 Section.displayName = `Section`;

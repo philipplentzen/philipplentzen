@@ -16,5 +16,5 @@ const Heading = ({as: Comp, className, children}: HeadingProps) => {
 };
 
 export const H1 = ({className, ...props}: Omit<HeadingProps, `as`>) => (
-	<Heading as={`h1`} className={cn(`pl-lowercase pl-text-9xl -pl-ml-2.5 pl-mt-[1.9rem] pl-pb-[2.1rem] pl-pointer-events-none`, className)} {...props} />
+	<Heading as={`h1`} className={cn(`pl-pointer-events-none -pl-ml-2.5 pl-mt-[1.9rem] pl-pb-[2.1rem] pl-text-9xl pl-lowercase`, className)} {...props} />
 );

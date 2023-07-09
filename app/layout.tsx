@@ -8,7 +8,6 @@ import Logo from "@/public/philipplentzen.svg";
 
 import { NextLayout } from "@/types/next-layout";
 import { cn } from "@/lib/utils";
-import { Section } from "@/components/ui/section";
 import { H2 } from "@/components/ui/typography";
 
 export const metadata: Metadata = {
@@ -67,7 +66,7 @@ const Layout = ({ children }: NextLayout) => {
       <head />
       <body
         className={cn(
-          `pl-flow-root pl-min-h-full pl-scroll-smooth pl-bg-white pl-bg-grain pl-leading-4 pl-text-black selection:pl-bg-yellow selection:pl-text-cyan`,
+          `pl-flow-root pl-min-h-full pl-scroll-smooth pl-leading-4 pl-text-black selection:pl-bg-yellow selection:pl-text-cyan`,
           inter.className
         )}
       >
@@ -95,7 +94,9 @@ const Layout = ({ children }: NextLayout) => {
             </button>
           </div>
         </header>
-        <main className={`pl-relative pl-min-h-screen pl-w-screen pl-pt-30`}>
+        <main
+          className={`pl-relative pl-min-h-screen pl-w-screen pl-bg-white pl-bg-grain pl-bg-fixed pl-pt-30`}
+        >
           <Image
             src={`/images/clouds.png`}
             alt={``}

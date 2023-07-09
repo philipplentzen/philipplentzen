@@ -16,6 +16,12 @@ const IndexPage = () => {
           height={142}
           className={`pl-w-7/12 pl-drop-shadow`}
         />
+        <span
+          className={`pl-w-1/2 pl-text-center pl-font-mono pl-leading-6 pl-tracking-tighter pl-text-cyan`}
+        >
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+          nonumy eirmod tempor invidunt ut labore.
+        </span>
         <a href={`#projects`} className={buttonVariants()}>
           .scrollToExplore()
         </a>

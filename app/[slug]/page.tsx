@@ -9,21 +9,22 @@ import { H1 } from "@/components/ui/typography";
 
 type Props = {
   params: {
-    slug: string[];
+    slug: string;
   };
 };
 
 const findPage = (slug: Props[`params`][`slug`]): Page | null => {
-  const page = allPages.find((page) => page.slug === `/` + slug.join(`/`));
+  const page = allPages.find((page) => page.slug === slug);
 
   if (!page) return null;
   return page;
 };
 
-export const generateStaticParams = async (): Promise<Props[`params`][]> =>
-  allPages.map((page) => ({
-    slug: page.slug.split(`/`).slice(1),
+export const generateStaticParams = async (): Promise<Props[`params`][]> => {
+  return allPages.map((page) => ({
+    slug: page.slug,
   }));
+};
 
 export const generateMetadata = ({ params }: Props): Metadata => {
   const page = findPage(params.slug);

@@ -65,7 +65,7 @@ const Layout = ({ children }: NextLayout) => {
       <head />
       <body
         className={cn(
-          `pl-flow-root pl-min-h-full pl-scroll-smooth pl-leading-4 pl-text-black selection:pl-bg-yellow selection:pl-text-cyan`,
+          `pl-flow-root pl-min-h-full pl-overflow-x-hidden pl-scroll-smooth pl-leading-4 pl-text-black selection:pl-bg-yellow selection:pl-text-cyan`,
           inter.className
         )}
       >
@@ -102,7 +102,7 @@ const Layout = ({ children }: NextLayout) => {
             width={1920}
             height={967}
             sizes={`100vw`}
-            className={`pl-pointer-events-none pl-absolute -pl-left-2/4 pl-top-0 pl-z-10 pl-w-[200%] pl-max-w-none md:pl-left-0 md:pl-w-full xl:pl-top-0`}
+            className={`pl-pointer-events-none pl-absolute pl-top-0 pl-z-10 pl-h-screen pl-w-full pl-object-cover xl:pl-top-0`}
             priority
           />
           {children}

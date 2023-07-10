@@ -8,7 +8,6 @@ import Logo from "@/public/philipplentzen.svg";
 
 import { NextLayout } from "@/types/next-layout";
 import { cn } from "@/lib/utils";
-import { H2 } from "@/components/ui/typography";
 
 export const metadata: Metadata = {
   title: {

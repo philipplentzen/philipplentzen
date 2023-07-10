@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { Button, buttonVariants } from "@/components/ui/buttons";
+import { buttonVariants } from "@/components/ui/buttons";
 import { Section } from "@/components/ui/section";
 import { H1, P } from "@/components/ui/typography";
 

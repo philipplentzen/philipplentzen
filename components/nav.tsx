@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import classNames from "classnames";
 
-import Logo from "../public/philipplentzen.svg";
 import { Section } from "./ui/section";
 
 type Link = {

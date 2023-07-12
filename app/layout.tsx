@@ -65,30 +65,30 @@ const Layout = ({ children }: NextLayout) => {
       <head />
       <body
         className={cn(
-          `pl-flow-root pl-min-h-full pl-overflow-x-hidden pl-scroll-smooth pl-leading-4 pl-text-black selection:pl-bg-yellow selection:pl-text-cyan`,
+          `pl-flow-root pl-min-h-full pl-overflow-x-hidden pl-leading-4 pl-text-black selection:pl-bg-yellow selection:pl-text-cyan`,
           inter.className
         )}
       >
         <header
-          className={`pl-fixed pl-inset-0 pl-bottom-auto pl-z-50 pl-mx-auto pl-mt-12 pl-w-screen pl-max-w-screen-xl pl-px-6 sm:pl-px-12 xl:pl-mt-24 xl:pl-px-0`}
+          className={`pl-fixed pl-inset-0 pl-bottom-auto pl-z-50 pl-mx-auto pl-mt-12 pl-w-screen pl-max-w-screen-xl pl-px-6 sm:pl-px-12 xl:pl-mt-24 xl:pl-px-0 `}
         >
           <div className={`pl-flex pl-w-full pl-justify-between`}>
             <Link
               href={`/`}
-              className={`pl-block pl-h-0 pl-w-6/12 pl-pb-[4.5%] sm:pl-w-3/12 sm:pl-pb-[2.3%] lg:pl-w-2/12 lg:pl-pb-[1.5%]`}
+              className={`pl-block pl-h-0 pl-w-6/12 pl-pb-[4.5%] xl:pl-w-2/12 xl:pl-pb-[1.5%]`}
             >
               <h1 className={`pl-mt-[-4%]`}>
                 <Logo title={`Philipp Lentzen`} className={`pl-w-full`} />
               </h1>
             </Link>
             <button
-              className={`pl-flex pl-w-2/12 pl-flex-col pl-justify-between`}
+              className={`pl-flex pl-w-3/12 pl-flex-col pl-justify-between xl:pl-w-2/12`}
             >
               <div
-                className={`pl-w-full pl-bg-black pl-pb-[6.6%] sm:pl-pb-[3.4%] lg:pl-pb-[2.4%]`}
+                className={`pl-w-full pl-bg-current pl-pb-[4.2%] xl:pl-pb-[2.4%]`}
               ></div>
               <div
-                className={`pl-w-full pl-bg-black pl-pb-[6.6%] sm:pl-pb-[3.4%] lg:pl-pb-[2.4%]`}
+                className={`pl-w-full pl-bg-current pl-pb-[4.2%] xl:pl-pb-[2.4%]`}
               ></div>
             </button>
           </div>

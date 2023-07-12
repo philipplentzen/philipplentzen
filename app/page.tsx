@@ -30,16 +30,16 @@ const IndexPage = () => {
         <H1>Projekte</H1>
         <div className={`pl-grid pl-w-full pl-grid-cols-6 pl-gap-4`}>
           <div
-            className={`pl-col-span-6 pl-h-72 pl-bg-cyan pl-shadow-inner xl:pl-col-span-3`}
+            className={`pl-col-span-6 pl-h-48 pl-bg-cyan pl-shadow-inner xl:pl-col-span-3 xl:pl-h-72`}
           ></div>
           <div
-            className={`pl-col-span-6 pl-h-72 pl-bg-cyan pl-shadow-inner xl:pl-col-span-3`}
+            className={`pl-col-span-6 pl-h-48 pl-bg-cyan pl-shadow-inner xl:pl-col-span-3 xl:pl-h-72`}
           ></div>
           <div
-            className={`pl-col-span-6 pl-h-72 pl-bg-cyan pl-shadow-inner  xl:pl-col-span-4`}
+            className={`pl-col-span-6 pl-h-48 pl-bg-cyan pl-shadow-inner xl:pl-col-span-4  xl:pl-h-72`}
           ></div>
           <div
-            className={`pl-col-span-6 pl-h-72 pl-bg-cyan pl-shadow-inner xl:pl-col-span-2`}
+            className={`pl-col-span-6 pl-h-48 pl-bg-cyan pl-shadow-inner xl:pl-col-span-2 xl:pl-h-72`}
           ></div>
         </div>
         <Link

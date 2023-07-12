@@ -26,8 +26,8 @@ const IndexPage = () => {
           .scrollToExplore()
         </a>
       </Section>
-      <Section>
-        <H1 id={`projects`}>Projekte</H1>
+      <Section id={`projects`}>
+        <H1>Projekte</H1>
         <div className={`pl-grid pl-w-full pl-grid-cols-6 pl-gap-4`}>
           <div
             className={`pl-col-span-6 pl-h-72 pl-bg-cyan pl-shadow-inner xl:pl-col-span-3`}

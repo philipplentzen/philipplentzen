@@ -19,7 +19,7 @@ const H = (props: Props<HTMLHeadingElement> & { as: React.ElementType }) => {
 
   return (
     <Typography<HTMLHeadingElement>
-      className={cn(`pl-z-10 pl-scroll-m-30 xl:pl-scroll-m-60`, className)}
+      className={cn(`pl-z-10`, className)}
       {...other}
     />
   );

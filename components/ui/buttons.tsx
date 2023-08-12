@@ -4,11 +4,12 @@ import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 export const buttonVariants = cva(
-  `pl-inline-block pl-w-fit pl-px-6 pl-py-4 pl-font-mono pl-text-sm pl-leading-4 pl-drop-shadow`,
+  `pl-inline-block pl-w-fit  pl-font-mono pl-text-sm pl-leading-4 pl-drop-shadow`,
   {
     variants: {
       variant: {
-        default: `pl-bg-black pl-text-white`,
+        default: `pl-bg-black pl-px-6 pl-py-4 pl-text-white`,
+        icon: `pl-aspect-square pl-bg-black pl-p-4 pl-text-white`,
       },
     },
     defaultVariants: {

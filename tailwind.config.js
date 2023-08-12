@@ -25,6 +25,9 @@ module.exports = {
       fontFamily: {
         sans: [`var(--font-inter)`, ...fontFamily.sans],
       },
+      fontSize: {
+        "8xl": [`min(6rem, 12vw)`, { lineHeight: 1 }],
+      },
       spacing: {
         30: `7.5rem`,
       },

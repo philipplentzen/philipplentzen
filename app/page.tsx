@@ -19,7 +19,7 @@ const IndexPage = () => {
         />
         <a
           href={`#projects`}
-          className={buttonVariants({ className: `pl-mb-30` })}
+          className={buttonVariants({ className: `sm:pl-mb-30` })}
         >
           .scrollToExplore()
         </a>
@@ -87,8 +87,11 @@ const IndexPage = () => {
           .showMoreProjects()
         </Link>
       </Section>
-      <Section>
-        <H1>About</H1>
+      <Section id={`about`}>
+        <H1>Über mich</H1>
+      </Section>
+      <Section id={`other`}>
+        <H1>Sonstiges</H1>
       </Section>
     </>
   );

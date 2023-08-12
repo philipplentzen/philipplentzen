@@ -32,7 +32,7 @@ export const H1 = (props: Props<HTMLHeadingElement>) => {
     <H
       as={`h1`}
       className={cn(
-        `pl-w-10/12 pl-text-8xl pl-font-semibold pl-lowercase pl-tracking-tighter pl-text-yellow pl-drop-shadow group-odd/section:pl-text-right`,
+        `pl-w-full pl-text-8xl pl-font-bold pl-lowercase pl-tracking-tighter pl-text-blue pl-drop-shadow group-odd/section:pl-text-right xl:pl-w-10/12`,
         className
       )}
       {...other}

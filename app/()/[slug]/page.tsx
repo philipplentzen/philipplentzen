@@ -46,8 +46,8 @@ const PagePage = (props: Props) => {
 
   return (
     <>
-      <H1 className={`pl-z-20`}>{page.title}</H1>
-      <div className={`pl-z-10 pl-w-full pl-max-w-prose pl-py-12 xl:pl-pt-30`}>
+      <H1>{page.title}</H1>
+      <div className={`pl-w-9/12`}>
         <article className={`pl-prose`}>
           <Component />
         </article>

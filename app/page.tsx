@@ -14,15 +14,12 @@ const IndexPage = () => {
           alt={`Logo`}
           width={849}
           height={142}
-          className={`pl-w-10/12 pl-drop-shadow xl:pl-w-7/12`}
+          className={`pl-w-10/12 pl-drop-shadow xl:pl-w-6/12`}
         />
-        <span
-          className={`pl-w-full pl-text-center pl-font-mono pl-leading-6 pl-tracking-tighter pl-text-cyan xl:pl-w-1/2`}
+        <a
+          href={`#projects`}
+          className={buttonVariants({ className: `pl-mb-30` })}
         >
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore.
-        </span>
-        <a href={`#projects`} className={buttonVariants()}>
           .scrollToExplore()
         </a>
       </Section>
@@ -48,6 +45,9 @@ const IndexPage = () => {
         >
           .showMoreProjects()
         </Link>
+      </Section>
+      <Section>
+        <H1>About</H1>
       </Section>
     </>
   );

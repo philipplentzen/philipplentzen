@@ -65,7 +65,7 @@ const Layout = ({ children }: NextLayout) => {
       <head />
       <body
         className={cn(
-          `pl-flow-root pl-min-h-full pl-overflow-x-hidden pl-leading-4 pl-text-black selection:pl-bg-yellow selection:pl-text-cyan`,
+          `pl-flow-root pl-min-h-full pl-overflow-x-hidden pl-bg-white pl-bg-grain pl-bg-fixed pl-leading-4 pl-text-black selection:pl-bg-yellow selection:pl-text-cyan `,
           inter.className
         )}
       >
@@ -93,9 +93,7 @@ const Layout = ({ children }: NextLayout) => {
             </button>
           </div>
         </header>
-        <main
-          className={`pl-relative pl-min-h-screen pl-w-screen pl-bg-white pl-bg-grain pl-bg-fixed pl-pt-30`}
-        >
+        <main className={`pl-relative pl-min-h-screen pl-w-screen pl-pt-30`}>
           <Image
             src={`/images/clouds.png`}
             alt={``}
@@ -107,7 +105,7 @@ const Layout = ({ children }: NextLayout) => {
           />
           {children}
         </main>
-        <footer className={`pl-bg-black pl-py-3 pl-text-center pl-text-white`}>
+        <footer className={`pl-py-3 pl-text-center pl-text-black`}>
           <Link href={`/impressum`} className={`pl-mb-0 pl-text-xs`}>
             impressum
           </Link>

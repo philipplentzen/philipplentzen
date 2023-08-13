@@ -29,60 +29,34 @@ const IndexPage = () => {
       </Section>
       <Section id={`projects`}>
         <H1>Projekte</H1>
-        <div className={`pl-grid pl-w-full pl-grid-cols-6 pl-gap-6`}>
-          <div
-            className={`pl-group/cell pl-relative pl-col-span-6 pl-h-48 pl-overflow-hidden pl-bg-cyan pl-shadow-inner xl:pl-col-span-3 xl:pl-h-72`}
-          >
-            <H2>{projects[0].title}</H2>
-            <Link
-              href={`/`}
-              className={buttonVariants({
-                variant: `icon`,
-                className: `pl-absolute pl-right-4 pl-bottom-4 pl-translate-y-4 pl-opacity-0 group-hover/cell:pl-translate-y-0 group-hover/cell:pl-opacity-100 pl-transition-all pl-duration-300`,
-              })}
-            >
-              <ExternalLinkIcon />
-            </Link>
-          </div>
-          <div
-            className={`pl-group/cell pl-relative pl-col-span-6 pl-h-48 pl-overflow-hidden pl-bg-cyan pl-shadow-inner xl:pl-col-span-3 xl:pl-h-72`}
-          >
-            <Link
-              href={`/`}
-              className={buttonVariants({
-                variant: `icon`,
-                className: `pl-absolute pl-right-4 pl-bottom-4 pl-translate-y-4 pl-opacity-0 group-hover/cell:pl-translate-y-0 group-hover/cell:pl-opacity-100 pl-transition-all pl-duration-300`,
-              })}
-            >
-              <ExternalLinkIcon />
-            </Link>
-          </div>
-          <div
-            className={`pl-group/cell pl-relative pl-col-span-6 pl-h-48 pl-overflow-hidden pl-bg-cyan pl-shadow-inner xl:pl-col-span-4 xl:pl-h-72`}
-          >
-            <Link
-              href={`/`}
-              className={buttonVariants({
-                variant: `icon`,
-                className: `pl-absolute pl-right-4 pl-bottom-4 pl-translate-y-4 pl-opacity-0 group-hover/cell:pl-translate-y-0 group-hover/cell:pl-opacity-100 pl-transition-all pl-duration-300`,
-              })}
-            >
-              <ExternalLinkIcon />
-            </Link>
-          </div>
-          <div
-            className={`pl-group/cell pl-relative pl-col-span-6 pl-h-48 pl-overflow-hidden pl-bg-cyan pl-shadow-inner xl:pl-col-span-2 xl:pl-h-72`}
-          >
-            <Link
-              href={`/`}
-              className={buttonVariants({
-                variant: `icon`,
-                className: `pl-absolute pl-right-4 pl-bottom-4 pl-translate-y-4 pl-opacity-0 group-hover/cell:pl-translate-y-0 group-hover/cell:pl-opacity-100 pl-transition-all pl-duration-300`,
-              })}
-            >
-              <ExternalLinkIcon />
-            </Link>
-          </div>
+        <div className={`pl-grid pl-w-full pl-grid-cols-2 pl-gap-6`}>
+          {allProjects.reverse().map((project, index) => {
+            return (
+              <div
+                key={index}
+                className={`pl-group/cell pl-relative pl-col-span-2 pl-w-full pl-overflow-hidden pl-bg-contain pl-pb-[45.85%] pl-shadow-inner xl:pl-col-span-1`}
+                style={{ backgroundImage: `url(${project.image})` }}
+              >
+                <div
+                  className={`pl-absolute pl-bottom-4 pl-right-4 pl-flex pl-translate-y-4 pl-gap-3 pl-opacity-0 pl-transition-all pl-duration-300 group-hover/cell:pl-translate-y-0 group-hover/cell:pl-opacity-100`}
+                >
+                  <Link href={project.slug} className={buttonVariants()}>
+                    .showMore()
+                  </Link>
+                  <a
+                    href={project.liveUrl}
+                    title={`Externe Seite`}
+                    target={`_blank`}
+                    className={buttonVariants({
+                      variant: `icon`,
+                    })}
+                  >
+                    <ExternalLinkIcon />
+                  </a>
+                </div>
+              </div>
+            );
+          })}
         </div>
         <Link
           href={`/`}

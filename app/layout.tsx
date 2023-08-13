@@ -70,7 +70,7 @@ const Layout = ({ children }: NextLayout) => {
         )}
       >
         <header
-          className={`pl-relative pl-inset-0 pl-bottom-auto pl-z-50 pl-mx-auto pl-mt-12 pl-w-screen pl-max-w-screen-xl pl-px-6 sm:pl-px-12 xl:pl-mt-24 xl:pl-px-0 `}
+          className={`pl-absolute pl-inset-0 pl-bottom-auto pl-z-50 pl-mx-auto pl-mt-12 pl-w-screen pl-max-w-screen-xl pl-px-6 sm:pl-px-12 xl:pl-mt-24 xl:pl-px-0 `}
         >
           <div className={`pl-flex pl-w-full pl-justify-between`}>
             <Link
@@ -93,7 +93,7 @@ const Layout = ({ children }: NextLayout) => {
             </button>
           </div>
         </header>
-        <main className={`pl-relative pl-min-h-screen pl-w-screen`}>
+        <main className={`pl-relative pl-min-h-screen pl-w-screen pl-pt-30`}>
           <Image
             src={`/images/clouds.png`}
             alt={``}

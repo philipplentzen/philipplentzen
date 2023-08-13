@@ -105,7 +105,7 @@ const Layout = ({ children }: NextLayout) => {
           />
           {children}
         </main>
-        <footer className={`pl-py-3 pl-text-center pl-text-black`}>
+        <footer className={`pl-py-3 pl-text-center pl-font-mono pl-text-black`}>
           <Link href={`/impressum`} className={`pl-mb-0 pl-text-xs`}>
             impressum
           </Link>

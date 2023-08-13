@@ -23,7 +23,19 @@ export const Page = defineDocumentType(() => {
   };
 });
 
+export const Project = defineDocumentType(() => {
+  return {
+    name: `Project`,
+    filePathPattern: `projects/**/*.mdx`,
+    contentType: `mdx`,
+    fields: {
+      title: { type: `string`, required: true },
+    },
+    computedFields,
+  };
+});
+
 export default makeSource({
   contentDirPath: `./content`,
-  documentTypes: [Page],
+  documentTypes: [Page, Project],
 });

@@ -1,12 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
+import { allProjects } from "contentlayer/generated";
 import { ExternalLinkIcon } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/buttons";
 import { Section } from "@/components/ui/section";
-import { H1 } from "@/components/ui/typography";
+import { H1, H2 } from "@/components/ui/typography";
 
 const IndexPage = () => {
+  const projects = allProjects;
+
   return (
     <>
       <Section>
@@ -30,6 +33,7 @@ const IndexPage = () => {
           <div
             className={`pl-group/cell pl-relative pl-col-span-6 pl-h-48 pl-overflow-hidden pl-bg-cyan pl-shadow-inner xl:pl-col-span-3 xl:pl-h-72`}
           >
+            <H2>{projects[0].title}</H2>
             <Link
               href={`/`}
               className={buttonVariants({

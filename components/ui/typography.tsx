@@ -47,7 +47,7 @@ export const H2 = (props: Props<HTMLHeadingElement>) => {
     <H
       as={`h2`}
       className={cn(
-        `pl-border-b pl-pb-2 pl-text-3xl pl-font-semibold pl-transition-colors first:pl-mt-0`,
+        `pl-text-3xl pl-font-semibold pl-transition-colors first:pl-mt-0`,
         className
       )}
       {...other}

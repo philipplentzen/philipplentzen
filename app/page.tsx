@@ -38,14 +38,11 @@ const IndexPage = () => {
                 style={{ backgroundImage: `url(${project.image})` }}
               >
                 <div
-                  className={`pl-absolute pl-bottom-4 pl-right-4 pl-flex pl-translate-y-4 pl-gap-3 pl-opacity-0 pl-transition-all pl-duration-300 group-hover/cell:pl-translate-y-0 group-hover/cell:pl-opacity-100`}
+                  className={`pl-absolute pl-bottom-6 pl-left-12 pl-flex pl-translate-y-4 pl-gap-3 pl-opacity-0 pl-transition-all pl-duration-300 group-hover/cell:pl-translate-y-0 group-hover/cell:pl-opacity-100`}
                 >
-                  <Link href={project.slug as any} className={buttonVariants()}>
-                    .showMore()
-                  </Link>
                   <a
                     href={project.liveUrl}
-                    title={`Externe Seite`}
+                    title={project.liveUrl}
                     target={`_blank`}
                     className={buttonVariants({
                       variant: `icon`,
@@ -53,6 +50,9 @@ const IndexPage = () => {
                   >
                     <ExternalLinkIcon />
                   </a>
+                  <Link href={project.slug as any} className={buttonVariants()}>
+                    .showMore()
+                  </Link>
                 </div>
               </div>
             );

@@ -54,6 +54,20 @@ const IndexPage = () => {
               </div>
             );
           })}
+          <div
+            className={`pl-group/cell pl-relative pl-col-span-2 pl-w-full pl-overflow-hidden pl-bg-contain pl-pb-[45.85%] pl-shadow-inner xl:pl-col-span-1`}
+            style={{ backgroundImage: `url(/images/projects/next.jpg)` }}
+          >
+            <div className={`pl-absolute pl-bottom-6 pl-left-12`}>
+              <a
+                href={`project.liveUrl`}
+                target={`_blank`}
+                className={buttonVariants()}
+              >
+                .startProjectNow()
+              </a>
+            </div>
+          </div>
         </div>
       </Section>
       <Section id={`about`}>

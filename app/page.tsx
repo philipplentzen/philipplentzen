@@ -5,7 +5,7 @@ import { ExternalLinkIcon } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/buttons";
 import { Section } from "@/components/ui/section";
-import { H1, H2 } from "@/components/ui/typography";
+import { H1 } from "@/components/ui/typography";
 
 const IndexPage = () => {
   const projects = allProjects;
@@ -18,7 +18,7 @@ const IndexPage = () => {
           alt={`Logo`}
           width={849}
           height={142}
-          className={`pl-w-10/12 pl-drop-shadow xl:pl-w-6/12`}
+          className={`pl-mt-30 pl-w-10/12 pl-drop-shadow xl:pl-w-6/12`}
         />
         <a
           href={`#projects`}
@@ -30,7 +30,7 @@ const IndexPage = () => {
       <Section id={`projects`}>
         <H1>Projekte</H1>
         <div className={`pl-grid pl-w-full pl-grid-cols-2 pl-gap-6`}>
-          {allProjects.reverse().map((project, index) => {
+          {projects.map((project, index) => {
             return (
               <div
                 key={index}

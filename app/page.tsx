@@ -50,20 +50,11 @@ const IndexPage = () => {
                   >
                     <ExternalLinkIcon />
                   </a>
-                  <Link href={project.slug as any} className={buttonVariants()}>
-                    .showMore()
-                  </Link>
                 </div>
               </div>
             );
           })}
         </div>
-        <Link
-          href={`/`}
-          className={buttonVariants({ className: `pl-self-end` })}
-        >
-          .showMoreProjects()
-        </Link>
       </Section>
       <Section id={`about`}>
         <H1>Über mich</H1>

@@ -23,9 +23,11 @@ const findPage = (slug: Props[`params`][`slug`]): Page | null => {
 };
 
 export const generateStaticParams = (): Props[`params`][] => {
-  return allPages.map((page) => ({
-    slug: page.slug.split(`/`),
+  const result = allPages.map((page) => ({
+    slug: page.slug.split(`/`).slice(1),
   }));
+  console.log(result);
+  return result;
 };
 
 export const generateMetadata = ({ params }: Props): Metadata => {

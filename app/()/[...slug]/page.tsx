@@ -9,20 +9,22 @@ import { H1 } from "@/components/ui/typography";
 
 type Props = {
   params: {
-    slug: string;
+    slug: string[];
   };
 };
 
 const findPage = (slug: Props[`params`][`slug`]): Page | null => {
-  const page = allPages.find((page) => page.slug === `/pages/` + slug);
+  const page = allPages.find(
+    (page) => page.slug === `/pages/${slug.join(`/`)}`
+  );
 
   if (!page) return null;
   return page;
 };
 
-export const generateStaticParams = async (): Promise<Props[`params`][]> => {
+export const generateStaticParams = (): Props[`params`][] => {
   return allPages.map((page) => ({
-    slug: page.slug,
+    slug: page.slug.split(`/`),
   }));
 };
 
@@ -39,9 +41,7 @@ const PagePage = (props: Props) => {
   const { params } = props;
   const page = findPage(params.slug);
 
-  if (!page) {
-    notFound();
-  }
+  if (!page) notFound();
   const Component = useMDXComponent(page.body.code);
 
   return (

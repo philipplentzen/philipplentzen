@@ -110,7 +110,7 @@ export const InlineCode = (props: Props<HTMLElement>) => {
     <Typography<HTMLElement>
       as={`code`}
       className={cn(
-        `rpl-elative pl-bg-muted pl-rounded pl-px-[0.3rem] pl-py-[0.2rem] pl-font-mono pl-text-sm pl-font-semibold`,
+        `pl-relative pl-rounded pl-px-[0.3rem] pl-py-[0.2rem] pl-font-mono pl-text-sm pl-font-semibold`,
         className
       )}
       {...other}

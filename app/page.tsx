@@ -40,7 +40,7 @@ const IndexPage = () => {
                 <div
                   className={`pl-absolute pl-bottom-4 pl-right-4 pl-flex pl-translate-y-4 pl-gap-3 pl-opacity-0 pl-transition-all pl-duration-300 group-hover/cell:pl-translate-y-0 group-hover/cell:pl-opacity-100`}
                 >
-                  <Link href={project.slug} className={buttonVariants()}>
+                  <Link href={project.slug as any} className={buttonVariants()}>
                     .showMore()
                   </Link>
                   <a

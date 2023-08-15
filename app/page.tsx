@@ -8,7 +8,8 @@ import { Section } from "@/components/ui/section";
 import { H1 } from "@/components/ui/typography";
 
 const IndexPage = () => {
-  const projects = allProjects;
+  const [abiparty, lessiefair, nox] = allProjects;
+  const projects = [lessiefair, nox, abiparty];
 
   return (
     <>
@@ -38,7 +39,7 @@ const IndexPage = () => {
                 style={{ backgroundImage: `url(${project.image})` }}
               >
                 <div
-                  className={`pl-absolute pl-bottom-6 pl-left-12 pl-flex pl-translate-y-4 pl-gap-3 pl-opacity-0 pl-transition-all pl-duration-300 group-hover/cell:pl-translate-y-0 group-hover/cell:pl-opacity-100`}
+                  className={`pl-absolute pl-bottom-6 pl-left-[7.6%] pl-flex pl-translate-y-4 pl-gap-3 pl-opacity-0 pl-transition-all pl-duration-300 group-hover/cell:pl-translate-y-0 group-hover/cell:pl-opacity-100`}
                 >
                   <a
                     href={project.liveUrl}
@@ -58,12 +59,8 @@ const IndexPage = () => {
             className={`pl-group/cell pl-relative pl-col-span-2 pl-w-full pl-overflow-hidden pl-bg-contain pl-pb-[45.85%] pl-shadow-inner xl:pl-col-span-1`}
             style={{ backgroundImage: `url(/images/projects/next.jpg)` }}
           >
-            <div className={`pl-absolute pl-bottom-6 pl-left-12`}>
-              <a
-                href={`project.liveUrl`}
-                target={`_blank`}
-                className={buttonVariants()}
-              >
+            <div className={`pl-absolute pl-bottom-6 pl-left-[7.6%]`}>
+              <a href={`/`} className={buttonVariants()}>
                 .startProjectNow()
               </a>
             </div>

@@ -30,7 +30,7 @@ export const Project = defineDocumentType(() => {
     contentType: `mdx`,
     fields: {
       title: { type: `string`, required: true },
-      liveUrl: { type: `string`, required: true },
+      liveUrl: { type: `string`, required: false },
       image: { type: `string`, required: true },
     },
     computedFields,

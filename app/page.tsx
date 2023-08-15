@@ -8,8 +8,8 @@ import { Section } from "@/components/ui/section";
 import { H1 } from "@/components/ui/typography";
 
 const IndexPage = () => {
-  const [abiparty, lessiefair, nox] = allProjects;
-  const projects = [lessiefair, nox, abiparty];
+  const [abiparty, couven, lessiefair, nox] = allProjects;
+  const projects = [lessiefair, nox, abiparty, couven];
 
   return (
     <>
@@ -41,16 +41,18 @@ const IndexPage = () => {
                 <div
                   className={`pl-absolute pl-bottom-6 pl-left-[7.6%] pl-flex pl-translate-y-4 pl-gap-3 pl-opacity-0 pl-transition-all pl-duration-300 group-hover/cell:pl-translate-y-0 group-hover/cell:pl-opacity-100`}
                 >
-                  <a
-                    href={project.liveUrl}
-                    title={project.liveUrl}
-                    target={`_blank`}
-                    className={buttonVariants({
-                      variant: `icon`,
-                    })}
-                  >
-                    <ExternalLinkIcon />
-                  </a>
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      title={project.liveUrl}
+                      target={`_blank`}
+                      className={buttonVariants({
+                        variant: `icon`,
+                      })}
+                    >
+                      <ExternalLinkIcon />
+                    </a>
+                  )}
                 </div>
               </div>
             );

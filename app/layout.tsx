@@ -75,20 +75,20 @@ const Layout = ({ children }: NextLayout) => {
           <div className={`pl-flex pl-w-full pl-justify-between`}>
             <Link
               href={`/`}
-              className={`pl-block pl-h-0 pl-w-6/12 pl-pb-[4.5%] xl:pl-w-2/12 xl:pl-pb-[1.5%]`}
+              className={`pl-block pl-h-0 pl-w-6/12 pl-pb-[4.5%] sm:pl-w-3/12 sm:pl-pb-[2.3%] lg:pl-w-2/12 lg:pl-pb-[1.5%]`}
             >
               <h1 className={`pl-mt-[-4%]`}>
                 <Logo title={`Philipp Lentzen`} className={`pl-w-full`} />
               </h1>
             </Link>
             <button
-              className={`pl-flex pl-w-3/12 pl-flex-col pl-justify-between xl:pl-w-2/12`}
+              className={`pl-flex pl-w-3/12 pl-flex-col pl-justify-between lg:pl-w-2/12`}
             >
               <div
-                className={`pl-w-full pl-bg-current pl-pb-[4.2%] xl:pl-pb-[2.4%]`}
+                className={`pl-w-full pl-bg-black pl-pb-[4.2%] sm:pl-pb-[2.8%] lg:pl-pb-[2.4%]`}
               ></div>
               <div
-                className={`pl-w-full pl-bg-current pl-pb-[4.2%] xl:pl-pb-[2.4%]`}
+                className={`pl-w-full pl-bg-black pl-pb-[4.2%] sm:pl-pb-[2.8%] lg:pl-pb-[2.4%]`}
               ></div>
             </button>
           </div>

@@ -19,11 +19,11 @@ const IndexPage = () => {
           alt={`Logo`}
           width={849}
           height={142}
-          className={`pl-mt-30 pl-w-10/12 pl-drop-shadow xl:pl-w-6/12`}
+          className={`pl-mt-0 pl-w-10/12 pl-drop-shadow sm:pl-mt-12 sm:pl-w-8/12 lg:pl-w-6/12 xl:pl-mt-30`}
         />
         <a
           href={`#projects`}
-          className={buttonVariants({ className: `sm:pl-mb-30` })}
+          className={buttonVariants({ className: `pl-mb-12 sm:pl-mb-30` })}
         >
           .scrollToExplore()
         </a>
@@ -35,7 +35,7 @@ const IndexPage = () => {
             return (
               <div
                 key={index}
-                className={`pl-group/cell pl-relative pl-col-span-2 pl-w-full pl-overflow-hidden pl-bg-contain pl-pb-[45.85%] pl-shadow-inner xl:pl-col-span-1`}
+                className={`pl-group/cell pl-relative pl-col-span-2 pl-w-full pl-overflow-hidden pl-bg-contain pl-pb-[45.85%] pl-shadow-inner sm:pl-col-span-1`}
                 style={{ backgroundImage: `url(${project.image})` }}
               >
                 <div
@@ -56,7 +56,7 @@ const IndexPage = () => {
             );
           })}
           <div
-            className={`pl-group/cell pl-relative pl-col-span-2 pl-w-full pl-overflow-hidden pl-bg-contain pl-pb-[45.85%] pl-shadow-inner xl:pl-col-span-1`}
+            className={`pl-group/cell pl-relative pl-col-span-2 pl-w-full pl-overflow-hidden pl-bg-contain pl-pb-[45.85%] pl-shadow-inner sm:pl-col-span-1`}
             style={{ backgroundImage: `url(/images/projects/next.jpg)` }}
           >
             <div className={`pl-absolute pl-bottom-6 pl-left-[7.6%]`}>

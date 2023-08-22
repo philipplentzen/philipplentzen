@@ -15,7 +15,7 @@ const IndexPage = () => {
     <>
       <Section>
         <Image
-          src={`philipplentzenbig.svg`}
+          src={`/philipplentzenbig.svg`}
           alt={`Logo`}
           width={849}
           height={142}
@@ -39,7 +39,7 @@ const IndexPage = () => {
                 style={{ backgroundImage: `url(${project.image})` }}
               >
                 <div
-                  className={`pl-absolute pl-bottom-6 pl-left-[7.6%] pl-flex pl-gap-3`}
+                  className={`pl-absolute pl-bottom-6 pl-left-[7.6%] pl-flex pl-translate-y-4 pl-gap-3 pl-opacity-0 pl-transition-all pl-duration-300 group-hover/cell:pl-translate-y-0 group-hover/cell:pl-opacity-100`}
                 >
                   {project.liveUrl && (
                     <a
@@ -53,6 +53,9 @@ const IndexPage = () => {
                       <ExternalLinkIcon />
                     </a>
                   )}
+                  <Link href={project.slug as any} className={buttonVariants()}>
+                    .showMore()
+                  </Link>
                 </div>
               </div>
             );

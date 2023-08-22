@@ -17,10 +17,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: `Philipp Lentzen - Web Development`,
     type: `website`,
-    url: `https://philipplentzen.dev/`,
+    url: `https://beta.philipplentzen.dev/`,
     images: [
       {
-        url: `https://philipplentzen.dev/favicons/favicon-96x96.png`,
+        url: `https://beta.philipplentzen.dev/favicons/favicon-96x96.png`,
         width: 96,
         height: 96,
       },

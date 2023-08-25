@@ -26,6 +26,7 @@ module.exports = {
         sans: [`var(--font-inter)`, ...fontFamily.sans],
       },
       fontSize: {
+        "3xl": [`min(1.875rem, 5vw)`, { lineHeight: 1 }],
         "8xl": [`min(6rem, 12vw)`, { lineHeight: 1 }],
       },
       spacing: {

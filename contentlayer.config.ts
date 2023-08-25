@@ -31,6 +31,7 @@ export const Project = defineDocumentType(() => {
     fields: {
       title: { type: `string`, required: true },
       liveUrl: { type: `string`, required: false },
+      color: { type: `string`, required: false },
       image: { type: `string`, required: true },
     },
     computedFields,

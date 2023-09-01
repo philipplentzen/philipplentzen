@@ -29,6 +29,7 @@ export const Project = defineDocumentType(() => {
     filePathPattern: `projects/**/*.mdx`,
     contentType: `mdx`,
     fields: {
+      year: { type: `number`, required: true },
       title: { type: `string`, required: true },
       liveUrl: { type: `string`, required: false },
       image: { type: `string`, required: true },

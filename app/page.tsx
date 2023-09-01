@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { allProjects } from "contentlayer/generated";
+import { sortBy } from "lodash";
 import { ChevronDown, ExternalLinkIcon, PlusIcon } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -9,8 +10,7 @@ import { Section } from "@/components/ui/section";
 import { H1, H2 } from "@/components/ui/typography";
 
 const IndexPage = () => {
-  const [lessiefair, nox, ikplanner] = allProjects;
-  const projects = [lessiefair, nox, ikplanner];
+  const projects = sortBy(allProjects, [`year`]).reverse();
 
   return (
     <>

@@ -42,15 +42,13 @@ const IndexPage = () => {
                   className={`flex w-full items-center gap-6 font-mono transition-colors group-hover/cell:text-cyan`}
                 >
                   <H2 className={`flex-none lowercase`}>{project.title}</H2>
-                  {project.tags && (
-                    <div className={`inline-flex h-auto flex-none gap-2`}>
-                      {project.tags.map((tag, index) => (
+                  <div className={`flex w-full gap-2`}>
+                    {project.tags &&
+                      project.tags.map((tag, index) => (
                         <Badge key={index}>{tag}</Badge>
                       ))}
-                    </div>
-                  )}
-                  <div className={`w-full`} />
-                  <button className={`justify-self-end`}>
+                  </div>
+                  <button className={`flex-none justify-self-end`}>
                     <PlusIcon />
                   </button>
                 </div>

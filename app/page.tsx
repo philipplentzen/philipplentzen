@@ -19,11 +19,11 @@ const IndexPage = () => {
           alt={`Logo`}
           width={849}
           height={142}
-          className={`pl-mt-0 pl-w-10/12 pl-drop-shadow sm:pl-mt-12 sm:pl-w-8/12 lg:pl-w-6/12 xl:pl-mt-20`}
+          className={`mt-0 w-10/12 drop-shadow sm:mt-12 sm:w-8/12 lg:w-6/12 xl:mt-20`}
         />
         <a
           href={`#projects`}
-          className={buttonVariants({ className: `pl-mb-12 sm:pl-mb-30` })}
+          className={buttonVariants({ className: `mb-12 sm:mb-30` })}
         >
           .scrollToExplore()
         </a>
@@ -31,16 +31,16 @@ const IndexPage = () => {
       <Section id={`projects`}>
         <H1>Projekte</H1>
         <div
-          className={`pl-flex pl-w-full pl-flex-col pl-space-y-3 pl-divide-y pl-divide-black/20`}
+          className={`flex w-full flex-col space-y-3 divide-y divide-black/20`}
         >
           {projects.map((project, index) => {
             return (
               <div
                 key={index}
-                className={`pl-group/cell pl-relative pl-w-full pl-overflow-hidden pl-px-3 pl-pt-3 first:pl-pt-0 xl:pl-px-12`}
+                className={`group/cell relative w-full overflow-hidden px-3 pt-3 first:pt-0 xl:px-12`}
               >
                 <H2
-                  className={`pl-flex pl-items-center pl-justify-between pl-font-mono pl-font-light pl-lowercase pl-transition-colors group-hover/cell:pl-text-cyan`}
+                  className={`flex items-center justify-between font-mono font-light lowercase transition-colors group-hover/cell:text-cyan`}
                 >
                   {project.title}
                   <ChevronDown />
@@ -53,7 +53,7 @@ const IndexPage = () => {
             alt={``}
             width={628}
             height={288}
-            className={`pl-pt-3`}
+            className={`pt-3`}
           />
         </div>
       </Section>

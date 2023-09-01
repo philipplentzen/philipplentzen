@@ -4,11 +4,11 @@ import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 export const badgeVariants = cva(
-  `pl-inline-flex pl-items-center pl-rounded-full pl-px-2 pl-py-1 pl-text-xs pl-font-semibold pl-ring-1 pl-ring-current`,
+  `inline-flex items-center rounded-full px-2 py-1 text-xs font-semibold ring-1 ring-current`,
   {
     variants: {
       variant: {
-        default: `pl-bg-cyan/10 pl-text-cyan `,
+        default: `bg-cyan/10 text-cyan `,
       },
     },
     defaultVariants: {

@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { allProjects } from "contentlayer/generated";
-import { ChevronDown, ExternalLinkIcon } from "lucide-react";
+import { ChevronDown, ExternalLinkIcon, PlusIcon } from "lucide-react";
 
+import { Badge } from "@/components/ui/badge";
 import { Button, buttonVariants } from "@/components/ui/buttons";
 import { Section } from "@/components/ui/section";
 import { H1, H2 } from "@/components/ui/typography";
@@ -30,32 +31,40 @@ const IndexPage = () => {
       </Section>
       <Section id={`projects`}>
         <H1>Projekte</H1>
-        <div
-          className={`flex w-full flex-col space-y-3 divide-y divide-black/20`}
-        >
+        <ol className={`w-full space-y-3 divide-y divide-black/20`}>
           {projects.map((project, index) => {
             return (
-              <div
+              <li
                 key={index}
-                className={`group/cell relative w-full overflow-hidden px-3 pt-3 first:pt-0 xl:px-12`}
+                className={`group/cell relative w-full cursor-pointer overflow-hidden px-3 pt-3 xl:px-12`}
               >
-                <H2
-                  className={`flex items-center justify-between font-mono font-light lowercase transition-colors group-hover/cell:text-cyan`}
+                <div
+                  className={`flex w-full items-center gap-6 font-mono transition-colors group-hover/cell:text-cyan`}
                 >
-                  {project.title}
-                  <ChevronDown />
-                </H2>
-              </div>
+                  <H2 className={`flex-none lowercase`}>{project.title}</H2>
+                  {project.tags && (
+                    <div className={`inline-flex h-auto flex-none gap-2`}>
+                      {project.tags.map((tag, index) => (
+                        <Badge key={index}>{tag}</Badge>
+                      ))}
+                    </div>
+                  )}
+                  <div className={`w-full`} />
+                  <button className={`justify-self-end`}>
+                    <PlusIcon />
+                  </button>
+                </div>
+              </li>
             );
           })}
-          <Image
-            src={`/images/projects/next.jpg`}
-            alt={``}
-            width={628}
-            height={288}
-            className={`pt-3`}
-          />
-        </div>
+          {/*<Image*/}
+          {/*  src={`/images/projects/next.jpg`}*/}
+          {/*  alt={``}*/}
+          {/*  width={628}*/}
+          {/*  height={288}*/}
+          {/*  className={`pt-3`}*/}
+          {/*/>*/}
+        </ol>
       </Section>
       <Section id={`about`}>
         <H1>Über mich</H1>

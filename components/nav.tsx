@@ -28,11 +28,9 @@ export const Nav = () => {
 
   return (
     <>
-      <Section
-        className={`!pl-fixed pl-z-50 pl-h-screen pl-w-screen pl-bg-black pl-text-white`}
-      >
+      <Section className={`!fixed z-50 h-screen w-screen bg-black text-white`}>
         <ol
-          className={`pl-space-y-12 pl-font-mono pl-text-7xl pl-font-light pl-tracking-tighter`}
+          className={`space-y-12 font-mono text-7xl font-light tracking-tighter`}
           style={{ counterReset: `nav -1` }}
         >
           {links.map((link, index) => {
@@ -42,8 +40,8 @@ export const Nav = () => {
               <li
                 key={index}
                 className={classNames(
-                  `before:pl-content-[counter(nav)':'] before:pl-mr-2 before:pl-text-cyan before:pl-text-4xl`,
-                  { "pl-text-yellow": isActive }
+                  `before:content-[counter(nav)':'] before:mr-2 before:text-cyan before:text-4xl`,
+                  { "text-yellow": isActive }
                 )}
                 style={{ counterIncrement: `nav` }}
               >
@@ -55,9 +53,9 @@ export const Nav = () => {
           })}
         </ol>
         <div
-          className={`pl-absolute pl-bottom-0 pl-left-0 pl-w-full pl-py-6 pl-text-right pl-font-mono`}
+          className={`absolute bottom-0 left-0 w-full py-6 text-right font-mono`}
         >
-          <ul className={`pl-flex pl-justify-center`}>
+          <ul className={`flex justify-center`}>
             <li>
               <Link href={`/impressum`}>impressum</Link>
             </li>

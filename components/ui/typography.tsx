@@ -19,7 +19,7 @@ const H = (props: Props<HTMLHeadingElement> & { as: React.ElementType }) => {
 
   return (
     <Typography<HTMLHeadingElement>
-      className={cn(`pl-z-10`, className)}
+      className={cn(`z-10`, className)}
       {...other}
     />
   );
@@ -32,7 +32,7 @@ export const H1 = (props: Props<HTMLHeadingElement>) => {
     <H
       as={`h1`}
       className={cn(
-        `pl-w-10/12 pl-text-8xl pl-font-bold pl-lowercase pl-tracking-tighter pl-text-blue pl-drop-shadow group-odd/section:pl-text-right`,
+        `w-10/12 text-8xl font-bold lowercase tracking-tighter text-blue drop-shadow group-odd/section:text-right`,
         className
       )}
       {...other}
@@ -47,7 +47,7 @@ export const H2 = (props: Props<HTMLHeadingElement>) => {
     <H
       as={`h2`}
       className={cn(
-        `pl-text-3xl pl-font-semibold pl-transition-colors first:pl-mt-0`,
+        `text-3xl font-semibold transition-colors first:mt-0`,
         className
       )}
       {...other}
@@ -61,7 +61,7 @@ export const H3 = (props: Props<HTMLHeadingElement>) => {
   return (
     <H
       as={`h3`}
-      className={cn(`pl-text-2xl pl-font-semibold`, className)}
+      className={cn(`text-2xl font-semibold`, className)}
       {...other}
     />
   );
@@ -73,7 +73,7 @@ export const H4 = (props: Props<HTMLHeadingElement>) => {
   return (
     <H
       as={`h4`}
-      className={cn(`pl-text-xl pl-font-semibold`, className)}
+      className={cn(`text-xl font-semibold`, className)}
       {...other}
     />
   );
@@ -85,7 +85,7 @@ export const P = (props: Props<HTMLParagraphElement>) => {
   return (
     <Typography<HTMLParagraphElement>
       as={`p`}
-      className={cn(`pl-leading-7 [&:not(:first-child)]:pl-mt-6`, className)}
+      className={cn(`leading-7 [&:not(:first-child)]:mt-6`, className)}
       {...other}
     />
   );
@@ -97,7 +97,7 @@ export const Blockquote = (props: Props<HTMLQuoteElement>) => {
   return (
     <Typography<HTMLQuoteElement>
       as={`blockquote`}
-      className={cn(`pl-leading-7 [&:not(:first-child)]:pl-mt-6`, className)}
+      className={cn(`leading-7 [&:not(:first-child)]:mt-6`, className)}
       {...other}
     />
   );
@@ -110,7 +110,7 @@ export const InlineCode = (props: Props<HTMLElement>) => {
     <Typography<HTMLElement>
       as={`code`}
       className={cn(
-        `pl-relative pl-rounded pl-px-[0.3rem] pl-py-[0.2rem] pl-font-mono pl-text-sm pl-font-semibold`,
+        `relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold`,
         className
       )}
       {...other}

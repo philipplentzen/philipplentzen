@@ -19,27 +19,27 @@ const IndexPage = () => {
           alt={`Logo`}
           width={849}
           height={142}
-          className={`pl-mt-0 pl-w-10/12 pl-drop-shadow sm:pl-mt-12 sm:pl-w-8/12 lg:pl-w-6/12 xl:pl-mt-20`}
+          className={`mt-0 w-10/12 drop-shadow sm:mt-12 sm:w-8/12 lg:w-6/12 xl:mt-20`}
         />
         <a
           href={`#projects`}
-          className={buttonVariants({ className: `pl-mb-12 sm:pl-mb-30` })}
+          className={buttonVariants({ className: `mb-12 sm:mb-30` })}
         >
           .scrollToExplore()
         </a>
       </Section>
       <Section id={`projects`}>
         <H1>Projekte</H1>
-        <div className={`pl-grid pl-w-full pl-grid-cols-2 pl-gap-6`}>
+        <div className={`grid w-full grid-cols-2 gap-6`}>
           {projects.map((project, index) => {
             return (
               <div
                 key={index}
-                className={`pl-group/cell pl-relative pl-col-span-2 pl-w-full pl-overflow-hidden pl-bg-contain pl-pb-[45.85%] pl-shadow-inner sm:pl-col-span-1`}
+                className={`group/cell relative col-span-2 w-full overflow-hidden bg-contain pb-[45.85%] shadow-inner sm:col-span-1`}
                 style={{ backgroundImage: `url(${project.image})` }}
               >
                 <div
-                  className={`pl-absolute pl-bottom-6 pl-left-[7.6%] pl-flex pl-translate-y-4 pl-gap-3 pl-opacity-0 pl-transition-all pl-duration-300 group-hover/cell:pl-translate-y-0 group-hover/cell:pl-opacity-100`}
+                  className={`absolute bottom-6 left-[7.6%] flex translate-y-4 gap-3 opacity-0 transition-all duration-300 group-hover/cell:translate-y-0 group-hover/cell:opacity-100`}
                 >
                   {project.liveUrl && (
                     <a
@@ -61,10 +61,10 @@ const IndexPage = () => {
             );
           })}
           <div
-            className={`pl-group/cell pl-relative pl-col-span-2 pl-w-full pl-overflow-hidden pl-bg-contain pl-pb-[45.85%] pl-shadow-inner sm:pl-col-span-1`}
+            className={`group/cell relative col-span-2 w-full overflow-hidden bg-contain pb-[45.85%] shadow-inner sm:col-span-1`}
             style={{ backgroundImage: `url(/images/projects/next.jpg)` }}
           >
-            <div className={`pl-absolute pl-bottom-6 pl-left-[7.6%]`}>
+            <div className={`absolute bottom-6 left-[7.6%]`}>
               <a href={`/`} className={buttonVariants()}>
                 .startProjectNow()
               </a>

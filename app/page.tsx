@@ -41,22 +41,21 @@ const IndexPage = () => {
                 <div
                   className={`flex w-full items-center gap-6 font-mono transition-colors group-hover/cell:text-cyan`}
                 >
-                  <button className={`flex-none`}>
-                    <PlusIcon />
-                  </button>
                   <H2 className={`flex-none lowercase`}>{project.title}</H2>
                   <div
                     className={`mb-px flex w-full justify-end gap-2 self-end`}
                   >
                     {project.tags &&
-                      project.tags.map((tag, index) => (
-                        <Badge
-                          key={index}
-                          className={`bg-transparent font-normal`}
-                        >
-                          {tag}
-                        </Badge>
-                      ))}
+                      project.tags
+                        .sort((a, b) => a.localeCompare(b))
+                        .map((tag, index) => (
+                          <Badge
+                            key={index}
+                            className={`bg-transparent font-normal`}
+                          >
+                            {tag}
+                          </Badge>
+                        ))}
                   </div>
                 </div>
               </li>

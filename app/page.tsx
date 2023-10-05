@@ -1,8 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
 import { allProjects } from "contentlayer/generated";
 import { sortBy } from "lodash";
-import { ChevronDown, ExternalLinkIcon, PlusIcon } from "lucide-react";
+import { ChevronRightIcon } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button, buttonVariants } from "@/components/ui/buttons";
@@ -41,10 +40,11 @@ const IndexPage = () => {
                 <div
                   className={`flex w-full items-center gap-6 font-mono transition-colors group-hover/cell:text-cyan`}
                 >
+                  <Button variant={`ghost`} size={`square`}>
+                    <ChevronRightIcon />
+                  </Button>
                   <H2 className={`flex-none lowercase`}>{project.title}</H2>
-                  <div
-                    className={`mb-px flex w-full justify-end gap-2 self-end`}
-                  >
+                  <div className={`mb-px flex w-full justify-end gap-2`}>
                     {project.tags &&
                       project.tags
                         .sort((a, b) => a.localeCompare(b))

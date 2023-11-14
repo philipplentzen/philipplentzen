@@ -59,7 +59,7 @@ const inter = Inter({
 });
 /* eslint-enable quotes */
 
-const Layout = ({ children }: NextLayout) => {
+export default function RootLayout({ children }: NextLayout) {
   return (
     <html className={`scroll-smooth`} lang={`de`}>
       <head />
@@ -113,5 +113,4 @@ const Layout = ({ children }: NextLayout) => {
       </body>
     </html>
   );
-};
-export default Layout;
+}

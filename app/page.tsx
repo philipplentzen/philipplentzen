@@ -9,7 +9,7 @@ import { List, ListItem } from "@/components/ui/list";
 import { Section } from "@/components/ui/section";
 import { H1, H2 } from "@/components/ui/typography";
 
-const IndexPage = () => {
+export default function IndexPage() {
   const projects = sortBy(allProjects, [`year`]).reverse();
 
   return (
@@ -60,6 +60,4 @@ const IndexPage = () => {
       </Section>
     </>
   );
-};
-
-export default IndexPage;
+}

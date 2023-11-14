@@ -38,7 +38,7 @@ export const generateMetadata = ({ params }: Props): Metadata => {
   return { title: project.title };
 };
 
-const PagePage = (props: Props) => {
+export default function ProjectPage(props: Props) {
   const { params } = props;
   const project = findProject(params.slug);
 
@@ -55,6 +55,4 @@ const PagePage = (props: Props) => {
       </div>
     </>
   );
-};
-
-export default PagePage;
+}

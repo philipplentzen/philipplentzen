@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { allProjects } from "contentlayer/generated";
 import { sortBy } from "lodash";
 import { ChevronRightIcon } from "lucide-react";
@@ -33,22 +34,23 @@ export default function IndexPage() {
         <H1>Projekte</H1>
         <List divided>
           {projects.map((project, index) => (
-            <ListItem
-              key={index}
-              className={`cursor-pointer items-center space-x-6 font-mono transition-colors hover:text-cyan`}
-            >
-              <div className={`mb-px flex w-12`}>
-                <Badge className={`font-normal`}>{project.year}</Badge>
-              </div>
-              <H2 className={`w-full text-2xl`}>{project.title}</H2>
-              <Button
-                variant={`ghost`}
-                size={`square`}
-                className={` flex-none `}
+            <Link key={index} href={project.slug as any} className={`block`}>
+              <ListItem
+                className={`cursor-pointer items-center space-x-6 font-mono transition-colors hover:text-cyan`}
               >
-                <ChevronRightIcon />
-              </Button>
-            </ListItem>
+                <div className={`mb-px flex w-12`}>
+                  <Badge className={`font-normal`}>{project.year}</Badge>
+                </div>
+                <H2 className={`w-full text-2xl`}>{project.title}</H2>
+                <Button
+                  variant={`ghost`}
+                  size={`square`}
+                  className={` flex-none `}
+                >
+                  <ChevronRightIcon />
+                </Button>
+              </ListItem>
+            </Link>
           ))}
         </List>
       </Section>

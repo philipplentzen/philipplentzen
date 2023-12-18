@@ -27,12 +27,20 @@ export default function IndexPage() {
           height={142}
           className={`mt-0 w-10/12 drop-shadow sm:mt-12 sm:w-8/12 lg:w-6/12 xl:mt-20`}
         />
-        <a
-          href={`#projects`}
-          className={buttonVariants({ className: `mb-12 sm:mb-30` })}
-        >
-          .scrollToExplore()
-        </a>
+        <div className={`mb-12 flex items-center space-x-6 sm:mb-30`}>
+          <a href={`/`} className={buttonVariants()}>
+            .sayHello()
+          </a>
+          <H2
+            className={`flex items-center font-mono text-sm font-normal lowercase text-neutral-600`}
+          >
+            <span className="relative mr-2 flex h-3 w-3">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan opacity-75"></span>
+              <span className="relative inline-flex h-3 w-3 rounded-full bg-cyan"></span>
+            </span>
+            verfügbar
+          </H2>
+        </div>
       </Section>
 
       <Section id={`projects`}>

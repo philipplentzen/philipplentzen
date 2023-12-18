@@ -25,7 +25,7 @@ export default function IndexPage() {
           alt={`Logo`}
           width={849}
           height={142}
-          className={`mt-0 w-10/12 drop-shadow sm:mt-12 sm:w-8/12 lg:w-6/12 xl:mt-20`}
+          className={`w-12/12 mt-0 drop-shadow sm:mt-12 sm:w-8/12 lg:w-6/12 xl:mt-20`}
         />
         <div className={`mb-12 flex items-center space-x-6 sm:mb-30`}>
           <a href={`/`} className={buttonVariants()}>

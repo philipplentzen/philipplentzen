@@ -81,14 +81,14 @@ export default function RootLayout({ children }: NextLayout) {
           <div className={`flex w-full justify-between`}>
             <Link
               href={`/`}
-              className={`block h-0 w-6/12 pb-[4.5%] sm:w-3/12 sm:pb-[2.3%] lg:w-2/12 lg:pb-[1.5%]`}
+              className={`focus block h-0 w-6/12 pb-[4.5%] sm:w-3/12 sm:pb-[2.3%] lg:w-2/12 lg:pb-[1.5%]`}
             >
               <h1 className={`mt-[-4%]`}>
                 <Logo title={`Philipp Lentzen`} className={`w-full`} />
               </h1>
             </Link>
             <button
-              className={`flex w-3/12 flex-col justify-between lg:w-2/12`}
+              className={`focus flex w-3/12 flex-col justify-between lg:w-2/12`}
             >
               <div
                 className={`w-full bg-black pb-[4.2%] sm:pb-[2.8%] lg:pb-[2.4%]`}
@@ -112,7 +112,10 @@ export default function RootLayout({ children }: NextLayout) {
           {children}
         </main>
         <footer className={`py-3 text-center font-mono text-black`}>
-          <Link href={`/impressum`} className={`mb-0 text-xs`}>
+          <Link
+            href={`/impressum`}
+            className={`focus mb-0 text-xs hover:text-cyan`}
+          >
             impressum
           </Link>
         </footer>

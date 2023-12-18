@@ -6,7 +6,6 @@ const nextConfig = {
   output: `standalone`,
   swcMinify: true,
   experimental: {
-    appDir: true,
     typedRoutes: true,
   },
   webpack(config) {

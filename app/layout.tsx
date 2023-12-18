@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
@@ -48,7 +48,6 @@ export const metadata: Metadata = {
       color: `#18A999`,
     },
   ],
-  viewport: `width=device-width, initial-scale=1.0, viewport-fit=cover`,
 };
 
 /* eslint-disable quotes */
@@ -58,6 +57,13 @@ const inter = Inter({
   variable: "--font-inter",
 });
 /* eslint-enable quotes */
+
+export const viewport: Viewport = {
+  themeColor: `#C3E4E3`,
+  width: `device-width`,
+  initialScale: 1.0,
+  viewportFit: `cover`,
+};
 
 export default function RootLayout({ children }: NextLayout) {
   return (

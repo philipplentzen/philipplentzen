@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 import Logo from "/public/philipplentzen.svg";
 import { Content } from "@/components/Content";
-import { Metadata } from "next";
+import {Metadata, Viewport} from "next";
 
 export const metadata: Metadata = {
 	title: {
@@ -34,9 +34,14 @@ export const metadata: Metadata = {
 			type: `images/png`,
 		})),
 	},
-	themeColor: `#C3E4E3`,
-	viewport: `width=device-width, initial-scale=1.0, viewport-fit=cover`,
 };
+
+export const viewport: Viewport = {
+	themeColor: `#C3E4E3`,
+	width: `device-width`,
+	initialScale: 1.0,
+	viewportFit: `cover`,
+}
 
 const Header = () => {
 	return (

@@ -4,12 +4,12 @@ import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 export const buttonVariants = cva(
-  `inline-block w-fit font-mono text-xs leading-4 drop-shadow transition-colors sm:text-sm sm:leading-6`,
+  `focus inline-block w-fit font-mono text-xs leading-4 drop-shadow transition-colors sm:text-sm sm:leading-6`,
   {
     variants: {
       variant: {
-        default: `bg-black text-white`,
-        ghost: `bg-transparent`,
+        default: `bg-black text-white hover:bg-neutral-700`,
+        ghost: `bg-black/5 text-neutral-700 hover:bg-black/10 hover:text-black`,
       },
       size: {
         default: `px-4 py-3 sm:px-6`,

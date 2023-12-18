@@ -2,7 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { allProjects } from "contentlayer/generated";
 import { sortBy } from "lodash";
-import { ChevronRightIcon } from "lucide-react";
+import {
+  ChevronRightIcon,
+  ExternalLinkIcon,
+  MoveUpRightIcon,
+} from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button, buttonVariants } from "@/components/ui/buttons";
@@ -37,19 +41,25 @@ export default function IndexPage() {
           {projects.map((project, index) => (
             <ListItem
               key={index}
-              className={`cursor-pointer items-center space-x-6 font-mono transition-colors hover:text-cyan`}
+              className={`h-14 cursor-pointer items-center space-x-6 font-mono transition-colors hover:text-cyan`}
             >
               <div className={`mb-px flex w-12`}>
                 <Badge className={`font-normal`}>{project.year}</Badge>
               </div>
-              <H2 className={`w-full text-2xl`}>{project.title}</H2>
-              <Button
-                variant={`ghost`}
-                size={`square`}
-                className={` flex-none `}
-              >
-                <ChevronRightIcon />
-              </Button>
+              <H2 className={`w-full text-xl`}>{project.title}</H2>
+              {project.url && (
+                <Link
+                  href={project.url as any}
+                  target={`_blank`}
+                  className={buttonVariants({
+                    variant: `ghost`,
+                    size: `square`,
+                    className: `flex-none`,
+                  })}
+                >
+                  <MoveUpRightIcon size={20} />
+                </Link>
+              )}
             </ListItem>
           ))}
         </List>

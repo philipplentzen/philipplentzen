@@ -25,9 +25,10 @@ module.exports = {
         sans: [`var(--font-inter)`, ...fontFamily.sans],
       },
       fontSize: {
-        xs: [`min(0.75rem, 3vw)`, { lineHeight: 1 }],
+        xs: [`min(0.75rem, 2.75vw)`, { lineHeight: 1 }],
+        xl: [`min(1.125rem, 5vw)`, { lineHeight: 1 }],
         "3xl": [`min(1.875rem, 5vw)`, { lineHeight: 1 }],
-        "8xl": [`min(6rem, 12vw)`, { lineHeight: 1 }],
+        "8xl": [`min(6rem, 14vw)`, { lineHeight: 1 }],
       },
       spacing: {
         30: `7.5rem`,
@@ -42,6 +43,9 @@ module.exports = {
     },
     dropShadow: {
       DEFAULT: `6px 6px 6px rgba(15, 30, 41, 0.25)`,
+    },
+    transitionDuration: {
+      DEFAULT: `300ms`,
     },
     supports: {
       ios: `-webkit-touch-callout: none`,

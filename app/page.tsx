@@ -30,27 +30,27 @@ export default function IndexPage() {
           .scrollToExplore()
         </a>
       </Section>
+
       <Section id={`projects`}>
         <H1>Projekte</H1>
         <List divided>
           {projects.map((project, index) => (
-            <Link key={index} href={project.slug as any} className={`block`}>
-              <ListItem
-                className={`cursor-pointer items-center space-x-6 font-mono transition-colors hover:text-cyan`}
+            <ListItem
+              key={index}
+              className={`cursor-pointer items-center space-x-6 font-mono transition-colors hover:text-cyan`}
+            >
+              <div className={`mb-px flex w-12`}>
+                <Badge className={`font-normal`}>{project.year}</Badge>
+              </div>
+              <H2 className={`w-full text-2xl`}>{project.title}</H2>
+              <Button
+                variant={`ghost`}
+                size={`square`}
+                className={` flex-none `}
               >
-                <div className={`mb-px flex w-12`}>
-                  <Badge className={`font-normal`}>{project.year}</Badge>
-                </div>
-                <H2 className={`w-full text-2xl`}>{project.title}</H2>
-                <Button
-                  variant={`ghost`}
-                  size={`square`}
-                  className={` flex-none `}
-                >
-                  <ChevronRightIcon />
-                </Button>
-              </ListItem>
-            </Link>
+                <ChevronRightIcon />
+              </Button>
+            </ListItem>
           ))}
         </List>
       </Section>

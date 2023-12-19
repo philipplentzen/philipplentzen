@@ -41,16 +41,6 @@ export const metadata: Metadata = {
       type: `images/png`,
     })),
   },
-  themeColor: [
-    {
-      media: `(prefers-color-scheme: light)`,
-      color: `#94CFC5`,
-    },
-    {
-      media: `(prefers-color-scheme: dark)`,
-      color: `#18A999`,
-    },
-  ],
 };
 
 /* eslint-disable quotes */
@@ -62,7 +52,16 @@ const inter = Inter({
 /* eslint-enable quotes */
 
 export const viewport: Viewport = {
-  themeColor: `#BDE6E2`,
+  themeColor: [
+    {
+      media: `(prefers-color-scheme: light)`,
+      color: `#94CFC5`,
+    },
+    {
+      media: `(prefers-color-scheme: dark)`,
+      color: `#18A999`,
+    },
+  ],
   width: `device-width`,
   initialScale: 1.0,
   viewportFit: `cover`,

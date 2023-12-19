@@ -44,7 +44,7 @@ export default function IndexPage() {
       </Section>
 
       <Section id={`projects`}>
-        <H1>Projekte</H1>
+        <H1>Projekte.</H1>
         <List divided>
           {projects.map((project, index) => (
             <ListItem
@@ -71,12 +71,6 @@ export default function IndexPage() {
             </ListItem>
           ))}
         </List>
-      </Section>
-      <Section id={`about`}>
-        <H1>Über mich</H1>
-      </Section>
-      <Section id={`other`}>
-        <H1>Sonstiges</H1>
       </Section>
     </>
   );

@@ -2,17 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { allProjects } from "contentlayer/generated";
 import { sortBy } from "lodash";
-import {
-  ChevronRightIcon,
-  ExternalLinkIcon,
-  MoveUpRightIcon,
-} from "lucide-react";
+import { ArrowUpRightIcon } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
-import { Button, buttonVariants } from "@/components/ui/buttons";
+import { buttonVariants } from "@/components/ui/buttons";
 import { List, ListItem } from "@/components/ui/list";
 import { Section } from "@/components/ui/section";
-import { H1, H2 } from "@/components/ui/typography";
+import { H2 } from "@/components/ui/typography";
 
 export default function IndexPage() {
   const projects = sortBy(allProjects, [`year`]).reverse();
@@ -34,9 +30,9 @@ export default function IndexPage() {
           <H2
             className={`flex items-center font-mono text-sm font-normal lowercase text-neutral-600`}
           >
-            <span className="relative mr-2 flex h-3 w-3">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan opacity-75"></span>
-              <span className="relative inline-flex h-3 w-3 rounded-full bg-cyan"></span>
+            <span className="relative mr-2 flex size-3">
+              <span className="absolute inline-flex size-full animate-ping rounded-full bg-cyan opacity-75"></span>
+              <span className="relative inline-flex size-3 rounded-full bg-cyan"></span>
             </span>
             verfügbar
           </H2>
@@ -44,7 +40,6 @@ export default function IndexPage() {
       </Section>
 
       <Section id={`projects`}>
-        <H1>Projekte.</H1>
         <List divided>
           {projects.map((project, index) => (
             <ListItem
@@ -65,7 +60,7 @@ export default function IndexPage() {
                     className: `flex-none`,
                   })}
                 >
-                  <MoveUpRightIcon size={20} />
+                  <ArrowUpRightIcon size={20} />
                 </Link>
               )}
             </ListItem>

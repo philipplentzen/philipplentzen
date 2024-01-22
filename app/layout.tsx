@@ -4,13 +4,10 @@ import { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
-import Logo from "@/public/philipplentzen.svg";
-import { GithubIcon, LinkedinIcon } from "lucide-react";
+import { AtSignIcon, GithubIcon, LinkedinIcon } from "lucide-react";
 
 import { NextLayout } from "@/types/next-layout";
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/buttons";
-import { H1 } from "@/components/ui/typography";
 
 export const metadata: Metadata = {
   title: {
@@ -87,16 +84,24 @@ export default function RootLayout({ children }: NextLayout) {
             >
               <h1 className={`font-mono text-xl font-semibold`}>
                 {/*<Logo title={`Philipp Lentzen`} className={`w-full`} />*/}
-                @philipplentzen
+                kontakt<span className={`text-black`}>@philipplentzen</span>.dev
               </h1>
             </Link>
             <div className={`flex space-x-3`}>
-              <Link href={`/`} className={``}>
-                <GithubIcon size={20} />
-              </Link>
-              <Link href={`/`} className={``}>
-                <LinkedinIcon size={20} />
-              </Link>
+              {[
+                { icon: AtSignIcon, href: `` },
+                { icon: GithubIcon, href: `` },
+                { icon: LinkedinIcon, href: `` },
+              ].map(({ icon: Icon, href }, index) => (
+                <a
+                  key={index}
+                  href={href}
+                  target={`_blank`}
+                  className={`focus transition-colors hover:text-cyan`}
+                >
+                  <Icon size={20} />
+                </a>
+              ))}
             </div>
           </div>
         </header>

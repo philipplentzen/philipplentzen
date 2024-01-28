@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { allProjects } from "contentlayer/generated";
 import { sortBy } from "lodash";
 import { ArrowUpRightIcon } from "lucide-react";
@@ -21,10 +20,13 @@ export default function IndexPage() {
           alt={`Logo`}
           width={849}
           height={142}
-          className={`w-12/12 mt-0 drop-shadow sm:mt-12 sm:w-8/12 lg:w-6/12 xl:mt-20`}
+          className={`mt-0 w-full drop-shadow sm:mt-12 sm:w-8/12 lg:w-6/12 xl:mt-20`}
         />
         <div className={`mb-12 flex items-center space-x-6 sm:mb-30`}>
-          <a href={`/`} className={buttonVariants()}>
+          <a
+            href={`mailto:kontakt@philipplentzen.dev`}
+            className={buttonVariants()}
+          >
             .sayHello()
           </a>
           <H2
@@ -44,15 +46,15 @@ export default function IndexPage() {
           {projects.map((project, index) => (
             <ListItem
               key={index}
-              className={`h-14 cursor-pointer items-center space-x-6 font-mono transition-colors hover:text-cyan`}
+              className={`h-14 items-center space-x-6 font-mono transition-colors hover:text-cyan`}
             >
               <div className={`mb-px flex w-12`}>
                 <Badge className={`font-normal`}>{project.year}</Badge>
               </div>
               <H2 className={`w-full text-xl`}>{project.title}</H2>
               {project.url && (
-                <Link
-                  href={project.url as any}
+                <a
+                  href={project.url}
                   target={`_blank`}
                   className={buttonVariants({
                     variant: `ghost`,
@@ -61,7 +63,7 @@ export default function IndexPage() {
                   })}
                 >
                   <ArrowUpRightIcon size={20} />
-                </Link>
+                </a>
               )}
             </ListItem>
           ))}

@@ -19,7 +19,7 @@ export default function IndexPage() {
         badge: project.year,
         title: project.title,
         description: ``,
-        href: project.slug,
+        href: project.url,
       })),
     },
   ];

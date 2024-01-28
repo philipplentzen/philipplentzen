@@ -70,6 +70,7 @@ export default function IndexPage() {
                 {item.url && (
                   <a
                     href={item.url}
+                    target={`_blank`}
                     className={buttonVariants({
                       variant: `ghost`,
                       size: `square`,

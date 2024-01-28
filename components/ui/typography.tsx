@@ -32,7 +32,7 @@ export const H1 = (props: Props<HTMLHeadingElement>) => {
     <H
       as={`h1`}
       className={cn(
-        `w-10/12 text-8xl font-bold lowercase tracking-tighter text-blue drop-shadow group-odd/section:text-right`,
+        `w-10/12 text-7xl font-bold lowercase tracking-tighter text-blue drop-shadow after:text-yellow after:content-["."] group-odd/section:text-right`,
         className
       )}
       {...other}
@@ -85,7 +85,10 @@ export const P = (props: Props<HTMLParagraphElement>) => {
   return (
     <Typography<HTMLParagraphElement>
       as={`p`}
-      className={cn(`leading-7 [&:not(:first-child)]:mt-6`, className)}
+      className={cn(
+        `leading-7 transition-colors [&:not(:first-child)]:mt-6`,
+        className
+      )}
       {...other}
     />
   );

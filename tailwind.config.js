@@ -29,6 +29,7 @@ module.exports = {
         sm: [`min(0.875rem, 2.75vw)`, { lineHeight: 1 }],
         xl: [`min(1.125rem, 5vw)`, { lineHeight: 1 }],
         "3xl": [`min(1.875rem, 5vw)`, { lineHeight: 1 }],
+        "7xl": [`min(4.5rem, 14vw)`, { lineHeight: 1 }],
         "8xl": [`min(6rem, 14vw)`, { lineHeight: 1 }],
       },
       spacing: {

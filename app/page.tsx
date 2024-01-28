@@ -19,7 +19,7 @@ export default function IndexPage() {
         badge: project.year,
         title: project.title,
         description: ``,
-        href: project.url,
+        url: project.url,
       })),
     },
   ];
@@ -67,9 +67,9 @@ export default function IndexPage() {
                 </div>
                 <H2 className={`m-0 w-fit flex-none text-xl`}>{item.title}</H2>
                 <P className={`!mt-0 w-full text-sm`}>{item.description}</P>
-                {item.href && (
+                {item.url && (
                   <a
-                    href={item.href}
+                    href={item.url}
                     className={buttonVariants({
                       variant: `ghost`,
                       size: `square`,

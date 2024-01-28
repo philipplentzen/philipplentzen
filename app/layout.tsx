@@ -65,6 +65,24 @@ export const viewport: Viewport = {
 };
 
 export default function RootLayout({ children }: NextLayout) {
+  const socials = [
+    {
+      icon: AtSignIcon,
+      url: `mailto:kontakt@philipplentzen.dev`,
+      title: `E-Mail`,
+    },
+    {
+      icon: GithubIcon,
+      url: `https://github.com/philipplentzen`,
+      title: `GitHub`,
+    },
+    {
+      icon: LinkedinIcon,
+      url: `https://www.linkedin.com/in/philipplentzen/`,
+      title: `LinkedIn`,
+    },
+  ];
+
   return (
     <html className={`scroll-smooth`} lang={`de`}>
       <head />
@@ -88,14 +106,11 @@ export default function RootLayout({ children }: NextLayout) {
               </h1>
             </Link>
             <div className={`flex space-x-3`}>
-              {[
-                { icon: AtSignIcon, href: `` },
-                { icon: GithubIcon, href: `` },
-                { icon: LinkedinIcon, href: `` },
-              ].map(({ icon: Icon, href }, index) => (
+              {socials.map(({ icon: Icon, url, title }, index) => (
                 <a
                   key={index}
-                  href={href}
+                  href={url}
+                  title={title}
                   target={`_blank`}
                   className={`focus transition-colors hover:text-cyan`}
                 >

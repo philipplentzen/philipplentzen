@@ -102,7 +102,9 @@ export default function RootLayout({ children }: NextLayout) {
             >
               <h1 className={`font-mono text-xl font-semibold`}>
                 {/*<Logo title={`Philipp Lentzen`} className={`w-full`} />*/}
-                kontakt<span className={`text-black`}>@philipplentzen</span>.dev
+                <span className={`max-sm:hidden`}>kontakt</span>
+                <span className={`text-black`}>@philipplentzen</span>
+                <span className={`max-sm:hidden`}>.dev</span>
               </h1>
             </Link>
             <div className={`flex space-x-3`}>

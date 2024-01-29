@@ -1,12 +1,6 @@
-import React from "react";
-import {Content} from "@/components/Content";
+import { NextLayout } from "@/types/next-layout";
+import { Section } from "@/components/ui/section";
 
-const Layout = ({children}: {children: React.ReactNode}) => {
-	return (
-		<Content className={`pl-pt-48`}>
-			{children}
-		</Content>
-	);
-};
-
-export default Layout;
+export default function SubLayout({ children }: NextLayout) {
+  return <Section>{children}</Section>;
+}

@@ -1,28 +1,90 @@
 import Image from "next/image";
-import LogoBig from "/public/philipplentzenbig.svg";
-import {SocialLink} from "@/components/Link";
+import { allProjects } from "contentlayer/generated";
+import { sortBy } from "lodash";
+import { ArrowUpRightIcon } from "lucide-react";
 
-const Home = () => {
-	return (
-		<>
-			<section className={`pl-relative pl-flow-root pl-h-screen pl-w-screen pl-overflow-hidden pl-bg-gradient-to-b pl-from-cyan/20 pl-to-transparent supports-ios:pl-h-[100svh]`}>
-				<div className={`pl-relative pl-mx-auto pl-mt-[18rem] pl-max-w-screen-xl pl-px-6 lg:pl-mt-[15rem] lg:pl-px-0 xl:pl-mt-[24rem]`}>
-					<div className={`pl-mx-auto pl-flow-root pl-h-12 pl-w-full md:pl-h-24 lg:pl-w-8/12`}>
-						<div className={`pl-mt-[-3.8%]`}>
-							<LogoBig className={``} />
-						</div>
-					</div>
-					<div className={`pl-mx-auto pl-mt-3 pl-flex pl-w-4/12 sm:pl-w-3/12 lg:pl-mt-12 lg:pl-w-2/12`}>
-						<SocialLink href={`https://github.com/philipplentzen`} target={`_blank`} icon={`github`} title={`GitHub`} className={`pl-pointer-events-auto pl-w-1/3`} />
-						<SocialLink href={`https://www.linkedin.com/in/philipplentzen/`} target={`_blank`} icon={`linkedin`} title={`LinkedIn`} className={`pl-w-1/3`} />
-						<SocialLink href={`mailto:kontakt@philipplentzen.dev`} target={`_blank`} icon={`mail`} title={`E-Mail`} className={`pl-w-1/3`} />
-					</div>
-				</div>
-				<Image src={`/images/clouds.png`} alt={``} width={1920} height={967} sizes={`100vw`} className={`pl-pointer-events-none pl-absolute -pl-left-2/4 pl-top-12 pl-w-[200%] pl-max-w-none md:pl-left-0 md:pl-w-full xl:pl-top-0`} priority />
-				<Image src={`/images/grass.png`} alt={``} width={1920} height={360} sizes={`100vw`} className={`pl-pointer-events-none pl-absolute -pl-left-2/4 pl-bottom-0 pl-w-[200%] pl-max-w-none md:pl-left-0 md:pl-w-full`} priority />
-			</section>
-		</>
-	);
-};
+import { Badge } from "@/components/ui/badge";
+import { buttonVariants } from "@/components/ui/buttons";
+import { List, ListItem } from "@/components/ui/list";
+import { Section } from "@/components/ui/section";
+import { H1, H2, P } from "@/components/ui/typography";
 
-export default Home;
+export default function IndexPage() {
+  const projects = sortBy(allProjects, [`year`]).reverse();
+  const sections = [
+    {
+      id: `projects`,
+      title: `Projekte`,
+      items: projects.map((project) => ({
+        badge: project.year,
+        title: project.title,
+        description: ``,
+        url: project.url,
+      })),
+    },
+  ];
+
+  return (
+    <>
+      <Section>
+        <Image
+          src={`/philipplentzenbig.svg`}
+          alt={`Logo`}
+          width={849}
+          height={142}
+          className={`mt-0 w-full drop-shadow sm:mt-12 sm:w-8/12 lg:w-6/12 xl:mt-20`}
+        />
+        <div className={`mb-12 flex items-center space-x-6 sm:mb-30`}>
+          <a
+            href={`mailto:kontakt@philipplentzen.dev`}
+            className={buttonVariants()}
+          >
+            .sayHello()
+          </a>
+          <H2
+            className={`flex items-center font-mono text-sm font-normal lowercase text-neutral-700`}
+          >
+            <span className="relative mr-2 flex size-3">
+              <span className="absolute inline-flex size-full animate-ping rounded-full bg-cyan opacity-75"></span>
+              <span className="relative inline-flex size-3 rounded-full bg-cyan"></span>
+            </span>
+            verfügbar
+          </H2>
+        </div>
+      </Section>
+
+      {sections.map((section) => (
+        <Section id={section.id} key={section.id}>
+          <H1>{section.title}</H1>
+          <List divided>
+            {section.items.map((item, index) => (
+              <ListItem
+                key={index}
+                className={`h-14 items-center space-x-6 font-mono transition-colors hover:text-cyan`}
+              >
+                <div className={`mb-px flex w-fit flex-none`}>
+                  <Badge className={`font-normal`}>{item.badge}</Badge>
+                </div>
+                <H2 className={`m-0 w-fit flex-none text-xl`}>{item.title}</H2>
+                <P className={`!mt-0 w-full text-sm`}>{item.description}</P>
+                {item.url && (
+                  <a
+                    href={item.url}
+                    target={`_blank`}
+                    className={buttonVariants({
+                      variant: `ghost`,
+                      size: `square`,
+                      className: `flex-none`,
+                    })}
+                  >
+                    <ArrowUpRightIcon size={20} />
+                  </a>
+                )}
+              </ListItem>
+            ))}
+          </List>
+        </Section>
+      ))}
+    </>
+  );
+}

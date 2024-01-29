@@ -1,80 +1,148 @@
 import "../styles/globals.css";
+
+import { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
+import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import Logo from "/public/philipplentzen.svg";
-import { Content } from "@/components/Content";
-import {Metadata, Viewport} from "next";
+import { AtSignIcon, GithubIcon, LinkedinIcon } from "lucide-react";
+
+import { NextLayout } from "@/types/next-layout";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-	title: {
-		default: `Philipp Lentzen - Web Development`,
-		template: `%s | Philipp Lentzen - Web Development`,
-	},
-	openGraph: {
-		title: `Philipp Lentzen - Web Development`,
-		type: `website`,
-		url: `https://philipplentzen.dev/`,
-		images: [
-			{
-				url: `https://philipplentzen.dev/favicons/favicon-96x96.png`,
-				width: 96,
-				height: 96,
-			},
-		],
-	},
-	icons: {
-		icon: [16, 32, 96, 128, 196].map((size) => ({
-			url: `/favicons/favicon-${size}x${size}.png`,
-			sizes: `${size}x${size}`,
-			type: `images/png`,
-		})),
-		apple: [57, 60, 72, 76, 114, 120, 144, 152, 167, 180].map((size) => ({
-			url: `/favicons/apple-touch-icon-${size}x${size}.png`,
-			sizes: `${size}x${size}`,
-			type: `images/png`,
-		})),
-	},
+  title: {
+    default: `Philipp Lentzen - Web Development`,
+    template: `%s | Philipp Lentzen - Web Development`,
+  },
+  openGraph: {
+    title: `Philipp Lentzen - Web Development`,
+    type: `website`,
+    url: `https://beta.philipplentzen.dev/`,
+    images: [
+      {
+        url: `https://beta.philipplentzen.dev/favicons/favicon-96x96.png`,
+        width: 96,
+        height: 96,
+      },
+    ],
+  },
+  icons: {
+    icon: [16, 32, 96, 128, 196].map((size) => ({
+      url: `/favicons/favicon-${size}x${size}.png`,
+      sizes: `${size}x${size}`,
+      type: `images/png`,
+    })),
+    apple: [57, 60, 72, 76, 114, 120, 144, 152, 167, 180].map((size) => ({
+      url: `/favicons/apple-touch-icon-${size}x${size}.png`,
+      sizes: `${size}x${size}`,
+      type: `images/png`,
+    })),
+  },
 };
+
+/* eslint-disable quotes */
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+/* eslint-enable quotes */
 
 export const viewport: Viewport = {
-	themeColor: `#C3E4E3`,
-	width: `device-width`,
-	initialScale: 1.0,
-	viewportFit: `cover`,
+  themeColor: [
+    {
+      media: `(prefers-color-scheme: light)`,
+      color: `#94CFC5`,
+    },
+    {
+      media: `(prefers-color-scheme: dark)`,
+      color: `#18A999`,
+    },
+  ],
+  width: `device-width`,
+  initialScale: 1.0,
+  viewportFit: `cover`,
+};
+
+export default function RootLayout({ children }: NextLayout) {
+  const socials = [
+    {
+      icon: AtSignIcon,
+      url: `mailto:kontakt@philipplentzen.dev`,
+      title: `E-Mail`,
+    },
+    {
+      icon: GithubIcon,
+      url: `https://github.com/philipplentzen`,
+      title: `GitHub`,
+    },
+    {
+      icon: LinkedinIcon,
+      url: `https://www.linkedin.com/in/philipplentzen/`,
+      title: `LinkedIn`,
+    },
+  ];
+
+  return (
+    <html className={`scroll-smooth`} lang={`de`}>
+      <head />
+      <body
+        className={cn(
+          `flow-root min-h-full overflow-x-hidden bg-white bg-grain bg-fixed leading-4 text-black selection:bg-yellow selection:text-cyan `,
+          inter.className
+        )}
+      >
+        <header
+          className={`absolute inset-0 bottom-auto z-50 mx-auto mt-12 w-screen max-w-screen-xl px-6 text-black/50 drop-shadow sm:px-12 xl:mt-24 xl:px-0`}
+        >
+          <div className={`flex w-full items-end justify-between`}>
+            <Link
+              href={`/`}
+              className={`focus block h-0 w-6/12 pb-[4.5%] sm:w-3/12 sm:pb-[2.3%] lg:w-2/12 lg:pb-[1.5%]`}
+            >
+              <h1 className={`font-mono text-xl font-semibold`}>
+                {/*<Logo title={`Philipp Lentzen`} className={`w-full`} />*/}
+                <span className={`max-sm:hidden`}>kontakt</span>
+                <span className={`sm:text-black`}>@philipplentzen</span>
+                <span className={`max-sm:hidden`}>.dev</span>
+              </h1>
+            </Link>
+            <div className={`flex space-x-3`}>
+              {socials.map(({ icon: Icon, url, title }, index) => (
+                <a
+                  key={index}
+                  href={url}
+                  title={title}
+                  target={`_blank`}
+                  className={`focus transition-colors hover:text-cyan`}
+                >
+                  <Icon size={20} />
+                </a>
+              ))}
+            </div>
+          </div>
+        </header>
+        <main className={`relative min-h-screen w-screen pt-30`}>
+          <Image
+            src={`/images/clouds.png`}
+            alt={``}
+            width={1920}
+            height={967}
+            sizes={`100vw`}
+            className={`pointer-events-none absolute top-0 -z-10 h-screen w-full object-cover xl:top-0`}
+            priority
+          />
+          {children}
+        </main>
+        <footer className={`py-3 text-center font-mono text-black`}>
+          <Link
+            href={`/impressum`}
+            className={`focus mb-0 text-xs hover:text-cyan`}
+          >
+            impressum
+          </Link>
+        </footer>
+      </body>
+    </html>
+  );
 }
-
-const Header = () => {
-	return (
-		<header className={`pl-fixed pl-inset-0 pl-bottom-auto pl-z-50 pl-mx-auto pl-mt-12 pl-w-screen pl-max-w-screen-xl pl-px-6 sm:pl-px-12 xl:pl-mt-24 xl:pl-px-0`}>
-			<div className={`pl-flex pl-w-full pl-justify-between`}>
-				<Link href={`/`} className={`pl-block pl-h-0 pl-w-6/12 pl-pb-[4.5%] sm:pl-w-3/12 sm:pl-pb-[2.3%] lg:pl-w-2/12 lg:pl-pb-[1.5%]`}>
-					<h1 className={`pl-mt-[-4%]`}>
-						<Logo title={`Philipp Lentzen`} className={`pl-w-full`} />
-					</h1>
-				</Link>
-				<button className={`pl-flex pl-w-2/12 pl-flex-col pl-justify-between`}>
-					<div className={`pl-w-full pl-bg-black pl-pb-[6.6%] sm:pl-pb-[3.4%] lg:pl-pb-[2.4%]`}></div>
-					<div className={`pl-w-full pl-bg-black pl-pb-[6.6%] sm:pl-pb-[3.4%] lg:pl-pb-[2.4%]`}></div>
-				</button>
-			</div>
-		</header>
-	);
-};
-
-const Layout = ({ children }: { children: React.ReactNode }) => {
-	return (
-		<html className={`pl-bg-white pl-bg-[url('/images/grain.png')] pl-text-black`} lang={`de`}>
-			<body className={`pl-flow-root pl-min-h-full pl-leading-4 pl-text-black`}>
-				{/*<Header />*/}
-				<main className={`pl-w-screen pl-overflow-x-hidden`}>{children}</main>
-				<footer className={`pl-bg-black pl-py-3 pl-text-center pl-text-white`}>
-					<Content>
-						<Link href={`/impressum`} className={`pl-mb-0 pl-text-xs`}>impressum</Link>
-					</Content>
-				</footer>
-			</body>
-		</html>
-	);
-};
-
-export default Layout;

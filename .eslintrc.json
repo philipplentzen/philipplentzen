@@ -4,14 +4,20 @@
   "extends": [
     "next/core-web-vitals",
     "prettier",
+    "plugin:prettier/recommended",
     "plugin:tailwindcss/recommended"
   ],
   "plugins": [
+    "prettier",
     "tailwindcss"
   ],
+  "rules": {
+    "prettier/prettier": "error",
+    "quotes": ["error", "backtick"]
+  },
   "settings": {
     "tailwindcss": {
-      "callees": ["cn"],
+      "callees": ["cn", "cva"],
       "config": "tailwind.config.js"
     },
     "next": {

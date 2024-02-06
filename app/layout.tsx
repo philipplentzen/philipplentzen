@@ -98,6 +98,7 @@ export default function RootLayout({ children }: NextLayout) {
           <div className={`flex w-full items-end justify-between`}>
             <Link
               href={`/`}
+              aria-label={`Zur Startseite`}
               className={`focus block h-0 w-6/12 pb-[4.5%] sm:w-3/12 sm:pb-[2.3%] lg:w-2/12 lg:pb-[1.5%]`}
             >
               <h1 className={`font-mono text-xl font-semibold`}>
@@ -112,7 +113,7 @@ export default function RootLayout({ children }: NextLayout) {
                 <a
                   key={index}
                   href={url}
-                  title={title}
+                  aria-label={`${title} öffnen`}
                   target={`_blank`}
                   className={`focus transition-colors hover:text-cyan`}
                 >
@@ -137,6 +138,7 @@ export default function RootLayout({ children }: NextLayout) {
         <footer className={`py-3 text-center font-mono text-black`}>
           <Link
             href={`/impressum`}
+            aria-label={`Impressum öffnen`}
             className={`focus mb-0 text-xs hover:text-cyan`}
           >
             impressum

@@ -33,6 +33,7 @@ export default function IndexPage() {
         <div className={`mb-12 flex items-center space-x-6 sm:mb-30`}>
           <a
             href={`mailto:kontakt@philipplentzen.dev`}
+            aria-label={`E-Mail an mich schreiben`}
             className={buttonVariants()}
           >
             .sayHello()
@@ -66,6 +67,7 @@ export default function IndexPage() {
                 {item.url && (
                   <a
                     href={item.url}
+                    aria-label={`${item.title} öffnen`}
                     target={`_blank`}
                     className={buttonVariants({
                       variant: `ghost`,

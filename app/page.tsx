@@ -55,14 +55,19 @@ export default function HomePage() {
         <H1>Projekte</H1>
         <List>
           {projects.map((project, index) => (
-            <ListItem key={index} className={`grid gap-6 py-6 lg:grid-cols-2`}>
-              <div className={`h-72 bg-cyan/10 ring-1 ring-cyan`}></div>
+            <ListItem
+              key={index}
+              className={`grid gap-6 py-6 lg:grid-cols-[628px_1fr]`}
+            >
+              <div
+                className={`h-72 bg-cyan/10 ring-1 ring-cyan drop-shadow`}
+              ></div>
               <div className={`flex-col items-center space-y-3`}>
                 <div className={`flex h-9 items-center space-x-6`}>
                   <div className={`mb-px flex w-fit flex-none`}>
                     <Badge className={`font-normal`}>{project.year}</Badge>
                   </div>
-                  <H2 className={`m-0 w-full font-mono text-xl`}>
+                  <H2 className={`m-0 w-full font-mono text-xl lowercase`}>
                     {project.title}
                   </H2>
                   {project.url && (

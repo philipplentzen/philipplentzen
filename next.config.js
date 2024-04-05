@@ -3,7 +3,6 @@ const { withContentlayer } = require(`next-contentlayer`);
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  output: `standalone`,
   swcMinify: true,
   webpack(config) {
     config.module.rules.push({

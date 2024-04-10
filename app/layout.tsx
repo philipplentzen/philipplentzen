@@ -40,14 +40,6 @@ export const metadata: Metadata = {
   },
 };
 
-/* eslint-disable quotes */
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter",
-});
-/* eslint-enable quotes */
-
 export const viewport: Viewport = {
   themeColor: [
     {
@@ -64,24 +56,33 @@ export const viewport: Viewport = {
   viewportFit: `cover`,
 };
 
+/* eslint-disable quotes */
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+/* eslint-enable quotes */
+
+const socials = [
+  {
+    icon: AtSignIcon,
+    url: `mailto:kontakt@philipplentzen.dev`,
+    title: `E-Mail`,
+  },
+  {
+    icon: GithubIcon,
+    url: `https://github.com/philipplentzen`,
+    title: `GitHub`,
+  },
+  {
+    icon: LinkedinIcon,
+    url: `https://www.linkedin.com/in/philipplentzen/`,
+    title: `LinkedIn`,
+  },
+];
+
 export default function RootLayout({ children }: NextLayout) {
-  const socials = [
-    {
-      icon: AtSignIcon,
-      url: `mailto:kontakt@philipplentzen.dev`,
-      title: `E-Mail`,
-    },
-    {
-      icon: GithubIcon,
-      url: `https://github.com/philipplentzen`,
-      title: `GitHub`,
-    },
-    {
-      icon: LinkedinIcon,
-      url: `https://www.linkedin.com/in/philipplentzen/`,
-      title: `LinkedIn`,
-    },
-  ];
 
   return (
     <html className={`scroll-smooth`} lang={`de`}>

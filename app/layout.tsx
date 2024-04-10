@@ -4,6 +4,7 @@ import { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 import { AtSignIcon, GithubIcon, LinkedinIcon } from "lucide-react";
 
 import { NextLayout } from "@/types/next-layout";
@@ -92,6 +93,7 @@ export default function RootLayout({ children }: NextLayout) {
           inter.className
         )}
       >
+      <Script src={process.env.NEXT_PUBLIC_ANALYTICS_URL} data-website-id={process.env.NEXT_PUBLIC_ANALYTICS_ID} />
         <header
           className={`absolute inset-0 bottom-auto z-50 mx-auto mt-12 w-screen max-w-screen-xl px-6 text-black/50 drop-shadow sm:px-12 xl:mt-24 xl:px-0`}
         >

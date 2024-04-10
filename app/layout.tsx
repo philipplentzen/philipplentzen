@@ -17,10 +17,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: `Philipp Lentzen - Web Development`,
     type: `website`,
-    url: `https://beta.philipplentzen.dev/`,
+    url: `https://philipplentzen.dev/`,
     images: [
       {
-        url: `https://beta.philipplentzen.dev/favicons/favicon-96x96.png`,
+        url: `https://philipplentzen.dev/favicons/favicon-96x96.png`,
         width: 96,
         height: 96,
       },
@@ -86,7 +86,6 @@ export default function RootLayout({ children }: NextLayout) {
 
   return (
     <html className={`scroll-smooth`} lang={`de`}>
-      <head />
       <body
         className={cn(
           `flow-root min-h-full overflow-x-hidden bg-white bg-grain bg-fixed leading-4 text-black selection:bg-yellow selection:text-cyan `,

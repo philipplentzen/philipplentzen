@@ -1,6 +1,3 @@
-
-
-
 import "contentlayer/generated";
 
 import { Metadata } from "next";
@@ -9,10 +6,6 @@ import { allPages, Page } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
 
 import { H1 } from "@/components/ui/typography";
-
-
-
-
 
 type Props = {
   params: {

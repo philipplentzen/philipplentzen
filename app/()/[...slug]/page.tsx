@@ -1,3 +1,6 @@
+
+
+
 import "contentlayer/generated";
 
 import { Metadata } from "next";
@@ -6,6 +9,10 @@ import { allPages, Page } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
 
 import { H1 } from "@/components/ui/typography";
+
+
+
+
 
 type Props = {
   params: {
@@ -48,7 +55,7 @@ export default function PagesPage(props: Props) {
   return (
     <>
       <H1>{page.title}</H1>
-      <div className={`4 xl:0 w-full xl:w-9/12`}>
+      <div className={`w-full xl:w-9/12`}>
         <article className={`prose`}>
           <Component />
         </article>

@@ -1,1 +1,1 @@
-[![Banner](https://raw.githubusercontent.com/philipplentzen/philipplentzen/main/public/og.jpg "Banner")](https://philipplentzen.dev/)
+[![Banner](https://beta.philipplentzen.dev/opengraph-image "Banner")](https://philipplentzen.dev/)

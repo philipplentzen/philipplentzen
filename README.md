@@ -1,1 +1,1 @@
-[![Banner](https://raw.githubusercontent.com/philipplentzen/philipplentzen/main/banner.jpg "Banner")](https://philipplentzen.dev/)
+[![Banner](https://raw.githubusercontent.com/philipplentzen/philipplentzen/main/public/og.jpg "Banner")](https://philipplentzen.dev/)

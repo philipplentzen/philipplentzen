@@ -6,18 +6,21 @@ import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/buttons";
 import { List, ListItem } from "@/components/ui/list";
 import { Section } from "@/components/ui/section";
-import { H1, H2, P } from "@/components/ui/typography";
+import { H1, H2, H3, P } from "@/components/ui/typography";
 import { Logo } from "@/components/logo";
 
-export default function IndexPage() {
+export default function HomePage() {
   const projects = sortBy(allProjects, [`year`]).reverse();
 
   return (
     <>
       <Section>
-        <Logo
-          className={`mt-0 w-full drop-shadow sm:mt-12 sm:w-8/12 lg:w-6/12 xl:mt-20`}
-        />
+        <div className={`mt-0 sm:mt-12 xl:mt-20`}>
+          <H2 className={`font-mono text-xs font-normal text-cyan`}>
+            kreativer entwickler. informatik student. aachen, nrw.
+          </H2>
+        </div>
+        <Logo className={`-mt-3 mb-3 w-full drop-shadow sm:w-8/12 lg:w-6/12`} />
         <div className={`mb-12 flex items-center space-x-6 sm:mb-30`}>
           <a
             href={`mailto:kontakt@philipplentzen.dev`}
@@ -26,7 +29,7 @@ export default function IndexPage() {
           >
             .sayHello()
           </a>
-          <H2
+          <H3
             className={`flex items-center font-mono text-sm font-normal lowercase text-neutral-700`}
           >
             <span className="relative mr-2 flex size-3">
@@ -34,7 +37,7 @@ export default function IndexPage() {
               <span className="relative inline-flex size-3 rounded-full bg-cyan"></span>
             </span>
             verfügbar
-          </H2>
+          </H3>
         </div>
       </Section>
 

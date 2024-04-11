@@ -16,8 +16,18 @@ export default function HomePage() {
     <>
       <Section>
         <div className={`mt-0 sm:mt-12 xl:mt-20`}>
-          <H2 className={`font-mono text-xs font-normal text-cyan`}>
-            kreativer entwickler. informatik student. aachen, nrw.
+          <H2
+            className={`mx-auto w-1/2 space-x-1 space-y-1 text-center font-mono text-xs font-normal text-cyan sm:w-full`}
+          >
+            {[
+              `kreativer entwickler`,
+              `informatik student`,
+              `aus der kaiserstadt`,
+            ].map((text, index) => (
+              <span key={index} className={`inline-block whitespace-nowrap`}>
+                {text}.
+              </span>
+            ))}
           </H2>
         </div>
         <Logo className={`-mt-3 mb-3 w-full drop-shadow sm:w-8/12 lg:w-6/12`} />

@@ -11,23 +11,19 @@ import { NextLayout } from "@/types/next-layout";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_URL || `https://www.philipplentzen.dev/`
+  ),
   title: {
     default: `philipp lentzen - kreativer entwickler.`,
     template: `philipp lentzen - %s`,
   },
   description: `philipp lentzen - kreativer entwickler. informatik student. aachen, nrw`,
   openGraph: {
-    url: `https://www.philipplentzen.dev/`,
+    url: `/`,
     type: `website`,
     title: `philipp lentzen - kreativer entwickler.`,
     description: `philipp lentzen - kreativer entwickler. informatik student. aachen, nrw`,
-    images: [
-      {
-        url: `https://www.philipplentzen.dev/images/og.jpg`,
-        width: 1200,
-        height: 630,
-      },
-    ],
   },
   icons: {
     icon: [16, 32, 96, 128, 196].map((size) => ({

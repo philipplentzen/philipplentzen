@@ -12,16 +12,17 @@ import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: {
-    default: `Philipp Lentzen - Web Development`,
-    template: `%s | Philipp Lentzen - Web Development`,
+    default: `philipp lentzen - kreativer entwickler.`,
+    template: `philipp lentzen - %s`,
   },
+  description: `philipp lentzen - kreativer entwickler. informatik student. aachen, nrw`,
   openGraph: {
-    title: `Philipp Lentzen - Web Development`,
+    title: `philipp lentzen - kreativer entwickler.`,
     type: `website`,
-    url: `https://philipplentzen.dev/`,
+    url: `https://www.philipplentzen.dev/`,
     images: [
       {
-        url: `https://philipplentzen.dev/favicons/favicon-96x96.png`,
+        url: `https://www.philipplentzen.dev/favicons/favicon-96x96.png`,
         width: 96,
         height: 96,
       },

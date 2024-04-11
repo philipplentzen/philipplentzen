@@ -35,7 +35,7 @@ export const generateMetadata = ({ params }: Props): Metadata => {
     return {};
   }
 
-  return { title: page.title };
+  return { title: page.title.toLowerCase() };
 };
 
 export default function PagesPage(props: Props) {

@@ -17,14 +17,15 @@ export const metadata: Metadata = {
   },
   description: `philipp lentzen - kreativer entwickler. informatik student. aachen, nrw`,
   openGraph: {
-    title: `philipp lentzen - kreativer entwickler.`,
-    type: `website`,
     url: `https://www.philipplentzen.dev/`,
+    type: `website`,
+    title: `philipp lentzen - kreativer entwickler.`,
+    description: `philipp lentzen - kreativer entwickler. informatik student. aachen, nrw`,
     images: [
       {
-        url: `https://www.philipplentzen.dev/favicons/favicon-96x96.png`,
-        width: 96,
-        height: 96,
+        url: `https://www.philipplentzen.dev/images/og.jpg`,
+        width: 1200,
+        height: 630,
       },
     ],
   },

@@ -27,10 +27,27 @@ export default async function Image() {
           fontSize: `1.2rem`,
         }}
       >
+        <img
+          src={`https://philipplentzen.dev/images/clouds.png`}
+          style={{ position: `absolute` }}
+        />
         <span style={{ color: `#18A999`, fontFamily: `ui-monospace` }}>
           kreativer entwickler. informatik student. aus der kaiserstadt.
         </span>
         <Logo />
+        <div
+          style={{
+            display: `flex`,
+            color: `rgba(255,255,255,0.75)`,
+            backgroundColor: `#000`,
+            padding: `1rem 2rem`,
+            marginTop: `2rem`,
+          }}
+        >
+          <span>kontakt</span>
+          <span style={{ color: `#FFF` }}>@philipplentzen</span>
+          <span>.dev</span>
+        </div>
       </div>
     ),
     {

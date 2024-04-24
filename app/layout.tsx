@@ -95,7 +95,7 @@ export default function RootLayout({ children }: NextLayout) {
           data-website-id={process.env.NEXT_PUBLIC_ANALYTICS_ID}
         />
         <header
-          className={`absolute inset-0 bottom-auto z-50 mx-auto mt-12 w-screen max-w-screen-xl px-6 text-black/50 drop-shadow sm:px-12 xl:mt-24 xl:px-0`}
+          className={`absolute inset-0 bottom-auto z-50 mx-auto mt-12 w-screen max-w-screen-md px-6 text-black/50 drop-shadow lg:px-0 xl:mt-24`}
         >
           <div className={`flex w-full items-end justify-between`}>
             <Link

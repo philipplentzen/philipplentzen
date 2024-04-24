@@ -20,12 +20,12 @@ export const metadata: Metadata = {
     default: `philipp lentzen - kreativer entwickler.`,
     template: `philipp lentzen - %s`,
   },
-  description: `philipp lentzen - kreativer entwickler. informatik student. aachen, nrw`,
+  description: `philipp lentzen - kreativer entwickler. informatikstudent. öcher jong.`,
   openGraph: {
     url: `/`,
     type: `website`,
     title: `philipp lentzen - kreativer entwickler.`,
-    description: `philipp lentzen - kreativer entwickler. informatik student. aachen, nrw`,
+    description: `philipp lentzen - kreativer entwickler. informatik student. öcher jong.`,
   },
   icons: {
     icon: [16, 32, 96, 128, 196].map((size) => ({

@@ -22,7 +22,7 @@ export const List = forwardRef<HTMLOListElement, ListProps>((props, ref) => {
   const { className, divided, ...otherProps } = props;
 
   return (
-    <ol
+    <div
       ref={ref}
       className={cn(listVariants({ divided, className }))}
       {...otherProps}
@@ -44,7 +44,7 @@ export const ListItem = forwardRef<HTMLLIElement, ListItemProps>(
     const { className, ...otherProps } = props;
 
     return (
-      <li
+      <div
         ref={ref}
         className={cn(listItemVariants({ className }))}
         {...otherProps}

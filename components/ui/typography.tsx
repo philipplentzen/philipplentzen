@@ -82,48 +82,6 @@ export const H4 = (props: Props<HTMLHeadingElement>) => {
   );
 };
 
-export const P = (props: Props<HTMLParagraphElement>) => {
-  const { className, ...other } = props;
-
-  return (
-    <Typography<HTMLParagraphElement>
-      as={`p`}
-      className={cn(
-        `leading-7 transition-colors [&:not(:first-child)]:mt-3`,
-        className
-      )}
-      {...other}
-    />
-  );
-};
-
-export const Blockquote = (props: Props<HTMLQuoteElement>) => {
-  const { className, ...other } = props;
-
-  return (
-    <Typography<HTMLQuoteElement>
-      as={`blockquote`}
-      className={cn(`leading-7 [&:not(:first-child)]:mt-6`, className)}
-      {...other}
-    />
-  );
-};
-
-export const InlineCode = (props: Props<HTMLElement>) => {
-  const { className, ...other } = props;
-
-  return (
-    <Typography<HTMLElement>
-      as={`code`}
-      className={cn(
-        `relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold`,
-        className
-      )}
-      {...other}
-    />
-  );
-};
-
 export const Article = (props: Props<HTMLElement>) => {
   const { className, ...other } = props;
 
@@ -131,7 +89,11 @@ export const Article = (props: Props<HTMLElement>) => {
     <Typography<HTMLElement>
       as={`article`}
       className={cn(
-        [`prose prose-neutral`, `prose-a:text-cyan`, `prose-pre:bg-blue`],
+        [
+          `prose prose-neutral w-full`,
+          `prose-a:text-cyan`,
+          `prose-pre:bg-blue`,
+        ],
         className
       )}
       {...other}

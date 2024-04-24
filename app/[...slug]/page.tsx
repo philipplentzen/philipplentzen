@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { allPages, Page } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
 
+import { Section } from "@/components/ui/section";
 import { H1 } from "@/components/ui/typography";
 
 type Props = {
@@ -47,12 +48,14 @@ export default function PagesPage(props: Props) {
 
   return (
     <>
-      <H1>{page.title}</H1>
-      <div className={`w-full xl:w-9/12`}>
+      <Section>
+        <H1>{page.title}</H1>
+      </Section>
+      <Section>
         <article className={`prose`}>
           <Component />
         </article>
-      </div>
+      </Section>
     </>
   );
 }

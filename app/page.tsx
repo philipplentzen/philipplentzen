@@ -48,8 +48,9 @@ export default function HomePage() {
             Momentan studiere ich an der RWTH Aachen University im letzten
             Bachelorsemester Informatik. Neben dem Studium verwirkliche ich
             meine eigenen Projekten und arbeite als Werkstudent beim INFORM
-            DataLab. Diese kleine Webseite soll dir einen Einblick in meine Welt
-            geben. Viel Spaß beim durchstöbern der Links!
+            DataLab. Diese kleine Webseite ist eines dieser Projekte und soll
+            dir einen Einblick in meine Welt geben. Viel Spaß beim durchstöbern
+            der Links!
           </P>
         </article>
 
@@ -60,7 +61,7 @@ export default function HomePage() {
             {
               title: `Informationen`,
               items: [
-                { title: `Über mich`, href: `/` },
+                { title: `Über mich`, href: `/about` },
                 { title: `Kontakt`, href: `/` },
               ],
             },

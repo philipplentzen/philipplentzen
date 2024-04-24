@@ -1,13 +1,9 @@
 import Link from "next/link";
-import { allProjects } from "contentlayer/generated";
-import { sortBy } from "lodash";
 
 import { Section } from "@/components/ui/section";
 import { H1, H2, H3 } from "@/components/ui/typography";
 
 export default function HomePage() {
-  const projects = sortBy(allProjects, [`year`]).reverse();
-
   return (
     <>
       <Section className={`pb-72`}>
@@ -48,15 +44,24 @@ export default function HomePage() {
           className={`mt-24 grid w-full grid-cols-2 rounded-xl border border-cyan bg-cyan/10 p-6`}
         >
           {[
-            { title: `Informationen`, items: [`Über mich`, `Kontakt`] },
-            { title: `Stöbern`, items: [`Projekte`] },
+            {
+              title: `Informationen`,
+              items: [
+                { title: `Über mich`, href: `/` },
+                { title: `Kontakt`, href: `/` },
+              ],
+            },
+            {
+              title: `Stöbern`,
+              items: [{ title: `Projekte`, href: `/projects` }],
+            },
           ].map(({ title, items }, i) => (
             <div key={i}>
               <H3>{title}</H3>
               <ul className={`mt-4 space-y-3 pl-3 text-black`}>
-                {items.map((item, i) => (
+                {items.map(({ title, href }, i) => (
                   <li key={i} className={`transition-colors hover:text-cyan`}>
-                    <Link href={`/`}>{item}</Link>
+                    <Link href={href}>{title}</Link>
                   </li>
                 ))}
               </ul>

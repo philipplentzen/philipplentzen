@@ -5,9 +5,6 @@ const nextConfig = {
   reactStrictMode: true,
   output: `standalone`,
   swcMinify: true,
-  experimental: {
-    typedRoutes: true,
-  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,

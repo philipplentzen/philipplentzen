@@ -19,7 +19,7 @@ const H = (props: Props<HTMLHeadingElement> & { as: React.ElementType }) => {
 
   return (
     <Typography<HTMLHeadingElement>
-      className={cn(`z-10 after:text-cyan after:content-["."]`, className)}
+      className={cn(`z-10 mb-0 after:text-cyan after:content-["."]`, className)}
       {...other}
     />
   );
@@ -89,7 +89,7 @@ export const P = (props: Props<HTMLParagraphElement>) => {
     <Typography<HTMLParagraphElement>
       as={`p`}
       className={cn(
-        `leading-7 transition-colors [&:not(:first-child)]:mt-6`,
+        `leading-7 transition-colors [&:not(:first-child)]:mt-3`,
         className
       )}
       {...other}
@@ -119,6 +119,18 @@ export const InlineCode = (props: Props<HTMLElement>) => {
         `relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold`,
         className
       )}
+      {...other}
+    />
+  );
+};
+
+export const Article = (props: Props<HTMLElement>) => {
+  const { className, ...other } = props;
+
+  return (
+    <Typography<HTMLElement>
+      as={`article`}
+      className={cn(`prose`, className)}
       {...other}
     />
   );

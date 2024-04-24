@@ -6,6 +6,8 @@ import { notFound } from "next/navigation";
 import { allPages, Page } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
 
+import { Badge } from "@/components/ui/badge";
+import { List, ListItem } from "@/components/ui/list";
 import { Section } from "@/components/ui/section";
 import { Article, H1 } from "@/components/ui/typography";
 
@@ -59,6 +61,9 @@ export default function PagesPage(props: Props) {
               a: ({ href, children }) => (
                 <Link href={href as string}>{children}</Link>
               ),
+              List,
+              ListItem,
+              Badge,
             }}
           />
         </Article>

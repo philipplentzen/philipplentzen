@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { allProjects } from "contentlayer/generated";
 import { sortBy } from "lodash";
 
@@ -13,12 +14,13 @@ export default function HomePage() {
       <Section className={`pb-72`}>
         <Logo className={`mb-3 w-full drop-shadow sm:w-8/12 lg:w-6/12`} />
         <div className={`-mt-8`}>
-          <H2
-            className={`space-y-2 font-normal text-black/60 after:content-none sm:w-full`}
-          >
+          <H2 className={`space-y-2 font-normal after:content-none sm:w-full`}>
             {[`Kreativer Entwickler`, `Informatikstudent`, `Öcher Jong`].map(
               (text, index) => (
-                <span key={index} className={`block`}>
+                <span
+                  key={index}
+                  className={`block text-black/60 hover:text-cyan`}
+                >
                   {text}.
                 </span>
               )
@@ -39,10 +41,10 @@ export default function HomePage() {
           ].map(({ title, items }, i) => (
             <div key={i}>
               <H2>{title}</H2>
-              <ul className={`mt-6 space-y-3 pl-3 text-black/60`}>
+              <ul className={`mt-4 space-y-3 pl-3 text-black`}>
                 {items.map((item, i) => (
                   <li key={i} className={`transition-colors hover:text-cyan`}>
-                    {item}
+                    <Link href={`/`}>{item}</Link>
                   </li>
                 ))}
               </ul>

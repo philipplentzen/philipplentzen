@@ -145,10 +145,11 @@ export default function RootLayout({ children }: NextLayout) {
             priority
           />
           {children}
-
-          <Section className={`border-t-0 pt-0`}>
+        </main>
+        <footer className={`border-t border-t-cyan bg-cyan/10`}>
+          <Section className={`first-of-type:py-6`}>
             <div
-              className={`grid w-full grid-cols-2 gap-x-6 gap-y-12 rounded-xl border border-cyan bg-cyan/10 p-6 max-sm:grid-cols-1`}
+              className={`grid w-full grid-cols-2 gap-x-6 gap-y-12 max-sm:grid-cols-1`}
             >
               {[
                 {
@@ -164,8 +165,8 @@ export default function RootLayout({ children }: NextLayout) {
                 },
               ].map(({ title, items }, i) => (
                 <div key={i}>
-                  <H3>{title}</H3>
-                  <ul className={`mt-4 space-y-3 pl-3 text-black`}>
+                  <H3 className={``}>{title}</H3>
+                  <ul className={`mt-4 space-y-3 text-blue`}>
                     {items.map(({ title, href }, i) => (
                       <li
                         key={i}
@@ -179,17 +180,17 @@ export default function RootLayout({ children }: NextLayout) {
               ))}
             </div>
           </Section>
-        </main>
-        <footer
-          className={`mx-auto max-w-screen-md py-3 text-left font-mono text-black`}
-        >
-          <Link
-            href={`/impressum`}
-            aria-label={`Impressum öffnen`}
-            className={`focus mb-0 px-6 text-xs text-black/40 transition-colors hover:text-cyan lg:px-0`}
+          <Section
+            className={`mt-24 items-center border-t-cyan py-3 font-mono`}
           >
-            impressum
-          </Link>
+            <Link
+              href={`/impressum`}
+              aria-label={`Impressum öffnen`}
+              className={`focus mb-0 text-xs text-cyan transition-colors hover:text-cyan lg:px-0`}
+            >
+              impressum
+            </Link>
+          </Section>
         </footer>
       </body>
     </html>

@@ -57,12 +57,7 @@ export default function PagesPage(props: Props) {
           <Component
             components={{
               a: ({ href, children }) => (
-                <Link
-                  href={href as string}
-                  className={`text-cyan no-underline`}
-                >
-                  {children}
-                </Link>
+                <Link href={href as string}>{children}</Link>
               ),
             }}
           />

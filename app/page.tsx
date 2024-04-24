@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { Section } from "@/components/ui/section";
-import { H1, H2, H3, P } from "@/components/ui/typography";
+import { Article, H1, H2, H3 } from "@/components/ui/typography";
 
 export default function HomePage() {
   return (
@@ -38,21 +38,23 @@ export default function HomePage() {
       </Section>
 
       <Section id={`projects`}>
-        <article>
-          <H2>Willkommen</H2>
-          <P className={`font-bold`}>
-            Kreativer Entwickler, Informatikstudent im Bachelor und ein Öcher
-            Jong .
-          </P>
-          <P>
+        <H2>Willkommen</H2>
+        <Article>
+          <p>
+            <strong>
+              Kreativer Entwickler, Informatikstudent im Bachelor und ein Öcher
+              Jong.
+            </strong>
+          </p>
+          <p>
             Momentan studiere ich an der RWTH Aachen University im letzten
             Bachelorsemester Informatik. Neben dem Studium verwirkliche ich
             meine eigenen Projekten und arbeite als Werkstudent beim INFORM
             DataLab. Diese kleine Webseite ist eines dieser Projekte und soll
             dir einen Einblick in meine Welt geben. Viel Spaß beim durchstöbern
             der Links!
-          </P>
-        </article>
+          </p>
+        </Article>
 
         <div
           className={`mt-12 grid w-full grid-cols-2 gap-x-6 gap-y-12 rounded-xl border border-cyan bg-cyan/10 p-6 max-sm:grid-cols-1`}

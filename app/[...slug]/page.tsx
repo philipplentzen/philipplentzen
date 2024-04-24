@@ -1,6 +1,7 @@
 import "contentlayer/generated";
 
 import { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { allPages, Page } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
@@ -53,7 +54,18 @@ export default function PagesPage(props: Props) {
       </Section>
       <Section>
         <Article>
-          <Component />
+          <Component
+            components={{
+              a: ({ href, children }) => (
+                <Link
+                  href={href as string}
+                  className={`text-cyan no-underline`}
+                >
+                  {children}
+                </Link>
+              ),
+            }}
+          />
         </Article>
       </Section>
     </>

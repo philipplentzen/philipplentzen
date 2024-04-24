@@ -22,7 +22,7 @@ export default function ProjectsPage() {
     <>
       <Section className={`space-y-0`}>
         <H1>klick dich durch</H1>
-        <span className={`text-blue/60`}>
+        <span className={`text-black/60`}>
           Eine kleine Auswahl meiner letzten Projekte
         </span>
       </Section>

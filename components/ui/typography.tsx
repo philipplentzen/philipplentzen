@@ -32,7 +32,7 @@ export const H1 = (props: Props<HTMLHeadingElement>) => {
     <H
       as={`h1`}
       className={cn(
-        `w-full font-overpass text-6xl font-bold lowercase tracking-[-0.075em] text-blue drop-shadow after:ml-1`,
+        `-ml-1 w-full font-overpass text-7xl font-bold lowercase tracking-[-0.075em] text-black drop-shadow after:content-none`,
         className
       )}
       {...other}

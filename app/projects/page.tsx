@@ -1,5 +1,6 @@
 import "contentlayer/generated";
 
+import { Metadata } from "next";
 import { allProjects } from "contentlayer/generated";
 import { sortBy } from "lodash";
 import { ArrowUpRightIcon } from "lucide-react";
@@ -10,13 +11,20 @@ import { List, ListItem } from "@/components/ui/list";
 import { Section } from "@/components/ui/section";
 import { H1, H3 } from "@/components/ui/typography";
 
+export const metadata: Metadata = {
+  title: `Projekte`.toLowerCase(),
+};
+
 export default function ProjectsPage() {
   const projects = sortBy(allProjects, [`year`]).reverse();
 
   return (
     <>
-      <Section>
-        <H1>Projekte</H1>
+      <Section className={`space-y-0`}>
+        <H1>klick dich durch</H1>
+        <span className={`text-blue/60`}>
+          Eine kleine Auswahl meiner letzten Projekte
+        </span>
       </Section>
       <Section>
         <List divided>

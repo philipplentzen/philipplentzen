@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 
+import { ReactNode } from "react";
 import { Metadata, Viewport } from "next";
 import { Inter, Overpass } from "next/font/google";
 import Image from "next/image";
@@ -7,7 +8,6 @@ import Link from "next/link";
 import Script from "next/script";
 import { AtSignIcon, GithubIcon, LinkedinIcon } from "lucide-react";
 
-import { NextLayout } from "@/types/next-layout";
 import { cn } from "@/lib/utils";
 import { Section } from "@/components/ui/section";
 import { H3 } from "@/components/ui/typography";
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   ),
   title: {
     default: `philipp lentzen - kreativer entwickler.`,
-    template: `philipp lentzen - %s`,
+    template: `philipp lentzen - %s.`,
   },
   description: `philipp lentzen - kreativer entwickler. informatikstudent. öcher jong.`,
   openGraph: {
@@ -89,7 +89,9 @@ const socials = [
   },
 ];
 
-export default function RootLayout({ children }: NextLayout) {
+export default function RootLayout({
+  children,
+}: Record<`children`, ReactNode>) {
   return (
     <html className={`scroll-smooth`} lang={`de`}>
       <body

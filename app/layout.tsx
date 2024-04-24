@@ -137,11 +137,13 @@ export default function RootLayout({ children }: NextLayout) {
           />
           {children}
         </main>
-        <footer className={`py-3 text-center font-mono text-black`}>
+        <footer
+          className={`mx-auto max-w-screen-md py-3 text-left font-mono text-black`}
+        >
           <Link
             href={`/impressum`}
             aria-label={`Impressum öffnen`}
-            className={`focus mb-0 text-xs hover:text-cyan`}
+            className={`focus mb-0 text-xs text-black/40 transition-colors hover:text-cyan`}
           >
             impressum
           </Link>

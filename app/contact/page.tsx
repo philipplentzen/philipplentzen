@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Link from "next/link";
 import { GithubIcon, GitlabIcon, LinkedinIcon, MailIcon } from "lucide-react";
 
@@ -6,12 +7,19 @@ import { List, ListItem } from "@/components/ui/list";
 import { Section } from "@/components/ui/section";
 import { H1, H2 } from "@/components/ui/typography";
 
+export const metadata: Metadata = {
+  title: `Kontakt`.toLowerCase(),
+};
+
 export default function ContactPage() {
   return (
     <>
-      <Section>
+      <Section className={`space-y-0`}>
         <H1>meld dich mal</H1>
-        <span></span>
+        <span className={`leading-5 text-blue/60`}>
+          Ideen für ein neues Projekt oder einfach mal Hallo sagen? <br />
+          Kein Problem, so erreichst du mich
+        </span>
       </Section>
       <Section className={`space-y-12`}>
         {[

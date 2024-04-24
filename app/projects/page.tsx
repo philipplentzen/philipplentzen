@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/buttons";
 import { List, ListItem } from "@/components/ui/list";
 import { Section } from "@/components/ui/section";
-import { H1, H3, P } from "@/components/ui/typography";
+import { H1, H3 } from "@/components/ui/typography";
 
 export default function ProjectsPage() {
   const projects = sortBy(allProjects, [`year`]).reverse();
@@ -33,7 +33,7 @@ export default function ProjectsPage() {
               >
                 {project.title}
               </H3>
-              <P className={`!mt-0 w-full text-sm`}></P>
+              <div className={`w-full`}></div>
               {project.url && (
                 <a
                   href={project.url}

@@ -11,7 +11,10 @@ export const Section = forwardRef<HTMLElement, ContainerProps>((props, ref) => {
   return (
     <section
       className={cn(
-        `group/section relative mx-auto flex max-w-screen-md scroll-m-12 flex-col items-start gap-6 border-t border-t-black/20 px-6 pb-30 pt-6 first-of-type:border-t-0 first-of-type:pt-96 lg:px-0`,
+        [
+          `group/section relative mx-auto flex max-w-screen-md scroll-m-12 flex-col items-start gap-6 border-t border-t-black/20 px-6 pb-30 pt-6 lg:px-0`,
+          `first-of-type:border-t-0 first-of-type:py-72`,
+        ],
         className
       )}
       ref={ref}

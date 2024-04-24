@@ -130,7 +130,10 @@ export const Article = (props: Props<HTMLElement>) => {
   return (
     <Typography<HTMLElement>
       as={`article`}
-      className={cn(`prose`, className)}
+      className={cn(
+        [`prose prose-neutral`, `prose-a:text-cyan`, `prose-pre:bg-blue`],
+        className
+      )}
       {...other}
     />
   );

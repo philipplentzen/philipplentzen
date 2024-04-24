@@ -41,8 +41,8 @@ export default function HomePage() {
         <article>
           <H2>Willkommen</H2>
           <P className={`font-bold`}>
-            Ich bin ein kreativer Entwickler, Informatikstudent im Bachelor und
-            ein Öcher Jong .
+            Kreativer Entwickler, Informatikstudent im Bachelor und ein Öcher
+            Jong .
           </P>
           <P>
             Momentan studiere ich an der RWTH Aachen University im letzten
@@ -54,7 +54,7 @@ export default function HomePage() {
         </article>
 
         <div
-          className={`mt-12 grid w-full grid-cols-2 rounded-xl border border-cyan bg-cyan/10 p-6`}
+          className={`mt-12 grid w-full grid-cols-2 gap-x-6 gap-y-12 rounded-xl border border-cyan bg-cyan/10 p-6 max-sm:grid-cols-1`}
         >
           {[
             {

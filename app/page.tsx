@@ -4,7 +4,7 @@ import { Article, H1, H2 } from "@/components/ui/typography";
 export default function HomePage() {
   return (
     <>
-      <Section className={`pb-72`}>
+      <Section className={`space-y-3 pb-72`}>
         <div
           className={`flex items-center font-mono text-xs font-normal lowercase text-black/60`}
         >
@@ -14,8 +14,8 @@ export default function HomePage() {
           </span>
           verfügbar
         </div>
-        <H1 className={`-mt-1`}>philipp lentzen</H1>
-        <div className={`-mt-3`}>
+        <H1>philipp lentzen</H1>
+        <div>
           <H2
             className={`space-y-2 font-mono text-2xl font-normal after:content-none sm:w-full`}
           >

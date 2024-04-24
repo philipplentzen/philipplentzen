@@ -47,7 +47,7 @@ export const H2 = (props: Props<HTMLHeadingElement>) => {
     <H
       as={`h2`}
       className={cn(
-        `w-full font-overpass text-5xl font-bold lowercase tracking-tighter text-blue drop-shadow`,
+        `w-full font-overpass text-5xl font-medium lowercase tracking-tighter text-blue drop-shadow`,
         className
       )}
       {...other}

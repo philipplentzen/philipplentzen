@@ -14,9 +14,7 @@ export default function HomePage() {
           </span>
           verfügbar
         </div>
-        <H1 className={`-ml-1 -mt-1 text-7xl text-black after:content-none`}>
-          philipp lentzen
-        </H1>
+        <H1 className={`-mt-1`}>philipp lentzen</H1>
         <div className={`-mt-3`}>
           <H2
             className={`space-y-2 font-mono text-2xl font-normal after:content-none sm:w-full`}

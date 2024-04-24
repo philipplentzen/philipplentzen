@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { Section } from "@/components/ui/section";
-import { H1, H2, H3 } from "@/components/ui/typography";
+import { H1, H2, H3, P } from "@/components/ui/typography";
 
 export default function HomePage() {
   return (
@@ -27,7 +27,7 @@ export default function HomePage() {
               (text, index) => (
                 <span
                   key={index}
-                  className={`block text-black/60 hover:text-cyan`}
+                  className={`block text-black/60 transition-colors hover:text-cyan`}
                 >
                   {text}.
                 </span>
@@ -38,10 +38,23 @@ export default function HomePage() {
       </Section>
 
       <Section id={`projects`}>
-        <H2>Willkommen</H2>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        <article>
+          <H2>Willkommen</H2>
+          <P className={`font-bold`}>
+            Ich bin ein kreativer Entwickler, Informatikstudent im Bachelor und
+            ein Öcher Jong .
+          </P>
+          <P>
+            Momentan studiere ich an der RWTH Aachen University im letzten
+            Bachelorsemester Informatik. Neben dem Studium verwirkliche ich
+            meine eigenen Projekten und arbeite als Werkstudent beim INFORM
+            DataLab. Diese kleine Webseite soll dir einen Einblick in meine Welt
+            geben. Viel Spaß beim durchstöbern der Links!
+          </P>
+        </article>
+
         <div
-          className={`mt-24 grid w-full grid-cols-2 rounded-xl border border-cyan bg-cyan/10 p-6`}
+          className={`mt-12 grid w-full grid-cols-2 rounded-xl border border-cyan bg-cyan/10 p-6`}
         >
           {[
             {

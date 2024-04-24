@@ -6,7 +6,7 @@ import { allPages, Page } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
 
 import { Section } from "@/components/ui/section";
-import { H1 } from "@/components/ui/typography";
+import { Article, H1 } from "@/components/ui/typography";
 
 type Props = {
   params: {
@@ -52,9 +52,9 @@ export default function PagesPage(props: Props) {
         <H1>{page.title}</H1>
       </Section>
       <Section>
-        <article className={`prose`}>
+        <Article>
           <Component />
-        </article>
+        </Article>
       </Section>
     </>
   );

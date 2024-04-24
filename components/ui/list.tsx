@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 export const listVariants = cva(`w-full`, {
   variants: {
     divided: {
-      true: `divide-y divide-black/20`,
+      true: `divide-y divide-black/10`,
       false: ``,
     },
   },

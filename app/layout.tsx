@@ -1,7 +1,7 @@
 import "../styles/globals.css";
 
 import { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Overpass } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
@@ -61,6 +61,12 @@ const inter = Inter({
   display: "swap",
   variable: "--font-inter",
 });
+
+const overpass = Overpass({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-overpass",
+});
 /* eslint-enable quotes */
 
 const socials = [
@@ -86,8 +92,9 @@ export default function RootLayout({ children }: NextLayout) {
     <html className={`scroll-smooth`} lang={`de`}>
       <body
         className={cn(
-          `flow-root min-h-full overflow-x-hidden bg-white bg-grain bg-fixed leading-4 text-black selection:bg-yellow selection:text-cyan `,
-          inter.className
+          `flow-root min-h-full overflow-x-hidden bg-white bg-grain bg-fixed font-sans leading-4 text-black selection:bg-yellow selection:text-cyan`,
+          inter.variable,
+          overpass.variable
         )}
       >
         <Script

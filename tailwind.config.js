@@ -23,6 +23,7 @@ module.exports = {
       },
       fontFamily: {
         sans: [`var(--font-inter)`, ...fontFamily.sans],
+        overpass: [`var(--font-overpass)`, ...fontFamily.sans],
       },
       fontSize: {
         xs: [`min(0.75rem, 2.75vw)`, { lineHeight: 1 }],
@@ -32,6 +33,7 @@ module.exports = {
         "2xl": [`min(1.5rem, 5vw)`, { lineHeight: 1 }],
         "3xl": [`min(1.875rem, 5vw)`, { lineHeight: 1 }],
         "4xl": [`min(2.25rem, 5vw)`, { lineHeight: 1 }],
+        "6xl": [`min(3.75rem, 5vw)`, { lineHeight: 1 }],
         "7xl": [`min(4.5rem, 14vw)`, { lineHeight: 1 }],
         "8xl": [`min(6rem, 14vw)`, { lineHeight: 1 }],
       },

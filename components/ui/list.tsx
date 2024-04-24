@@ -15,10 +15,10 @@ export const listVariants = cva(`w-full`, {
   },
 });
 
-type ListProps = HTMLAttributes<HTMLOListElement> &
+type ListProps = HTMLAttributes<HTMLDivElement> &
   VariantProps<typeof listVariants>;
 
-export const List = forwardRef<HTMLOListElement, ListProps>((props, ref) => {
+export const List = forwardRef<HTMLDivElement, ListProps>((props, ref) => {
   const { className, divided, ...otherProps } = props;
 
   return (
@@ -36,10 +36,10 @@ export const listItemVariants = cva(`relative flex w-full p-2 xl:px-12`, {
   defaultVariants: {},
 });
 
-type ListItemProps = HTMLAttributes<HTMLLIElement> &
+type ListItemProps = HTMLAttributes<HTMLDivElement> &
   VariantProps<typeof listItemVariants>;
 
-export const ListItem = forwardRef<HTMLLIElement, ListItemProps>(
+export const ListItem = forwardRef<HTMLDivElement, ListItemProps>(
   (props, ref) => {
     const { className, ...otherProps } = props;
 

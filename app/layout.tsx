@@ -150,7 +150,7 @@ export default function RootLayout({ children }: NextLayout) {
           <Link
             href={`/impressum`}
             aria-label={`Impressum öffnen`}
-            className={`focus mb-0 text-xs text-black/40 transition-colors hover:text-cyan`}
+            className={`focus mb-0 px-6 text-xs text-black/40 transition-colors hover:text-cyan lg:px-0`}
           >
             impressum
           </Link>

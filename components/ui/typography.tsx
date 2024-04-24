@@ -32,7 +32,7 @@ export const H1 = (props: Props<HTMLHeadingElement>) => {
     <H
       as={`h1`}
       className={cn(
-        `w-10/12 text-7xl font-bold lowercase tracking-tighter text-blue drop-shadow after:text-cyan after:content-["."] group-odd/section:text-right`,
+        `w-full text-5xl font-bold lowercase tracking-tight text-blue drop-shadow`,
         className
       )}
       {...other}
@@ -47,7 +47,7 @@ export const H2 = (props: Props<HTMLHeadingElement>) => {
     <H
       as={`h2`}
       className={cn(
-        `text-3xl font-semibold transition-colors first:mt-0`,
+        `font-mono text-2xl font-medium lowercase text-cyan transition-colors after:content-["."] first:mt-0`,
         className
       )}
       {...other}
@@ -61,7 +61,7 @@ export const H3 = (props: Props<HTMLHeadingElement>) => {
   return (
     <H
       as={`h3`}
-      className={cn(`text-2xl font-semibold`, className)}
+      className={cn(`text-xl font-semibold`, className)}
       {...other}
     />
   );

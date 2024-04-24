@@ -9,6 +9,8 @@ import { AtSignIcon, GithubIcon, LinkedinIcon } from "lucide-react";
 
 import { NextLayout } from "@/types/next-layout";
 import { cn } from "@/lib/utils";
+import { Section } from "@/components/ui/section";
+import { H3 } from "@/components/ui/typography";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -143,6 +145,40 @@ export default function RootLayout({ children }: NextLayout) {
             priority
           />
           {children}
+
+          <Section className={`border-t-0 pt-0`}>
+            <div
+              className={`grid w-full grid-cols-2 gap-x-6 gap-y-12 rounded-xl border border-cyan bg-cyan/10 p-6 max-sm:grid-cols-1`}
+            >
+              {[
+                {
+                  title: `Informationen`,
+                  items: [
+                    { title: `Über mich`, href: `/about` },
+                    { title: `Kontakt`, href: `/contact` },
+                  ],
+                },
+                {
+                  title: `Stöbern`,
+                  items: [{ title: `Projekte`, href: `/projects` }],
+                },
+              ].map(({ title, items }, i) => (
+                <div key={i}>
+                  <H3>{title}</H3>
+                  <ul className={`mt-4 space-y-3 pl-3 text-black`}>
+                    {items.map(({ title, href }, i) => (
+                      <li
+                        key={i}
+                        className={`transition-colors hover:text-cyan`}
+                      >
+                        <Link href={href}>{title}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </Section>
         </main>
         <footer
           className={`mx-auto max-w-screen-md py-3 text-left font-mono text-black`}

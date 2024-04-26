@@ -9,6 +9,7 @@ import Script from "next/script";
 import { AtSignIcon, GithubIcon, LinkedinIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/buttons";
 import { Section } from "@/components/ui/section";
 import { H3 } from "@/components/ui/typography";
 
@@ -106,16 +107,11 @@ export default function RootLayout({
           data-website-id={process.env.NEXT_PUBLIC_ANALYTICS_ID}
         />
         <header
-          className={`absolute inset-0 bottom-auto z-50 mx-auto mt-12 w-screen max-w-screen-md px-6 text-black/50 drop-shadow lg:px-0 xl:mt-24`}
+          className={`absolute inset-0 bottom-auto z-50 mx-auto mt-12 w-screen max-w-screen-md px-6 text-black/50 drop-shadow lg:px-0`}
         >
           <div className={`flex w-full items-end justify-between`}>
-            <Link
-              href={`/`}
-              aria-label={`Zur Startseite`}
-              className={`focus block h-0 w-6/12 pb-[4.5%] sm:w-3/12 sm:pb-[2.3%] lg:w-2/12 lg:pb-[1.5%]`}
-            >
+            <Link href={`/`} aria-label={`Zur Startseite`} className={`focus`}>
               <h1 className={`font-mono text-xl font-semibold`}>
-                {/*<Logo title={`Philipp Lentzen`} className={`w-full`} />*/}
                 <span className={`max-sm:hidden`}>kontakt</span>
                 <span className={`sm:text-black`}>@philipplentzen</span>
                 <span className={`max-sm:hidden`}>.dev</span>
@@ -136,7 +132,7 @@ export default function RootLayout({
             </div>
           </div>
         </header>
-        <main className={`relative min-h-screen w-screen pt-30`}>
+        <main className={`relative min-h-screen w-screen pt-20`}>
           <Image
             src={`/images/clouds.png`}
             alt={``}
@@ -148,8 +144,12 @@ export default function RootLayout({
           />
           {children}
         </main>
-        <footer className={`border-t border-t-cyan bg-cyan/10`}>
-          <Section className={`first-of-type:py-6`}>
+        <footer
+          className={`border-t-0 border-t-cyan bg-gradient-to-b from-cyan/0 to-cyan/40`}
+        >
+          <Section
+            className={`first-of-type:my-6 first-of-type:border-t first-of-type:pt-6`}
+          >
             <div
               className={`grid w-full grid-cols-2 gap-x-6 gap-y-12 max-sm:grid-cols-1`}
             >
@@ -187,7 +187,7 @@ export default function RootLayout({
             </div>
           </Section>
           <Section
-            className={`mt-24 items-center border-t-cyan py-3 font-mono`}
+            className={`mb-0 mt-24 items-center border-t-0 pb-3 pt-0 font-mono`}
           >
             <Link
               href={`/impressum`}

@@ -170,12 +170,16 @@ export default function RootLayout({
                   <H3 className={``}>{title}</H3>
                   <ul className={`mt-4 space-y-3 text-blue`}>
                     {items.map(({ title, href }, i) => (
-                      <li
-                        key={i}
-                        className={`transition-colors hover:text-cyan`}
-                      >
-                        <Link href={href}>{title}</Link>
-                      </li>
+                      <Link key={i} href={href} className={`block`}>
+                        <li
+                          className={buttonVariants({
+                            variant: `ghost`,
+                            className: `transition-colors block w-full`,
+                          })}
+                        >
+                          <span>{title}</span>
+                        </li>
+                      </Link>
                     ))}
                   </ul>
                 </div>

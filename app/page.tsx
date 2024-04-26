@@ -4,7 +4,7 @@ import { Article, H1, H2 } from "@/components/ui/typography";
 export default function HomePage() {
   return (
     <>
-      <Section className={`space-y-3 pb-72`}>
+      <Section className={`space-y-3`}>
         <div
           className={`flex items-center font-mono text-xs font-normal lowercase text-black/60`}
         >

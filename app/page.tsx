@@ -47,8 +47,7 @@ export default function HomePage() {
             Bachelorsemester Informatik. Neben dem Studium verwirkliche ich
             meine eigenen Projekten und arbeite als Werkstudent beim INFORM
             DataLab. Diese kleine Webseite ist eines dieser Projekte und soll
-            dir einen Einblick in meine Welt geben. Viel Spaß beim durchstöbern
-            der Links!
+            dir einen Einblick in meine Welt geben. Viel Spaß beim durchstöbern!
           </p>
         </Article>
       </Section>

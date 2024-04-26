@@ -145,7 +145,7 @@ export default function RootLayout({
           {children}
         </main>
         <footer
-          className={`border-t-0 border-t-cyan bg-gradient-to-b from-cyan/0 to-cyan/40`}
+          className={`border-t-0 border-t-cyan bg-gradient-to-b from-cyan/0 to-cyan/20`}
         >
           <Section
             className={`first-of-type:my-6 first-of-type:border-t first-of-type:pt-6`}

@@ -9,7 +9,7 @@ import Script from "next/script";
 import { AtSignIcon, GithubIcon, LinkedinIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { Section } from "@/components/ui/section";
 import { H3 } from "@/components/ui/typography";
 
@@ -171,14 +171,15 @@ export default function RootLayout({
                   <ul className={`mt-4 space-y-3 text-blue`}>
                     {items.map(({ title, href }, i) => (
                       <Link key={i} href={href} className={`block`}>
-                        <li
-                          className={buttonVariants({
-                            variant: `ghost`,
-                            className: `transition-colors block w-full`,
-                          })}
+                        <Button
+                          asChild
+                          variant={`ghost`}
+                          className={`block w-full transition-colors`}
                         >
-                          <span>{title}</span>
-                        </li>
+                          <li>
+                            <span>{title}</span>
+                          </li>
+                        </Button>
                       </Link>
                     ))}
                   </ul>

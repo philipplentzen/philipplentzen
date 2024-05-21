@@ -6,7 +6,7 @@ import { sortBy } from "lodash";
 import { ArrowUpRightIcon } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
-import { buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { List, ListItem } from "@/components/ui/list";
 import { Section } from "@/components/ui/section";
 import { H1, H3 } from "@/components/ui/typography";
@@ -43,18 +43,20 @@ export default function ProjectsPage() {
               </H3>
               <div className={`w-full`}></div>
               {project.url && (
-                <a
-                  href={project.url}
-                  aria-label={`${project.title} öffnen`}
-                  target={`_blank`}
-                  className={buttonVariants({
-                    variant: `ghost`,
-                    size: `square`,
-                    className: `flex-none`,
-                  })}
+                <Button
+                  asChild
+                  variant={`ghost`}
+                  size={`square`}
+                  className={`flex-none`}
                 >
-                  <ArrowUpRightIcon size={20} />
-                </a>
+                  <a
+                    href={project.url}
+                    aria-label={`${project.title} öffnen`}
+                    target={`_blank`}
+                  >
+                    <ArrowUpRightIcon size={20} />
+                  </a>
+                </Button>
               )}
             </ListItem>
           ))}

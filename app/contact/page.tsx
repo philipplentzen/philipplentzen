@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GithubIcon, GitlabIcon, LinkedinIcon, MailIcon } from "lucide-react";
 
-import { buttonVariants } from "@/components/ui/buttons";
+import { buttonVariants } from "@/components/ui/button";
 import { List, ListItem } from "@/components/ui/list";
 import { Section } from "@/components/ui/section";
 import { H1, H2 } from "@/components/ui/typography";

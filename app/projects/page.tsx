@@ -6,7 +6,7 @@ import { sortBy } from "lodash";
 import { ArrowUpRightIcon } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
-import { buttonVariants } from "@/components/ui/buttons";
+import { buttonVariants } from "@/components/ui/button";
 import { List, ListItem } from "@/components/ui/list";
 import { Section } from "@/components/ui/section";
 import { H1, H3 } from "@/components/ui/typography";

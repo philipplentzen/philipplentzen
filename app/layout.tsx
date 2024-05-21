@@ -9,7 +9,7 @@ import Script from "next/script";
 import { AtSignIcon, GithubIcon, LinkedinIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/buttons";
+import { buttonVariants } from "@/components/ui/button";
 import { Section } from "@/components/ui/section";
 import { H3 } from "@/components/ui/typography";
 

@@ -156,10 +156,7 @@ export default function RootLayout({
               {[
                 {
                   title: `Informationen`,
-                  items: [
-                    { title: `Über mich`, href: `/about` },
-                    { title: `Kontakt`, href: `/contact` },
-                  ],
+                  items: [{ title: `Kontakt`, href: `/contact` }],
                 },
                 {
                   title: `Stöbern`,

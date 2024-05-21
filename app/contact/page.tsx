@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GithubIcon, GitlabIcon, LinkedinIcon, MailIcon } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
 import { List, ListItem } from "@/components/ui/list";
 import { Section } from "@/components/ui/section";
 import { H1, H2 } from "@/components/ui/typography";
@@ -62,34 +61,28 @@ export default function ContactPage() {
             <H2>{title}</H2>
             <List divided>
               {items.map(({ badge, title, href, icon: Icon }) => (
-                <ListItem
+                <Link
                   key={badge}
-                  className={`h-14 items-center space-x-6 font-mono transition-colors hover:text-cyan`}
+                  href={`${href}`}
+                  target={`_blank`}
+                  className={`flex items-center`}
                 >
-                  <div className={`flex items-center`}>
-                    {Icon && (
-                      <Button
-                        asChild
-                        variant={`ghost`}
-                        size={`square`}
-                        className={`block`}
-                      >
-                        <span title={title}>
+                  <ListItem
+                    className={`h-14 items-center space-x-6 font-mono transition-colors hover:text-cyan`}
+                  >
+                    <div className={`flex items-center`}>
+                      {Icon && (
+                        <span
+                          title={title}
+                          className={`block aspect-square bg-black/5 p-2`}
+                        >
                           <Icon size={20} />
                         </span>
-                      </Button>
-                    )}
-                  </div>
-                  <div>
-                    <Link
-                      href={`${href}`}
-                      target={`_blank`}
-                      className={`flex items-center`}
-                    >
-                      {title}
-                    </Link>
-                  </div>
-                </ListItem>
+                      )}
+                    </div>
+                    <div>{title}</div>
+                  </ListItem>
+                </Link>
               ))}
             </List>
           </div>

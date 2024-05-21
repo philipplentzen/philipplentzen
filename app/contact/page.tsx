@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GithubIcon, GitlabIcon, LinkedinIcon, MailIcon } from "lucide-react";
 
-import { buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { List, ListItem } from "@/components/ui/list";
 import { Section } from "@/components/ui/section";
 import { H1, H2 } from "@/components/ui/typography";
@@ -68,16 +68,16 @@ export default function ContactPage() {
                 >
                   <div className={`flex items-center`}>
                     {Icon && (
-                      <span
-                        className={buttonVariants({
-                          variant: `ghost`,
-                          size: `square`,
-                          className: `block`,
-                        })}
-                        title={title}
+                      <Button
+                        asChild
+                        variant={`ghost`}
+                        size={`square`}
+                        className={`block`}
                       >
-                        <Icon size={20} />
-                      </span>
+                        <span title={title}>
+                          <Icon size={20} />
+                        </span>
+                      </Button>
                     )}
                   </div>
                   <div>

@@ -15,6 +15,7 @@
     "test:results": "playwright show-report"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "0.7.0",
     "classnames": "2.5.1",
     "contentlayer": "0.3.4",

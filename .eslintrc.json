@@ -1,6 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/eslintrc",
   "root": true,
+  "parser": "@typescript-eslint/parser",
   "extends": [
     "next/core-web-vitals",
     "prettier",
@@ -26,8 +27,11 @@
   },
   "overrides": [
     {
-      "files": ["*.ts", "*.tsx"],
-      "parser": "@typescript-eslint/parser"
+      "files": ["*.mdx"],
+      "extends": "plugin:mdx/recommended",
+      "rules": {
+        "react/jsx-no-undef": "off"
+      }
     }
   ]
 }

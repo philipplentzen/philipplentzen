@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 
+import * as process from "node:process";
 import { ReactNode } from "react";
 import { Metadata, Viewport } from "next";
 import { Inter, Overpass } from "next/font/google";
@@ -106,8 +107,22 @@ export default function RootLayout({
           src={process.env.NEXT_PUBLIC_ANALYTICS_URL}
           data-website-id={process.env.NEXT_PUBLIC_ANALYTICS_ID}
         />
+        {process.env.NEXT_PUBLIC_ENV !== `production` && (
+          <div
+            className={`fixed inset-x-0 top-0 z-50 bg-cyan py-2 text-center font-mono text-sm text-white`}
+          >
+            Dies ist eine Vorschau-Version der Seite. Besuche bitte{` `}
+            <Link
+              href={`https://www.philipplentzen.dev`}
+              className={`underline`}
+            >
+              www.philipplentzen.dev
+            </Link>
+            .
+          </div>
+        )}
         <header
-          className={`absolute inset-0 bottom-auto z-50 mx-auto mt-12 w-screen max-w-screen-md px-6 text-black/50 drop-shadow lg:px-0`}
+          className={`absolute inset-0 bottom-auto z-40 mx-auto mt-12 w-screen max-w-screen-md px-6 text-black/50 drop-shadow lg:px-0`}
         >
           <div className={`flex w-full items-end justify-between`}>
             <Link href={`/`} aria-label={`Zur Startseite`} className={`focus`}>

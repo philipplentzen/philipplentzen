@@ -32,7 +32,7 @@ export const H1 = (props: Props<HTMLHeadingElement>) => {
     <H
       as={`h1`}
       className={cn(
-        `-ml-1 w-full font-overpass text-7xl font-bold lowercase tracking-[-0.075em] text-black drop-shadow after:content-none`,
+        `-ml-1 w-full font-overpass text-7xl font-bold lowercase tracking-[-0.075em] text-black drop-shadow after:pl-1`,
         className
       )}
       {...other}
@@ -47,7 +47,7 @@ export const H2 = (props: Props<HTMLHeadingElement>) => {
     <H
       as={`h2`}
       className={cn(
-        `w-full font-overpass text-5xl font-medium lowercase tracking-tighter text-blue drop-shadow`,
+        `w-full font-overpass text-5xl font-semibold lowercase -tracking-wider text-blue drop-shadow after:pl-1`,
         className
       )}
       {...other}

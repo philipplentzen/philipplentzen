@@ -31,11 +31,17 @@ export const Project = defineDocumentType(() => {
     fields: {
       year: { type: `number`, required: true },
       title: { type: `string`, required: true },
-      url: { type: `string`, required: false },
-      image: { type: `string`, required: true },
+      url: { type: `string` },
+      image: { type: `string` },
+      task: {
+        type: `enum`,
+        options: [`design, dev, design & dev`],
+        required: true,
+      },
       tags: {
         type: `list`,
         of: { type: `string` },
+        required: true,
       },
     },
     computedFields,

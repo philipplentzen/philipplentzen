@@ -39,7 +39,7 @@ export default function ProjectsPage() {
                 width={672}
                 height={423}
                 sizes={`(max-width: 1280px) 100vw, 672px`}
-                className={`drop-shadow`}
+                className={`drop-shadow transition-transform hover:scale-105`}
               />
             </div>
             <div className={`flex-col`}>
@@ -83,6 +83,7 @@ export default function ProjectsPage() {
                     sizes={`(max-width: 1280px) 100vw, 672px`}
                     placeholder={`blur`}
                     blurDataURL={project.image.blurhashDataUrl}
+                    className={`transition-transform hover:scale-105`}
                   />
                 </div>
               )}

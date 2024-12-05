@@ -76,12 +76,13 @@ export default function ProjectsPage() {
                   className={`border border-cyan/30 bg-cyan/20 px-16 py-12 xl:-mx-12`}
                 >
                   <Image
-                    src={project.image}
+                    src={project.image.filePath.replace(`../public`, ``)}
                     alt={``}
                     width={672}
                     height={423}
                     sizes={`(max-width: 1280px) 100vw, 672px`}
-                    className={`drop-shadow`}
+                    placeholder={`blur`}
+                    blurDataURL={project.image.blurhashDataUrl}
                   />
                 </div>
               )}

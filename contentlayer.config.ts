@@ -32,7 +32,7 @@ export const Project = defineDocumentType(() => {
       year: { type: `number`, required: true },
       title: { type: `string`, required: true },
       url: { type: `string` },
-      image: { type: `string` },
+      image: { type: `image` },
       task: {
         type: `enum`,
         options: [`design, dev, design & dev`],

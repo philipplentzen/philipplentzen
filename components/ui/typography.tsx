@@ -90,6 +90,7 @@ export const Article = (props: Props<HTMLElement>) => {
       as={`article`}
       className={cn(
         [
+          `text-justify`,
           `prose prose-neutral w-full`,
           `prose-a:text-cyan`,
           `prose-pre:bg-blue`,

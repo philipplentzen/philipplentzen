@@ -43,6 +43,8 @@ export const Project = defineDocumentType(() => {
         of: { type: `string` },
         required: true,
       },
+      abstract: { type: `string` },
+      employment: { type: `enum`, options: [`freelance`], required: true },
     },
     computedFields,
   };

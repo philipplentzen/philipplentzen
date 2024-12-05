@@ -2,6 +2,7 @@ import "contentlayer/generated";
 
 import { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { allProjects } from "contentlayer/generated";
 import { sortBy } from "lodash";
 import { ArrowUpRightIcon } from "lucide-react";
@@ -27,7 +28,7 @@ export default function ProjectsPage() {
         </span>
       </Section>
       <Section>
-        <List divided>
+        <List>
           <ListItem className={`mb-12 flex-col space-y-6 py-6`}>
             <div
               className={`border border-cyan/30 bg-cyan/20 px-16 py-12 xl:-mx-12`}
@@ -50,11 +51,23 @@ export default function ProjectsPage() {
                     {new Date().getFullYear()}
                   </span>
                 </div>
-                <H2 className={`m-0 font-mono text-2xl leading-[0.7]`}>
+                <H2
+                  className={`m-0 font-mono text-2xl leading-[0.7] after:pl-0`}
+                >
                   dein projekt
                 </H2>
               </div>
             </div>
+            <Article className={`max-w-full pl-20`}>
+              <p>
+                Du hast ein spannendes Projekt und möchtest es umsetzen? Ich
+                kann dir dabei gerne helfen. Schreib mir einfach, was du
+                brauchst, und wir besprechen, wie ich dich unterstützen kann.
+              </p>
+            </Article>
+            <Button asChild className={`mx-auto block`}>
+              <Link href={`/contact`}>Einfach mal schreiben!</Link>
+            </Button>
           </ListItem>
           {projects.map((project, index) => (
             <ListItem key={index} className={`mb-12 flex-col space-y-6 py-6`}>
@@ -93,29 +106,26 @@ export default function ProjectsPage() {
                       size={`square`}
                       className={`h-9 flex-none`}
                     >
-                      <a href={project.url} target={`_blank`}>
+                      <Link href={project.url} target={`_blank`}>
                         <ArrowUpRightIcon size={20} />
-                      </a>
+                      </Link>
                     </Button>
                   )}
                 </div>
               </div>
               <Article className={`pl-20`}>
-                <p>
-                  lorem ipsum dolor sit amet, consectetur adipiscing elit. sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris
-                </p>
+                {project.abstract && <p>{project.abstract}</p>}
               </Article>
-              <div className={`flex w-full items-center space-x-2 pl-20`}>
-                <span className={`text-xs font-semibold text-black/60`}>
-                  {project.task.toLowerCase()}
+              <div
+                className={`flex w-full items-center space-x-2 pl-20 text-xs font-semibold text-black/60`}
+              >
+                <span>
+                  {project.employment}, {project.task.toLowerCase()}
                 </span>
-                <div className={`inline-block h-px w-8 bg-black/60`}></div>
-                <span className={`text-xs font-semibold text-black/60`}>
-                  {(project.tags ?? []).join(`, `).toLowerCase()}
-                </span>
+                <div
+                  className={`inline-block h-px w-8 flex-none bg-black/60`}
+                ></div>
+                <span>{(project.tags ?? []).join(`, `).toLowerCase()}</span>
               </div>
             </ListItem>
           ))}

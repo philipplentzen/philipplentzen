@@ -17,7 +17,7 @@ export default function ContactPage() {
         <H1>meld dich mal</H1>
         <span className={`leading-5 text-black/60`}>
           Ideen für ein neues Projekt oder einfach mal Hallo sagen? <br />
-          Kein Problem, so kannst du mich erreichen!
+          Kein Problem, so erreichst du mich!
         </span>
       </Section>
       <Section className={`space-y-12`}>

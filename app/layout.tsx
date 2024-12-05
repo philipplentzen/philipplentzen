@@ -182,17 +182,17 @@ export default function RootLayout({
                   <H3 className={``}>{title}</H3>
                   <ul className={`mt-4 space-y-3 text-blue`}>
                     {items.map(({ title, href }, i) => (
-                      <Link key={i} href={href} className={`block`}>
+                      <li key={i}>
                         <Button
                           asChild
                           variant={`ghost`}
                           className={`block w-full transition-colors`}
                         >
-                          <li>
-                            <span>{title}</span>
-                          </li>
+                          <Link href={href} className={`block`}>
+                            {title}
+                          </Link>
                         </Button>
-                      </Link>
+                      </li>
                     ))}
                   </ul>
                 </div>

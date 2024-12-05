@@ -34,7 +34,7 @@ export default function HomePage() {
       </Section>
 
       <Section id={`projects`}>
-        <H2>Willkommen</H2>
+        <H2>schön, dass du da bist</H2>
         <Article className={``}>
           <p>
             <strong>
@@ -43,11 +43,11 @@ export default function HomePage() {
             </strong>
           </p>
           <p>
-            Momentan studiere ich an der RWTH Aachen University im ersten
-            Mastersemester Informatik. Neben dem Studium verwirkliche ich meine
-            eigenen Projekten und arbeite als Werkstudent bei insightsoftware.
-            Diese kleine Webseite ist eines dieser Projekte und soll dir einen
-            Einblick in meine Welt geben. Viel Spaß beim durchstöbern!
+            Ich studiere Informatik an der RWTH Aachen im ersten Mastersemester.
+            Neben dem Studium realisiere ich eigene Projekte und arbeite als
+            Werkstudent bei insightsoftware. Diese kleine Webseite ist eines
+            dieser Projekte und soll einen Einblick in meine Welt geben. Viel
+            Spaß beim Stöbern!
           </p>
         </Article>
       </Section>

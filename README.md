@@ -1,1 +1,1 @@
-[![Banner](https://philipplentzen.dev/opengraph-image "kreativer entwickler. informatik student. aus der kaiserstadt.")](https://philipplentzen.dev/)
+[![Banner](https://philipplentzen.dev/images/banner "kreativer entwickler. informatik student. aus der kaiserstadt.")](https://philipplentzen.dev/)

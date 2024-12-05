@@ -35,7 +35,7 @@ export default function HomePage() {
 
       <Section id={`projects`}>
         <H2>Willkommen</H2>
-        <Article>
+        <Article className={``}>
           <p>
             <strong>
               Kreativer Entwickler, Informatikstudent im Bachelor und ein Öcher
@@ -43,11 +43,11 @@ export default function HomePage() {
             </strong>
           </p>
           <p>
-            Momentan studiere ich an der RWTH Aachen University im letzten
-            Bachelorsemester Informatik. Neben dem Studium verwirkliche ich
-            meine eigenen Projekten und arbeite als Werkstudent beim INFORM
-            DataLab. Diese kleine Webseite ist eines dieser Projekte und soll
-            dir einen Einblick in meine Welt geben. Viel Spaß beim durchstöbern!
+            Momentan studiere ich an der RWTH Aachen University im ersten
+            Mastersemester Informatik. Neben dem Studium verwirkliche ich meine
+            eigenen Projekten und arbeite als Werkstudent bei insightsoftware.
+            Diese kleine Webseite ist eines dieser Projekte und soll dir einen
+            Einblick in meine Welt geben. Viel Spaß beim durchstöbern!
           </p>
         </Article>
       </Section>

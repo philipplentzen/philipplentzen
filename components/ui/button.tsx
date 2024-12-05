@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
   [
-    `focus inline-flex w-fit items-center space-x-3 font-mono text-xs leading-4 drop-shadow transition-colors`,
+    `focus inline-flex w-fit items-center space-x-3 font-mono text-xs leading-4 no-underline drop-shadow transition-colors`,
     `sm:text-sm sm:leading-6`,
   ],
   {

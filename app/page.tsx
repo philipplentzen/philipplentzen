@@ -38,7 +38,7 @@ export default function HomePage() {
         <Article className={``}>
           <p>
             <strong>
-              Kreativer Entwickler, Informatikstudent im Bachelor und ein Öcher
+              Kreativer Entwickler, Informatikstudent im Master und ein Öcher
               Jong.
             </strong>
           </p>

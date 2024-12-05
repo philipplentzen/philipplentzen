@@ -2,13 +2,10 @@ import { ImageResponse } from "next/og";
 
 import { Logo } from "@/components/logo";
 
-export const alt = `kreativer entwickler. informatik student. öcher jong.`;
-export const size = {
+const size = {
   width: 1200,
   height: 630,
 };
-
-export const contentType = `image/png`;
 
 export async function GET() {
   return new ImageResponse(

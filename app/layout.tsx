@@ -6,7 +6,6 @@ import { Metadata, Viewport } from "next";
 import { Inter, Overpass } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
 import { AtSignIcon, GithubIcon, LinkedinIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -103,10 +102,6 @@ export default function RootLayout({
           overpass.variable
         )}
       >
-        <Script
-          src={process.env.NEXT_PUBLIC_ANALYTICS_URL}
-          data-website-id={process.env.NEXT_PUBLIC_ANALYTICS_ID}
-        />
         {process.env.NEXT_PUBLIC_ENV !== `production` && (
           <div
             className={`fixed inset-x-0 top-0 z-50 bg-cyan py-2 text-center font-mono text-sm text-white`}

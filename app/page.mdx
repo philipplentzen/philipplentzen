@@ -1,24 +1,25 @@
-<div
-  className={`flex items-center font-mono text-xs font-normal lowercase text-black/60 [&_p]:my-0 mb-4`}
->
-  <div className="relative mr-1 inline-flex size-2">
-    <span className="absolute inline-flex size-full animate-ping rounded-full bg-cyan opacity-75"></span>
-    <span className="relative inline-flex size-full rounded-full bg-cyan"></span>
+import { Subtitle } from "@/components/ui/subtitle";
+
+<div className={`mb-4 flex items-center`}>
+  <div className={`relative mr-1 inline-flex size-2`}>
+    <span
+      className={`absolute inline-flex size-full animate-ping rounded-full bg-cyan opacity-75`}
+    ></span>
+    <span
+      className={`relative inline-flex size-full rounded-full bg-cyan`}
+    ></span>
   </div>
-  verfügbar
+  <Subtitle className={`text-xs`}>verfügbar</Subtitle>
 </div>
 
 # Philipp Lentzen
 
-<div className="space-y-2 font-mono text-2xl font-normal text-black/60 [&_p]:my-0 lowercase">
+<div>
   {[`Kreativer Entwickler`, `Informatikstudent`, `Öcher Jong`].map(
     (text, index) => (
-      <span
-        key={index}
-        className={`block text-black/60 transition-colors hover:text-cyan`}
-      >
+      <Subtitle key={index} className={`font-mono text-2xl lowercase `}>
         {text}.
-      </span>
+      </Subtitle>
     )
   )}
 </div>

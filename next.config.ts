@@ -1,9 +1,8 @@
-const { withContentlayer } = require(`next-contentlayer`);
+import type { NextConfig } from "next";
+import createMDX from "@next/mdx";
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
+const nextConfig: NextConfig = {
+  pageExtensions: [`js`, `jsx`, `ts`, `tsx`, `md`, `mdx`],
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
@@ -21,4 +20,6 @@ const nextConfig = {
   },
 };
 
-module.exports = withContentlayer(nextConfig);
+const withMDX = createMDX({});
+
+export default withMDX(nextConfig);

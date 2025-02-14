@@ -24,9 +24,9 @@
     "classnames": "2.5.1",
     "lodash": "4.17.21",
     "lucide-react": "0.465.0",
-    "next": "14.2.19",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
+    "next": "15.1.7",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
     "tailwind-merge": "2.5.5"
   },
   "devDependencies": {
@@ -40,7 +40,7 @@
     "@types/react-dom": "18.3.1",
     "autoprefixer": "10.4.20",
     "eslint": "8.57.1",
-    "eslint-config-next": "14.2.19",
+    "eslint-config-next": "15.1.7",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-mdx": "3.1.5",
     "eslint-plugin-prettier": "5.2.1",
@@ -49,7 +49,7 @@
     "postcss": "8.4.49",
     "prettier": "3.4.2",
     "prettier-plugin-tailwindcss": "0.6.9",
-    "tailwindcss": "3.4.16",
+    "tailwindcss": "3.4.17",
     "typescript": "5.7.2"
   },
   "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"

@@ -10,8 +10,6 @@ import { AtSignIcon, GithubIcon, LinkedinIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Section } from "@/components/ui/section";
-import { H3 } from "@/components/ui/typography";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -116,6 +114,15 @@ export default function RootLayout({
             .
           </div>
         )}
+        <Image
+          src={`/images/clouds.png`}
+          alt={``}
+          width={1920}
+          height={967}
+          sizes={`100vw`}
+          className={`pointer-events-none absolute top-0 -z-10 h-screen w-full object-cover xl:top-0`}
+          priority
+        />
         <header
           className={`absolute inset-0 bottom-auto z-40 mx-auto mt-12 w-screen max-w-screen-md px-6 text-black/50 drop-shadow lg:px-0`}
         >
@@ -142,23 +149,22 @@ export default function RootLayout({
             </div>
           </div>
         </header>
-        <main className={`relative min-h-screen w-screen pt-20`}>
-          <Image
-            src={`/images/clouds.png`}
-            alt={``}
-            width={1920}
-            height={967}
-            sizes={`100vw`}
-            className={`pointer-events-none absolute top-0 -z-10 h-screen w-full object-cover xl:top-0`}
-            priority
-          />
+        <main
+          className={cn(
+            `relative mx-auto mb-24 mt-96 min-h-[calc(100vh-0.25rem*120)] w-full max-w-screen-md px-8 lg:px-0`,
+            `prose prose-neutral`,
+            `prose-headings:-ml-1 prose-headings:mb-2 prose-headings:font-overpass prose-headings:lowercase prose-headings:-tracking-[0.075em] prose-headings:drop-shadow prose-headings:after:pl-1 prose-headings:after:text-cyan prose-headings:after:content-["."]`,
+            `prose-h1:text-7xl prose-h1:font-bold prose-h1:text-black`,
+            `prose-h2:text-5xl prose-h2:font-semibold prose-h2:text-blue`,
+            `prose-h3:text-3xl`,
+            `prose-hr:mt-24 prose-hr:border-t-black/20 prose-hr:first-of-type:mt-72`
+          )}
+        >
           {children}
         </main>
-        <footer
-          className={`border-t-0 border-t-cyan bg-gradient-to-b from-cyan/0 to-cyan/20`}
-        >
-          <Section
-            className={`first-of-type:my-6 first-of-type:border-t first-of-type:pt-6`}
+        <footer className={`bg-gradient-to-b from-cyan/0 to-cyan/20`}>
+          <nav
+            className={`mx-auto max-w-screen-md border-t border-t-black/20 px-8 first-of-type:my-6 first-of-type:pt-6 lg:px-0`}
           >
             <div
               className={`grid w-full grid-cols-2 gap-x-6 gap-y-12 max-sm:grid-cols-1`}
@@ -174,7 +180,11 @@ export default function RootLayout({
                 },
               ].map(({ title, items }, i) => (
                 <div key={i}>
-                  <H3 className={``}>{title}</H3>
+                  <span
+                    className={`font-mono text-2xl font-medium lowercase text-cyan`}
+                  >
+                    {title}.
+                  </span>
                   <ul className={`mt-4 space-y-3 text-blue`}>
                     {items.map(({ title, href }, i) => (
                       <li key={i}>
@@ -193,18 +203,18 @@ export default function RootLayout({
                 </div>
               ))}
             </div>
-          </Section>
-          <Section
-            className={`mb-0 mt-24 items-center border-t-0 pb-3 pt-0 font-mono`}
+          </nav>
+          <div
+            className={`mx-auto mt-24 max-w-screen-md px-8 pb-3 text-center font-mono lg:px-0`}
           >
             <Link
               href={`/impressum`}
               aria-label={`Impressum öffnen`}
-              className={`focus mb-0 text-xs text-cyan transition-colors hover:text-cyan lg:px-0`}
+              className={`focus text-xs text-cyan transition-colors hover:text-cyan/80 lg:px-0`}
             >
               impressum
             </Link>
-          </Section>
+          </div>
         </footer>
       </body>
     </html>

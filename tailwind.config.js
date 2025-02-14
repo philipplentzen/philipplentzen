@@ -2,7 +2,10 @@ const { fontFamily } = require(`tailwindcss/defaultTheme`);
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [`./app/**/*.{js,ts,jsx,tsx}`, `./components/**/*.{js,ts,jsx,tsx}`],
+  content: [
+    `./app/**/*.{js,ts,jsx,tsx,md,mdx}`,
+    `./components/**/*.{js,ts,jsx,tsx,md,mdx}`,
+  ],
   theme: {
     extend: {
       aspectRatio: {

@@ -1,6 +1,7 @@
 import fs from "fs";
 import * as process from "node:process";
 import path from "path";
+import Image from "next/image";
 import _ from "lodash";
 import { ArrowUpRightIcon } from "lucide-react";
 
@@ -48,12 +49,12 @@ export default async function ProjectsPage() {
           <div
             className={`border border-cyan/30 bg-cyan/20 px-16 py-12 xl:-mx-12`}
           >
-            <img
+            <Image
               src={`/images/projects/next.png`}
               alt={``}
               width={672}
               height={423}
-              sizes={`(max-width: 1280px) 100vw, 672px`}
+              sizes={`(min-width: 768px) 574px, 100vw`}
               className={`drop-shadow transition-transform`}
             />
           </div>
@@ -88,12 +89,12 @@ export default async function ProjectsPage() {
                 <div
                   className={`border border-cyan/30 bg-cyan/20 px-16 py-12 xl:-mx-12`}
                 >
-                  <img
+                  <Image
                     src={image.replace(`../public`, ``)}
                     alt={``}
                     width={672}
                     height={423}
-                    sizes={`(max-width: 1280px) 100vw, 672px`}
+                    sizes={`(min-width: 768px) 574px, 100vw`}
                     className={`transition-transform`}
                   />
                 </div>

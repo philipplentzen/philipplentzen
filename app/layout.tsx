@@ -157,7 +157,8 @@ export default function RootLayout({
             `prose-h1:text-7xl prose-h1:font-bold prose-h1:text-black`,
             `prose-h2:text-5xl prose-h2:font-semibold prose-h2:text-blue`,
             `prose-h3:text-3xl`,
-            `prose-hr:mt-24 prose-hr:border-t-black/20 prose-hr:first-of-type:mt-72`
+            `prose-hr:mt-24 prose-hr:border-t-black/20 prose-hr:first-of-type:mt-72`,
+            `prose-p:max-w-prose`
           )}
         >
           {children}

@@ -31,7 +31,7 @@ export const List = forwardRef<HTMLDivElement, ListProps>((props, ref) => {
 });
 List.displayName = `List`;
 
-export const listItemVariants = cva(`relative flex w-full p-2 xl:px-12`, {
+export const listItemVariants = cva(`relative flex w-full xl:px-12`, {
   variants: {},
   defaultVariants: {},
 });

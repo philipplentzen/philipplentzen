@@ -1,17 +1,15 @@
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import { Section } from "@/components/ui/section";
-import { H1, H2 } from "@/components/ui/typography";
 
 export default function NotFound() {
   return (
-    <Section>
-      <H1>404</H1>
-      <H2 className={`after:content-['?']`}>Hast du dich verlaufen</H2>
-      <Button variant={`ghost`} asChild>
-        <Link href={`/`}>Zur Startseite</Link>
+    <>
+      <h1>404</h1>
+      <h2 className={`mt-0 after:!content-['?']`}>Hast du dich verlaufen</h2>
+      <Button asChild variant={`ghost`} className={`mt-4`}>
+        <Link href={`/`}>zurück zur Startseite</Link>
       </Button>
-    </Section>
+    </>
   );
 }

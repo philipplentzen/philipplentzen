@@ -8,11 +8,7 @@ export type Project = {
   year: number;
   url?: string;
   description: string;
-  image?: {
-    src: string;
-    width: number;
-    height: number;
-  };
+  image?: string;
   task: string;
   tags: string[];
   employment: string;

@@ -101,21 +101,17 @@ export default function RootLayout({
         className={cn(
           `relative flow-root min-h-full overflow-x-hidden bg-white bg-grain bg-fixed font-sans leading-4 text-black selection:bg-yellow selection:text-cyan`,
           inter.variable,
-          overpass.variable,
-          process.env.NEXT_PUBLIC_ENV !== `production` && `pt-8`
+          overpass.variable
         )}
       >
         {process.env.NEXT_PUBLIC_ENV !== `production` && (
           <div
-            className={`fixed inset-x-0 top-0 z-50 bg-cyan text-center font-mono text-sm leading-8 text-white`}
+            className={`sticky top-0 z-[99] w-full bg-cyan py-2 text-center font-mono text-sm leading-4 text-white drop-shadow`}
           >
             Dies ist eine Beta-Version der Seite. Besuche bitte{` `}
-            <Link
-              href={`https://www.philipplentzen.dev`}
-              className={`underline`}
-            >
+            <a href={`https://www.philipplentzen.dev`} className={`underline`}>
               www.philipplentzen.dev
-            </Link>
+            </a>
             .
           </div>
         )}
@@ -128,13 +124,10 @@ export default function RootLayout({
           className={`pointer-events-none fixed top-0 -z-10 h-screen w-full object-cover xl:top-0`}
           priority
         />
-        <header
-          className={cn(
-            `absolute inset-0 bottom-auto z-40 mx-auto mt-12 w-full max-w-screen-md px-8  drop-shadow lg:px-0`,
-            process.env.NEXT_PUBLIC_ENV !== `production` && `top-8`
-          )}
-        >
-          <div className={`flex w-full items-end justify-between`}>
+        <header className={`absolute inset-x-0 z-50 drop-shadow`}>
+          <div
+            className={`mx-auto mt-12 flex w-full max-w-screen-md items-end justify-between px-8 lg:px-0`}
+          >
             <Link href={`/`} aria-label={`Zur Startseite`} className={`focus`}>
               <h1 className={`font-mono text-xl font-semibold`}>
                 <span className={`text-black/50 max-sm:hidden`}>kontakt</span>
@@ -159,25 +152,25 @@ export default function RootLayout({
         </header>
         <main
           className={cn(
-            `relative mx-auto mb-24 mt-96 min-h-[calc(100vh-0.25rem*120)] w-full max-w-screen-md px-8 lg:px-0`,
+            `relative mx-auto min-h-dvh w-full max-w-screen-md px-8 pb-12 pt-72 sm:pb-24 sm:pt-96 lg:px-0`,
             `prose prose-neutral`,
             `prose-headings:-ml-1 prose-headings:mb-2 prose-headings:font-overpass prose-headings:lowercase prose-headings:tracking-[-0.075em] prose-headings:drop-shadow prose-headings:after:pl-1 prose-headings:after:text-cyan prose-headings:after:content-["."]`,
             `prose-h1:text-7xl prose-h1:font-bold prose-h1:text-black`,
             `prose-h2:text-5xl prose-h2:font-semibold prose-h2:text-blue`,
             `prose-h3:text-3xl`,
-            `prose-hr:mt-24 prose-hr:border-t-black/20 prose-hr:first-of-type:mt-72`,
+            `prose-hr:mt-12 prose-hr:border-t-black/20 prose-hr:first-of-type:mt-24 sm:prose-hr:mt-24 sm:prose-hr:first-of-type:mt-72`,
             `prose-p:max-w-prose`
           )}
         >
           {children}
         </main>
-        <footer className={`border-t border-t-cyan bg-cyan/10 pb-4 pt-12`}>
+        <footer
+          className={`border-t border-t-cyan bg-cyan/10 pb-4 pt-8 sm:pt-12`}
+        >
           <nav
             className={`mx-auto flex max-w-screen-md flex-col items-center space-y-12 px-8 lowercase lg:px-0`}
           >
-            <div
-              className={`grid w-full grid-cols-2 gap-x-6 gap-y-12 max-sm:grid-cols-1`}
-            >
+            <div className={`grid w-full grid-cols-2 gap-6 max-sm:grid-cols-1`}>
               {[
                 {
                   title: `Informationen`,

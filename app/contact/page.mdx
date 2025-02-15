@@ -6,8 +6,9 @@ import { Subtitle } from "@/components/ui/subtitle";
 # Meld Dich mal
 
 <Subtitle>
-  Ideen für ein neues Projekt oder einfach mal Hallo sagen? <br />
-  Kein Problem, so erreichst du mich!
+  {`Ideen für ein neues Projekt oder einfach mal Hallo sagen?`}
+  <br />
+  {`Kein Problem, so erreichst du mich!`}
 </Subtitle>
 
 ---
@@ -34,7 +35,7 @@ import { Subtitle } from "@/components/ui/subtitle";
       className={`flex items-center font-normal no-underline`}
     >
       <ListItem
-        className={`h-14 items-center space-x-6 font-mono transition-colors hover:text-cyan`}
+        className={`h-14 items-center space-x-2 font-mono transition-colors hover:text-cyan sm:space-x-4`}
       >
         <div className={`flex items-center`}>
           <span title={title} className={`block aspect-square bg-black/5 p-2`}>
@@ -69,7 +70,7 @@ import { Subtitle } from "@/components/ui/subtitle";
       className={`flex items-center font-normal no-underline`}
     >
       <ListItem
-        className={`h-14 items-center space-x-6 font-mono transition-colors hover:text-cyan`}
+        className={`h-14 items-center space-x-2 font-mono transition-colors hover:text-cyan sm:space-x-4`}
       >
         <div className={`flex items-center`}>
           <span title={title} className={`block aspect-square bg-black/5 p-2`}>

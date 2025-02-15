@@ -1,14 +1,14 @@
 import "@/styles/globals.css";
 
 import * as process from "node:process";
-import {ReactNode} from "react";
-import {Metadata, Viewport} from "next";
-import {Inter, Overpass} from "next/font/google";
+import { ReactNode } from "react";
+import { Metadata, Viewport } from "next";
+import { Inter, Overpass } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
-import {AtSignIcon, GithubIcon, LinkedinIcon} from "lucide-react";
+import { AtSignIcon, GithubIcon, LinkedinIcon } from "lucide-react";
 
-import {cn} from "@/lib/utils";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -210,7 +210,7 @@ export default function RootLayout({
               {links.map(({ title, href }, index) => (
                 <li
                   key={href}
-                  className={cn(`inline-block`, index === 0 && `pr-2`)}
+                  className={cn(`inline-block`, index !== 0 && `pl-2`)}
                 >
                   <Link
                     href={href}
@@ -223,6 +223,7 @@ export default function RootLayout({
               ))}
             </ul>
           </nav>
+          <div></div>
         </footer>
       </body>
     </html>

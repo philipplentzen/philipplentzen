@@ -85,9 +85,9 @@ export const ProjectsList = async () => {
                 )}
               </div>
             </div>
-            {description && <p>{description}</p>}
+            {description && <p className={`pl-14`}>{description}</p>}
             <div
-              className={`flex w-full items-center space-x-2 text-xs font-semibold lowercase text-black/60`}
+              className={`flex w-full items-center space-x-2 pl-14 text-xs font-semibold lowercase text-black/60`}
             >
               <span>
                 {employment}, {task}

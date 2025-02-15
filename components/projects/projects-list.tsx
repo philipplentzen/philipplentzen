@@ -27,7 +27,7 @@ export const ProjectsList = async () => {
               </span>
             </div>
             <h2
-              className={`!m-0 w-full !font-mono !text-4xl !leading-[0.7] sm:!text-2xl`}
+              className={`m-0! w-full font-mono! text-4xl! leading-[0.7]! sm:text-2xl!`}
             >
               dein projekt
             </h2>
@@ -69,7 +69,7 @@ export const ProjectsList = async () => {
                   </span>
                 </div>
                 <h2
-                  className={`!m-0 w-full !font-mono !text-4xl !leading-[0.7] sm:!text-2xl`}
+                  className={`m-0! w-full font-mono! text-4xl! leading-[0.7]! sm:text-2xl!`}
                 >
                   {title}
                 </h2>

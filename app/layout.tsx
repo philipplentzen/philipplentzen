@@ -106,7 +106,7 @@ export default function RootLayout({
       >
         {process.env.NEXT_PUBLIC_ENV !== `production` && (
           <div
-            className={`sticky top-0 z-[99] w-full bg-cyan py-2 text-center font-mono text-sm leading-4 text-white drop-shadow`}
+            className={`sticky top-0 z-99 w-full bg-cyan py-2 text-center font-mono text-sm leading-4 text-white drop-shadow`}
           >
             Dies ist eine Beta-Version der Seite. Besuche bitte{` `}
             <a href={`https://www.philipplentzen.dev`} className={`underline`}>
@@ -126,7 +126,7 @@ export default function RootLayout({
         />
         <header className={`absolute inset-x-0 z-50 drop-shadow`}>
           <div
-            className={`mx-auto mt-12 flex w-full max-w-screen-md items-end justify-between px-8 lg:px-0`}
+            className={`mx-auto mt-12 flex w-full max-w-(--breakpoint-md) items-end justify-between px-8 lg:px-0`}
           >
             <Link href={`/`} aria-label={`Zur Startseite`} className={`focus`}>
               <h1 className={`font-mono text-xl font-semibold`}>
@@ -152,13 +152,13 @@ export default function RootLayout({
         </header>
         <main
           className={cn(
-            `relative mx-auto min-h-dvh w-full max-w-screen-md px-8 pb-12 pt-72 sm:pb-24 sm:pt-96 lg:px-0`,
+            `relative mx-auto min-h-dvh w-full max-w-(--breakpoint-md) px-8 pb-12 pt-72 sm:pb-24 sm:pt-96 lg:px-0`,
             `prose prose-neutral`,
             `prose-headings:-ml-1 prose-headings:mb-2 prose-headings:font-overpass prose-headings:lowercase prose-headings:tracking-[-0.075em] prose-headings:drop-shadow prose-headings:after:pl-1 prose-headings:after:text-cyan prose-headings:after:content-["."]`,
             `prose-h1:text-7xl prose-h1:font-bold prose-h1:text-black`,
             `prose-h2:text-5xl prose-h2:font-semibold prose-h2:text-blue`,
             `prose-h3:text-3xl`,
-            `prose-hr:mt-12 prose-hr:border-t-black/20 prose-hr:first-of-type:mt-24 sm:prose-hr:mt-24 sm:prose-hr:first-of-type:mt-72`,
+            `prose-hr:mt-12 prose-hr:border-t-black/20 first-of-type:prose-hr:mt-24 sm:prose-hr:mt-24 sm:first-of-type:prose-hr:mt-72`,
             `prose-p:max-w-prose`
           )}
         >
@@ -168,7 +168,7 @@ export default function RootLayout({
           className={`border-t border-t-cyan bg-cyan/10 pb-4 pt-8 sm:pt-12`}
         >
           <nav
-            className={`mx-auto flex max-w-screen-md flex-col items-center space-y-12 px-8 lowercase lg:px-0`}
+            className={`mx-auto flex max-w-(--breakpoint-md) flex-col items-center space-y-12 px-8 lowercase lg:px-0`}
           >
             <div className={`grid w-full grid-cols-2 gap-6 max-sm:grid-cols-1`}>
               {[

@@ -18,6 +18,7 @@
     "@mdx-js/loader": "3.1.0",
     "@mdx-js/react": "3.1.0",
     "@next/mdx": "15.1.7",
+    "@radix-ui/react-navigation-menu": "^1.2.5",
     "@radix-ui/react-slot": "1.1.2",
     "@types/mdx": "2.0.13",
     "class-variance-authority": "0.7.1",
@@ -50,6 +51,7 @@
     "prettier": "3.5.1",
     "prettier-plugin-tailwindcss": "0.6.11",
     "tailwindcss": "3.4.17",
+    "tailwindcss-animate": "1.0.7",
     "typescript": "5.7.3"
   },
   "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"

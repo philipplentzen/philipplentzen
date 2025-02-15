@@ -13,7 +13,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: `bg-black !text-white hover:bg-neutral-700`,
-        ghost: `bg-black/5 text-neutral-700 hover:bg-black/10 hover:text-black`,
+        ghost: `border border-current bg-black/10 text-black hover:bg-black/20`,
       },
       size: {
         default: `px-4 py-3 sm:px-6`,

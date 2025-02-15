@@ -13,7 +13,7 @@ export const Image = (props: ComponentProps<typeof NextImage>) => {
   return (
     <div
       className={cn(
-        `relative border border-cyan/30 bg-cyan/20 text-cyan`,
+        `relative border border-cyan bg-cyan/20 text-cyan`,
         className
       )}
     >

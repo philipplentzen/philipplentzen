@@ -19,10 +19,12 @@ export const getProjects = async (
   sortBy: (keyof Project)[]
 ): Promise<Project[]> => {
   const dir = path.join(process.cwd(), `app`, `projects`);
-  const files = await fs.promises.readdir(path.resolve(dir), {
+  const allFilePaths = await fs.promises.readdir(path.resolve(dir), {
     recursive: true,
   });
-  const mdxFilePaths = files.filter((file) => file.endsWith(`.mdx`));
+  const mdxFilePaths = allFilePaths.filter(
+    (file) => file.endsWith(`.mdx`) && file !== `page.mdx`
+  );
   const mdxFiles = await Promise.all(
     mdxFilePaths.map(async (filePath) => import(`@/app/projects/${filePath}`))
   );

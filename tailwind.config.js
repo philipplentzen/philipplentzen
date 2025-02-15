@@ -8,28 +8,12 @@ module.exports = {
   ],
   theme: {
     extend: {
-      aspectRatio: {
-        poster: `5 / 7`,
-      },
       backgroundImage: {
         grain: `url('/images/grain.png'), linear-gradient(to bottom, rgba(24,169, 153, 0.3), rgba(24,169, 153, 0.3))`,
-      },
-      boxShadow: {
-        inner: `inset 0 0 12px 0 rgba(15, 30, 41, 0.50)`,
-      },
-      colors: {
-        white: `#F2F7FA`,
-        black: `#0F1E29`,
-        yellow: `#FCBA04`,
-        blue: `#1E3F56`,
-        cyan: `#18A999`,
       },
       fontFamily: {
         sans: [`var(--font-inter)`, ...fontFamily.sans],
         overpass: [`var(--font-overpass)`, ...fontFamily.sans],
-      },
-      spacing: {
-        30: `7.5rem`,
       },
       typography: {
         DEFAULT: {
@@ -38,6 +22,13 @@ module.exports = {
           },
         },
       },
+    },
+    colors: {
+      white: `#F2F7FA`,
+      black: `#0F1E29`,
+      yellow: `#FCBA04`,
+      blue: `#1E3F56`,
+      cyan: `#18A999`,
     },
     fontSize: {
       xs: [`min(0.75rem, 2.75vw)`, { lineHeight: 1 }],
@@ -61,5 +52,5 @@ module.exports = {
       ios: `-webkit-touch-callout: none`,
     },
   },
-  plugins: [require(`@tailwindcss/typography`)],
+  plugins: [require(`tailwindcss-animate`), require(`@tailwindcss/typography`)],
 };

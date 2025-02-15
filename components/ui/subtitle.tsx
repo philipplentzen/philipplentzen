@@ -11,7 +11,7 @@ export const Subtitle = forwardRef<
   return (
     <span
       ref={ref}
-      className={cn(`block leading-6 text-black/60 [&_p]:my-0`, className)}
+      className={cn(`block leading-6 text-black/60`, className)}
       {...otherProps}
     />
   );

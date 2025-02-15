@@ -17,21 +17,23 @@ export const ProjectsList = async () => {
           width={672}
           height={423}
           sizes={`(min-width: 768px) 574px, 100vw`}
-          className={`px-16 py-12 drop-shadow transition-transform xl:-mx-12`}
+          className={`px-2 drop-shadow transition-transform sm:px-16 sm:py-12 xl:-mx-12`}
         />
         <div className={`flex-col`}>
           <div className={`flex h-9 items-end space-x-6`}>
-            <div className={`mb-px flex w-14 flex-none`}>
+            <div className={`mb-px flex w-10 flex-none sm:w-14`}>
               <span className={`text-sm font-medium leading-[0.7] text-cyan`}>
                 jetzt
               </span>
             </div>
-            <h2 className={`!m-0 !font-mono !text-2xl !leading-[0.7]`}>
+            <h2
+              className={`!m-0 w-full !font-mono !text-4xl !leading-[0.7] sm:!text-2xl`}
+            >
               dein projekt
             </h2>
           </div>
         </div>
-        <p className={`pl-14`}>
+        <p className={`sm:pl-14`}>
           Du hast ein spannendes Projekt und möchtest es umsetzen? Ich kann dir
           dabei gerne helfen. Schreib mir einfach, was du brauchst, und wir
           besprechen, wie ich dich unterstützen kann.
@@ -54,12 +56,12 @@ export const ProjectsList = async () => {
                 width={672}
                 height={423}
                 sizes={`(min-width: 768px) 574px, 100vw`}
-                className={`px-16 py-12 drop-shadow transition-transform xl:-mx-12`}
+                className={`px-4 drop-shadow transition-transform sm:px-16 sm:py-12 xl:-mx-12`}
               />
             )}
             <div className={`flex-col`}>
-              <div className={`flex h-9 items-end space-x-6`}>
-                <div className={`mb-px flex w-14 flex-none`}>
+              <div className={`flex h-9 items-end`}>
+                <div className={`mb-px flex w-10 flex-none sm:w-14`}>
                   <span
                     className={`text-sm font-medium leading-[0.7] text-cyan`}
                   >
@@ -67,7 +69,7 @@ export const ProjectsList = async () => {
                   </span>
                 </div>
                 <h2
-                  className={`!m-0 w-full !font-mono !text-2xl !leading-[0.7]`}
+                  className={`!m-0 w-full !font-mono !text-4xl !leading-[0.7] sm:!text-2xl`}
                 >
                   {title}
                 </h2>
@@ -76,7 +78,7 @@ export const ProjectsList = async () => {
                     asChild
                     variant={`ghost`}
                     size={`square`}
-                    className={`h-9 flex-none`}
+                    className={`ml-4 h-9 flex-none`}
                   >
                     <a href={url} target={`_blank`}>
                       <ArrowUpRightIcon size={20} />
@@ -85,9 +87,9 @@ export const ProjectsList = async () => {
                 )}
               </div>
             </div>
-            {description && <p className={`pl-14`}>{description}</p>}
+            {description && <p className={`sm:pl-14`}>{description}</p>}
             <div
-              className={`flex w-full items-center space-x-2 pl-14 text-xs font-semibold lowercase text-black/60`}
+              className={`flex w-full gap-2 text-xs font-semibold lowercase text-black/60 max-sm:flex-col sm:items-center sm:pl-14`}
             >
               <span>
                 {employment}, {task}

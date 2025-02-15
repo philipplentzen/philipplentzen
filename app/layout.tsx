@@ -223,7 +223,6 @@ export default function RootLayout({
               ))}
             </ul>
           </nav>
-          <div></div>
         </footer>
       </body>
     </html>

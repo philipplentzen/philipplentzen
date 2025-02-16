@@ -167,24 +167,29 @@ export default function RootLayout({
                   <NavigationMenuContent
                     className={`flex w-full max-sm:flex-col-reverse`}
                   >
-                    <Link
-                      href={`mailto:kontakt@philipplentzen.dev`}
+                    <NavigationMenuLink
+                      asChild
                       className={`flex flex-col bg-black pb-8`}
                     >
-                      <Image
-                        src={`/images/projects/next.png`}
-                        alt={``}
-                        width={672}
-                        height={423}
-                        className={`mx-auto w-72 max-w-full border-none bg-black p-0 text-white`}
-                      />
-                      <div
-                        className={`text-center text-3xl font-semibold tracking-[-0.075em] text-white`}
+                      <Link
+                        href={`mailto:kontakt@philipplentzen.dev`}
+                        aria-label={`Neues Projekt starten`}
                       >
-                        Neues Projekt
-                        <span className={`pl-1 text-yellow`}>?</span>
-                      </div>
-                    </Link>
+                        <Image
+                          src={`/images/projects/next.png`}
+                          alt={``}
+                          width={672}
+                          height={423}
+                          className={`mx-auto w-72 max-w-full border-none bg-black p-0 text-white`}
+                        />
+                        <div
+                          className={`text-center text-3xl font-semibold tracking-[-0.075em] text-white`}
+                        >
+                          Neues Projekt
+                          <span className={`pl-1 text-yellow`}>?</span>
+                        </div>
+                      </Link>
+                    </NavigationMenuLink>
                     <ul
                       className={`flex w-full flex-col space-y-2 border border-cyan p-4`}
                     >
@@ -203,7 +208,7 @@ export default function RootLayout({
                             asChild
                             className={`w-max text-blue`}
                           >
-                            <Link href={href}>
+                            <Link href={href} aria-label={`Gehe zu ${title}`}>
                               <span className={`mr-2 font-mono text-black/60`}>
                                 {(index >>> 0).toString(2).padStart(4, `0`)}
                                 -&gt;

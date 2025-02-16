@@ -1,14 +1,23 @@
 import "@/styles/globals.css";
 
 import * as process from "node:process";
-import {ReactNode} from "react";
-import {Metadata, Viewport} from "next";
-import {Inter, Overpass} from "next/font/google";
-import Image from "next/image";
+import { ReactNode } from "react";
+import { Metadata, Viewport } from "next";
+import { Inter, Overpass } from "next/font/google";
+import NextImage from "next/image";
 import Link from "next/link";
-import {AtSignIcon, GithubIcon, LinkedinIcon} from "lucide-react";
+import { AtSignIcon, GithubIcon, LinkedinIcon } from "lucide-react";
 
-import {cn} from "@/lib/utils";
+import { cn } from "@/lib/utils";
+import { Image } from "@/components/ui/image";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -106,16 +115,19 @@ export default function RootLayout({
       >
         {process.env.NEXT_PUBLIC_ENV !== `production` && (
           <div
-            className={`sticky top-0 z-99 w-full bg-cyan py-2 text-center font-mono text-sm leading-4 text-white drop-shadow`}
+            className={`sticky top-0 z-[99] w-full bg-cyan py-2 text-center font-mono text-sm leading-4 text-white drop-shadow`}
           >
             Dies ist eine Beta-Version der Seite. Besuche bitte{` `}
-            <a href={`https://www.philipplentzen.dev`} className={`underline`}>
+            <a
+              href={`https://www.philipplentzen.dev`}
+              className={`focus underline`}
+            >
               www.philipplentzen.dev
             </a>
             .
           </div>
         )}
-        <Image
+        <NextImage
           src={`/images/clouds.png`}
           alt={``}
           width={1920}
@@ -124,9 +136,9 @@ export default function RootLayout({
           className={`pointer-events-none fixed top-0 -z-10 h-screen w-full object-cover xl:top-0`}
           priority
         />
-        <header className={`absolute inset-x-0 z-50 drop-shadow`}>
+        <header className={`absolute inset-x-0 z-50 lowercase`}>
           <div
-            className={`mx-auto mt-12 flex w-full max-w-(--breakpoint-md) items-end justify-between px-8 lg:px-0`}
+            className={`mx-auto mt-12 flex w-full max-w-screen-md items-end justify-between px-4 lg:px-0`}
           >
             <Link href={`/`} aria-label={`Zur Startseite`} className={`focus`}>
               <h1 className={`font-mono text-xl font-semibold`}>
@@ -135,30 +147,94 @@ export default function RootLayout({
                 <span className={`text-black/50 max-sm:hidden`}>.dev</span>
               </h1>
             </Link>
-            <div className={`flex space-x-3`}>
-              {socials.map(({ icon: Icon, href, title }) => (
-                <a
-                  key={href}
-                  href={href}
-                  aria-label={`${title} öffnen`}
-                  target={`_blank`}
-                  className={`focus opacity-50 transition-all hover:text-cyan hover:opacity-100`}
-                >
-                  <Icon size={20} />
-                </a>
-              ))}
-            </div>
+            <NavigationMenu>
+              <NavigationMenuList>
+                {socials.map(({ icon: Icon, href, title }) => (
+                  <NavigationMenuItem key={href} className={`max-sm:hidden`}>
+                    <NavigationMenuLink asChild>
+                      <Link
+                        href={href}
+                        aria-label={`${title} öffnen`}
+                        target={`_blank`}
+                      >
+                        <Icon size={20} />
+                      </Link>
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
+                ))}
+                <NavigationMenuItem className={`pl-2 sm:border-l`}>
+                  <NavigationMenuTrigger>menü</NavigationMenuTrigger>
+                  <NavigationMenuContent
+                    className={`flex w-full max-sm:flex-col-reverse`}
+                  >
+                    <NavigationMenuLink
+                      asChild
+                      className={`flex flex-col bg-black pb-8`}
+                    >
+                      <Link
+                        href={`mailto:kontakt@philipplentzen.dev`}
+                        aria-label={`Neues Projekt starten`}
+                      >
+                        <Image
+                          src={`/images/projects/next.png`}
+                          alt={``}
+                          width={672}
+                          height={423}
+                          className={`mx-auto w-72 max-w-full border-none bg-black p-0 text-white`}
+                        />
+                        <div
+                          className={`text-center text-3xl font-semibold tracking-[-0.075em] text-white`}
+                        >
+                          Neues Projekt
+                          <span className={`pl-1 text-yellow`}>?</span>
+                        </div>
+                      </Link>
+                    </NavigationMenuLink>
+                    <ul
+                      className={`flex w-full flex-col space-y-2 border border-cyan p-4`}
+                    >
+                      <li
+                        className={`border-b border-b-cyan pb-2 text-black/60`}
+                      >
+                        Register
+                      </li>
+                      {[
+                        { title: `Startseite`, href: `/` },
+                        { title: `Projekte`, href: `/projects` },
+                        { title: `Kontakt`, href: `/contact` },
+                      ].map(({ title, href }, index) => (
+                        <li key={href}>
+                          <NavigationMenuLink
+                            asChild
+                            className={`w-max text-blue`}
+                          >
+                            <Link href={href} aria-label={`Gehe zu ${title}`}>
+                              <span className={`mr-2 font-mono text-black/60`}>
+                                {(index >>> 0).toString(2).padStart(4, `0`)}
+                                -&gt;
+                              </span>
+                              {title}
+                              <span className={`text-cyan`}>.</span>
+                            </Link>
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
           </div>
         </header>
         <main
           className={cn(
-            `relative mx-auto min-h-dvh w-full max-w-(--breakpoint-md) px-8 pb-12 pt-72 sm:pb-24 sm:pt-96 lg:px-0`,
+            `relative mx-auto min-h-dvh w-full max-w-screen-md px-4 pb-12 pt-72 sm:pb-24 sm:pt-96 lg:px-0`,
             `prose prose-neutral`,
             `prose-headings:-ml-1 prose-headings:mb-2 prose-headings:font-overpass prose-headings:lowercase prose-headings:tracking-[-0.075em] prose-headings:drop-shadow prose-headings:after:pl-1 prose-headings:after:text-cyan prose-headings:after:content-["."]`,
             `prose-h1:text-7xl prose-h1:font-bold prose-h1:text-black`,
             `prose-h2:text-5xl prose-h2:font-semibold prose-h2:text-blue`,
             `prose-h3:text-3xl`,
-            `prose-hr:mt-12 prose-hr:border-t-black/20 first-of-type:prose-hr:mt-24 sm:prose-hr:mt-24 sm:first-of-type:prose-hr:mt-72`,
+            `prose-hr:mt-12 prose-hr:border-t-black/20 prose-hr:first-of-type:mt-24 sm:prose-hr:mt-24 sm:prose-hr:first-of-type:mt-72`,
             `prose-p:max-w-prose`
           )}
         >
@@ -168,7 +244,7 @@ export default function RootLayout({
           className={`border-t border-t-cyan bg-cyan/10 pb-4 pt-8 sm:pt-12`}
         >
           <nav
-            className={`mx-auto flex max-w-(--breakpoint-md) flex-col items-center space-y-12 px-8 lowercase lg:px-0`}
+            className={`mx-auto flex max-w-screen-md flex-col items-center space-y-12 px-4 lowercase lg:px-0`}
           >
             <div className={`grid w-full grid-cols-2 gap-6 max-sm:grid-cols-1`}>
               {[
@@ -185,12 +261,12 @@ export default function RootLayout({
                   <span className={`font-mono text-2xl font-medium text-cyan`}>
                     {title}.
                   </span>
-                  <ol className={`mt-4 space-y-2 text-black`}>
+                  <ol className={`mt-4 space-y-1 text-black`}>
                     {items.map(({ title, href }, index) => (
                       <Link
                         key={href}
                         href={href}
-                        className={`block transition-colors hover:text-cyan`}
+                        className={`focus block py-1 transition-colors hover:text-cyan`}
                       >
                         <li>
                           <span className={`mr-2 font-mono text-black/60`}>
@@ -210,7 +286,7 @@ export default function RootLayout({
               {links.map(({ title, href }, index) => (
                 <li
                   key={href}
-                  className={cn(`inline-block`, index === 0 && `pr-2`)}
+                  className={cn(`inline-block`, index !== 0 && `pl-2`)}
                 >
                   <Link
                     href={href}

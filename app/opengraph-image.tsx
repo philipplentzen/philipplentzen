@@ -22,13 +22,13 @@ export default async function Image() {
           width: `100%`,
           height: `100%`,
           backgroundColor: `#F2F7FA`,
-          backgroundImage: `url('https://philipplentzen.dev/images/grain.png'), linear-gradient(to bottom, rgba(24,169, 153, 0.3), rgba(24,169, 153, 0))`,
+          backgroundImage: `url('https://github.com/philipplentzen/philipplentzen/blob/c7b03c5fa6720ad81a3ee8b24139b01ed4903fdc/public/images/clouds.png?raw=true'), linear-gradient(to bottom, rgba(24,169, 153, 0.3), rgba(24,169, 153, 0))`,
           gap: `0.5rem`,
           padding: `6rem`,
         }}
       >
         <img
-          src={`https://philipplentzen.dev/images/clouds.png`}
+          src={`https://github.com/philipplentzen/philipplentzen/blob/c7b03c5fa6720ad81a3ee8b24139b01ed4903fdc/public/images/clouds.png?raw=true`}
           style={{ position: `absolute` }}
         />
         <div

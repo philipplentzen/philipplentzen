@@ -1,37 +1,37 @@
-name: Style Check
+name: 🔎 Style Check
 on:
   pull_request:
 
 jobs:
   prettier:
-    name: Prettier
+    name: ✨ Prettier
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: 🚚 Checkout
         uses: actions/checkout@v4
-      - name: Setup pnpm
+      - name: 🛠️ Setup pnpm
         uses: pnpm/action-setup@v4
-      - name: Use node.js
+      - name: 🛠️ Use node.js
         uses: actions/setup-node@v4
         with:
           cache: "pnpm"
-      - name: Install dependencies
+      - name: 📦 Install dependencies
         run: pnpm install
-      - name: Run Prettier
+      - name: ✨ Run Prettier
         run: pnpm prettier
   eslint:
-    name: ESLint
+    name: 📋 ESLint
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: 🚚 Checkout
         uses: actions/checkout@v4
-      - name: Setup pnpm
+      - name: 🛠️ Setup pnpm
         uses: pnpm/action-setup@v4
-      - name: Use node.js
+      - name: 🛠️ Use node.js
         uses: actions/setup-node@v4
         with:
           cache: "pnpm"
-      - name: Install dependencies
+      - name: 📦 Install dependencies
         run: pnpm install
-      - name: Run ESLint
+      - name: 📋 Run ESLint
         run: pnpm lint

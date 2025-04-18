@@ -3,3 +3,35 @@ on:
   pull_request:
 
 jobs:
+  prettier:
+    name: Prettier
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+      - name: Use node.js
+        uses: actions/setup-node@v4
+        with:
+          cache: "pnpm"
+      - name: Install dependencies
+        run: pnpm install
+      - name: Run Prettier
+        run: pnpm prettier
+  eslint:
+    name: ESLint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+      - name: Use node.js
+        uses: actions/setup-node@v4
+        with:
+          cache: "pnpm"
+      - name: Install dependencies
+        run: pnpm install
+      - name: Run ESLint
+        run: pnpm lint

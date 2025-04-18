@@ -1,3 +1,3 @@
-import {ReactNode} from "react";
+import { ReactNode } from "react";
 
-export type NextLayout = {children: ReactNode}
+export type NextLayout = { children: ReactNode };

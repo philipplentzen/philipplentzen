@@ -46,7 +46,7 @@ export const ProjectsList = async () => {
       {projects.map(
         (
           { title, year, description, url, image, task, tags, employment },
-          index
+          index,
         ) => (
           <ListItem key={index} className={`mb-12 flex-col space-y-6 py-6`}>
             {image && (
@@ -100,7 +100,7 @@ export const ProjectsList = async () => {
               <span>{(tags ?? []).join(`, `)}</span>
             </div>
           </ListItem>
-        )
+        ),
       )}
     </List>
   );

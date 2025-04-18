@@ -1,14 +1,13 @@
 import "@/styles/globals.css";
 
-import * as process from "node:process";
-import { ReactNode } from "react";
+import { AtSignIcon, GithubIcon, LinkedinIcon } from "lucide-react";
 import { Metadata, Viewport } from "next";
 import { Inter, Overpass } from "next/font/google";
 import NextImage from "next/image";
 import Link from "next/link";
-import { AtSignIcon, GithubIcon, LinkedinIcon } from "lucide-react";
+import * as process from "node:process";
+import { ReactNode } from "react";
 
-import { cn } from "@/lib/utils";
 import { Image } from "@/components/ui/image";
 import {
   NavigationMenu,
@@ -18,10 +17,11 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_URL || `https://www.philipplentzen.dev/`
+    process.env.NEXT_PUBLIC_URL || `https://www.philipplentzen.dev/`,
   ),
   title: {
     default: `philipp lentzen - kreativer entwickler.`,
@@ -64,7 +64,6 @@ export const viewport: Viewport = {
   viewportFit: `cover`,
 };
 
-/* eslint-disable quotes */
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
@@ -76,7 +75,6 @@ const overpass = Overpass({
   display: "swap",
   variable: "--font-overpass",
 });
-/* eslint-enable quotes */
 
 const socials = [
   {
@@ -110,7 +108,7 @@ export default function RootLayout({
         className={cn(
           `relative flow-root min-h-full overflow-x-hidden bg-white bg-grain bg-fixed font-sans leading-4 text-black selection:bg-yellow selection:text-cyan`,
           inter.variable,
-          overpass.variable
+          overpass.variable,
         )}
       >
         {process.env.NEXT_PUBLIC_ENV !== `production` && (
@@ -235,7 +233,7 @@ export default function RootLayout({
             `prose-h2:text-5xl prose-h2:font-semibold prose-h2:text-blue`,
             `prose-h3:text-3xl`,
             `prose-hr:mt-12 prose-hr:border-t-black/20 prose-hr:first-of-type:mt-24 sm:prose-hr:mt-24 sm:prose-hr:first-of-type:mt-72`,
-            `prose-p:max-w-prose`
+            `prose-p:max-w-prose`,
           )}
         >
           {children}

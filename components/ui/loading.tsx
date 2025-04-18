@@ -1,5 +1,5 @@
-import { forwardRef, HTMLAttributes } from "react";
 import { LoaderCircleIcon } from "lucide-react";
+import { forwardRef, HTMLAttributes } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -14,7 +14,7 @@ export const Loading = forwardRef<
       ref={ref}
       className={cn(
         `absolute inset-0 flex items-center justify-center`,
-        className
+        className,
       )}
       {...otherProps}
     >

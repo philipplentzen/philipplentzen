@@ -1,0 +1,5 @@
+name: Style Check
+on:
+  pull_request:
+
+jobs:

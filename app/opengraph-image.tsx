@@ -83,13 +83,13 @@ export default async function Image() {
               >
                 {text.toLowerCase()}.
               </span>
-            )
+            ),
           )}
         </div>
       </div>
     ),
     {
       ...size,
-    }
+    },
   );
 }

@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "next:dev": "next dev --turbo",
+    "next:dev": "next dev",
     "next:build": "next build",
     "next:start": "next start",
     "lint": "eslint .",

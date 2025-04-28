@@ -106,7 +106,7 @@ export default function RootLayout({
     <html className={`scroll-smooth`} lang={`de`}>
       <body
         className={cn(
-          `relative flow-root min-h-full overflow-x-hidden bg-white bg-grain bg-fixed font-sans leading-4 text-black selection:bg-yellow selection:text-cyan`,
+          `relative flow-root min-h-full overflow-x-hidden bg-white bg-[url(/images/grain.png)] bg-fixed font-sans leading-4 text-black selection:bg-yellow selection:text-cyan`,
           inter.variable,
           overpass.variable,
         )}
@@ -125,15 +125,6 @@ export default function RootLayout({
             .
           </div>
         )}
-        <NextImage
-          src={`/images/clouds.png`}
-          alt={``}
-          width={1920}
-          height={967}
-          sizes={`100vw`}
-          className={`pointer-events-none fixed top-0 -z-10 h-screen w-full object-cover xl:top-0`}
-          priority
-        />
         <header className={`absolute inset-x-0 z-50 lowercase`}>
           <div
             className={`mx-auto mt-12 flex w-full max-w-(--breakpoint-md) items-end justify-between px-4 lg:px-0`}
@@ -284,7 +275,7 @@ export default function RootLayout({
               {links.map(({ title, href }, index) => (
                 <li
                   key={href}
-                  className={cn(`inline-block`, index !== 0 && `pl-2`)}
+                  className={cn(`inline-block`, index === 0 && `pr-2`)}
                 >
                   <Link
                     href={href}

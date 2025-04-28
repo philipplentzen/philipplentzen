@@ -1,7 +1,7 @@
 const { fontFamily } = require(`tailwindcss/defaultTheme`);
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+const tailwindConfig = {
   content: [
     `./app/**/*.{js,ts,jsx,tsx,md,mdx}`,
     `./components/**/*.{js,ts,jsx,tsx,md,mdx}`,
@@ -22,13 +22,6 @@ module.exports = {
           },
         },
       },
-    },
-    colors: {
-      white: `#F2F7FA`,
-      black: `#0F1E29`,
-      yellow: `#FCBA04`,
-      blue: `#1E3F56`,
-      cyan: `#18A999`,
     },
     fontSize: {
       xs: [`min(0.75rem, 2.75vw)`, { lineHeight: 1 }],
@@ -54,3 +47,5 @@ module.exports = {
   },
   plugins: [require(`tailwindcss-animate`), require(`@tailwindcss/typography`)],
 };
+
+export default tailwindConfig;

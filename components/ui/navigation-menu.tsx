@@ -57,7 +57,7 @@ export const NavigationMenuTrigger = forwardRef<
     <NavigationMenuPrimitive.Trigger
       ref={ref}
       className={cn(
-        `focus group inline-flex w-max items-center justify-center font-semibold leading-5 transition-colors hover:text-cyan disabled:pointer-events-none disabled:opacity-50 data-[active]:text-cyan data-[state=open]:text-cyan`,
+        `focus group inline-flex w-max items-center justify-center font-semibold leading-5 transition-colors hover:text-cyan disabled:pointer-events-none disabled:opacity-50 data-active:text-cyan data-[state=open]:text-cyan`,
         className,
       )}
       {...props}
@@ -116,12 +116,12 @@ export const NavigationMenuViewport = forwardRef<
   return (
     <div
       className={cn(
-        `absolute right-0 top-full w-[calc(100vw-2rem)] max-w-screen-md pl-0 sm:pl-8 lg:pl-0`,
+        `absolute right-0 top-full w-[calc(100vw-2rem)] max-w-(--breakpoint-md) pl-0 sm:pl-8 lg:pl-0`,
       )}
     >
       <NavigationMenuPrimitive.Viewport
         className={cn(
-          `relative mt-4 h-[var(--radix-navigation-menu-viewport-height)] w-full origin-[top_right] overflow-hidden bg-cyan/20 text-black shadow data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90`,
+          `relative mt-4 h-[var(--radix-navigation-menu-viewport-height)] w-full origin-[top_right] overflow-hidden bg-cyan/20 text-black shadow-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90`,
           className,
         )}
         ref={ref}

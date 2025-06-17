@@ -1,5 +1,4 @@
-@import 'tailwindcss' theme(static);
-
+@import "tailwindcss" theme(static);
 
 @theme inline {
   --font-sans: var(--font-inter), system-ui;
@@ -11,11 +10,11 @@
 
 @theme {
   --color-*: initial;
-  --color-white: #F2F7FA;
-  --color-black: #0F1E29;
-  --color-yellow: #FCBA04;
-  --color-cyan: #18A999;
-  --color-blue: #1E3F56;
+  --color-white: #f2f7fa;
+  --color-black: #0f1e29;
+  --color-yellow: #fcba04;
+  --color-cyan: #18a999;
+  --color-blue: #1e3f56;
 }
 
 /*

@@ -22,12 +22,12 @@ export const ProjectsList = async () => {
         <div className={`flex-col`}>
           <div className={`flex h-9 items-end space-x-6`}>
             <div className={`mb-px flex w-10 flex-none sm:w-14`}>
-              <span className={`text-sm font-medium leading-[0.7] text-cyan`}>
+              <span className={`text-cyan text-sm font-medium leading-[0.7]`}>
                 jetzt
               </span>
             </div>
             <h2
-              className={`m-0! w-full font-mono! text-4xl! leading-[0.7]! sm:text-2xl!`}
+              className={`m-0! font-mono! text-4xl! leading-[0.7]! sm:text-2xl! w-full`}
             >
               dein projekt
             </h2>
@@ -63,13 +63,13 @@ export const ProjectsList = async () => {
               <div className={`flex h-9 items-end`}>
                 <div className={`mb-px flex w-10 flex-none sm:w-14`}>
                   <span
-                    className={`text-sm font-medium leading-[0.7] text-cyan`}
+                    className={`text-cyan text-sm font-medium leading-[0.7]`}
                   >
                     {year}
                   </span>
                 </div>
                 <h2
-                  className={`m-0! w-full font-mono! text-4xl! leading-[0.7]! sm:text-2xl!`}
+                  className={`m-0! font-mono! text-4xl! leading-[0.7]! sm:text-2xl! w-full`}
                 >
                   {title}
                 </h2>

@@ -57,7 +57,7 @@ export const NavigationMenuTrigger = forwardRef<
     <NavigationMenuPrimitive.Trigger
       ref={ref}
       className={cn(
-        `focus group inline-flex w-max items-center justify-center font-semibold leading-5 transition-colors hover:text-cyan disabled:pointer-events-none disabled:opacity-50 data-active:text-cyan data-[state=open]:text-cyan`,
+        `focus hover:text-cyan data-active:text-cyan data-[state=open]:text-cyan group inline-flex w-max items-center justify-center font-semibold leading-5 transition-colors disabled:pointer-events-none disabled:opacity-50`,
         className,
       )}
       {...props}
@@ -80,7 +80,7 @@ export const NavigationMenuContent = forwardRef<
   <NavigationMenuPrimitive.Content
     ref={ref}
     className={cn(
-      `right-0 top-0 w-full data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52 md:absolute`,
+      `data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52 right-0 top-0 w-full md:absolute`,
       className,
     )}
     {...props}
@@ -98,7 +98,7 @@ export const NavigationMenuLink = forwardRef<
     <NavigationMenuPrimitive.Link
       ref={ref}
       className={cn(
-        `focus block text-black transition-all hover:text-cyan`,
+        `focus hover:text-cyan block text-black transition-all`,
         className,
       )}
       {...otherProps}
@@ -116,12 +116,12 @@ export const NavigationMenuViewport = forwardRef<
   return (
     <div
       className={cn(
-        `absolute right-0 top-full w-[calc(100vw-2rem)] max-w-(--breakpoint-md) pl-0 sm:pl-8 lg:pl-0`,
+        `max-w-(--breakpoint-md) absolute right-0 top-full w-[calc(100vw-2rem)] pl-0 sm:pl-8 lg:pl-0`,
       )}
     >
       <NavigationMenuPrimitive.Viewport
         className={cn(
-          `relative mt-4 h-[var(--radix-navigation-menu-viewport-height)] w-full origin-[top_right] overflow-hidden bg-cyan/20 text-black shadow-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90`,
+          `bg-cyan/20 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 relative mt-4 h-[var(--radix-navigation-menu-viewport-height)] w-full origin-[top_right] overflow-hidden text-black shadow-sm`,
           className,
         )}
         ref={ref}

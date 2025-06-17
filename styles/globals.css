@@ -1,7 +1,5 @@
 @import 'tailwindcss' theme(static);
 
-@config '../tailwind.config.js';
-
 
 @theme inline {
   --font-sans: var(--font-inter), system-ui;
@@ -36,8 +34,4 @@
   ::file-selector-button {
     border-color: var(--color-gray-200, currentcolor);
   }
-}
-
-@utility focus {
-  @apply focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-yellow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow;
 }

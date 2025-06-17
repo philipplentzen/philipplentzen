@@ -6,17 +6,16 @@ import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
   [
-    `focus inline-flex w-fit items-center space-x-3 font-mono text-xs leading-4 no-underline drop-shadow transition-colors`,
-    `sm:text-sm sm:leading-6`,
+    `focus font-bold font-caveat lowercase inline-flex w-fit items-center space-x-2 leading-8 no-underline transition-colors cursor-pointer text-2xl`,
   ],
   {
     variants: {
       variant: {
-        default: `bg-black text-white! hover:bg-neutral-700`,
+        default: `text-cyan bg-[url('/images/button-background.png')] bg-size-[100%_100%] bg-no-repeat bg-center`,
         ghost: `border border-current bg-black/10 text-black hover:bg-black/20`,
       },
       size: {
-        default: `px-4 py-3 sm:px-6`,
+        default: `px-6 pt-2 pb-2`,
         square: `aspect-square p-2`,
       },
     },

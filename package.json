@@ -15,7 +15,8 @@
     "test:dev:chromium": "playwright test --debug --project=chromium",
     "test:dev:firefox": "playwright test --debug --project=firefox",
     "test:dev:webkit": "playwright test --debug --project=webkit",
-    "test:results": "playwright show-report"
+    "test:results": "playwright show-report",
+    "prepare": "husky"
   },
   "dependencies": {
     "@mdx-js/loader": "3.1.0",
@@ -36,10 +37,12 @@
     "tailwind-merge": "3.2.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "19.8.1",
+    "@commitlint/config-conventional": "19.8.1",
+    "@commitlint/types": "19.8.1",
     "@eslint/eslintrc": "3.3.1",
     "@ianvs/prettier-plugin-sort-imports": "4.4.1",
     "@playwright/test": "1.52.0",
-    "@svgr/webpack": "8.1.0",
     "@tailwindcss/typography": "0.5.16",
     "@types/lodash": "4.17.16",
     "@types/node": "22.14.1",
@@ -50,6 +53,8 @@
     "eslint-config-next": "15.3.1",
     "eslint-config-prettier": "10.1.2",
     "eslint-plugin-mdx": "3.4.0",
+    "husky": "9.1.7",
+    "lint-staged": "14.0.1",
     "postcss": "8.5.3",
     "prettier": "3.5.3",
     "prettier-plugin-organize-imports": "4.1.0",

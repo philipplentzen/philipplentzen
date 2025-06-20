@@ -6,17 +6,19 @@ import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
   [
-    `focus font-bold font-caveat lowercase inline-flex w-fit items-center space-x-2 leading-8 no-underline transition-colors cursor-pointer text-2xl`,
+    `focus relative font-bold font-caveat lowercase inline-flex w-fit items-center space-x-2 leading-8 no-underline transition-colors cursor-pointer text-2xl`,
+    "after:absolute after:inset-0 after:bg-current after:mask-size-[100%_100%] after:mask-no-repeat after:mask-center",
   ],
   {
     variants: {
       variant: {
-        default: `text-cyan bg-[url('/images/button-background.png')] bg-size-[100%_100%] bg-no-repeat bg-center`,
+        default: `text-black`,
+        accent: `text-cyan`,
         ghost: `border border-current bg-black/10 text-black hover:bg-black/20`,
       },
       size: {
-        default: `px-6 pt-2 pb-2`,
-        square: `aspect-square p-2`,
+        default: `px-6 pt-2 pb-2 after:mask-[url('/images/button-background-rectangle.png')]`,
+        square: `aspect-square p-2 after:mask-[url('/images/button-background-square.png')]`,
       },
     },
     defaultVariants: {
@@ -41,7 +43,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <Comp
         ref={ref}
-        className={cn(buttonVariants({ variant, size }), className)}
+        className={cn(buttonVariants({ variant, size, className }))}
         {...otherProps}
       />
     );

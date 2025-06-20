@@ -13,9 +13,9 @@ import { PropsWithChildren } from "react";
 
 import { Logo } from "@/components/logo";
 import { Today } from "@/components/today";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -125,7 +125,9 @@ export default async function RootLayout({ children }: PropsWithChildren<{}>) {
               "flex items-center gap-x-4 border-black/20 px-4 sm:border-x-[2px]"
             }
           >
-            <Logo className={"h-8"} />
+            <Link href={"/"} aria-label={"Startseite"}>
+              <Logo className={"h-8"} />
+            </Link>
           </header>
           <main
             className={cn(
@@ -138,7 +140,7 @@ export default async function RootLayout({ children }: PropsWithChildren<{}>) {
           >
             <Image
               src={"/images/coffee.png"}
-              alt={"Coffee stain"}
+              alt={"Texture of a coffee stain on paper"}
               width={2631}
               height={3070}
               className={
@@ -150,61 +152,7 @@ export default async function RootLayout({ children }: PropsWithChildren<{}>) {
                 "font-caveat text-current/50 block text-right text-2xl font-medium leading-4 md:-mr-4"
               }
             />
-            <section className={"relative h-96 gap-x-4 pt-32"}>
-              <div className={"@container w-full max-w-2xl"}>
-                <h1
-                  className={
-                    "font-instrument text-blue pt-4 text-[min(8rem,_15cqw)] lowercase leading-[0.7] tracking-tight"
-                  }
-                >
-                  Kreativer Entwickler,
-                  <br />
-                  <span className={"ml-4 text-[min(6rem,_10.9cqw)] md:ml-8"}>
-                    <span className={"text-cyan"}>digitaler Tüftler</span> &{" "}
-                    <span
-                      className={cn(
-                        "text-yellow after:bg-size-[100%_100%] relative inline-block",
-                        "after:absolute after:-bottom-3 after:-left-3 after:-right-8 after:top-0 after:bg-[url('/images/text-overlay.png')] after:opacity-90",
-                      )}
-                    >
-                      Öcher Jong
-                    </span>
-                  </span>
-                </h1>
-              </div>
-            </section>
-            <section className={"relative h-96 pt-12 sm:gap-x-4"}>
-              #showcase
-            </section>
-            <section
-              className={
-                "bg-size-[100%_auto] relative flex items-center bg-center bg-no-repeat max-sm:flex-col sm:h-64 sm:bg-[url('/images/text-background.png')] sm:px-8"
-              }
-            >
-              <Image
-                src={"/images/pc-postit.png"}
-                alt={"Picture of a PC on a post-it"}
-                width={679}
-                height={624}
-                className={"w-auto drop-shadow-xl sm:h-[110%]"}
-              />
-              <div
-                className={
-                  "@container bg-size-[100%_100%] flex w-full flex-col items-center gap-y-4 bg-no-repeat max-sm:-mt-8 max-sm:bg-[url('/images/text-background.png')] max-sm:pb-8 max-sm:pt-8 sm:items-start"
-                }
-              >
-                <h1
-                  className={
-                    "font-instrument text-yellow text-[min(4.5rem,_14cqw)] lowercase italic leading-[0.7] tracking-tight"
-                  }
-                >
-                  Deine neue Webseite?
-                </h1>
-                <Button>Einfach mal anfragen!</Button>
-              </div>
-            </section>
-            <section className={"relative gap-x-4 pt-12"}># über mich</section>
-            <section className={"relative gap-x-4 pt-12"}># kontakt</section>
+            {children}
           </main>
           <footer className={"border-black/20 p-4 sm:border-x-[2px]"}>
             TEST

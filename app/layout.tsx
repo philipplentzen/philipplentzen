@@ -109,14 +109,14 @@ export default async function RootLayout({ children }: PropsWithChildren<{}>) {
           <div
             className={cn(
               "col-start-1 row-span-full hidden md:block",
-              "bg-position-[0px_1px] bg-[url(/images/grid.png)]",
+              "bg-position-[0px_1px] bg-[url(/textures/grid-background.png)]",
               "mask-l-from-10%",
             )}
           />
           <div
             className={cn(
               "col-start-3 row-span-full hidden md:block",
-              "bg-position-[-1px_1px] bg-[url(/images/grid.png)]",
+              "bg-position-[-1px_1px] bg-[url(/textures/grid-background.png)]",
               "mask-r-from-10%",
             )}
           />
@@ -132,7 +132,7 @@ export default async function RootLayout({ children }: PropsWithChildren<{}>) {
           <main
             className={cn(
               "@container relative flex flex-col gap-y-8 p-4 max-sm:overflow-x-hidden sm:gap-y-16 md:pl-[calc(var(--spacing)_*_8_-_1px)] md:pr-[calc(var(--spacing)_*_8_-_3px)]",
-              "bg-position-[-1px_1px] bg-[url(/images/grid.png)]",
+              "bg-position-[-1px_1px] bg-[url(/textures/grid-background.png)]",
               "border-black/20 sm:border-x-[2px]",
               "before:absolute before:left-[-100vw] before:top-0 before:h-[2px] before:w-[200vw] before:bg-black/20",
               "after:absolute after:bottom-0 after:left-[-100vw] after:h-[2px] after:w-[200vw] after:bg-black/20",

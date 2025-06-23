@@ -68,7 +68,7 @@ export default function HomePage() {
           ))}
         </div>
       </Section>
-      <Section className={"py-8"}>
+      <Section className={"py-8 before:content-none"}>
         <div
           className={
             "bg-size-[100%_auto] relative flex items-center gap-x-4 bg-center bg-no-repeat max-sm:flex-col sm:h-64 sm:bg-[url('/images/text-background.png')] sm:px-8"
@@ -86,19 +86,35 @@ export default function HomePage() {
               "@container bg-size-[100%_100%] flex w-full flex-col items-center gap-y-4 bg-no-repeat max-sm:-mt-8 max-sm:bg-[url('/images/text-background.png')] max-sm:pb-8 max-sm:pt-8 sm:items-start"
             }
           >
-            <h1
+            <h2
               className={
                 "font-instrument text-yellow text-[min(4.5rem,_14cqw)] lowercase italic leading-[0.7] tracking-tight"
               }
             >
               Neue Webseite?
-            </h1>
+            </h2>
             <Button variant={"accent"}>Einfach mal anfragen!</Button>
           </div>
         </div>
       </Section>
-      <Section>#über mich</Section>
-      <Section>#kontakt</Section>
+      <Section>
+        <h2
+          className={
+            "font-instrument text-blue flex h-16 text-left text-[min(5rem,_14.5cqw)] lowercase leading-[0.7]"
+          }
+        >
+          <span className={"block w-full self-end"}>Über mich</span>
+        </h2>
+      </Section>
+      <Section>
+        <h2
+          className={
+            "font-instrument text-blue flex h-16 text-right text-[min(5rem,_14.5cqw)] lowercase leading-[0.7]"
+          }
+        >
+          <span className={"block w-full self-end"}>Kontakt</span>
+        </h2>
+      </Section>
     </>
   );
 }

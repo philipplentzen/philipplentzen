@@ -6,24 +6,26 @@ import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
   [
-    `focus relative font-bold font-caveat lowercase inline-flex w-fit items-center space-x-2 leading-8 no-underline transition-colors cursor-pointer text-2xl`,
+    "focus relative font-bold font-caveat lowercase inline-flex w-fit items-center space-x-2 leading-8 no-underline transition-colors cursor-pointer text-2xl",
     "after:absolute after:inset-0 after:bg-current after:mask-size-[100%_100%] after:mask-no-repeat after:mask-center",
   ],
   {
     variants: {
       variant: {
-        default: `text-black`,
-        accent: `text-cyan`,
-        ghost: `border border-current bg-black/10 text-black hover:bg-black/20`,
+        default: "text-black",
+        accent: "text-cyan",
+        ghost: "border border-current bg-black/10 text-black hover:bg-black/20",
       },
       size: {
-        default: `px-6 pt-2 pb-2 after:mask-[url('/images/button-background-rectangle.png')]`,
-        square: `aspect-square p-2 after:mask-[url('/images/button-background-square.png')]`,
+        default:
+          "px-6 pt-2 pb-2 after:mask-[url('/textures/button-background-rectangle.png')]",
+        square:
+          "aspect-square p-2 after:mask-[url('/textures/button-background-square.png')]",
       },
     },
     defaultVariants: {
-      variant: `default`,
-      size: `default`,
+      variant: "default",
+      size: "default",
     },
   },
 );
@@ -38,7 +40,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (props, ref) => {
     const { asChild, className, variant, size, ...otherProps } = props;
 
-    const Comp = asChild ? Slot : `button`;
+    const Comp = asChild ? Slot : "button";
 
     return (
       <Comp
@@ -49,4 +51,4 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     );
   },
 );
-Button.displayName = `Button`;
+Button.displayName = "Button";

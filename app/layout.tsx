@@ -100,10 +100,10 @@ export default async function RootLayout({ children }: PropsWithChildren<{}>) {
       <body className={`max-w-screen overflow-x-hidden`}>
         <div
           className={cn(
-            "isolate mx-auto grid w-full",
+            "container isolate mx-auto grid w-full",
             "grid-rows-[var(--header-height)_minmax(calc(100dvh_-_var(--header-height)),1fr)_auto] [--header-height:4rem]",
             "grid-cols-1 [--edge-width:calc(6rem_-_1px)] md:grid-cols-[var(--edge-width)_minmax(0,1fr)_var(--edge-width)]",
-            "sm:max-w-[calc(var(--container-lg)_+_2_*_var(--edge-width))] md:max-w-[calc(var(--container-3xl)_+_2_*_var(--edge-width))] lg:max-w-[calc(var(--container-5xl)_+_2_*_var(--edge-width))]",
+            // "sm:max-w-[calc(var(--container-lg)_+_2_*_var(--edge-width))] md:max-w-[calc(var(--container-3xl)_+_2_*_var(--edge-width))] lg:max-w-[calc(var(--container-5xl)_+_2_*_var(--edge-width))]",
           )}
         >
           <div

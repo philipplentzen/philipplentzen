@@ -71,7 +71,7 @@ export default function HomePage() {
       <Section className={"py-8 before:content-none"}>
         <div
           className={
-            "bg-size-[100%_auto] relative flex items-center gap-x-4 bg-center bg-no-repeat max-sm:flex-col sm:h-64 sm:bg-[url('/images/text-background.png')] sm:px-8"
+            "bg-size-[100%_auto] relative mx-auto flex w-full max-w-5xl items-center gap-x-4 bg-center bg-no-repeat max-sm:flex-col sm:h-64 sm:bg-[url('/images/text-background.png')] sm:px-8"
           }
         >
           <Image

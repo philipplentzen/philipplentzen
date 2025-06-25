@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
   [
-    "focus relative font-bold font-caveat lowercase inline-flex w-fit items-center space-x-2 leading-8 no-underline transition-colors cursor-pointer text-2xl",
+    "overflow-visible focus relative font-bold font-caveat lowercase inline-flex w-fit items-center space-x-2 leading-8 no-underline cursor-pointer text-2xl transition-transform hover:scale-105",
     "after:absolute after:inset-0 after:bg-current after:mask-size-[100%_100%] after:mask-no-repeat after:mask-center",
   ],
   {

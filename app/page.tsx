@@ -48,10 +48,20 @@ export default function HomePage() {
         >
           <span className={"block w-full self-end"}>Showcase</span>
         </h2>
-        <div className={"grid grid-cols-3 gap-x-12"}>
+        <div
+          className={
+            "grid gap-x-8 gap-y-8 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:gap-x-16"
+          }
+        >
           {[1, 2, 3].map((item) => (
-            <div key={item} className={"flex w-full flex-col gap-y-4"}>
-              <div className="bg-cyan h-64 w-full"></div>
+            <div
+              key={item}
+              className={cn(
+                "flex w-full flex-col gap-y-4",
+                item === 3 && "sm:max-md:hidden lg:max-xl:hidden",
+              )}
+            >
+              <div className="bg-cyan lg:h-68 aspect-[4_/_3] w-full sm:h-52 md:h-96 xl:h-60"></div>
               <div className={"text-cyan flex h-8 w-full justify-between"}>
                 <h3
                   className={"self-end text-2xl leading-[0.7] tracking-tighter"}
@@ -71,7 +81,7 @@ export default function HomePage() {
       <Section className={"py-8 before:content-none"}>
         <div
           className={
-            "bg-size-[100%_auto] relative mx-auto flex w-full max-w-5xl items-center gap-x-4 bg-center bg-no-repeat max-sm:flex-col sm:h-64 sm:bg-[url('/images/text-background.png')] sm:px-8"
+            "bg-size-[100%_100%] relative mx-auto flex w-full max-w-5xl flex-col items-center justify-center gap-x-4 bg-center bg-no-repeat lg:h-64 lg:flex-row lg:bg-[url('/images/text-background.png')] lg:px-8"
           }
         >
           <Image
@@ -79,19 +89,19 @@ export default function HomePage() {
             alt={"Picture of a PC on a post-it"}
             width={679}
             height={624}
-            className={"w-auto drop-shadow-xl sm:h-[110%]"}
+            className={"w-4/6 drop-shadow-xl lg:h-[110%] lg:w-auto xl:h-[130%]"}
           />
           <div
             className={
-              "@container bg-size-[100%_100%] flex w-full flex-col items-center gap-y-4 bg-no-repeat max-sm:-mt-8 max-sm:bg-[url('/images/text-background.png')] max-sm:pb-8 max-sm:pt-8 sm:items-start"
+              "@container bg-size-[100%_100%] flex w-full flex-col items-center gap-y-4 bg-no-repeat max-lg:-mt-8 max-lg:bg-[url('/images/text-background.png')] max-lg:pb-8 max-lg:pt-8 lg:max-w-sm lg:items-start"
             }
           >
             <h2
               className={
-                "font-instrument text-yellow text-[min(4.5rem,_14cqw)] lowercase italic leading-[0.7] tracking-tight"
+                "font-instrument text-yellow text-[min(4.5rem,_19cqw)] lowercase italic leading-[0.7] tracking-tight"
               }
             >
-              Neue Webseite?
+              Neues Projekt?
             </h2>
             <Button variant={"accent"}>Einfach mal anfragen!</Button>
           </div>

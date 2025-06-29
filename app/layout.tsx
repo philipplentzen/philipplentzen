@@ -64,24 +64,29 @@ export const viewport: Viewport = {
 
 const caveat = Caveat({
   variable: "--font-caveat",
+  subsets: ["latin"],
 });
 
 const fira = Fira_Code({
   variable: "--font-fira",
+  subsets: ["latin"],
 });
 
 const instrument = Instrument_Serif({
   variable: "--font-instrument",
   weight: "400",
   style: ["normal", "italic"],
+  subsets: ["latin"],
 });
 
 const inter = Inter({
   variable: "--font-inter",
+  subsets: ["latin"],
 });
 
 const overpass = Overpass({
   variable: "--font-overpass",
+  subsets: ["latin"],
 });
 
 export default async function RootLayout({ children }: PropsWithChildren<{}>) {

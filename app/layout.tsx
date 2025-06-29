@@ -40,7 +40,7 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
   return (
     <html
       className={cn(
-        "scroll-smooth antialiased",
+        "selection:bg-yellow selection:text-cyan scroll-smooth bg-white bg-[url(/images/grain.png)] text-black antialiased",
         caveat.variable,
         fira.variable,
         instrument.variable,

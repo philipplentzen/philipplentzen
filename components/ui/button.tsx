@@ -6,13 +6,13 @@ import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
   [
-    `focus inline-flex w-fit items-center space-x-3 font-mono text-xs leading-4 no-underline drop-shadow transition-colors`,
+    `inline-flex w-fit items-center space-x-3 font-mono text-xs leading-4 no-underline drop-shadow transition-colors`,
     `sm:text-sm sm:leading-6`,
   ],
   {
     variants: {
       variant: {
-        default: `bg-black !text-white hover:bg-neutral-700`,
+        default: `bg-black text-white! hover:bg-neutral-700`,
         ghost: `border border-current bg-black/10 text-black hover:bg-black/20`,
       },
       size: {

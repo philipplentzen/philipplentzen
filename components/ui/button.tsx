@@ -6,23 +6,26 @@ import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
   [
-    `focus inline-flex w-fit items-center space-x-3 font-mono text-xs leading-4 no-underline drop-shadow transition-colors`,
-    `sm:text-sm sm:leading-6`,
+    "overflow-visible focus relative font-bold font-caveat lowercase inline-flex w-fit items-center space-x-2 leading-8 no-underline cursor-pointer text-2xl transition-transform hover:scale-105",
+    "after:absolute after:inset-0 after:bg-current after:mask-size-[100%_100%] after:mask-no-repeat after:mask-center",
   ],
   {
     variants: {
       variant: {
-        default: `bg-black !text-white hover:bg-neutral-700`,
-        ghost: `border border-current bg-black/10 text-black hover:bg-black/20`,
+        default: "text-black",
+        accent: "text-cyan",
+        ghost: "border border-current bg-black/10 text-black hover:bg-black/20",
       },
       size: {
-        default: `px-4 py-3 sm:px-6`,
-        square: `aspect-square p-2`,
+        default:
+          "px-6 pt-2 pb-2 after:mask-[url('/textures/button-background-rectangle.png')]",
+        square:
+          "aspect-square p-2 after:mask-[url('/textures/button-background-square.png')]",
       },
     },
     defaultVariants: {
-      variant: `default`,
-      size: `default`,
+      variant: "default",
+      size: "default",
     },
   },
 );
@@ -37,15 +40,15 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (props, ref) => {
     const { asChild, className, variant, size, ...otherProps } = props;
 
-    const Comp = asChild ? Slot : `button`;
+    const Comp = asChild ? Slot : "button";
 
     return (
       <Comp
         ref={ref}
-        className={cn(buttonVariants({ variant, size }), className)}
+        className={cn(buttonVariants({ variant, size, className }))}
         {...otherProps}
       />
     );
   },
 );
-Button.displayName = `Button`;
+Button.displayName = "Button";

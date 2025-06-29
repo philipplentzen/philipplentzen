@@ -106,20 +106,17 @@ export default function RootLayout({
     <html className={`scroll-smooth`} lang={`de`}>
       <body
         className={cn(
-          `relative flow-root min-h-full overflow-x-hidden bg-white bg-grain bg-fixed font-sans leading-4 text-black selection:bg-yellow selection:text-cyan`,
+          `selection:bg-yellow selection:text-cyan relative flow-root min-h-full overflow-x-hidden bg-white bg-grain bg-fixed font-sans leading-4 text-black`,
           inter.variable,
           overpass.variable,
         )}
       >
         {process.env.NEXT_PUBLIC_ENV !== `production` && (
           <div
-            className={`sticky top-0 z-[99] w-full bg-cyan py-2 text-center font-mono text-sm leading-4 text-white drop-shadow`}
+            className={`z-99 bg-cyan sticky top-0 w-full py-2 text-center font-mono text-sm leading-4 text-white drop-shadow`}
           >
             Dies ist eine Beta-Version der Seite. Besuche bitte{` `}
-            <a
-              href={`https://www.philipplentzen.dev`}
-              className={`focus underline`}
-            >
+            <a href={`https://www.philipplentzen.dev`} className={`underline`}>
               www.philipplentzen.dev
             </a>
             .
@@ -136,9 +133,9 @@ export default function RootLayout({
         />
         <header className={`absolute inset-x-0 z-50 lowercase`}>
           <div
-            className={`mx-auto mt-12 flex w-full max-w-screen-md items-end justify-between px-4 lg:px-0`}
+            className={`max-w-(--breakpoint-md) mx-auto mt-12 flex w-full items-end justify-between px-4 lg:px-0`}
           >
-            <Link href={`/`} aria-label={`Zur Startseite`} className={`focus`}>
+            <Link href={`/`} aria-label={`Zur Startseite`}>
               <h1 className={`font-mono text-xl font-semibold`}>
                 <span className={`text-black/50 max-sm:hidden`}>kontakt</span>
                 <span className={`sm:text-black`}>@philipplentzen</span>
@@ -184,15 +181,15 @@ export default function RootLayout({
                           className={`text-center text-3xl font-semibold tracking-[-0.075em] text-white`}
                         >
                           Neues Projekt
-                          <span className={`pl-1 text-yellow`}>?</span>
+                          <span className={`text-yellow pl-1`}>?</span>
                         </div>
                       </Link>
                     </NavigationMenuLink>
                     <ul
-                      className={`flex w-full flex-col space-y-2 border border-cyan p-4`}
+                      className={`border-cyan flex w-full flex-col space-y-2 border p-4`}
                     >
                       <li
-                        className={`border-b border-b-cyan pb-2 text-black/60`}
+                        className={`border-b-cyan border-b pb-2 text-black/60`}
                       >
                         Register
                       </li>
@@ -204,7 +201,7 @@ export default function RootLayout({
                         <li key={href}>
                           <NavigationMenuLink
                             asChild
-                            className={`w-max text-blue`}
+                            className={`text-blue w-max`}
                           >
                             <Link href={href} aria-label={`Gehe zu ${title}`}>
                               <span className={`mr-2 font-mono text-black/60`}>
@@ -226,23 +223,23 @@ export default function RootLayout({
         </header>
         <main
           className={cn(
-            `relative mx-auto min-h-dvh w-full max-w-screen-md px-4 pb-12 pt-72 sm:pb-24 sm:pt-96 lg:px-0`,
+            `max-w-(--breakpoint-md) relative mx-auto min-h-dvh w-full px-4 pb-12 pt-72 sm:pb-24 sm:pt-96 lg:px-0`,
             `prose prose-neutral`,
-            `prose-headings:-ml-1 prose-headings:mb-2 prose-headings:font-overpass prose-headings:lowercase prose-headings:tracking-[-0.075em] prose-headings:drop-shadow prose-headings:after:pl-1 prose-headings:after:text-cyan prose-headings:after:content-["."]`,
+            `prose-headings:after:text-cyan prose-headings:-ml-1 prose-headings:mb-2 prose-headings:font-overpass prose-headings:lowercase prose-headings:tracking-[-0.075em] prose-headings:drop-shadow prose-headings:after:pl-1 prose-headings:after:content-["."]`,
             `prose-h1:text-7xl prose-h1:font-bold prose-h1:text-black`,
-            `prose-h2:text-5xl prose-h2:font-semibold prose-h2:text-blue`,
+            `prose-h2:text-blue prose-h2:text-5xl prose-h2:font-semibold`,
             `prose-h3:text-3xl`,
-            `prose-hr:mt-12 prose-hr:border-t-black/20 prose-hr:first-of-type:mt-24 sm:prose-hr:mt-24 sm:prose-hr:first-of-type:mt-72`,
+            `prose-hr:mt-12 prose-hr:border-t-black/20 first-of-type:prose-hr:mt-24 sm:prose-hr:mt-24 sm:first-of-type:prose-hr:mt-72`,
             `prose-p:max-w-prose`,
           )}
         >
           {children}
         </main>
         <footer
-          className={`border-t border-t-cyan bg-cyan/10 pb-4 pt-8 sm:pt-12`}
+          className={`border-t-cyan bg-cyan/10 border-t pb-4 pt-8 sm:pt-12`}
         >
           <nav
-            className={`mx-auto flex max-w-screen-md flex-col items-center space-y-12 px-4 lowercase lg:px-0`}
+            className={`max-w-(--breakpoint-md) mx-auto flex flex-col items-center space-y-12 px-4 lowercase lg:px-0`}
           >
             <div className={`grid w-full grid-cols-2 gap-6 max-sm:grid-cols-1`}>
               {[
@@ -256,7 +253,7 @@ export default function RootLayout({
                 },
               ].map(({ title, items }, i) => (
                 <div key={i}>
-                  <span className={`font-mono text-2xl font-medium text-cyan`}>
+                  <span className={`text-cyan font-mono text-2xl font-medium`}>
                     {title}.
                   </span>
                   <ol className={`mt-4 space-y-1 text-black`}>
@@ -264,7 +261,7 @@ export default function RootLayout({
                       <Link
                         key={href}
                         href={href}
-                        className={`focus block py-1 transition-colors hover:text-cyan`}
+                        className={`hover:text-cyan block py-1 transition-colors`}
                       >
                         <li>
                           <span className={`mr-2 font-mono text-black/60`}>
@@ -289,7 +286,7 @@ export default function RootLayout({
                   <Link
                     href={href}
                     aria-label={`${title} öffnen`}
-                    className={`focus text-xs text-cyan transition-colors hover:text-cyan/80`}
+                    className={`text-cyan hover:text-cyan/80 text-xs transition-colors`}
                   >
                     {title}
                   </Link>

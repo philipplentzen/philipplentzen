@@ -50,6 +50,16 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
       lang={"de"}
     >
       <body className={"max-w-screen relative overflow-x-hidden"}>
+        {process.env.NODE_ENV === "development" && (
+          <div className={"fixed right-0 top-0 z-50 text-xs leading-none"}>
+            <span className={"hidden max-sm:inline-block"}>none</span>
+            <span className={"hidden sm:max-md:inline-block"}>sm</span>
+            <span className={"hidden md:max-lg:inline-block"}>md</span>
+            <span className={"hidden lg:max-xl:inline-block"}>lg</span>
+            <span className={"hidden xl:max-2xl:inline-block"}>xl</span>
+            <span className={"hidden 2xl:inline-block"}>2xl</span>
+          </div>
+        )}
         {children}
       </body>
     </html>

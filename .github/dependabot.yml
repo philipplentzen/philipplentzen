@@ -1,11 +1,27 @@
 version: 2
 updates:
-  - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: "github-actions"
+    directory: "/"
     schedule:
       interval: "weekly"
-
-  - package-ecosystem: "github-actions" # See documentation for possible values
-    directory: "/" # Location of package manifests
+    target-branch: "staging"
+    labels:
+      - "actions"
+    groups:
+      actions-deps:
+        patterns:
+          - "*"
+  - package-ecosystem: "npm"
+    directory: "/"
     schedule:
       interval: "weekly"
+    target-branch: "staging"
+    labels:
+      - "dependencies"
+    groups:
+      production-dependencies":
+        dependency-type: "production"
+      development-dependencies:
+        dependency-type: "development"
+    ignore:
+      - dependency-name: "@release-it/conventional-changelog"

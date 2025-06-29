@@ -83,23 +83,25 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
               "mask-r-from-10%",
             )}
           />
-          <header className={"flex items-center px-4"}>
+          <header className={"flex items-center px-8"}>
             <Link href={"/"} aria-label={"Startseite"} className={"-ml-2 p-2"}>
               <Logo className={"h-8"} />
             </Link>
           </header>
           <div
             className={cn(
-              "relative",
+              "relative h-[var(--divider-height)]",
               "bg-radial bg-size-[var(--pattern-size)_var(--pattern-size)] to-current/0 from-current/10 from-[1px] to-[1px]",
               "before:bg-current/10 before:absolute before:left-[-100vw] before:top-0 before:h-px before:w-[200vw]",
               "after:bg-current/10 after:absolute after:bottom-0 after:left-[-100vw] after:h-px after:w-[200vw]",
             )}
           />
-          <main className={cn("@container relative")}>{children}</main>
+          <main className={cn("@container relative px-8 pt-64")}>
+            {children}
+          </main>
           <div
             className={cn(
-              "relative",
+              "relative h-[var(--divider-height)]",
               "bg-radial bg-size-[var(--pattern-size)_var(--pattern-size)] to-current/0 from-current/10 from-[1px] to-[1px]",
               "before:bg-current/10 before:absolute before:left-[-100vw] before:top-0 before:h-px before:w-[200vw]",
               "after:bg-current/10 after:absolute after:bottom-0 after:left-[-100vw] after:h-px after:w-[200vw]",

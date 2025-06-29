@@ -8,3 +8,11 @@
   --color-cyan: #18a999;
   --color-blue: #1e3f56;
 }
+
+@theme inline {
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-fira), monospace;
+  --font-caveat: var(--font-caveat), system-ui;
+  --font-instrument: var(--font-instrument), system-ui;
+  --font-overpass: var(--font-overpass), system-ui;
+}

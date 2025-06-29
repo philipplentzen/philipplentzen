@@ -60,7 +60,11 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
             <span className={"hidden 2xl:inline-block"}>2xl</span>
           </div>
         )}
-        {children}
+        <div className={"container isolate mx-auto w-full"}>
+          <header></header>
+          <main>{children}</main>
+          <footer></footer>
+        </div>
       </body>
     </html>
   );

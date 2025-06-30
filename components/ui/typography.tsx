@@ -19,13 +19,19 @@ const Typography = <T,>(props: HTMLAttributes<T> & { as: ElementType }) => {
 const H = (
   props: HtmlHTMLAttributes<HTMLHeadingElement> & { as: ElementType },
 ) => {
-  const { className, ...other } = props;
+  const { as, className, ...other } = props;
 
   return (
-    <Typography<HTMLHeadingElement>
-      className={cn("font-instrument tracking-tight lowercase", className)}
-      {...other}
-    />
+    <div
+      className={"flex w-full flex-col gap-y-1 group-even/section:text-right"}
+    >
+      <span className={"font-caveat text-current/30"}>{as as string}</span>
+      <Typography<HTMLHeadingElement>
+        as={as}
+        className={cn("font-instrument tracking-tight lowercase", className)}
+        {...other}
+      />
+    </div>
   );
 };
 
@@ -36,7 +42,7 @@ export const H1 = (props: ComponentProps<"h1">) => {
     <H
       as={"h1"}
       className={cn(
-        "relative text-[min(var(--text-8xl),_14.5cqw)] leading-[0.833] text-primary",
+        "relative text-[min(var(--text-8xl),_14.5cqw)] leading-12 text-primary",
         className,
       )}
       {...other}
@@ -44,14 +50,14 @@ export const H1 = (props: ComponentProps<"h1">) => {
   );
 };
 
-export const H2 = (props: ComponentProps<"h1">) => {
+export const H2 = (props: ComponentProps<"h2">) => {
   const { className, ...other } = props;
 
   return (
     <H
       as={"h2"}
       className={cn(
-        "relative text-[min(var(--text-6xl),_9.5cqw)] leading-[0.833] text-secondary",
+        "relative text-[min(var(--text-7xl),_14.5cqw)] leading-12 text-primary",
         className,
       )}
       {...other}

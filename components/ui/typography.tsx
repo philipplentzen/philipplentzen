@@ -36,7 +36,7 @@ export const H1 = (props: ComponentProps<"h1">) => {
     <H
       as={"h1"}
       className={cn(
-        "text-blue relative text-[min(var(--text-8xl),_14.5cqw)] leading-[0.833]",
+        "text-primary relative text-[min(var(--text-8xl),_14.5cqw)] leading-[0.833]",
         className,
       )}
       {...other}
@@ -51,7 +51,7 @@ export const H2 = (props: ComponentProps<"h1">) => {
     <H
       as={"h2"}
       className={cn(
-        "text-cyan relative text-[min(var(--text-6xl),_9.5cqw)] leading-[0.833]",
+        "text-secondary relative text-[min(var(--text-6xl),_9.5cqw)] leading-[0.833]",
         className,
       )}
       {...other}

@@ -23,7 +23,7 @@ const H = (
 
   return (
     <Typography<HTMLHeadingElement>
-      className={cn("font-instrument lowercase tracking-tight", className)}
+      className={cn("font-instrument tracking-tight lowercase", className)}
       {...other}
     />
   );
@@ -36,7 +36,7 @@ export const H1 = (props: ComponentProps<"h1">) => {
     <H
       as={"h1"}
       className={cn(
-        "text-primary relative text-[min(var(--text-8xl),_14.5cqw)] leading-[0.833]",
+        "relative text-[min(var(--text-8xl),_14.5cqw)] leading-[0.833] text-primary",
         className,
       )}
       {...other}
@@ -51,7 +51,7 @@ export const H2 = (props: ComponentProps<"h1">) => {
     <H
       as={"h2"}
       className={cn(
-        "text-secondary relative text-[min(var(--text-6xl),_9.5cqw)] leading-[0.833]",
+        "relative text-[min(var(--text-6xl),_9.5cqw)] leading-[0.833] text-secondary",
         className,
       )}
       {...other}

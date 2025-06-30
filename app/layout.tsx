@@ -42,7 +42,7 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
   return (
     <html
       className={cn(
-        "selection:bg-accent selection:text-secondary bg-background text-text scroll-smooth antialiased",
+        "scroll-smooth bg-background text-text antialiased selection:bg-accent selection:text-secondary",
         caveat.variable,
         fira.variable,
         instrument.variable,
@@ -51,9 +51,9 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
       )}
       lang={"de"}
     >
-      <body className={"max-w-screen relative overflow-x-hidden"}>
+      <body className={"relative max-w-screen overflow-x-hidden"}>
         {process.env.NODE_ENV === "development" && (
-          <div className={"fixed right-0 top-0 z-50 text-xs leading-none"}>
+          <div className={"fixed top-0 right-0 z-50 text-xs leading-none"}>
             <span className={"hidden max-sm:inline-block"}>none</span>
             <span className={"hidden sm:max-md:inline-block"}>sm</span>
             <span className={"hidden md:max-lg:inline-block"}>md</span>
@@ -64,22 +64,22 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
         )}
         <div
           className={cn(
-            "container isolate mx-auto grid w-full [--divider-height:calc(var(--spacing)_*_4)] [--header-height:calc(var(--spacing)_*_16)] [--pattern-size:calc(var(--spacing)_*_2)]",
+            "isolate container mx-auto grid w-full [--divider-height:calc(var(--spacing)_*_4)] [--header-height:calc(var(--spacing)_*_16)] [--pattern-size:calc(var(--spacing)_*_2)]",
             "grid-rows-[var(--header-height)_var(--divider-height)_minmax(calc(100dvh_-_(var(--header-height)_+_var(--divider-height))),1fr)_var(--divider-height)_auto]",
             "grid-cols-1 [--edge-width:calc(6rem_+_1px)] md:grid-cols-[var(--edge-width)_minmax(0,1fr)_var(--edge-width)]",
           )}
         >
           <div
             className={cn(
-              "border-x-current/10 col-start-1 row-span-full hidden border-r md:block",
-              "bg-radial bg-size-[var(--pattern-size)_var(--pattern-size)] to-current/0 from-current/10 from-[1px] to-[1px]",
+              "col-start-1 row-span-full hidden border-r border-x-current/10 md:block",
+              "bg-radial from-current/10 from-[1px] to-current/0 to-[1px] bg-size-[var(--pattern-size)_var(--pattern-size)]",
               "mask-l-from-10%",
             )}
           />
           <div
             className={cn(
-              "border-x-current/10 col-start-3 row-span-full hidden border-l md:block",
-              "bg-radial bg-size-[var(--pattern-size)_var(--pattern-size)] to-current/0 from-current/10 from-[1px] to-[1px]",
+              "col-start-3 row-span-full hidden border-l border-x-current/10 md:block",
+              "bg-radial from-current/10 from-[1px] to-current/0 to-[1px] bg-size-[var(--pattern-size)_var(--pattern-size)]",
               "mask-r-from-10%",
             )}
           />
@@ -91,9 +91,9 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
           <div
             className={cn(
               "relative h-[var(--divider-height)]",
-              "bg-radial bg-size-[var(--pattern-size)_var(--pattern-size)] to-current/0 from-current/10 from-[1px] to-[1px]",
-              "before:bg-current/10 before:absolute before:left-[-100vw] before:top-0 before:h-px before:w-[200vw]",
-              "after:bg-current/10 after:absolute after:bottom-0 after:left-[-100vw] after:h-px after:w-[200vw]",
+              "bg-radial from-current/10 from-[1px] to-current/0 to-[1px] bg-size-[var(--pattern-size)_var(--pattern-size)]",
+              "before:absolute before:top-0 before:left-[-100vw] before:h-px before:w-[200vw] before:bg-current/10",
+              "after:absolute after:bottom-0 after:left-[-100vw] after:h-px after:w-[200vw] after:bg-current/10",
             )}
           />
           <main className={cn("@container relative px-8 pt-64")}>
@@ -102,9 +102,9 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
           <div
             className={cn(
               "relative h-[var(--divider-height)]",
-              "bg-radial bg-size-[var(--pattern-size)_var(--pattern-size)] to-current/0 from-current/10 from-[1px] to-[1px]",
-              "before:bg-current/10 before:absolute before:left-[-100vw] before:top-0 before:h-px before:w-[200vw]",
-              "after:bg-current/10 after:absolute after:bottom-0 after:left-[-100vw] after:h-px after:w-[200vw]",
+              "bg-radial from-current/10 from-[1px] to-current/0 to-[1px] bg-size-[var(--pattern-size)_var(--pattern-size)]",
+              "before:absolute before:top-0 before:left-[-100vw] before:h-px before:w-[200vw] before:bg-current/10",
+              "after:absolute after:bottom-0 after:left-[-100vw] after:h-px after:w-[200vw] after:bg-current/10",
             )}
           />
           <footer></footer>

@@ -65,7 +65,8 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
         )}
         <div
           className={cn(
-            "isolate container mx-auto grid w-full [--divider-height:calc(var(--spacing)_*_8)] [--edge-width:calc(var(--spacing)_*_24)] [--header-height:calc(var(--spacing)_*_16)] [--pattern-size:calc(var(--spacing)_*_2)]",
+            "[--divider-height:calc(var(--spacing)_*_8)] [--edge-width:calc(var(--spacing)_*_24)] [--header-height:calc(var(--spacing)_*_16)] [--padding-width:calc(var(--spacing)_*_8)] [--pattern-size:calc(var(--spacing)_*_2)]",
+            "isolate container mx-auto grid w-full",
             "grid-rows-[var(--divider-height)_var(--header-height)_minmax(calc(100dvh_-_(var(--header-height)_+_var(--divider-height))),1fr)_var(--divider-height)_auto]",
             "grid-cols-1 md:grid-cols-[var(--edge-width)_minmax(0,1fr)_var(--edge-width)]",
           )}
@@ -88,18 +89,22 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
           />
           <div
             className={cn(
-              "relative mb-(--padding-width) -ml-(--padding-width) flex w-[calc(100%_+_var(--padding-width)_*_2)] items-center justify-end px-4",
-              "bg-[url(/images/grid.png)] bg-size-[var(--pattern-size)_var(--pattern-size)]",
-              "mask-l-from-0 mask-l-to-96",
+              "relative flex items-center justify-between px-(--padding-width) text-current/50",
+              "before:absolute before:inset-0 before:bg-[url(/images/grid.png)] before:mask-l-from-0 before:mask-l-to-96 before:bg-size-[var(--pattern-size)_var(--pattern-size)]",
+              "",
             )}
           >
-            <Today
-              className={"font-caveat leading-4 font-medium text-current/50"}
-            />
+            <div className={"font-mono text-[0.6rem]"}>
+              <ul className={"flex gap-x-2"}>
+                <li>status</li>
+                <li>beta</li>
+              </ul>
+            </div>
+            <Today className={"font-caveat leading-4 font-medium"} />
           </div>
           <header
             className={cn(
-              "relative flex items-center px-8",
+              "relative flex items-center px-(--padding-width)",
               "before:absolute before:top-0 before:left-[-100vw] before:h-px before:w-[200vw] before:bg-current/10",
               "after:absolute after:bottom-0 after:left-[-100vw] after:h-px after:w-[200vw] after:bg-current/10",
             )}
@@ -108,11 +113,7 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
               <Logo className={"h-8"} />
             </Link>
           </header>
-          <main
-            className={cn(
-              "@container relative px-(--padding-width) [--padding-width:calc(var(--spacing)_*_8)]",
-            )}
-          >
+          <main className={cn("@container relative px-(--padding-width)")}>
             {children}
           </main>
           <div

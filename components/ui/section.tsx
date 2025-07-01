@@ -4,7 +4,7 @@ import { ComponentPropsWithoutRef, forwardRef } from "react";
 
 const sectionVariants = cva(
   [
-    "relative flex flex-col pb-(--padding-width) pt-[calc(var(--divider-height)_+_var(--padding-width))] gap-y-4 group/section",
+    "relative flex flex-col pb-(--padding-width) pt-[calc(var(--divider-height)_+_var(--padding-width))] gap-y-6 group/section",
     // "before:bg-current/10 before:absolute before:left-[-100vw] before:top-0 before:h-px before:w-[200vw]",
   ],
   {
@@ -33,7 +33,7 @@ export const Section = forwardRef<HTMLElement, SectionProps>((props, ref) => {
     >
       <div
         className={cn(
-          "absolute top-0 -left-(--padding-width) h-(--divider-height) w-[calc(100%_+_var(--padding-width)_*_2)]",
+          "absolute -inset-x-(--padding-width) top-0 h-(--divider-height)",
           "bg-[url(/images/grid.png)] bg-size-[var(--pattern-size)_var(--pattern-size)]",
           "before:absolute before:top-0 before:left-[-100vw] before:h-px before:w-[200vw] before:bg-current/10",
           "after:absolute after:bottom-0 after:left-[-100vw] after:h-px after:w-[200vw] after:bg-current/10",

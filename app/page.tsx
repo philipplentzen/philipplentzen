@@ -4,13 +4,15 @@ import { H2 } from "@/components/ui/typography";
 export default function HomePage() {
   return (
     <>
-      <div className={"relative flex flex-col gap-y-4 pb-(--padding-width)"}>
-        <div className={"mt-32 mb-16 h-48"}>
+      <div className={"relative flex flex-col gap-y-12 pt-32 pb-64"}>
+        <div className={"h-48"}>
           <div className={"font-caveat text-current/30"}>h1</div>
-          <h1 className={"font-instrument tracking-tight lowercase"}>
+          <h1
+            className={"font-instrument tracking-tight text-primary lowercase"}
+          >
             <span
               className={
-                "inline-block text-[min(var(--text-8xl),_14.5cqw)] leading-[0.833] text-primary"
+                "inline-block text-[min(var(--text-9xl),_14.5cqw)] leading-[0.833]"
               }
             >
               {"Kreativer Entwickler,"}
@@ -18,7 +20,7 @@ export default function HomePage() {
             <br />
             <span
               className={
-                "inline-block w-full text-[min(var(--text-6xl),_9.5cqw)] leading-[0.833]"
+                "inline-block w-full text-[min(var(--text-7xl),_9.5cqw)] leading-[0.833]"
               }
             >
               <span className={"inline-block text-secondary"}>

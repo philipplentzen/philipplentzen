@@ -1,5 +1,8 @@
 import { Section } from "@/components/ui/section";
 import { H2 } from "@/components/ui/typography";
+import { cn } from "@/lib/utils";
+import { ArrowUpRightIcon } from "lucide-react";
+import Link from "next/link";
 
 export default function HomePage() {
   return (
@@ -37,6 +40,33 @@ export default function HomePage() {
 
       <Section>
         <H2>Showcase</H2>
+
+        <div className={"grid grid-cols-3 gap-x-8"}>
+          {[1, 2, 3].map((item) => (
+            <div
+              key={item}
+              className={cn(
+                "flex w-full flex-col gap-y-2 text-secondary",
+                item === 3 && "sm:max-md:hidden lg:max-xl:hidden",
+              )}
+            >
+              <div className="relative h-56 w-full border border-text/20 bg-radial-[at_10%_10%] from-secondary/20 to-accent/10"></div>
+              <div className={"flex w-full justify-between"}>
+                <h3 className={"self-end text-2xl leading-10 tracking-tighter"}>
+                  showcase.project
+                </h3>
+                <Link
+                  href={"/"}
+                  className={
+                    "flex size-10 items-center justify-center border bg-current/10 text-primary"
+                  }
+                >
+                  <ArrowUpRightIcon size={20} />
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
       </Section>
 
       <Section>

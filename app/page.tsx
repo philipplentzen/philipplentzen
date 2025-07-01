@@ -7,7 +7,12 @@ import Link from "next/link";
 export default function HomePage() {
   return (
     <>
-      <div className={"relative flex flex-col gap-y-12 pt-32 pb-64"}>
+      <div
+        className={cn(
+          "relative flex flex-col gap-y-8 px-(--padding-width) pt-64 pb-32",
+          "before:absolute before:-inset-x-(--padding-width) before:inset-y-0 before:bg-radial-[at_10%_10%] before:from-secondary/20 before:to-accent/10",
+        )}
+      >
         <div className={"h-48"}>
           <div className={"font-caveat text-current/30"}>h1</div>
           <h1

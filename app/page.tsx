@@ -4,7 +4,7 @@ import { H2 } from "@/components/ui/typography";
 export default function HomePage() {
   return (
     <>
-      <Section>
+      <div className={"relative flex flex-col gap-y-4 pb-(--padding-width)"}>
         <div className={"mt-32 mb-16 h-48"}>
           <div className={"font-caveat text-current/30"}>h1</div>
           <h1 className={"font-instrument tracking-tight lowercase"}>
@@ -31,7 +31,7 @@ export default function HomePage() {
             </span>
           </h1>
         </div>
-      </Section>
+      </div>
 
       <Section>
         <H2>Showcase</H2>

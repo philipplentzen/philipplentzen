@@ -22,9 +22,7 @@ const H = (
   const { as, className, ...other } = props;
 
   return (
-    <div
-      className={"flex w-full flex-col gap-y-1 group-even/section:text-right"}
-    >
+    <div className={"flex w-full flex-col group-even/section:text-right"}>
       <span className={"font-caveat text-current/30"}>{as as string}</span>
       <Typography<HTMLHeadingElement>
         as={as}

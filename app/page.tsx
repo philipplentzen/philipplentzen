@@ -46,7 +46,7 @@ export default function HomePage() {
       <Section>
         <H2>Showcase</H2>
 
-        <div className={"grid grid-cols-3 gap-x-8"}>
+        <div className={"grid gap-8 sm:grid-cols-3"}>
           {[1, 2, 3].map((item) => (
             <div
               key={item}

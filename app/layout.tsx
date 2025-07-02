@@ -65,7 +65,8 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
         )}
         <div
           className={cn(
-            "[--divider-height:calc(var(--spacing)_*_8)] [--edge-width:calc(var(--spacing)_*_24)] [--header-height:calc(var(--spacing)_*_16)] [--padding-width:calc(var(--spacing)_*_8)] [--pattern-size:calc(var(--spacing)_*_2)]",
+            "[--divider-height:calc(var(--spacing)_*_8)] [--edge-width:calc(var(--spacing)_*_24)] [--header-height:calc(var(--spacing)_*_16)] [--padding-width:calc(var(--spacing)_*_2)] [--pattern-size:calc(var(--spacing)_*_2)]",
+            "sm:[--padding-width:calc(var(--spacing)_*_8)]",
             "isolate container mx-auto grid w-full",
             "grid-rows-[var(--divider-height)_var(--header-height)_minmax(calc(100dvh_-_(var(--header-height)_+_var(--divider-height))),1fr)_var(--divider-height)_auto]",
             "grid-cols-1 md:grid-cols-[var(--edge-width)_minmax(0,1fr)_var(--edge-width)]",

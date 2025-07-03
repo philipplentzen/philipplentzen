@@ -73,11 +73,11 @@ export default function HomePage() {
       <Section>
         <div
           className={
-            "relative flex w-full justify-center gap-8 rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/20 to-accent/10 p-(--padding-width)"
+            "relative flex h-96 w-full justify-center gap-8 rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/20 to-accent/10 p-(--padding-width)"
           }
         >
           <Image
-            className={""}
+            className={"object-contain drop-shadow-2xl"}
             src={"/images/your-new-website.png"}
             alt={""}
             width={294}

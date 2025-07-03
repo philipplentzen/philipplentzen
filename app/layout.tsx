@@ -43,7 +43,8 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
   return (
     <html
       className={cn(
-        "scroll-smooth bg-background bg-[url(/images/noise.png)] text-text antialiased selection:bg-accent selection:text-secondary",
+        "bg-backgroundtext-text scroll-smooth antialiased selection:bg-accent selection:text-secondary",
+        "before:fixed before:inset-0 before:bg-[url(/images/noise.png)] before:opacity-70",
         caveat.variable,
         fira.variable,
         instrument.variable,
@@ -65,10 +66,10 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
         )}
         <div
           className={cn(
-            "[--divider-height:calc(var(--spacing)_*_8)] [--edge-width:calc(var(--spacing)_*_24)] [--header-height:calc(var(--spacing)_*_16)] [--padding-width:calc(var(--spacing)_*_2)] [--pattern-size:calc(var(--spacing)_*_2)]",
+            "[--divider-height:calc(var(--spacing)_*_8)] [--edge-width:calc(var(--spacing)_*_24)] [--header-height:calc(var(--spacing)_*_16_+_var(--divider-height))] [--padding-width:calc(var(--spacing)_*_2)] [--pattern-size:calc(var(--spacing)_*_2)]",
             "sm:[--padding-width:calc(var(--spacing)_*_8)]",
             "isolate container mx-auto grid w-full",
-            "grid-rows-[var(--divider-height)_var(--header-height)_minmax(calc(100dvh_-_(var(--header-height)_+_var(--divider-height))),1fr)_var(--divider-height)_auto]",
+            "grid-rows-[var(--header-height)_minmax(calc(100dvh_-_(var(--header-height)_+_var(--divider-height))),1fr)_var(--divider-height)_auto]",
             "grid-cols-1 md:grid-cols-[var(--edge-width)_minmax(0,1fr)_var(--edge-width)]",
           )}
         >
@@ -88,31 +89,37 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
               "after:absolute after:right-0 after:h-full after:w-px after:bg-current/10",
             )}
           />
-          <div
-            className={cn(
-              "relative flex items-center justify-between px-(--padding-width) text-current/50",
-              "before:absolute before:inset-0 before:bg-[url(/images/grid.png)] before:mask-l-from-0 before:mask-l-to-96 before:bg-size-[var(--pattern-size)_var(--pattern-size)]",
-              "",
-            )}
-          >
-            <div className={"font-mono text-[0.6rem]"}>
-              <ul className={"flex gap-x-2"}>
-                <li>status</li>
-                <li>beta</li>
-              </ul>
+          <header className={cn("relative flex flex-col")}>
+            <div
+              className={cn(
+                "relative flex h-(--divider-height) flex-none items-center justify-between px-(--padding-width) text-current/50",
+                "before:absolute before:inset-0 before:bg-[url(/images/grid.png)] before:mask-l-from-0 before:mask-l-to-96 before:bg-size-[var(--pattern-size)_var(--pattern-size)]",
+              )}
+            >
+              <div className={"font-mono text-[0.6rem]"}>
+                <ul className={"flex gap-x-2"}>
+                  <li>status</li>
+                  <li>beta</li>
+                </ul>
+              </div>
+              <Today className={"font-caveat leading-4 font-medium"} />
             </div>
-            <Today className={"font-caveat leading-4 font-medium"} />
-          </div>
-          <header
-            className={cn(
-              "relative flex items-center px-(--padding-width)",
-              "before:absolute before:top-0 before:left-[-100vw] before:h-px before:w-[200vw] before:bg-current/10",
-              "after:absolute after:bottom-0 after:left-[-100vw] after:h-px after:w-[200vw] after:bg-current/10",
-            )}
-          >
-            <Link href={"/"} aria-label={"Startseite"} className={"-ml-2 p-2"}>
-              <Logo className={"h-8"} />
-            </Link>
+
+            <nav
+              className={cn(
+                "relative flex h-full items-center px-(--padding-width)",
+                "before:absolute before:top-0 before:left-[-100vw] before:h-px before:w-[200vw] before:bg-current/10",
+                "after:absolute after:bottom-0 after:left-[-100vw] after:h-px after:w-[200vw] after:bg-current/10",
+              )}
+            >
+              <Link
+                href={"/"}
+                aria-label={"Startseite"}
+                className={"-ml-2 p-2"}
+              >
+                <Logo className={"h-8"} />
+              </Link>
+            </nav>
           </header>
           <main className={cn("@container relative px-(--padding-width)")}>
             {children}

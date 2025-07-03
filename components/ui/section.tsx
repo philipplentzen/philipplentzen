@@ -4,7 +4,7 @@ import { ComponentPropsWithoutRef, forwardRef } from "react";
 
 const sectionVariants = cva(
   [
-    "relative flex flex-col pb-(--divider-height) pt-[calc(var(--divider-height)_+_var(--padding-width))] px-(--padding-width) gap-y-6 group/section",
+    "relative flex flex-col pb-(--divider-height) pt-[calc(var(--divider-height)_+_var(--padding-width))] max-sm:px-(--padding-width) gap-y-6 group/section",
     // "before:bg-current/10 before:absolute before:left-[-100vw] before:top-0 before:h-px before:w-[200vw]",
   ],
   {

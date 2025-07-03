@@ -9,7 +9,7 @@ export default function HomePage() {
     <>
       <div
         className={cn(
-          "relative flex flex-col gap-y-8 px-(--padding-width) pt-64 pb-32",
+          "relative flex flex-col gap-y-8 px-(--padding-width) pt-64 pb-32 2xl:pt-96",
           "before:absolute before:-inset-x-(--padding-width) before:inset-y-0 before:bg-radial-[at_10%_10%] before:from-secondary/20 before:to-accent/10",
         )}
       >

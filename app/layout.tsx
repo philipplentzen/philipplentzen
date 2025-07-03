@@ -43,7 +43,7 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
   return (
     <html
       className={cn(
-        "bg-backgroundtext-text scroll-smooth antialiased selection:bg-accent selection:text-secondary",
+        "max-w-dvw overflow-x-hidden scroll-smooth bg-background text-text antialiased selection:bg-accent selection:text-secondary",
         "before:fixed before:inset-0 before:bg-[url(/images/noise.png)] before:opacity-70",
         caveat.variable,
         fira.variable,

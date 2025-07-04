@@ -1,6 +1,12 @@
 import { Logo } from "@/components/logo";
 import { ThemeMenu } from "@/components/theme-menu";
 import { Today } from "@/components/today";
+import { buttonVariants } from "@/components/ui/button";
+import {
+  Navigation,
+  NavigationItem,
+  NavigationList,
+} from "@/components/ui/navigation";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
 import { ThemeProvider } from "next-themes";
@@ -109,9 +115,9 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
                 <Today className={"font-caveat leading-4 font-medium"} />
               </div>
 
-              <nav
+              <div
                 className={cn(
-                  "relative flex h-full items-center justify-between px-(--padding-width)",
+                  "flex h-full items-center justify-between px-(--padding-width)",
                   "before:absolute before:top-0 before:left-[-100vw] before:h-px before:w-[200vw] before:bg-current/10",
                   "after:absolute after:bottom-0 after:left-[-100vw] after:h-px after:w-[200vw] after:bg-current/10",
                 )}
@@ -123,10 +129,47 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
                 >
                   <Logo className={"h-8"} />
                 </Link>
-                <div>
+                <div className={"flex gap-4"}>
+                  <Navigation>
+                    <NavigationList>
+                      <NavigationItem>
+                        <Link
+                          href={"/"}
+                          className={cn(buttonVariants({ variant: "ghost" }))}
+                        >
+                          Startseite
+                        </Link>
+                      </NavigationItem>
+                      <NavigationItem>
+                        <Link
+                          href={"/#showcase"}
+                          className={cn(buttonVariants({ variant: "ghost" }))}
+                        >
+                          Showcase
+                        </Link>
+                      </NavigationItem>
+                      <NavigationItem>
+                        <Link
+                          href={"/#about-me"}
+                          className={cn(buttonVariants({ variant: "ghost" }))}
+                        >
+                          Über mich
+                        </Link>
+                      </NavigationItem>
+                      <NavigationItem>
+                        <Link
+                          href={"/#contact"}
+                          className={cn(buttonVariants({ variant: "ghost" }))}
+                        >
+                          Kontakt
+                        </Link>
+                      </NavigationItem>
+                    </NavigationList>
+                  </Navigation>
+                  <div className={"block h-10 w-px bg-current/20"} />
                   <ThemeMenu />
                 </div>
-              </nav>
+              </div>
             </header>
             <main className={cn("@container relative px-(--padding-width)")}>
               {children}

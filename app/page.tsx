@@ -46,7 +46,7 @@ export default function HomePage() {
       </div>
 
       <Section>
-        <H2>Showcase</H2>
+        <H2 id={"showcase"}>Showcase</H2>
 
         <div className={"grid gap-8 sm:grid-cols-3"}>
           {[1, 2, 3].map((item) => (
@@ -112,7 +112,7 @@ export default function HomePage() {
       </Section>
 
       <Section>
-        <H2>Über Mich</H2>
+        <H2 id={"about-me"}>Über Mich</H2>
 
         <div
           className={
@@ -132,7 +132,7 @@ export default function HomePage() {
       </Section>
 
       <Section>
-        <H2>Kontakt</H2>
+        <H2 id={"contact"}>Kontakt</H2>
       </Section>
     </>
   );

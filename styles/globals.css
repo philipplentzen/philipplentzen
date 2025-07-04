@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
 :root {
   --text: #0f1e29;
   --background: #f5faff;
@@ -9,10 +11,10 @@
   --accent: #fcba03;
 }
 
-.dark {
+html[data-theme="dark"] {
   --text: #d6e5f0;
-  --background: #060b0f;
-  --primary: #bbe3fa;
+  --background: #00050a;
+  --primary: #a8c9e1;
   --secondary: #55e7d6;
   --accent: #fcba03;
 }

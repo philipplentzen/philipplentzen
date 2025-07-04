@@ -61,7 +61,12 @@ export default function HomePage() {
                 <h3 className={"self-end text-2xl leading-10 tracking-tighter"}>
                   showcase.project
                 </h3>
-                <Button asChild size={"square"} className={"text-primary"}>
+                <Button
+                  asChild
+                  variant={"outline"}
+                  size={"square"}
+                  className={"text-primary"}
+                >
                   <Link href={"/"}>
                     <ArrowUpRightIcon size={20} />
                   </Link>
@@ -98,7 +103,7 @@ export default function HomePage() {
             </p>
             <p>Mit Code, der sitzt. Mit Design, das wirkt.</p>
             <p> Und mit Spaß an der Sache.</p>
-            <Button className={"mt-4 text-secondary"}>
+            <Button variant={"outline"} className={"mt-4 text-secondary"}>
               <SparklesIcon />
               Lass uns loslegen!
             </Button>

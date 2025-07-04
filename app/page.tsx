@@ -58,7 +58,11 @@ export default function HomePage() {
             >
               <div className="relative h-136 w-full rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/20 to-accent/10"></div>
               <div className={"flex w-full justify-between"}>
-                <h3 className={"self-end text-2xl leading-10 tracking-tighter"}>
+                <h3
+                  className={
+                    "self-end font-mono text-2xl leading-10 tracking-tighter"
+                  }
+                >
                   showcase.project
                 </h3>
                 <Button
@@ -119,14 +123,14 @@ export default function HomePage() {
             "grid h-96 grid-cols-2 grid-rows-2 rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/20 to-accent/10"
           }
         >
-          <div className={"row-span-2 border-r border-r-current/20 p-4"}>
-            <H3>Was ich mache?</H3>
-          </div>
-          <div className={"border-b border-b-current/20 p-4"}>
+          <div className={"border-r border-r-current/20 p-4"}>
             <H3>Was ich mache?</H3>
           </div>
           <div className={"p-4"}>
-            <H3>Was ich mache?</H3>
+            <H3>Wie ich arbeite?</H3>
+          </div>
+          <div className={"col-span-2 border-t border-t-current/20 p-4"}>
+            <H3>Wer ich bin?</H3>
           </div>
         </div>
       </Section>

@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/ui/section";
-import { H2 } from "@/components/ui/typography";
+import { H2, H3 } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
 import { ArrowUpRightIcon, SparklesIcon } from "lucide-react";
 import Image from "next/image";
@@ -52,7 +52,9 @@ export default function HomePage() {
           {[1, 2, 3].map((item) => (
             <div
               key={item}
-              className={cn("flex w-full flex-col gap-y-2 text-secondary")}
+              className={cn(
+                "flex w-full shrink-0 flex-col gap-y-2 text-secondary",
+              )}
             >
               <div className="relative h-136 w-full rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/20 to-accent/10"></div>
               <div className={"flex w-full justify-between"}>
@@ -73,11 +75,11 @@ export default function HomePage() {
       <Section>
         <div
           className={
-            "relative flex h-96 w-full justify-center gap-8 rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/20 to-accent/10 p-(--padding-width)"
+            "relative grid h-96 w-full grid-cols-3 items-center justify-center rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/20 to-accent/10"
           }
         >
           <Image
-            className={"object-contain drop-shadow-2xl"}
+            className={"mx-auto object-contain drop-shadow-2xl"}
             src={"/images/your-new-website.png"}
             alt={""}
             width={294}
@@ -85,16 +87,12 @@ export default function HomePage() {
           />
           <article
             className={
-              "flex w-full max-w-prose flex-col justify-center space-y-1 border-l border-l-text/20 pl-(--padding-width) text-primary"
+              "col-span-2 flex h-full shrink-0 flex-col justify-center space-y-1 border-l border-l-text/20 pl-(--padding-width) text-primary"
             }
           >
-            <h3
-              className={cn(
-                "m-0 flex font-instrument text-7xl leading-[0.833] text-accent",
-              )}
-            >
-              <i className={"relative lowercase"}>Deine neue Webseite?</i>
-            </h3>
+            <H3 className={cn("text-7xl leading-[0.833]")}>
+              Deine neue Webseite?
+            </H3>
             <p className={"mt-4"}>
               Du hast &#39;ne Idee im Kopf, ich bring sie ins Web.
             </p>
@@ -110,6 +108,22 @@ export default function HomePage() {
 
       <Section>
         <H2>Über Mich</H2>
+
+        <div
+          className={
+            "grid h-96 grid-cols-2 grid-rows-2 rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/20 to-accent/10"
+          }
+        >
+          <div className={"row-span-2 border-r border-r-current/20 p-4"}>
+            <H3>Was ich mache?</H3>
+          </div>
+          <div className={"border-b border-b-current/20 p-4"}>
+            <H3>Was ich mache?</H3>
+          </div>
+          <div className={"p-4"}>
+            <H3>Was ich mache?</H3>
+          </div>
+        </div>
       </Section>
 
       <Section>

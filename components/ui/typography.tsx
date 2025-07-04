@@ -23,7 +23,9 @@ const H = (
 
   return (
     <div className={"flex w-full flex-col gap-2"}>
-      <span className={"font-caveat text-current/30"}>{as as string}</span>
+      <span className={"font-caveat leading-4 text-current/30"}>
+        {as as string}
+      </span>
       <Typography<HTMLHeadingElement>
         as={as}
         className={cn("font-instrument tracking-tight lowercase", className)}
@@ -60,5 +62,22 @@ export const H2 = (props: ComponentProps<"h2">) => {
       )}
       {...other}
     />
+  );
+};
+
+export const H3 = (props: ComponentProps<"h3">) => {
+  const { children, className, ...other } = props;
+
+  return (
+    <H
+      as={"h3"}
+      className={cn(
+        "relative text-[min(var(--text-5xl),_14.5cqw)] leading-[0.833] text-accent",
+        className,
+      )}
+      {...other}
+    >
+      <i className={"inline-block"}>{children}</i>
+    </H>
   );
 };

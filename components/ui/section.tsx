@@ -34,7 +34,7 @@ export const Section = forwardRef<HTMLElement, SectionProps>((props, ref) => {
       <div
         className={cn(
           "absolute -inset-x-(--padding-width) top-0 h-(--divider-height)",
-          "bg-[url(/images/grid.png)] bg-size-[var(--pattern-size)_var(--pattern-size)]",
+          "bg-(image:--grid) bg-size-[var(--pattern-size)_var(--pattern-size)]",
           "before:absolute before:top-0 before:left-[-100vw] before:h-px before:w-[200vw] before:bg-current/10",
           "after:absolute after:bottom-0 after:left-[-100vw] after:h-px after:w-[200vw] after:bg-current/10",
         )}

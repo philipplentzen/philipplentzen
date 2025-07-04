@@ -86,16 +86,16 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
             <div
               className={cn(
                 "relative col-start-1 row-span-full hidden md:block",
-                "bg-[url(/images/grid.png)] bg-size-[var(--pattern-size)_var(--pattern-size)]",
-                "before:absolute before:left-0 before:h-full before:w-px before:bg-current/10",
+                "bg-(image:--grid) bg-size-[var(--pattern-size)_var(--pattern-size)]",
+                "before:absolute before:left-0 before:h-full before:w-px before:bg-current/20",
                 "after:absolute after:right-0 after:h-full after:w-px after:bg-current/10",
               )}
             />
             <div
               className={cn(
                 "relative col-start-3 row-span-full hidden md:block",
-                "bg-[url(/images/grid.png)] bg-size-[var(--pattern-size)_var(--pattern-size)]",
-                "before:absolute before:left-0 before:h-full before:w-px before:bg-current/10",
+                "bg-(image:--grid) bg-size-[var(--pattern-size)_var(--pattern-size)]",
+                "before:absolute before:left-0 before:h-full before:w-px before:bg-current/20",
                 "after:absolute after:right-0 after:h-full after:w-px after:bg-current/10",
               )}
             />
@@ -103,7 +103,7 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
               <div
                 className={cn(
                   "relative flex h-(--divider-height) flex-none items-center justify-between px-(--padding-width) text-current/50",
-                  "before:absolute before:inset-0 before:bg-[url(/images/grid.png)] before:mask-l-from-0 before:mask-l-to-96 before:bg-size-[var(--pattern-size)_var(--pattern-size)]",
+                  "before:absolute before:inset-0 before:bg-(image:--grid) before:mask-l-from-0 before:mask-l-to-96 before:bg-size-[var(--pattern-size)_var(--pattern-size)]",
                 )}
               >
                 <div className={"font-mono text-[0.6rem]"}>

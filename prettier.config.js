@@ -28,7 +28,8 @@ const prettierConfig = {
     "<TYPES>",
     "<TYPES>^[./]",
   ],
-  tailwindStylesheet: "./app/globals.css",
+  tailwindStylesheet: "./styles/globals.css",
+  tailwindFunctions: ["cva", "cn"],
 };
 
 export default prettierConfig;

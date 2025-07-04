@@ -28,7 +28,10 @@ const H = (
       </span>
       <Typography<HTMLHeadingElement>
         as={as}
-        className={cn("font-instrument tracking-tight lowercase", className)}
+        className={cn(
+          "scroll-mt-[calc(var(--spacing)_*_6_+_var(--padding-width))] font-instrument tracking-tight lowercase",
+          className,
+        )}
         {...other}
       />
     </div>

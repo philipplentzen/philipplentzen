@@ -23,7 +23,11 @@ export const Article = (props: ComponentProps<"article">) => {
     <Typography
       as={"article"}
       className={cn(
-        "prose space-y-1 prose-p:text-text prose-strong:text-secondary",
+        "@container prose w-full space-y-1",
+        "prose-a:text-secondary",
+        "prose-headings:my-0 prose-headings:font-normal",
+        "prose-p:text-text",
+        "prose-strong:text-secondary",
         className,
       )}
       {...otherProps}
@@ -44,7 +48,7 @@ const H = (
       <Typography<HTMLHeadingElement>
         as={as}
         className={cn(
-          "not-prose scroll-mt-[calc(var(--spacing)_*_6_+_var(--padding-width))] font-instrument tracking-tight lowercase transition-colors",
+          "scroll-mt-[calc(var(--spacing)_*_6_+_var(--padding-width))] font-instrument tracking-tight lowercase transition-colors",
           className,
         )}
         {...otherProps}
@@ -60,7 +64,7 @@ export const H1 = (props: ComponentProps<"h1">) => {
     <H
       as={"h1"}
       className={cn(
-        "relative text-[min(var(--text-8xl),_14.5cqw)] leading-12 text-primary",
+        "relative text-[min(var(--text-8xl),_14.5cqw)] leading-18 text-primary",
         className,
       )}
       {...otherProps}

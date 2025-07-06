@@ -222,7 +222,7 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
                   <span className={"text-xs text-current/40"}>Rechtliches</span>
                   <ul>
                     <li>
-                      <Link href={"/"}>Impressum</Link>
+                      <Link href={"/impressum"}>Impressum</Link>
                     </li>
                   </ul>
                 </div>

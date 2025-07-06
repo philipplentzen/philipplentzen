@@ -51,7 +51,7 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
   return (
     <html
       className={cn(
-        "max-w-dvw overflow-x-hidden scroll-smooth bg-background text-text antialiased selection:bg-accent selection:text-secondary",
+        "max-w-dvw overflow-x-hidden scroll-smooth bg-background text-text antialiased transition-colors selection:bg-accent selection:text-secondary",
         "before:fixed before:inset-0 before:bg-[url(/images/noise.png)] before:opacity-70",
         caveat.variable,
         fira.variable,
@@ -87,7 +87,7 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
               className={cn(
                 "relative col-start-1 row-span-full hidden md:block",
                 "bg-(image:--grid) bg-size-[var(--pattern-size)_var(--pattern-size)]",
-                "before:absolute before:left-0 before:h-full before:w-px before:bg-current/20",
+                "before:absolute before:left-0 before:h-full before:w-px before:bg-current/10",
                 "after:absolute after:right-0 after:h-full after:w-px after:bg-current/10",
               )}
             />
@@ -95,7 +95,7 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
               className={cn(
                 "relative col-start-3 row-span-full hidden md:block",
                 "bg-(image:--grid) bg-size-[var(--pattern-size)_var(--pattern-size)]",
-                "before:absolute before:left-0 before:h-full before:w-px before:bg-current/20",
+                "before:absolute before:left-0 before:h-full before:w-px before:bg-current/10",
                 "after:absolute after:right-0 after:h-full after:w-px after:bg-current/10",
               )}
             />
@@ -117,7 +117,7 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
 
               <div
                 className={cn(
-                  "flex h-full items-center justify-between px-(--padding-width)",
+                  "relative flex h-full items-center justify-between px-(--padding-width)",
                   "before:absolute before:top-0 before:left-[-100vw] before:h-px before:w-[200vw] before:bg-current/10",
                   "after:absolute after:bottom-0 after:left-[-100vw] after:h-px after:w-[200vw] after:bg-current/10",
                 )}
@@ -166,7 +166,7 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
                       </NavigationItem>
                     </NavigationList>
                   </Navigation>
-                  <div className={"block h-10 w-px bg-current/20"} />
+                  <div className={"block h-10 w-px bg-current/10"} />
                   <ThemeMenu />
                 </div>
               </div>

@@ -29,7 +29,7 @@ const H = (
       <Typography<HTMLHeadingElement>
         as={as}
         className={cn(
-          "scroll-mt-[calc(var(--spacing)_*_6_+_var(--padding-width))] font-instrument tracking-tight lowercase",
+          "scroll-mt-[calc(var(--spacing)_*_6_+_var(--padding-width))] font-instrument tracking-tight lowercase transition-colors",
           className,
         )}
         {...other}

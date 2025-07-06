@@ -13,7 +13,7 @@ export const NavigationList = forwardRef<
   return (
     <NavigationMenu.List
       ref={ref}
-      className={cn(`relative flex`, className)}
+      className={cn(`relative flex gap-2`, className)}
       {...otherProps}
     />
   );

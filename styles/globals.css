@@ -9,23 +9,13 @@
   --primary: #1e3f57;
   --secondary: #18aa99;
   --accent: #fcba03;
-  --grid:
-    linear-gradient(
-      to left,
-      color-mix(in oklab, currentcolor 10%, transparent) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      to top,
-      color-mix(in oklab, currentcolor 10%, transparent) 1px,
-      transparent 1px
-    );
+  --grid: none;
 }
 
 html[data-theme="dark"] {
   --text: #d6e5f0;
   --background: #00050a;
-  --primary: #a8c9e1;
+  --primary: #bbe0fa;
   --secondary: #55e7d6;
   --accent: #fcba03;
 }

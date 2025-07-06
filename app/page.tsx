@@ -5,7 +5,15 @@ import HowIWork from "@/content/about-me/how-i-work.mdx";
 import WhatIDo from "@/content/about-me/what-i-do.mdx";
 import WhoIAm from "@/content/about-me/who-i-am.mdx";
 import { cn } from "@/lib/utils";
-import { ArrowUpRightIcon, SparklesIcon } from "lucide-react";
+import {
+  ArrowUpRightIcon,
+  CameraIcon,
+  CopyIcon,
+  GithubIcon,
+  InboxIcon,
+  LinkedinIcon,
+  SparklesIcon,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -132,7 +140,7 @@ export default function HomePage() {
 
         <div
           className={
-            "grid grid-rows-2 rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/20 to-accent/10 sm:grid-cols-2"
+            "grid rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/20 to-accent/10 sm:grid-cols-2"
           }
         >
           <div className={"border-r border-r-current/20 p-(--padding-width)"}>
@@ -143,7 +151,7 @@ export default function HomePage() {
           </div>
           <div
             className={
-              "col-span-2 flex justify-center border-t border-t-current/20 p-(--padding-width)"
+              "col-span-full flex justify-center border-t border-t-current/20 p-(--padding-width)"
             }
           >
             <WhoIAm />
@@ -153,6 +161,102 @@ export default function HomePage() {
 
       <Section>
         <H2 id={"contact"}>Kontakt</H2>
+
+        <div
+          className={
+            "grid grid-cols-2 overflow-hidden rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/20 to-accent/10 sm:grid-cols-2"
+          }
+        >
+          <div className={"space-y-8 p-(--padding-width)"}>
+            <Article>
+              <H3>Meld dich mal!</H3>
+              <p>
+                Du brauchst eine <strong>neue Webseite</strong> oder willst ein{" "}
+                <strong>bestehendes Projekt weiterentwickeln</strong>? <br />
+                Ich helfe dir gerne!
+              </p>
+              <p>
+                Sag mir, was du vorhast, und wir finden gemeinsam die beste
+                Lösung.
+              </p>
+            </Article>
+
+            <div role={"list"} className={"w-full divide-y divide-current/20"}>
+              {[
+                {
+                  icon: InboxIcon,
+                  href: "mailto:kontakt@philipplentzen.dev",
+                  title: "kontakt@philipplentzen.dev",
+                },
+                {
+                  icon: LinkedinIcon,
+                  href: "https://www.linkedin.com/in/philipplentzen/",
+                  title: "@philipplentzen",
+                },
+                {
+                  icon: GithubIcon,
+                  href: "https://github.com/philipplentzen/",
+                  title: "@philipplentzen",
+                },
+              ].map(({ icon: Icon, href, title }) => (
+                <div
+                  key={href}
+                  role={"listitem"}
+                  className={"flex w-full max-w-prose items-center gap-8 py-2"}
+                >
+                  <div
+                    className={
+                      "flex size-10 items-center justify-center rounded bg-current/20 text-secondary [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-6"
+                    }
+                  >
+                    <Icon />
+                  </div>
+                  <Link
+                    href={href}
+                    className={"font-mono leading-4 hover:text-secondary"}
+                  >
+                    {title}
+                  </Link>
+                  <Button
+                    variant={"ghost"}
+                    size={"square"}
+                    className={"ml-auto"}
+                  >
+                    <CopyIcon />
+                  </Button>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div
+            className={
+              "relative flex aspect-square items-end justify-end overflow-hidden border-l border-current/20 p-(--padding-width)"
+            }
+          >
+            <Image
+              src={
+                "https://aachenviews.de/wp-content/uploads/2024/05/Aachenviews-Aachener-Dom-50.jpg"
+              }
+              alt={""}
+              width={800}
+              height={1200}
+              className={
+                "absolute -z-10 size-full mask-y-from-80% mask-x-from-80% mask-radial-from-40% mask-radial-at-center object-cover saturate-0"
+              }
+            />
+
+            <Link
+              href={"https://aachenviews.de/"}
+              target={"_blank"}
+              className={
+                "flex w-fit items-center gap-1 rounded bg-text px-2 py-1 text-xs text-background [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
+              }
+            >
+              <CameraIcon />
+              Niklas Birk
+            </Link>
+          </div>
+        </div>
       </Section>
     </>
   );

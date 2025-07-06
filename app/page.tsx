@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/ui/section";
-import { H2, H3 } from "@/components/ui/typography";
+import { Article, H2, H3 } from "@/components/ui/typography";
+import HowIWork from "@/content/about-me/how-i-work.mdx";
+import WhatIDo from "@/content/about-me/what-i-do.mdx";
+import WhoIAm from "@/content/about-me/who-i-am.mdx";
 import { cn } from "@/lib/utils";
 import { ArrowUpRightIcon, SparklesIcon } from "lucide-react";
 import Image from "next/image";
@@ -101,24 +104,26 @@ export default function HomePage() {
             />
           </div>
 
-          <article
+          <div
             className={
-              "col-span-2 flex size-full flex-col justify-center space-y-1 p-(--padding-width) text-primary"
+              "col-span-2 flex size-full flex-col justify-center p-(--padding-width) text-primary"
             }
           >
-            <H3 className={cn("text-7xl leading-[0.833]")}>
-              Deine neue Webseite?
-            </H3>
-            <p className={"mt-4"}>
-              Du hast &#39;ne Idee im Kopf, ich bring sie ins Web.
-            </p>
-            <p>Mit Code, der sitzt. Mit Design, das wirkt.</p>
-            <p> Und mit Spaß an der Sache.</p>
-            <Button variant={"outline"} className={"mt-4 text-secondary"}>
-              <SparklesIcon />
-              Lass uns loslegen!
-            </Button>
-          </article>
+            <Article>
+              <H3 className={cn("text-7xl leading-[0.833]")}>
+                Deine neue Webseite?
+              </H3>
+              <p className={"mt-4"}>
+                Du hast &#39;ne Idee im Kopf, ich bring sie ins Web. <br />
+                Mit Code, der sitzt. Mit Design, das wirkt. <br />
+                Und mit Spaß an der Sache.
+              </p>
+              <Button variant={"outline"} className={"mt-4 text-secondary"}>
+                <SparklesIcon />
+                Lass uns loslegen!
+              </Button>
+            </Article>
+          </div>
         </div>
       </Section>
 
@@ -127,17 +132,21 @@ export default function HomePage() {
 
         <div
           className={
-            "grid h-96 grid-cols-2 grid-rows-2 rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/20 to-accent/10"
+            "grid grid-rows-2 rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/20 to-accent/10 sm:grid-cols-2"
           }
         >
-          <div className={"border-r border-r-current/20 p-4"}>
-            <H3>Was ich mache?</H3>
+          <div className={"border-r border-r-current/20 p-(--padding-width)"}>
+            <WhatIDo />
           </div>
-          <div className={"p-4"}>
-            <H3>Wie ich arbeite?</H3>
+          <div className={"p-(--padding-width)"}>
+            <HowIWork />
           </div>
-          <div className={"col-span-2 border-t border-t-current/20 p-4"}>
-            <H3>Wer ich bin?</H3>
+          <div
+            className={
+              "col-span-2 flex justify-center border-t border-t-current/20 p-(--padding-width)"
+            }
+          >
+            <WhoIAm />
           </div>
         </div>
       </Section>

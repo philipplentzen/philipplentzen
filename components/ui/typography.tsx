@@ -7,19 +7,34 @@ import {
 } from "react";
 
 const Typography = <T,>(props: HTMLAttributes<T> & { as: ElementType }) => {
-  const { as: Comp, className, children, ...other } = props;
+  const { as: Comp, className, children, ...otherProps } = props;
 
   return (
-    <Comp className={cn("", className)} {...other}>
+    <Comp className={cn("", className)} {...otherProps}>
       {children}
     </Comp>
+  );
+};
+
+export const Article = (props: ComponentProps<"article">) => {
+  const { className, ...otherProps } = props;
+
+  return (
+    <Typography
+      as={"article"}
+      className={cn(
+        "prose space-y-1 prose-p:text-text prose-strong:text-secondary",
+        className,
+      )}
+      {...otherProps}
+    />
   );
 };
 
 const H = (
   props: HtmlHTMLAttributes<HTMLHeadingElement> & { as: ElementType },
 ) => {
-  const { as, className, ...other } = props;
+  const { as, className, ...otherProps } = props;
 
   return (
     <div className={"flex w-full flex-col gap-2"}>
@@ -29,17 +44,17 @@ const H = (
       <Typography<HTMLHeadingElement>
         as={as}
         className={cn(
-          "scroll-mt-[calc(var(--spacing)_*_6_+_var(--padding-width))] font-instrument tracking-tight lowercase transition-colors",
+          "not-prose scroll-mt-[calc(var(--spacing)_*_6_+_var(--padding-width))] font-instrument tracking-tight lowercase transition-colors",
           className,
         )}
-        {...other}
+        {...otherProps}
       />
     </div>
   );
 };
 
 export const H1 = (props: ComponentProps<"h1">) => {
-  const { className, ...other } = props;
+  const { className, ...otherProps } = props;
 
   return (
     <H
@@ -48,13 +63,13 @@ export const H1 = (props: ComponentProps<"h1">) => {
         "relative text-[min(var(--text-8xl),_14.5cqw)] leading-12 text-primary",
         className,
       )}
-      {...other}
+      {...otherProps}
     />
   );
 };
 
 export const H2 = (props: ComponentProps<"h2">) => {
-  const { className, ...other } = props;
+  const { className, ...otherProps } = props;
 
   return (
     <H
@@ -63,13 +78,13 @@ export const H2 = (props: ComponentProps<"h2">) => {
         "relative text-[min(var(--text-7xl),_14.5cqw)] leading-12 text-primary",
         className,
       )}
-      {...other}
+      {...otherProps}
     />
   );
 };
 
 export const H3 = (props: ComponentProps<"h3">) => {
-  const { children, className, ...other } = props;
+  const { children, className, ...otherProps } = props;
 
   return (
     <H
@@ -78,7 +93,7 @@ export const H3 = (props: ComponentProps<"h3">) => {
         "relative text-[min(var(--text-5xl),_14.5cqw)] leading-[0.833] text-accent",
         className,
       )}
-      {...other}
+      {...otherProps}
     >
       <i className={"inline-block"}>{children}</i>
     </H>

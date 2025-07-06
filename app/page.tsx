@@ -84,19 +84,26 @@ export default function HomePage() {
       <Section>
         <div
           className={
-            "relative grid h-96 w-full grid-cols-3 items-center justify-center rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/20 to-accent/10"
+            "relative grid h-96 w-full grid-cols-3 items-center justify-center gap-3 rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/20 to-accent/10"
           }
         >
-          <Image
-            className={"mx-auto object-contain drop-shadow-2xl"}
-            src={"/images/your-new-website.png"}
-            alt={""}
-            width={294}
-            height={280}
-          />
+          <div
+            className={
+              "flex size-full items-center justify-center border-r border-r-text/20 p-(--padding-width)"
+            }
+          >
+            <Image
+              className={"object-contain drop-shadow-2xl"}
+              src={"/images/your-new-website.png"}
+              alt={""}
+              width={294}
+              height={280}
+            />
+          </div>
+
           <article
             className={
-              "col-span-2 flex h-full shrink-0 flex-col justify-center space-y-1 border-l border-l-text/20 pl-(--padding-width) text-primary"
+              "col-span-2 flex size-full flex-col justify-center space-y-1 p-(--padding-width) text-primary"
             }
           >
             <H3 className={cn("text-7xl leading-[0.833]")}>

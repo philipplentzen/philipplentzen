@@ -38,7 +38,7 @@ const H = (
 
   return (
     <div className={"flex w-full flex-col gap-2"}>
-      <span className={"font-caveat leading-4 text-current/30"}>
+      <span className={"font-caveat leading-4 text-text/30"}>
         {as as string}
       </span>
       <Typography<HTMLHeadingElement>

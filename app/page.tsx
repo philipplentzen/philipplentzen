@@ -23,7 +23,7 @@ export default function HomePage() {
       <div
         className={cn(
           "relative flex flex-col gap-y-8 px-(--padding-width) pt-64 pb-32 2xl:pt-96",
-          "before:absolute before:-inset-x-(--padding-width) before:inset-y-0 before:bg-radial-[at_10%_10%] before:from-secondary/20 before:to-accent/10",
+          "before:absolute before:-inset-x-(--padding-width) before:inset-y-0 before:bg-radial-[at_10%_10%] before:from-secondary/30 before:to-accent/10",
         )}
       >
         <div className={"h-48"}>
@@ -67,7 +67,7 @@ export default function HomePage() {
                 "flex w-full shrink-0 flex-col gap-y-2 text-secondary",
               )}
             >
-              <div className="relative h-136 w-full rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/20 to-accent/10"></div>
+              <div className="relative h-136 w-full rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10"></div>
               <div className={"flex w-full justify-between"}>
                 <h3
                   className={
@@ -95,7 +95,7 @@ export default function HomePage() {
       <Section>
         <div
           className={
-            "relative grid h-96 w-full grid-cols-3 items-center justify-center gap-3 rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/20 to-accent/10"
+            "relative grid h-96 w-full grid-cols-3 items-center justify-center gap-3 rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10"
           }
         >
           <div
@@ -122,7 +122,7 @@ export default function HomePage() {
                 Deine neue Webseite?
               </H3>
               <p className={"mt-4"}>
-                Du hast &#39;ne Idee im Kopf, ich bring sie ins Web. <br />
+                Du hast &apos;ne Idee im Kopf, ich bring sie ins Web. <br />
                 Mit Code, der sitzt. Mit Design, das wirkt. <br />
                 Und mit Spaß an der Sache.
               </p>
@@ -140,7 +140,7 @@ export default function HomePage() {
 
         <div
           className={
-            "grid rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/20 to-accent/10 sm:grid-cols-2"
+            "grid rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10 sm:grid-cols-2"
           }
         >
           <div className={"border-r border-r-current/20 p-(--padding-width)"}>
@@ -164,10 +164,10 @@ export default function HomePage() {
 
         <div
           className={
-            "grid grid-cols-2 overflow-hidden rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/20 to-accent/10 sm:grid-cols-2"
+            "grid grid-cols-3 overflow-hidden rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10"
           }
         >
-          <div className={"space-y-8 p-(--padding-width)"}>
+          <div className={"col-span-2 space-y-8 p-(--padding-width)"}>
             <Article>
               <H3>Meld dich mal!</H3>
               <p>
@@ -230,7 +230,7 @@ export default function HomePage() {
           </div>
           <div
             className={
-              "relative flex aspect-square items-end justify-end overflow-hidden border-l border-current/20 p-(--padding-width)"
+              "relative flex size-full items-end justify-end overflow-hidden border-l border-current/20 p-(--padding-width)"
             }
           >
             <Image
@@ -241,7 +241,7 @@ export default function HomePage() {
               width={800}
               height={1200}
               className={
-                "absolute -z-10 size-full mask-y-from-80% mask-x-from-80% mask-radial-from-40% mask-radial-at-center object-cover saturate-0"
+                "absolute -z-10 size-full mask-y-from-80% mask-x-from-80% mask-radial-from-40% mask-radial-at-center object-cover opacity-30 saturate-0"
               }
             />
 

@@ -1,7 +1,7 @@
 import { Logo } from "@/components/logo";
 import { ThemeMenu } from "@/components/theme-menu";
 import { Today } from "@/components/today";
-import { buttonVariants } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Navigation,
   NavigationItem,
@@ -9,14 +9,9 @@ import {
 } from "@/components/ui/navigation";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
+import { SparklesIcon } from "lucide-react";
 import { ThemeProvider } from "next-themes";
-import {
-  Caveat,
-  Fira_Code,
-  Instrument_Serif,
-  Inter,
-  Overpass,
-} from "next/font/google";
+import { Caveat, Fira_Code, Instrument_Serif, Inter } from "next/font/google";
 import Link from "next/link";
 import { PropsWithChildren } from "react";
 
@@ -42,11 +37,6 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const overpass = Overpass({
-  variable: "--font-overpass",
-  subsets: ["latin"],
-});
-
 export default function RootLayout({ children }: PropsWithChildren<{}>) {
   return (
     <html
@@ -57,7 +47,6 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
         fira.variable,
         instrument.variable,
         inter.variable,
-        overpass.variable,
       )}
       lang={"de"}
       suppressHydrationWarning
@@ -178,9 +167,74 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
               className={cn(
                 "relative",
                 "before:absolute before:top-0 before:left-[-100vw] before:h-px before:w-[200vw] before:bg-current/10",
+                "after:absolute after:bottom-0 after:left-[-100vw] after:h-px after:w-[200vw] after:bg-current/10",
               )}
             />
-            <footer></footer>
+            <footer
+              className={
+                "grid grid-cols-6 grid-rows-[minmax(0,_1fr)_calc(var(--spacing)_*_16)] gap-8 p-(--padding-width)"
+              }
+            >
+              <div
+                className={
+                  "col-span-3 rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10 p-(--padding-width)"
+                }
+              >
+                <i
+                  className={
+                    "relative block font-instrument text-[min(var(--text-5xl),_14.5cqw)] leading-[0.833] text-accent lowercase"
+                  }
+                >
+                  Das war&apos;s von mir...
+                </i>
+                <span className={"block text-sm text-primary lowercase italic"}>
+                  ...Nun bist du dran!
+                </span>
+                <Button variant={"outline"} className={"mt-4 text-secondary"}>
+                  <SparklesIcon />
+                  Lass uns loslegen!
+                </Button>
+              </div>
+              <div
+                className={
+                  "col-span-3 grid grid-cols-subgrid text-sm text-primary"
+                }
+              >
+                <div className={"flex flex-col justify-end"}>
+                  <span className={"text-xs text-current/40"}>Erkunden</span>
+                  <ul>
+                    <li>
+                      <Link href={"/"}>Startseite</Link>
+                    </li>
+                  </ul>
+                </div>
+                <div className={"flex flex-col justify-end"}>
+                  <span className={"text-xs text-current/40"}>Kontakt</span>
+                  <ul>
+                    <li>
+                      <Link href={"mailto:kontakt@philipplentzen.dev"}>
+                        kontakt@philipplentzen.dev
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+                <div className={"flex flex-col justify-end"}>
+                  <span className={"text-xs text-current/40"}>Rechtliches</span>
+                  <ul>
+                    <li>
+                      <Link href={"/"}>Impressum</Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className={"col-span-full flex h-full justify-center"}>
+                <div
+                  className={
+                    "aspect-square h-full bg-radial-[at_0%_0%] from-secondary to-accent mask-[url(/pl.svg)] mask-center mask-no-repeat"
+                  }
+                ></div>
+              </div>
+            </footer>
           </div>
         </ThemeProvider>
       </body>

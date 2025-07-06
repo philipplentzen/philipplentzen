@@ -34,5 +34,4 @@ html[data-theme="dark"] {
   --font-mono: var(--font-fira), monospace;
   --font-caveat: var(--font-caveat), system-ui;
   --font-instrument: var(--font-instrument), system-ui;
-  --font-overpass: var(--font-overpass), system-ui;
 }

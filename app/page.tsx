@@ -7,7 +7,6 @@ import WhoIAm from "@/content/about-me/who-i-am.mdx";
 import { cn } from "@/lib/utils";
 import {
   ArrowUpRightIcon,
-  CameraIcon,
   CopyIcon,
   GithubIcon,
   InboxIcon,
@@ -230,31 +229,18 @@ export default function HomePage() {
           </div>
           <div
             className={
-              "relative flex size-full items-end justify-end overflow-hidden border-l border-current/20 p-(--padding-width)"
+              "relative size-full overflow-hidden border-l border-current/20"
             }
           >
             <Image
-              src={
-                "https://aachenviews.de/wp-content/uploads/2024/05/Aachenviews-Aachener-Dom-50.jpg"
-              }
+              src={"/images/map.png"}
               alt={""}
-              width={800}
-              height={1200}
+              width={1000}
+              height={1000}
               className={
-                "absolute -z-10 size-full mask-y-from-80% mask-x-from-80% mask-radial-from-40% mask-radial-at-center object-cover opacity-30 saturate-0"
+                "absolute -z-10 size-full mask-y-from-80% mask-x-from-80% mask-radial-from-40% mask-radial-at-center object-cover object-center opacity-60 saturate-0 dark:invert"
               }
             />
-
-            <Link
-              href={"https://aachenviews.de/"}
-              target={"_blank"}
-              className={
-                "flex w-fit items-center gap-1 rounded bg-text px-2 py-1 text-xs text-background [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
-              }
-            >
-              <CameraIcon />
-              Niklas Birk
-            </Link>
           </div>
         </div>
       </Section>

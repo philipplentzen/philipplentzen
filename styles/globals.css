@@ -1,30 +1,37 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
-@config '../tailwind.config.js';
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
-@theme {
-  --color-*: initial;
-  --color-white: #f2f7fa;
-  --color-black: #0f1e29;
-  --color-yellow: #fcba04;
-  --color-cyan: #18a999;
-  --color-blue: #1e3f56;
+:root {
+  --text: #0f1e29;
+  --background: #f5faff;
+  --primary: #1e3f57;
+  --secondary: #18aa99;
+  --accent: #fcba03;
+  --grid: none;
 }
 
-/*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
+html[data-theme="dark"] {
+  --text: #d6e5f0;
+  --background: #00050a;
+  --primary: #bbe0fa;
+  --secondary: #55e7d6;
+  --accent: #fcba03;
+}
 
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
-  }
+@theme inline {
+  --color-*: initial;
+  --color-background: var(--background);
+  --color-text: var(--text);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+}
+
+@theme inline {
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-fira), monospace;
+  --font-caveat: var(--font-caveat), system-ui;
+  --font-instrument: var(--font-instrument), system-ui;
 }

@@ -97,8 +97,16 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
               >
                 <div className={"font-mono text-[0.6rem]"}>
                   <ul className={"flex gap-x-2"}>
-                    <li>status</li>
-                    <li>beta</li>
+                    <li>
+                      <Link href={"https://status.philipplentzen.dev"}>
+                        status
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href={"https://staging.philipplentzen.dev"}>
+                        staging
+                      </Link>
+                    </li>
                   </ul>
                 </div>
                 <Today className={"font-caveat leading-4 font-medium"} />

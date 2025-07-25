@@ -12,7 +12,25 @@ type ContentPageProps = {
   }>;
 };
 
-const getPostBSlug = async (slug: string) => {
+const getPages = async () => {
+  try {
+    const filePaths = await fs.readdir(path.join(process.cwd(), "./content"));
+    const mdxFilePaths = filePaths.filter((file) => file.endsWith(".mdx"));
+    return mdxFilePaths.map((file) => file.replace(/\.mdx$/, ""));
+  } catch (error) {
+    console.error("Error reading content directory:", error);
+    return [];
+  }
+};
+
+export async function generateStaticParams() {
+  const paths = await getPages();
+  return paths.map((path) => ({
+    slug: path,
+  }));
+}
+
+const getPageBySlug = async (slug: string) => {
   try {
     const exists = await fs
       .stat(path.join(process.cwd(), "./content", slug + ".mdx"))
@@ -41,7 +59,7 @@ export default async function ContentPage(props: ContentPageProps) {
   const params = await props.params;
   const { slug } = params;
 
-  const post = await getPostBSlug(slug);
+  const post = await getPageBySlug(slug);
 
   if (!post) {
     return notFound();

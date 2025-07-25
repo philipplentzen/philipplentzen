@@ -1,3 +1,4 @@
+import { CopyButton } from "@/components/copy-button";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/ui/section";
 import { Article, H2, H3 } from "@/components/ui/typography";
@@ -6,7 +7,6 @@ import WhatIDo from "@/content/about-me/what-i-do.mdx";
 import WhoIAm from "@/content/about-me/who-i-am.mdx";
 import { cn } from "@/lib/utils";
 import {
-  CopyIcon,
   GithubIcon,
   InboxIcon,
   LinkedinIcon,
@@ -179,13 +179,10 @@ export default function HomePage() {
                   >
                     {title}
                   </Link>
-                  <Button
-                    variant={"ghost"}
-                    size={"square"}
+                  <CopyButton
+                    value={href.replace("mailto:", "")}
                     className={"ml-auto"}
-                  >
-                    <CopyIcon />
-                  </Button>
+                  />
                 </div>
               ))}
             </div>

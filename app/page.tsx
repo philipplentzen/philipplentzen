@@ -6,7 +6,6 @@ import WhatIDo from "@/content/about-me/what-i-do.mdx";
 import WhoIAm from "@/content/about-me/who-i-am.mdx";
 import { cn } from "@/lib/utils";
 import {
-  ArrowUpRightIcon,
   CopyIcon,
   GithubIcon,
   InboxIcon,
@@ -54,42 +53,6 @@ export default function HomePage() {
           </h1>
         </div>
       </div>
-
-      <Section>
-        <H2 id={"showcase"}>Showcase</H2>
-
-        <div className={"grid gap-8 sm:grid-cols-3"}>
-          {[1, 2, 3].map((item) => (
-            <div
-              key={item}
-              className={cn(
-                "flex w-full shrink-0 flex-col gap-y-2 text-secondary",
-              )}
-            >
-              <div className="relative h-136 w-full rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10"></div>
-              <div className={"flex w-full justify-between"}>
-                <h3
-                  className={
-                    "self-end font-mono text-2xl leading-10 tracking-tighter"
-                  }
-                >
-                  showcase.project
-                </h3>
-                <Button
-                  asChild
-                  variant={"outline"}
-                  size={"square"}
-                  className={"text-primary"}
-                >
-                  <Link href={"/"}>
-                    <ArrowUpRightIcon size={20} />
-                  </Link>
-                </Button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </Section>
 
       <Section>
         <div

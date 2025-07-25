@@ -131,14 +131,6 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
                       </NavigationItem>
                       <NavigationItem>
                         <Link
-                          href={"/#showcase"}
-                          className={cn(buttonVariants({ variant: "ghost" }))}
-                        >
-                          Showcase
-                        </Link>
-                      </NavigationItem>
-                      <NavigationItem>
-                        <Link
                           href={"/#about-me"}
                           className={cn(buttonVariants({ variant: "ghost" }))}
                         >

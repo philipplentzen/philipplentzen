@@ -187,12 +187,20 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
                 >
                   Das war&apos;s von mir...
                 </i>
-                <span className={"block text-sm text-primary lowercase italic"}>
+                <span
+                  className={"mt-1 block text-sm text-primary lowercase italic"}
+                >
                   ...Nun bist du dran!
                 </span>
-                <Button variant={"outline"} className={"mt-4 text-secondary"}>
-                  <SparklesIcon />
-                  Lass uns loslegen!
+                <Button
+                  asChild
+                  variant={"outline"}
+                  className={"mt-4 text-secondary"}
+                >
+                  <Link href={"mailto:kontakt@philipplentzen.dev"}>
+                    <SparklesIcon />
+                    Lass uns loslegen!
+                  </Link>
                 </Button>
               </div>
               <div

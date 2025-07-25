@@ -88,9 +88,15 @@ export default function HomePage() {
                 Mit Code, der sitzt. Mit Design, das wirkt. <br />
                 Und mit Spaß an der Sache.
               </p>
-              <Button variant={"outline"} className={"mt-4 text-secondary"}>
-                <SparklesIcon />
-                Lass uns loslegen!
+              <Button
+                asChild
+                variant={"outline"}
+                className={"mt-4 text-secondary"}
+              >
+                <Link href={"mailto:kontakt@philipplentzen.dev"}>
+                  <SparklesIcon />
+                  Lass uns loslegen!
+                </Link>
               </Button>
             </Article>
           </div>

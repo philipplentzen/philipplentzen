@@ -25,7 +25,7 @@ export const Article = (props: ComponentProps<"article">) => {
       className={cn(
         "@container prose w-full space-y-1",
         "prose-a:text-secondary",
-        "prose-headings:my-0 prose-headings:font-normal",
+        "prose-headings:my-0 prose-headings:leading-none prose-headings:font-normal",
         "prose-p:text-text",
         "prose-strong:text-secondary",
         className,

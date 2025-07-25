@@ -38,16 +38,19 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+const baseURL = new URL(process.env.COOLIFY_URL || "http://localhost:3000");
+
 export const metadata: Metadata = {
+  metadataBase: baseURL,
   title: {
     default: `philipp lentzen development - kreativer entwickler.`,
     template: `philipp lentzen development - %s.`,
   },
   description: `philipp lentzen - kreativer entwickler, digitaler tüftler & öcher jong.`,
   openGraph: {
+    url: baseURL,
     title: `philipp lentzen development - kreativer entwickler.`,
     description: `philipp lentzen - kreativer entwickler, digitaler tüftler & öcher jong.`,
-    url: `https://philipplentzen.dev`,
     siteName: `philipp lentzen development`,
     locale: `de_DE`,
     type: `website`,

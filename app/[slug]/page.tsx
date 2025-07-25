@@ -23,13 +23,6 @@ const getPages = async () => {
   }
 };
 
-export async function generateStaticParams() {
-  const paths = await getPages();
-  return paths.map((path) => ({
-    slug: path,
-  }));
-}
-
 const getPageBySlug = async (slug: string) => {
   try {
     const exists = await fs
@@ -54,6 +47,13 @@ const getPageBySlug = async (slug: string) => {
     return null;
   }
 };
+
+export async function generateStaticParams() {
+  const paths = await getPages();
+  return paths.map((path) => ({
+    slug: path,
+  }));
+}
 
 export default async function ContentPage(props: ContentPageProps) {
   const params = await props.params;

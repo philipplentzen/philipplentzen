@@ -10,6 +10,7 @@ import {
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
 import { SparklesIcon } from "lucide-react";
+import { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import { Caveat, Fira_Code, Instrument_Serif, Inter } from "next/font/google";
 import Link from "next/link";
@@ -36,6 +37,22 @@ const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
 });
+
+export const metadata: Metadata = {
+  title: {
+    default: `philipp lentzen development - kreativer entwickler.`,
+    template: `philipp lentzen development - %s.`,
+  },
+  description: `philipp lentzen - kreativer entwickler, digitaler tüftler & öcher jong.`,
+  openGraph: {
+    title: `philipp lentzen development - kreativer entwickler.`,
+    description: `philipp lentzen - kreativer entwickler, digitaler tüftler & öcher jong.`,
+    url: `https://philipplentzen.dev`,
+    siteName: `philipp lentzen development`,
+    locale: `de_DE`,
+    type: `website`,
+  },
+};
 
 export default function RootLayout({ children }: PropsWithChildren<{}>) {
   return (

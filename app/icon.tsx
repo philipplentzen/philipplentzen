@@ -38,7 +38,7 @@ export default async function Icon() {
           backgroundClip: "text",
           color: "transparent",
           fontSize: "28px",
-          fontWeight: "900",
+          fontWeight: "800",
           letterSpacing: "-0.05em",
         }}
       >
@@ -50,7 +50,7 @@ export default async function Icon() {
       fonts: [
         {
           name: "Overpass",
-          data: await loadGoogleFont("Overpass"),
+          data: await loadGoogleFont("Overpass:wght@800"),
           style: "normal",
         },
       ],

@@ -112,18 +112,20 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
               <div
                 className={cn(
                   "relative flex h-(--divider-height) flex-none items-center justify-between px-(--padding-width) text-current/50",
-                  "before:absolute before:inset-0 before:bg-(image:--grid) before:mask-l-from-0 before:mask-l-to-96 before:bg-size-[var(--pattern-size)_var(--pattern-size)]",
+                  "before:pointer-events-none before:absolute before:inset-0 before:bg-(image:--grid) before:mask-l-from-0 before:mask-l-to-96 before:bg-size-[var(--pattern-size)_var(--pattern-size)]",
                 )}
               >
                 <div className={"font-mono text-[0.6rem]"}>
                   <ul className={"flex gap-x-2"}>
                     <li>
-                      <Link href={"https://status.philipplentzen.dev"}>
-                        status
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href={"https://staging.philipplentzen.dev"}>
+                      <Link
+                        href={"https://staging.philipplentzen.dev"}
+                        title={"Staging"}
+                        className={cn(
+                          "rounded transition-all",
+                          "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none",
+                        )}
+                      >
                         staging
                       </Link>
                     </li>
@@ -139,19 +141,26 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
                   "after:absolute after:bottom-0 after:left-[-100vw] after:h-px after:w-[200vw] after:bg-current/10",
                 )}
               >
-                <Link
-                  href={"/"}
-                  aria-label={"Startseite"}
-                  className={"-ml-2 p-2"}
-                >
-                  <Logo className={"h-8"} />
-                </Link>
+                <div className={"-ml-2 p-2"}>
+                  <Link
+                    href={"/"}
+                    title={"Startseite"}
+                    aria-label={"Startseite"}
+                    className={cn(
+                      "block rounded transition-all",
+                      "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none",
+                    )}
+                  >
+                    <Logo className={"h-8"} />
+                  </Link>
+                </div>
                 <div className={"flex gap-4"}>
                   <Navigation>
                     <NavigationList>
                       <NavigationItem>
                         <Link
                           href={"/"}
+                          title={"Startseite"}
                           className={cn(buttonVariants({ variant: "ghost" }))}
                         >
                           Startseite
@@ -160,6 +169,8 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
                       <NavigationItem>
                         <Link
                           href={"/#about-me"}
+                          title={"Über mich"}
+                          aria-label={"Über mich"}
                           className={cn(buttonVariants({ variant: "ghost" }))}
                         >
                           Über mich
@@ -168,6 +179,8 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
                       <NavigationItem>
                         <Link
                           href={"/#contact"}
+                          title={"Kontakt"}
+                          aria-label={"Kontakt"}
                           className={cn(buttonVariants({ variant: "ghost" }))}
                         >
                           Kontakt
@@ -217,7 +230,11 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
                   variant={"outline"}
                   className={"mt-4 text-secondary"}
                 >
-                  <Link href={"mailto:kontakt@philipplentzen.dev"}>
+                  <Link
+                    href={"mailto:kontakt@philipplentzen.dev"}
+                    title={"E-Mail schreiben"}
+                    aria-label={"E-Mail schreiben"}
+                  >
                     <SparklesIcon />
                     Lass uns loslegen!
                   </Link>
@@ -232,7 +249,17 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
                   <span className={"text-xs text-current/40"}>Erkunden</span>
                   <ul>
                     <li>
-                      <Link href={"/"}>Startseite</Link>
+                      <Link
+                        href={"/"}
+                        title={"Startseite"}
+                        aria-label={"Startseite"}
+                        className={cn(
+                          "rounded transition-all",
+                          "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none",
+                        )}
+                      >
+                        Startseite
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -240,7 +267,15 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
                   <span className={"text-xs text-current/40"}>Kontakt</span>
                   <ul>
                     <li>
-                      <Link href={"mailto:kontakt@philipplentzen.dev"}>
+                      <Link
+                        href={"mailto:kontakt@philipplentzen.dev"}
+                        title={"E-Mail schreiben"}
+                        aria-label={"E-Mail schreiben"}
+                        className={cn(
+                          "rounded transition-all",
+                          "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none",
+                        )}
+                      >
                         kontakt@philipplentzen.dev
                       </Link>
                     </li>
@@ -250,7 +285,17 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
                   <span className={"text-xs text-current/40"}>Rechtliches</span>
                   <ul>
                     <li>
-                      <Link href={"/impressum"}>Impressum</Link>
+                      <Link
+                        href={"/impressum"}
+                        title={"Impressum"}
+                        aria-label={"Impressum"}
+                        className={cn(
+                          "rounded transition-all",
+                          "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none",
+                        )}
+                      >
+                        Impressum
+                      </Link>
                     </li>
                   </ul>
                 </div>

@@ -181,7 +181,10 @@ export default function HomePage() {
                   </div>
                   <Link
                     href={href}
-                    className={"font-mono leading-4 hover:text-secondary"}
+                    className={cn(
+                      "rounded py-2 font-mono leading-4 transition-all hover:text-secondary",
+                      "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none",
+                    )}
                   >
                     {title}
                   </Link>

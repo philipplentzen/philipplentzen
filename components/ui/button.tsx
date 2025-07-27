@@ -5,7 +5,7 @@ import { ComponentPropsWithoutRef, forwardRef } from "react";
 
 export const buttonVariants = cva(
   [
-    "relative inline-flex h-10 w-fit shrink-0 items-center justify-center gap-2 rounded font-mono text-sm leading-[0.7] font-medium whitespace-nowrap lowercase no-underline transition-all [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+    "relative inline-flex h-10 w-fit shrink-0 cursor-pointer items-center justify-center gap-2 rounded font-mono text-sm leading-[0.7] font-medium whitespace-nowrap lowercase no-underline transition-all [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
     "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none",
   ],
   {

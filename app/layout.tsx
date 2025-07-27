@@ -38,7 +38,9 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const baseURL = new URL(process.env.COOLIFY_URL || "http://localhost:3000");
+const baseURL = new URL(
+  (process.env.COOLIFY_URL || "http://localhost:3000").split(",")[0],
+);
 
 export const metadata: Metadata = {
   metadataBase: baseURL,

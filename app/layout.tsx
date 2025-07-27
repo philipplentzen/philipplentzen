@@ -1,300 +1,315 @@
-import "@/styles/globals.css";
-
-import { AtSignIcon, GithubIcon, LinkedinIcon } from "lucide-react";
-import { Metadata, Viewport } from "next";
-import { Inter, Overpass } from "next/font/google";
-import NextImage from "next/image";
-import Link from "next/link";
-import * as process from "node:process";
-import { ReactNode } from "react";
-
-import { Image } from "@/components/ui/image";
+import { Logo } from "@/components/logo";
+import { ThemeMenu } from "@/components/theme-menu";
+import { Today } from "@/components/today";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
+  Navigation,
+  NavigationItem,
+  NavigationList,
+} from "@/components/ui/navigation";
 import { cn } from "@/lib/utils";
+import "@/styles/globals.css";
+import { SparklesIcon } from "lucide-react";
+import { Metadata } from "next";
+import { ThemeProvider } from "next-themes";
+import { Caveat, Fira_Code, Instrument_Serif, Inter } from "next/font/google";
+import Link from "next/link";
+import { PropsWithChildren } from "react";
 
-export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_URL || `https://www.philipplentzen.dev/`,
-  ),
-  title: {
-    default: `philipp lentzen - kreativer entwickler.`,
-    template: `philipp lentzen - %s.`,
-  },
-  description: `philipp lentzen - kreativer entwickler. informatikstudent. öcher jong.`,
-  openGraph: {
-    url: `/`,
-    type: `website`,
-    title: `philipp lentzen - kreativer entwickler.`,
-    description: `philipp lentzen - kreativer entwickler. informatik student. öcher jong.`,
-  },
-  icons: {
-    icon: [16, 32, 96, 128, 196].map((size) => ({
-      url: `/favicons/favicon-${size}x${size}.png`,
-      sizes: `${size}x${size}`,
-      type: `images/png`,
-    })),
-    apple: [57, 60, 72, 76, 114, 120, 144, 152, 167, 180].map((size) => ({
-      url: `/favicons/apple-touch-icon-${size}x${size}.png`,
-      sizes: `${size}x${size}`,
-      type: `images/png`,
-    })),
-  },
-};
+const caveat = Caveat({
+  variable: "--font-caveat",
+  subsets: ["latin"],
+});
 
-export const viewport: Viewport = {
-  themeColor: [
-    {
-      media: `(prefers-color-scheme: light)`,
-      color: `#18A999`,
-    },
-    {
-      media: `(prefers-color-scheme: dark)`,
-      color: `#18A999`,
-    },
-  ],
-  width: `device-width`,
-  initialScale: 1.0,
-  viewportFit: `cover`,
-};
+const fira = Fira_Code({
+  variable: "--font-fira",
+  subsets: ["latin"],
+});
+
+const instrument = Instrument_Serif({
+  variable: "--font-instrument",
+  weight: "400",
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+});
 
 const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
   variable: "--font-inter",
-});
-
-const overpass = Overpass({
   subsets: ["latin"],
-  display: "swap",
-  variable: "--font-overpass",
 });
 
-const socials = [
-  {
-    icon: AtSignIcon,
-    href: `mailto:kontakt@philipplentzen.dev`,
-    title: `E-Mail`,
-  },
-  {
-    icon: GithubIcon,
-    href: `https://github.com/philipplentzen`,
-    title: `GitHub`,
-  },
-  {
-    icon: LinkedinIcon,
-    href: `https://www.linkedin.com/in/philipplentzen/`,
-    title: `LinkedIn`,
-  },
-];
+const baseURL = new URL(process.env.COOLIFY_URL || "http://localhost:3000");
 
-const links = [
-  { title: `Impressum`, href: `/impressum` },
-  { title: `Beta-Version`, href: `https://beta.philipplentzen.dev` },
-];
+export const metadata: Metadata = {
+  metadataBase: baseURL,
+  title: {
+    default: `philipp lentzen development - kreativer entwickler.`,
+    template: `philipp lentzen development - %s.`,
+  },
+  description: `philipp lentzen - kreativer entwickler, digitaler tüftler & öcher jong.`,
+  openGraph: {
+    url: baseURL,
+    title: `philipp lentzen development - kreativer entwickler.`,
+    description: `philipp lentzen - kreativer entwickler, digitaler tüftler & öcher jong.`,
+    siteName: `philipp lentzen development`,
+    locale: `de_DE`,
+    type: `website`,
+  },
+};
 
-export default function RootLayout({
-  children,
-}: Record<`children`, ReactNode>) {
+export default function RootLayout({ children }: PropsWithChildren<{}>) {
   return (
-    <html className={`scroll-smooth`} lang={`de`}>
-      <body
-        className={cn(
-          `selection:bg-yellow selection:text-cyan relative flow-root min-h-full overflow-x-hidden bg-white bg-grain bg-fixed font-sans leading-4 text-black`,
-          inter.variable,
-          overpass.variable,
-        )}
-      >
-        {process.env.NEXT_PUBLIC_ENV !== `production` && (
-          <div
-            className={`z-99 bg-cyan sticky top-0 w-full py-2 text-center font-mono text-sm leading-4 text-white drop-shadow`}
-          >
-            Dies ist eine Beta-Version der Seite. Besuche bitte{` `}
-            <a href={`https://www.philipplentzen.dev`} className={`underline`}>
-              www.philipplentzen.dev
-            </a>
-            .
+    <html
+      className={cn(
+        "max-w-dvw overflow-x-hidden scroll-smooth bg-background text-text antialiased transition-colors selection:bg-accent selection:text-secondary",
+        "before:fixed before:inset-0 before:bg-[url(/images/noise.png)] before:opacity-70",
+        caveat.variable,
+        fira.variable,
+        instrument.variable,
+        inter.variable,
+      )}
+      lang={"de"}
+      suppressHydrationWarning
+    >
+      <body className={"relative max-w-screen overflow-x-hidden"}>
+        {process.env.NODE_ENV === "development" && (
+          <div className={"fixed top-0 right-0 z-50 text-xs leading-none"}>
+            <span className={"hidden max-sm:inline-block"}>none</span>
+            <span className={"hidden sm:max-md:inline-block"}>sm</span>
+            <span className={"hidden md:max-lg:inline-block"}>md</span>
+            <span className={"hidden lg:max-xl:inline-block"}>lg</span>
+            <span className={"hidden xl:max-2xl:inline-block"}>xl</span>
+            <span className={"hidden 2xl:inline-block"}>2xl</span>
           </div>
         )}
-        <NextImage
-          src={`/images/clouds.png`}
-          alt={``}
-          width={1920}
-          height={967}
-          sizes={`100vw`}
-          className={`pointer-events-none fixed top-0 -z-10 h-screen w-full object-cover xl:top-0`}
-          priority
-        />
-        <header className={`absolute inset-x-0 z-50 lowercase`}>
+        <ThemeProvider>
           <div
-            className={`max-w-(--breakpoint-md) mx-auto mt-12 flex w-full items-end justify-between px-4 lg:px-0`}
+            className={cn(
+              "[--divider-height:calc(var(--spacing)_*_8)] [--edge-width:calc(var(--spacing)_*_24)] [--header-height:calc(var(--spacing)_*_16_+_var(--divider-height))] [--padding-width:calc(var(--spacing)_*_2)] [--pattern-size:calc(var(--spacing)_*_2)]",
+              "sm:[--padding-width:calc(var(--spacing)_*_8)]",
+              "isolate container mx-auto grid w-full",
+              "grid-rows-[var(--header-height)_minmax(calc(100dvh_-_(var(--header-height)_+_var(--divider-height))),1fr)_var(--divider-height)_auto]",
+              "grid-cols-1 md:grid-cols-[var(--edge-width)_minmax(0,1fr)_var(--edge-width)]",
+            )}
           >
-            <Link href={`/`} aria-label={`Zur Startseite`}>
-              <h1 className={`font-mono text-xl font-semibold`}>
-                <span className={`text-black/50 max-sm:hidden`}>kontakt</span>
-                <span className={`sm:text-black`}>@philipplentzen</span>
-                <span className={`text-black/50 max-sm:hidden`}>.dev</span>
-              </h1>
-            </Link>
-            <NavigationMenu>
-              <NavigationMenuList>
-                {socials.map(({ icon: Icon, href, title }) => (
-                  <NavigationMenuItem key={href} className={`max-sm:hidden`}>
-                    <NavigationMenuLink asChild>
+            <div
+              className={cn(
+                "relative col-start-1 row-span-full hidden md:block",
+                "bg-(image:--grid) bg-size-[var(--pattern-size)_var(--pattern-size)]",
+                "before:absolute before:left-0 before:h-full before:w-px before:bg-current/10",
+                "after:absolute after:right-0 after:h-full after:w-px after:bg-current/10",
+              )}
+            />
+            <div
+              className={cn(
+                "relative col-start-3 row-span-full hidden md:block",
+                "bg-(image:--grid) bg-size-[var(--pattern-size)_var(--pattern-size)]",
+                "before:absolute before:left-0 before:h-full before:w-px before:bg-current/10",
+                "after:absolute after:right-0 after:h-full after:w-px after:bg-current/10",
+              )}
+            />
+            <header className={cn("relative flex flex-col")}>
+              <div
+                className={cn(
+                  "relative flex h-(--divider-height) flex-none items-center justify-between px-(--padding-width) text-current/50",
+                  "before:pointer-events-none before:absolute before:inset-0 before:bg-(image:--grid) before:mask-l-from-0 before:mask-l-to-96 before:bg-size-[var(--pattern-size)_var(--pattern-size)]",
+                )}
+              >
+                <div className={"font-mono text-[0.6rem]"}>
+                  <ul className={"flex gap-x-2"}>
+                    <li>
                       <Link
-                        href={href}
-                        aria-label={`${title} öffnen`}
-                        target={`_blank`}
+                        href={"https://staging.philipplentzen.dev"}
+                        title={"Staging"}
+                        className={cn(
+                          "rounded transition-all",
+                          "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none",
+                        )}
                       >
-                        <Icon size={20} />
+                        staging
                       </Link>
-                    </NavigationMenuLink>
-                  </NavigationMenuItem>
-                ))}
-                <NavigationMenuItem className={`pl-2 sm:border-l`}>
-                  <NavigationMenuTrigger>menü</NavigationMenuTrigger>
-                  <NavigationMenuContent
-                    className={`flex w-full max-sm:flex-col-reverse`}
-                  >
-                    <NavigationMenuLink
-                      asChild
-                      className={`flex flex-col bg-black pb-8`}
-                    >
-                      <Link
-                        href={`mailto:kontakt@philipplentzen.dev`}
-                        aria-label={`Neues Projekt starten`}
-                      >
-                        <Image
-                          src={`/images/projects/next.png`}
-                          alt={``}
-                          width={672}
-                          height={423}
-                          className={`mx-auto w-72 max-w-full border-none bg-black p-0 text-white`}
-                        />
-                        <div
-                          className={`text-center text-3xl font-semibold tracking-[-0.075em] text-white`}
-                        >
-                          Neues Projekt
-                          <span className={`text-yellow pl-1`}>?</span>
-                        </div>
-                      </Link>
-                    </NavigationMenuLink>
-                    <ul
-                      className={`border-cyan flex w-full flex-col space-y-2 border p-4`}
-                    >
-                      <li
-                        className={`border-b-cyan border-b pb-2 text-black/60`}
-                      >
-                        Register
-                      </li>
-                      {[
-                        { title: `Startseite`, href: `/` },
-                        { title: `Projekte`, href: `/projects` },
-                        { title: `Kontakt`, href: `/contact` },
-                      ].map(({ title, href }, index) => (
-                        <li key={href}>
-                          <NavigationMenuLink
-                            asChild
-                            className={`text-blue w-max`}
-                          >
-                            <Link href={href} aria-label={`Gehe zu ${title}`}>
-                              <span className={`mr-2 font-mono text-black/60`}>
-                                {(index >>> 0).toString(2).padStart(4, `0`)}
-                                -&gt;
-                              </span>
-                              {title}
-                              <span className={`text-cyan`}>.</span>
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-          </div>
-        </header>
-        <main
-          className={cn(
-            `max-w-(--breakpoint-md) relative mx-auto min-h-dvh w-full px-4 pb-12 pt-72 sm:pb-24 sm:pt-96 lg:px-0`,
-            `prose prose-neutral`,
-            `prose-headings:after:text-cyan prose-headings:-ml-1 prose-headings:mb-2 prose-headings:font-overpass prose-headings:lowercase prose-headings:tracking-[-0.075em] prose-headings:drop-shadow prose-headings:after:pl-1 prose-headings:after:content-["."]`,
-            `prose-h1:text-7xl prose-h1:font-bold prose-h1:text-black`,
-            `prose-h2:text-blue prose-h2:text-5xl prose-h2:font-semibold`,
-            `prose-h3:text-3xl`,
-            `prose-hr:mt-12 prose-hr:border-t-black/20 first-of-type:prose-hr:mt-24 sm:prose-hr:mt-24 sm:first-of-type:prose-hr:mt-72`,
-            `prose-p:max-w-prose`,
-          )}
-        >
-          {children}
-        </main>
-        <footer
-          className={`border-t-cyan bg-cyan/10 border-t pb-4 pt-8 sm:pt-12`}
-        >
-          <nav
-            className={`max-w-(--breakpoint-md) mx-auto flex flex-col items-center space-y-12 px-4 lowercase lg:px-0`}
-          >
-            <div className={`grid w-full grid-cols-2 gap-6 max-sm:grid-cols-1`}>
-              {[
-                {
-                  title: `Informationen`,
-                  items: [{ title: `Kontakt`, href: `/contact` }],
-                },
-                {
-                  title: `Stöbern`,
-                  items: [{ title: `Projekte`, href: `/projects` }],
-                },
-              ].map(({ title, items }, i) => (
-                <div key={i}>
-                  <span className={`text-cyan font-mono text-2xl font-medium`}>
-                    {title}.
-                  </span>
-                  <ol className={`mt-4 space-y-1 text-black`}>
-                    {items.map(({ title, href }, index) => (
-                      <Link
-                        key={href}
-                        href={href}
-                        className={`hover:text-cyan block py-1 transition-colors`}
-                      >
-                        <li>
-                          <span className={`mr-2 font-mono text-black/60`}>
-                            {(index >>> 0).toString(2).padStart(4, `0`)}-&gt;
-                          </span>
-                          {title}
-                        </li>
-                      </Link>
-                    ))}
-                  </ol>
+                    </li>
+                  </ul>
                 </div>
-              ))}
-            </div>
-            <ul
-              className={`space-x-2 divide-x divide-black/20 text-center font-mono`}
+                <Today className={"font-caveat leading-4 font-medium"} />
+              </div>
+
+              <div
+                className={cn(
+                  "relative flex h-full items-center justify-between px-(--padding-width)",
+                  "before:absolute before:top-0 before:left-[-100vw] before:h-px before:w-[200vw] before:bg-current/10",
+                  "after:absolute after:bottom-0 after:left-[-100vw] after:h-px after:w-[200vw] after:bg-current/10",
+                )}
+              >
+                <div className={"-ml-2 p-2"}>
+                  <Link
+                    href={"/"}
+                    title={"Startseite"}
+                    aria-label={"Startseite"}
+                    className={cn(
+                      "block rounded transition-all",
+                      "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none",
+                    )}
+                  >
+                    <Logo className={"h-8"} />
+                  </Link>
+                </div>
+                <div className={"flex gap-4"}>
+                  <Navigation>
+                    <NavigationList>
+                      <NavigationItem>
+                        <Link
+                          href={"/"}
+                          title={"Startseite"}
+                          className={cn(buttonVariants({ variant: "ghost" }))}
+                        >
+                          Startseite
+                        </Link>
+                      </NavigationItem>
+                      <NavigationItem>
+                        <Link
+                          href={"/#about-me"}
+                          title={"Über mich"}
+                          aria-label={"Über mich"}
+                          className={cn(buttonVariants({ variant: "ghost" }))}
+                        >
+                          Über mich
+                        </Link>
+                      </NavigationItem>
+                      <NavigationItem>
+                        <Link
+                          href={"/#contact"}
+                          title={"Kontakt"}
+                          aria-label={"Kontakt"}
+                          className={cn(buttonVariants({ variant: "ghost" }))}
+                        >
+                          Kontakt
+                        </Link>
+                      </NavigationItem>
+                    </NavigationList>
+                  </Navigation>
+                  <div className={"block h-10 w-px bg-current/10"} />
+                  <ThemeMenu />
+                </div>
+              </div>
+            </header>
+            <main className={cn("@container relative px-(--padding-width)")}>
+              {children}
+            </main>
+            <div
+              className={cn(
+                "relative",
+                "before:absolute before:top-0 before:left-[-100vw] before:h-px before:w-[200vw] before:bg-current/10",
+                "after:absolute after:bottom-0 after:left-[-100vw] after:h-px after:w-[200vw] after:bg-current/10",
+              )}
+            />
+            <footer
+              className={
+                "grid grid-cols-6 grid-rows-[minmax(0,_1fr)_calc(var(--spacing)_*_16)] gap-8 p-(--padding-width)"
+              }
             >
-              {links.map(({ title, href }, index) => (
-                <li
-                  key={href}
-                  className={cn(`inline-block`, index !== 0 && `pl-2`)}
+              <div
+                className={
+                  "col-span-3 rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10 p-(--padding-width)"
+                }
+              >
+                <i
+                  className={
+                    "relative block font-instrument text-[min(var(--text-5xl),_14.5cqw)] leading-[0.833] text-accent lowercase"
+                  }
+                >
+                  Das war&apos;s von mir...
+                </i>
+                <span
+                  className={"mt-1 block text-sm text-primary lowercase italic"}
+                >
+                  ...Nun bist du dran!
+                </span>
+                <Button
+                  asChild
+                  variant={"outline"}
+                  className={"mt-4 text-secondary"}
                 >
                   <Link
-                    href={href}
-                    aria-label={`${title} öffnen`}
-                    className={`text-cyan hover:text-cyan/80 text-xs transition-colors`}
+                    href={"mailto:kontakt@philipplentzen.dev"}
+                    title={"E-Mail schreiben"}
+                    aria-label={"E-Mail schreiben"}
                   >
-                    {title}
+                    <SparklesIcon />
+                    Lass uns loslegen!
                   </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </footer>
+                </Button>
+              </div>
+              <div
+                className={
+                  "col-span-3 grid grid-cols-subgrid text-sm text-primary"
+                }
+              >
+                <div className={"flex flex-col justify-end"}>
+                  <span className={"text-xs text-current/40"}>Erkunden</span>
+                  <ul>
+                    <li>
+                      <Link
+                        href={"/"}
+                        title={"Startseite"}
+                        aria-label={"Startseite"}
+                        className={cn(
+                          "rounded transition-all",
+                          "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none",
+                        )}
+                      >
+                        Startseite
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+                <div className={"flex flex-col justify-end"}>
+                  <span className={"text-xs text-current/40"}>Kontakt</span>
+                  <ul>
+                    <li>
+                      <Link
+                        href={"mailto:kontakt@philipplentzen.dev"}
+                        title={"E-Mail schreiben"}
+                        aria-label={"E-Mail schreiben"}
+                        className={cn(
+                          "rounded transition-all",
+                          "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none",
+                        )}
+                      >
+                        kontakt@philipplentzen.dev
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+                <div className={"flex flex-col justify-end"}>
+                  <span className={"text-xs text-current/40"}>Rechtliches</span>
+                  <ul>
+                    <li>
+                      <Link
+                        href={"/impressum"}
+                        title={"Impressum"}
+                        aria-label={"Impressum"}
+                        className={cn(
+                          "rounded transition-all",
+                          "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none",
+                        )}
+                      >
+                        Impressum
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className={"col-span-full flex h-full justify-center"}>
+                <div
+                  className={
+                    "aspect-square h-full bg-radial-[at_0%_0%] from-secondary to-accent mask-[url(/pl.svg)] mask-center mask-no-repeat"
+                  }
+                ></div>
+              </div>
+            </footer>
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

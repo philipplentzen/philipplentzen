@@ -39,6 +39,10 @@ export const CopyButton = forwardRef<
       size={"square"}
       onClick={handleCopy}
       className={cn(success && "bg-current/20 text-secondary", className)}
+      title={success ? "Kopiert!" : `"${value}" in die Zwischenablage kopieren`}
+      aria-label={
+        success ? "Kopiert!" : `"${value}" in die Zwischenablage kopieren`
+      }
       {...otherProps}
     >
       {success ?

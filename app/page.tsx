@@ -20,7 +20,7 @@ export default function HomePage() {
     <>
       <div
         className={cn(
-          "relative flex flex-col gap-y-8 px-(--padding-width) pt-64 pb-32 2xl:pt-96",
+          "relative flex flex-col gap-y-8 pt-64 pb-16 2xl:pt-96 2xl:pb-32",
           "before:absolute before:-inset-x-(--padding-width) before:inset-y-0 before:bg-radial-[at_10%_10%] before:from-secondary/30 before:to-accent/10",
         )}
       >
@@ -28,7 +28,7 @@ export default function HomePage() {
           <div className={"font-caveat text-current/30"}>h1</div>
           <h1
             className={
-              "relative font-instrument tracking-tight text-primary lowercase"
+              "@container relative font-instrument tracking-tight text-primary lowercase"
             }
           >
             <span
@@ -57,12 +57,12 @@ export default function HomePage() {
       <Section>
         <div
           className={
-            "relative grid h-96 w-full grid-cols-3 items-center justify-center gap-3 rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10"
+            "relative grid w-full gap-x-3 rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10 lg:grid-cols-3"
           }
         >
           <div
             className={
-              "flex size-full items-center justify-center border-r border-r-text/20 p-(--padding-width)"
+              "flex size-64 items-center justify-center justify-self-center border-text/20 p-(--padding-width) lg:size-full lg:border-r"
             }
           >
             <Image
@@ -76,11 +76,15 @@ export default function HomePage() {
 
           <div
             className={
-              "col-span-2 flex size-full flex-col justify-center p-(--padding-width) text-primary"
+              "flex size-full flex-col justify-center border-text/20 p-(--padding-width) text-primary max-lg:border-t lg:col-span-2"
             }
           >
-            <Article>
-              <H3 className={cn("text-7xl leading-[0.833]")}>
+            <Article className={"w-full"}>
+              <H3
+                className={cn(
+                  "text-[min(var(--text-7xl),_14cqw)] leading-[0.833]",
+                )}
+              >
                 Deine neue Webseite?
               </H3>
               <p className={"mt-4"}>
@@ -91,7 +95,7 @@ export default function HomePage() {
               <Button
                 asChild
                 variant={"outline"}
-                className={"mt-4 text-secondary"}
+                className={"text-secondary sm:mt-4"}
               >
                 <Link href={"mailto:kontakt@philipplentzen.dev"}>
                   <SparklesIcon />
@@ -108,18 +112,20 @@ export default function HomePage() {
 
         <div
           className={
-            "grid rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10 sm:grid-cols-2"
+            "grid rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10 lg:grid-cols-2"
           }
         >
-          <div className={"border-r border-r-current/20 p-(--padding-width)"}>
+          <div className={"border-current/20 p-(--padding-width) lg:border-r"}>
             <WhatIDo />
           </div>
-          <div className={"p-(--padding-width)"}>
+          <div
+            className={"border-current/20 p-(--padding-width) max-lg:border-t"}
+          >
             <HowIWork />
           </div>
           <div
             className={
-              "col-span-full flex justify-center border-t border-t-current/20 p-(--padding-width)"
+              "col-span-full flex justify-center border-t border-current/20 p-(--padding-width)"
             }
           >
             <WhoIAm />
@@ -132,10 +138,10 @@ export default function HomePage() {
 
         <div
           className={
-            "grid grid-cols-3 overflow-hidden rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10"
+            "grid overflow-hidden rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10 lg:grid-cols-3"
           }
         >
-          <div className={"col-span-2 space-y-8 p-(--padding-width)"}>
+          <div className={"space-y-8 p-(--padding-width) lg:col-span-2"}>
             <Article>
               <H3>Meld dich mal!</H3>
               <p>
@@ -170,7 +176,9 @@ export default function HomePage() {
                 <div
                   key={href}
                   role={"listitem"}
-                  className={"flex w-full max-w-prose items-center gap-8 py-2"}
+                  className={
+                    "flex w-full max-w-prose items-center gap-4 py-2 sm:gap-8"
+                  }
                 >
                   <div
                     className={
@@ -190,7 +198,7 @@ export default function HomePage() {
                   </Link>
                   <CopyButton
                     value={href.replace("mailto:", "")}
-                    className={"ml-auto"}
+                    className={"ml-auto hidden sm:block"}
                   />
                 </div>
               ))}
@@ -198,7 +206,7 @@ export default function HomePage() {
           </div>
           <div
             className={
-              "relative size-full overflow-hidden border-l border-current/20"
+              "relative size-full min-h-64 overflow-hidden border-current/20 max-lg:border-t lg:border-l"
             }
           >
             <Image

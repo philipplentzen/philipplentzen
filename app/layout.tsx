@@ -87,8 +87,8 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
         <ThemeProvider>
           <div
             className={cn(
-              "[--divider-height:calc(var(--spacing)_*_8)] [--edge-width:calc(var(--spacing)_*_24)] [--header-height:calc(var(--spacing)_*_16_+_var(--divider-height))] [--padding-width:calc(var(--spacing)_*_2)] [--pattern-size:calc(var(--spacing)_*_2)]",
-              "sm:[--padding-width:calc(var(--spacing)_*_8)]",
+              "[--divider-height:calc(var(--spacing)_*_8)] [--edge-width:calc(var(--spacing)_*_24)] [--header-height:calc(var(--spacing)_*_16_+_var(--divider-height))] [--padding-width:calc(var(--spacing)_*_4)] [--pattern-size:calc(var(--spacing)_*_2)]",
+              "sm:[--padding-width:calc(var(--spacing)_*_6)] lg:[--padding-width:calc(var(--spacing)_*_8)]",
               "isolate container mx-auto grid w-full",
               "grid-rows-[var(--header-height)_minmax(calc(100dvh_-_(var(--header-height)_+_var(--divider-height))),1fr)_var(--divider-height)_auto]",
               "grid-cols-1 md:grid-cols-[var(--edge-width)_minmax(0,1fr)_var(--edge-width)]",
@@ -157,7 +157,7 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
                   </Link>
                 </div>
                 <div className={"flex gap-4"}>
-                  <Navigation>
+                  <Navigation className={"hidden lg:block"}>
                     <NavigationList>
                       <NavigationItem>
                         <Link
@@ -190,7 +190,7 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
                       </NavigationItem>
                     </NavigationList>
                   </Navigation>
-                  <div className={"block h-10 w-px bg-current/10"} />
+                  <div className={"hidden h-10 w-px bg-current/10 lg:block"} />
                   <ThemeMenu />
                 </div>
               </div>
@@ -205,19 +205,15 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
                 "after:absolute after:bottom-0 after:left-[-100vw] after:h-px after:w-[200vw] after:bg-current/10",
               )}
             />
-            <footer
-              className={
-                "grid grid-cols-6 grid-rows-[minmax(0,_1fr)_calc(var(--spacing)_*_16)] gap-8 p-(--padding-width)"
-              }
-            >
+            <footer className={"grid gap-8 p-(--padding-width) lg:grid-cols-2"}>
               <div
                 className={
-                  "col-span-3 rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10 p-(--padding-width)"
+                  "@container rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10 p-4 sm:p-8"
                 }
               >
                 <i
                   className={
-                    "relative block font-instrument text-[min(var(--text-5xl),_14.5cqw)] leading-[0.833] text-accent lowercase"
+                    "relative block font-instrument text-[min(var(--text-5xl),_14cqw)] leading-[0.833] text-accent lowercase"
                   }
                 >
                   Das war&apos;s von mir...
@@ -244,7 +240,7 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
               </div>
               <div
                 className={
-                  "col-span-3 grid grid-cols-subgrid text-sm text-primary"
+                  "grid grid-cols-2 gap-y-4 text-sm text-primary sm:grid-cols-3 lg:grid-cols-2 2xl:grid-cols-3"
                 }
               >
                 <div className={"flex flex-col justify-end"}>
@@ -261,24 +257,6 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
                         )}
                       >
                         Startseite
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-                <div className={"flex flex-col justify-end"}>
-                  <span className={"text-xs text-current/40"}>Kontakt</span>
-                  <ul>
-                    <li>
-                      <Link
-                        href={"mailto:kontakt@philipplentzen.dev"}
-                        title={"E-Mail schreiben"}
-                        aria-label={"E-Mail schreiben"}
-                        className={cn(
-                          "rounded transition-all",
-                          "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none",
-                        )}
-                      >
-                        kontakt@philipplentzen.dev
                       </Link>
                     </li>
                   </ul>
@@ -301,8 +279,26 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
                     </li>
                   </ul>
                 </div>
+                <div className={"flex flex-col justify-end"}>
+                  <span className={"text-xs text-current/40"}>Kontakt</span>
+                  <ul>
+                    <li>
+                      <Link
+                        href={"mailto:kontakt@philipplentzen.dev"}
+                        title={"E-Mail schreiben"}
+                        aria-label={"E-Mail schreiben"}
+                        className={cn(
+                          "rounded transition-all",
+                          "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none",
+                        )}
+                      >
+                        kontakt@philipplentzen.dev
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
               </div>
-              <div className={"col-span-full flex h-full justify-center"}>
+              <div className={"col-span-full flex h-16 justify-center"}>
                 <div
                   className={
                     "aspect-square h-full bg-radial-[at_0%_0%] from-secondary to-accent mask-[url(/pl.svg)] mask-center mask-no-repeat"

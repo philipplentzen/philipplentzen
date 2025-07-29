@@ -71,6 +71,7 @@ export default function HomePage() {
               alt={""}
               width={294}
               height={280}
+              sizes={"300px"}
             />
           </div>
 
@@ -214,6 +215,7 @@ export default function HomePage() {
               alt={""}
               width={1000}
               height={1000}
+              sizes={"500px"}
               className={
                 "absolute -z-10 size-full mask-y-from-80% mask-x-from-80% mask-radial-from-40% mask-radial-at-center object-cover object-center opacity-60 saturate-0 dark:invert"
               }

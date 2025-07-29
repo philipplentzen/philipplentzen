@@ -199,7 +199,7 @@ export default function HomePage() {
                   </Link>
                   <CopyButton
                     value={href.replace("mailto:", "")}
-                    className={"ml-auto hidden sm:block"}
+                    className={"ml-auto hidden sm:flex"}
                   />
                 </div>
               ))}

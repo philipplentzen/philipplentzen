@@ -182,6 +182,16 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
                       </NavigationItem>
                       <NavigationItem>
                         <Link
+                          href={"/#showcase"}
+                          title={"Showcase"}
+                          aria-label={"Showcase"}
+                          className={cn(buttonVariants({ variant: "ghost" }))}
+                        >
+                          Showcase
+                        </Link>
+                      </NavigationItem>
+                      <NavigationItem>
+                        <Link
                           href={"/#about-me"}
                           title={"Über mich"}
                           aria-label={"Über mich"}

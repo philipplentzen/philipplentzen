@@ -81,13 +81,13 @@ export default function HomePage() {
             }
           >
             <Article className={"w-full"}>
-              <H3
+              <H2
                 className={cn(
-                  "text-[min(var(--text-7xl),_14cqw)] leading-[0.833]",
+                  "text-[min(var(--text-7xl),_14cqw)] leading-[0.833] text-accent",
                 )}
               >
-                Deine neue Webseite?
-              </H3>
+                <i>Deine neue Webseite?</i>
+              </H2>
               <p className={"mt-4"}>
                 Du hast &apos;ne Idee im Kopf, ich bring sie ins Web. <br />
                 Mit Code, der sitzt. Mit Design, das wirkt. <br />

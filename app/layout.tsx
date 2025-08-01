@@ -113,12 +113,24 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
             <header className={cn("relative flex flex-col")}>
               <div
                 className={cn(
-                  "relative flex h-(--divider-height) flex-none items-center justify-between px-(--padding-width) text-current/50",
+                  "relative flex h-(--divider-height) flex-none items-center justify-between px-(--padding-width) text-current/60",
                   "before:pointer-events-none before:absolute before:inset-0 before:bg-(image:--grid) before:mask-l-from-0 before:mask-l-to-96 before:bg-size-[var(--pattern-size)_var(--pattern-size)]",
                 )}
               >
                 <div className={"font-mono text-[0.6rem]"}>
                   <ul className={"flex gap-x-2"}>
+                    <li>
+                      <Link
+                        href={"https://status.philipplentzen.dev"}
+                        title={"Status"}
+                        className={cn(
+                          "rounded transition-all",
+                          "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none",
+                        )}
+                      >
+                        status
+                      </Link>
+                    </li>
                     <li>
                       <Link
                         href={"https://staging.philipplentzen.dev"}

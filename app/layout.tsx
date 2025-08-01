@@ -121,6 +121,18 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
                   <ul className={"flex gap-x-2"}>
                     <li>
                       <Link
+                        href={"https://status.philipplentzen.dev"}
+                        title={"Status"}
+                        className={cn(
+                          "rounded transition-all",
+                          "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none",
+                        )}
+                      >
+                        status
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
                         href={"https://staging.philipplentzen.dev"}
                         title={"Staging"}
                         className={cn(

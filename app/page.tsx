@@ -55,6 +55,10 @@ export default function HomePage() {
       </div>
 
       <Section>
+        <H2 id={"showcase"}>Showcase</H2>
+      </Section>
+
+      <Section>
         <div
           className={
             "relative grid w-full gap-x-3 rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10 lg:grid-cols-3"

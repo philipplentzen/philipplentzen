@@ -6,6 +6,8 @@ import HowIWork from "@/content/about-me/how-i-work.mdx";
 import WhatIDo from "@/content/about-me/what-i-do.mdx";
 import WhoIAm from "@/content/about-me/who-i-am.mdx";
 import { cn } from "@/lib/utils";
+import fs from "fs/promises";
+import { sortBy } from "lodash";
 import {
   GithubIcon,
   InboxIcon,
@@ -14,8 +16,37 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import path from "path";
+import process from "process";
+import { CSSProperties } from "react";
 
-export default function HomePage() {
+const getProjects = async () => {
+  try {
+    const filePaths = await fs.readdir(
+      path.join(process.cwd(), "./content/showcase"),
+    );
+    const mdxFilePaths = filePaths.filter((file) => file.endsWith(".mdx"));
+    const projects = await Promise.all(
+      mdxFilePaths.map(async (filePath) => {
+        const file = await import(`@/content/showcase/${filePath}`);
+        return {
+          title: file.title,
+          color: file.color,
+          year: file.year,
+        };
+      }),
+    );
+
+    return sortBy(projects, "year").reverse();
+  } catch (error) {
+    console.error("Error loading projects:", error);
+    return [];
+  }
+};
+
+export default async function HomePage() {
+  const projects = await getProjects();
+
   return (
     <>
       <div
@@ -56,6 +87,31 @@ export default function HomePage() {
 
       <Section>
         <H2 id={"showcase"}>Showcase</H2>
+
+        <div className={"grid grid-cols-3 gap-8 text-accent"}>
+          {projects.map(({ title, color }) => (
+            <Link
+              key={title}
+              href={`/showcase/${title.split(".")[0]}`}
+              className={
+                "group/item @container flex h-48 items-center justify-center rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10 transition-colors hover:from-(--project-color)/30"
+              }
+              style={
+                {
+                  "--project-color": color,
+                } as unknown as CSSProperties
+              }
+            >
+              <h3
+                className={
+                  "font-instrument text-[min(var(--text-6xl),_14.5cqw)] transition-colors group-hover/item:text-(--project-color)"
+                }
+              >
+                {title}
+              </h3>
+            </Link>
+          ))}
+        </div>
       </Section>
 
       <Section>

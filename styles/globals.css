@@ -10,6 +10,8 @@
   --secondary: #18aa99;
   --accent: #fcba03;
   --grid: none;
+  --success: #00a63e;
+  --error: #c10007;
 }
 
 html[data-theme="dark"] {
@@ -18,6 +20,8 @@ html[data-theme="dark"] {
   --primary: #bbe0fa;
   --secondary: #55e7d6;
   --accent: #fcba03;
+  --success: #00c950;
+  --error: #fb2c36;
 }
 
 @theme inline {
@@ -27,6 +31,8 @@ html[data-theme="dark"] {
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
   --color-accent: var(--accent);
+  --color-success: var(--success);
+  --color-error: var(--error);
 }
 
 @theme inline {

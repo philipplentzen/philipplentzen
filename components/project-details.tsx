@@ -14,6 +14,7 @@ export const ProjectDetails = (props: {
     | "Static"
     | "MySQL"
     | "Custom Frameworks"
+    | "S3"
   )[];
   status: "live" | "internal" | "archived";
   employment: "Freiberuflich";
@@ -23,26 +24,26 @@ export const ProjectDetails = (props: {
   return (
     <div
       className={
-        "not-prose grid grid-cols-4 gap-4 rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10 p-(--padding-width) text-text"
+        "not-prose mb-8 grid gap-4 rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10 p-(--padding-width) text-text @lg:grid-cols-2"
       }
     >
-      <div className={"flex flex-col gap-1"}>
+      <div className={"flex flex-col"}>
         <span className={"text-sm text-current/60"}>Kunde</span>
         {client}
       </div>
-      <div className={"flex flex-col gap-1"}>
+      <div className={"flex flex-col"}>
         <span className={"text-sm text-current/60"}>Aufgaben</span>
         {tasks.join(", ")}
       </div>
-      <div className={"flex flex-col gap-1"}>
+      <div className={"flex flex-col"}>
         <span className={"text-sm text-current/60"}>Technologien</span>
         {tech.join(", ")}
       </div>
-      <div className={"flex flex-col gap-1"}>
+      <div className={"flex flex-col"}>
         <span className={"text-sm text-current/60"}>Anstellung</span>
         {"Freiberuflich"}
       </div>
-      <div className={"flex flex-col gap-2"}>
+      <div className={"flex flex-col"}>
         <span className={"text-sm text-current/60"}>Status</span>
         <Badge
           className={cn(

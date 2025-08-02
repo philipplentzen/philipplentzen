@@ -51,7 +51,7 @@ export default async function HomePage() {
     <>
       <div
         className={cn(
-          "relative flex flex-col gap-y-8 pt-64 pb-16 2xl:pt-96 2xl:pb-32",
+          "relative flex flex-col gap-y-8 pt-64 pb-4 sm:pb-16 2xl:pt-96 2xl:pb-32",
           "before:absolute before:-inset-x-(--padding-width) before:inset-y-0 before:bg-radial-[at_10%_10%] before:from-secondary/30 before:to-accent/10",
         )}
       >
@@ -88,13 +88,17 @@ export default async function HomePage() {
       <Section>
         <H2 id={"showcase"}>Showcase</H2>
 
-        <div className={"grid grid-cols-3 gap-8 text-accent"}>
+        <div
+          className={
+            "grid gap-(--padding-width) text-accent sm:grid-cols-2 lg:grid-cols-3"
+          }
+        >
           {projects.map(({ title, color }) => (
             <Link
               key={title}
               href={`/showcase/${title.split(".")[0]}`}
               className={
-                "group/item @container flex h-48 items-center justify-center rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10 transition-colors hover:from-(--project-color)/30"
+                "group/item @container flex h-48 items-center justify-center rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10 transition-colors hover:from-(--project-color)/30 max-sm:from-(--project-color)/30"
               }
               style={
                 {
@@ -104,7 +108,7 @@ export default async function HomePage() {
             >
               <h3
                 className={
-                  "font-instrument text-[min(var(--text-6xl),_14.5cqw)] transition-colors group-hover/item:text-(--project-color)"
+                  "font-instrument text-[min(var(--text-6xl),_14.5cqw)] transition-colors group-hover/item:text-(--project-color) max-sm:text-(--project-color)/70"
                 }
               >
                 {title}

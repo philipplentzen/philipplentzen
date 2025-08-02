@@ -4,10 +4,21 @@ import { cn } from "@/lib/utils";
 export const ProjectDetails = (props: {
   client: string;
   tasks: ("Design" | "Entwicklung" | "Hosting")[];
-  tech: ("Next.js" | "Tailwind CSS" | "Directus")[];
+  tech: (
+    | "Next.js"
+    | "Nuxt.js"
+    | "Tailwind CSS"
+    | "Directus"
+    | "WordPress"
+    | "Tauri"
+    | "Static"
+    | "MySQL"
+    | "Custom Frameworks"
+  )[];
   status: "live" | "internal" | "archived";
+  employment: "Freiberuflich";
 }) => {
-  const { client, tasks, tech, status } = props;
+  const { client, tasks, tech, status, employment } = props;
 
   return (
     <div
@@ -28,6 +39,10 @@ export const ProjectDetails = (props: {
         {tech.join(", ")}
       </div>
       <div className={"flex flex-col gap-1"}>
+        <span className={"text-sm text-current/60"}>Anstellung</span>
+        {"Freiberuflich"}
+      </div>
+      <div className={"flex flex-col gap-2"}>
         <span className={"text-sm text-current/60"}>Status</span>
         <Badge
           className={cn(

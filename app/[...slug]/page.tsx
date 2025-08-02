@@ -5,6 +5,7 @@ import fs from "fs/promises";
 import { notFound } from "next/navigation";
 import path from "path";
 import process from "process";
+import { CSSProperties } from "react";
 
 type ContentPageProps = {
   params: Promise<{
@@ -78,15 +79,25 @@ export default async function ContentPage(props: ContentPageProps) {
       <div
         className={cn(
           "relative flex flex-col gap-y-8 pt-64 pb-16 2xl:pt-96 2xl:pb-32",
+          "before:absolute before:-inset-x-(--padding-width) before:inset-y-0 before:bg-radial-[at_10%_10%] before:from-(--project-color)/30 before:to-accent/10",
         )}
+        style={
+          {
+            "--project-color": page.color || "var(--secondary)",
+          } as unknown as CSSProperties
+        }
       >
-        <div
-          className={
-            "absolute -inset-x-(--padding-width) inset-y-0 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10"
-          }
-        ></div>
         <div className={"h-48"}>
-          <H1>{page.title}</H1>
+          <H1
+            className={"text-(--project-color)"}
+            style={
+              {
+                "--project-color": page.color || "var(--primary)",
+              } as unknown as CSSProperties
+            }
+          >
+            {page.title}
+          </H1>
         </div>
       </div>
 

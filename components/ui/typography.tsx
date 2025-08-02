@@ -28,6 +28,7 @@ export const Article = (props: ComponentProps<"article">) => {
         "prose-headings:my-0 prose-headings:leading-none prose-headings:font-normal",
         "prose-p:text-text",
         "prose-strong:text-secondary",
+        "prose-table:text-text",
         className,
       )}
       {...otherProps}

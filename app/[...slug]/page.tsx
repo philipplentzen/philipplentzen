@@ -1,10 +1,9 @@
+import { getPage, getPages } from "@/app/api";
 import { Section } from "@/components/ui/section";
 import { H1 } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
-import fs from "fs/promises";
+import Image from "next/image";
 import { notFound } from "next/navigation";
-import path from "path";
-import process from "process";
 import { CSSProperties } from "react";
 
 type ContentPageProps = {
@@ -13,52 +12,13 @@ type ContentPageProps = {
   }>;
 };
 
-const getPageSlugs = async (): Promise<string[][]> => {
-  try {
-    const contentDir = path.join(process.cwd(), "./content");
-    const filePaths = await fs.readdir(contentDir, { recursive: true });
-    const mdxFilePaths = filePaths.filter((file) => file.endsWith(".mdx"));
-
-    const slugs: string[][] = [];
-    for (const mdxFilePath of mdxFilePaths) {
-      const page = await import(`@/content/${mdxFilePath}`);
-      if (!page.default || !page.title) continue;
-      const slug = mdxFilePath.replace(/\.mdx$/, "");
-      slugs.push(slug.split("/"));
-    }
-
-    return slugs;
-  } catch (error) {
-    console.error("Error reading content directory:", error);
-    return [];
-  }
-};
-
-const getPageBySlug = async (slug: string[]) => {
-  try {
-    const filePath = path.join(process.cwd(), "./content", ...slug) + ".mdx";
-    const exists = await fs.stat(filePath).catch(() => false);
-
-    if (!exists) return null;
-
-    const page = await import(`@/content/${slug.join("/")}.mdx`);
-    if (!page.default) return null;
-
-    return {
-      title: page.title,
-      color: page.color,
-      Component: page.default,
-    };
-  } catch (error) {
-    console.error(error);
-    return null;
-  }
-};
-
 export async function generateStaticParams() {
-  const slugs = await getPageSlugs();
-  return slugs.map((slug) => ({
-    slug,
+  const pages = await getPages();
+
+  console.log(pages);
+
+  return pages.map((page) => ({
+    slug: page.slug,
   }));
 }
 
@@ -66,7 +26,7 @@ export default async function ContentPage(props: ContentPageProps) {
   const params = await props.params;
   const { slug } = params;
 
-  const page = await getPageBySlug(slug);
+  const page = await getPage(slug);
 
   if (!page) {
     return notFound();
@@ -78,7 +38,7 @@ export default async function ContentPage(props: ContentPageProps) {
 
       <div
         className={cn(
-          "relative flex flex-col gap-y-8 pt-64 pb-16 2xl:pt-96 2xl:pb-32",
+          "relative flex flex-col gap-y-8 pt-64 pb-4 sm:pb-16 2xl:pt-96 2xl:pb-32",
           "before:absolute before:-inset-x-(--padding-width) before:inset-y-0 before:bg-radial-[at_10%_10%] before:from-(--project-color)/30 before:to-accent/10",
         )}
         style={
@@ -87,9 +47,37 @@ export default async function ContentPage(props: ContentPageProps) {
           } as unknown as CSSProperties
         }
       >
-        <div className={"h-48"}>
+        {page.thumbnail && (
+          <div
+            className={
+              "absolute -right-(--padding-width) bottom-0 -z-10 hidden aspect-[1.26] w-full overflow-hidden sm:block sm:w-1/2"
+            }
+          >
+            <Image
+              src={"/images/your-new-website.png"}
+              alt={""}
+              width={294}
+              height={280}
+              sizes={"300px"}
+              className={"absolute w-full"}
+            />
+            <Image
+              alt={""}
+              src={page.thumbnail}
+              width={1029}
+              height={772}
+              sizes={"300px"}
+              className={
+                "absolute top-[10%] left-[22.5%] h-[45%] w-[48%] rounded object-cover object-top"
+              }
+            />
+          </div>
+        )}
+        <div className={"@container h-48 sm:w-[60%]"}>
           <H1
-            className={"text-(--project-color)"}
+            className={
+              "text-(--project-color) sm:text-[min(var(--text-8xl),_21cqw)]"
+            }
             style={
               {
                 "--project-color": page.color || "var(--primary)",

@@ -41,3 +41,49 @@ html[data-theme="dark"] {
   --font-caveat: var(--font-caveat), system-ui;
   --font-instrument: var(--font-instrument), system-ui;
 }
+
+@theme {
+  --animate-fake-scroll: fake-scroll 20s linear infinite;
+
+  @keyframes fake-scroll {
+    0% {
+      object-position: top center;
+    }
+    10% {
+      object-position: 10% center;
+    }
+    20% {
+      object-position: 10% center;
+    }
+    25% {
+      object-position: 18% center;
+    }
+    35% {
+      object-position: 18% center;
+    }
+    40% {
+      object-position: 40% center;
+    }
+    55% {
+      object-position: 40% center;
+    }
+    60% {
+      object-position: 70% center;
+    }
+    75% {
+      object-position: 70% center;
+    }
+    80% {
+      object-position: 80% center;
+    }
+    85% {
+      object-position: 80% center;
+    }
+    90% {
+      object-position: bottom center;
+    }
+    100% {
+      object-position: bottom center;
+    }
+  }
+}

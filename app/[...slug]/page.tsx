@@ -66,7 +66,7 @@ export default async function ContentPage(props: ContentPageProps) {
               height={772}
               sizes={"300px"}
               className={
-                "absolute top-[10%] left-[22.5%] h-[45%] w-[48%] rounded object-cover object-top"
+                "absolute top-[10%] left-[22.5%] h-[45%] w-[48%] animate-fake-scroll rounded object-cover object-top [animation-delay:3s]"
               }
             />
           </div>

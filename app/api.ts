@@ -12,11 +12,15 @@ type Page = {
   Component: ComponentType;
 };
 
-export const getPages = async (): Promise<Page[]> => {
+export const getPages = async (...slug: string[]): Promise<Page[]> => {
   const contentDirPath = path.join(process.cwd(), "./content");
   try {
-    const filePaths = await fs.readdir(contentDirPath, { recursive: true });
-    const mdxFilePaths = filePaths.filter((file) => file.endsWith(".mdx"));
+    const dirPath = path.join(contentDirPath, ...slug);
+    const filePaths = await fs.readdir(dirPath, { recursive: true });
+
+    const mdxFilePaths = filePaths
+      .filter((file) => file.endsWith(".mdx"))
+      .map((file) => path.join(...slug, file));
 
     const pages = await Promise.all(mdxFilePaths.map(importPage));
     return pages.filter((page) => !!page);
@@ -75,8 +79,6 @@ const importThumbnail = async (filePath: string) => {
 
     const exists = await fs.stat(thumbnailPath).catch(() => false);
     if (!exists) return null;
-
-    console.log(`Importing thumbnail for ${filePath} from ${thumbnailPath}`);
 
     const thumbnail = await import(`@/content/${fileDir}/img/${fileName}.jpg`);
     if (!thumbnail.default) return null;

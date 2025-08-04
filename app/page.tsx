@@ -1,3 +1,4 @@
+import { getPages } from "@/app/api";
 import { CopyButton } from "@/components/copy-button";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/ui/section";
@@ -6,7 +7,6 @@ import HowIWork from "@/content/about-me/how-i-work.mdx";
 import WhatIDo from "@/content/about-me/what-i-do.mdx";
 import WhoIAm from "@/content/about-me/who-i-am.mdx";
 import { cn } from "@/lib/utils";
-import fs from "fs/promises";
 import { sortBy } from "lodash";
 import {
   GithubIcon,
@@ -16,36 +16,10 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import path from "path";
-import process from "process";
 import { CSSProperties } from "react";
 
-const getProjects = async () => {
-  try {
-    const filePaths = await fs.readdir(
-      path.join(process.cwd(), "./content/showcase"),
-    );
-    const mdxFilePaths = filePaths.filter((file) => file.endsWith(".mdx"));
-    const projects = await Promise.all(
-      mdxFilePaths.map(async (filePath) => {
-        const file = await import(`@/content/showcase/${filePath}`);
-        return {
-          title: file.title,
-          color: file.color,
-          year: file.year,
-        };
-      }),
-    );
-
-    return sortBy(projects, "year").reverse();
-  } catch (error) {
-    console.error("Error loading projects:", error);
-    return [];
-  }
-};
-
 export default async function HomePage() {
-  const projects = await getProjects();
+  const projects = sortBy(await getPages("showcase"), "year").reverse();
 
   return (
     <>
@@ -93,12 +67,12 @@ export default async function HomePage() {
             "grid gap-(--padding-width) text-accent sm:grid-cols-2 lg:grid-cols-3"
           }
         >
-          {projects.map(({ title, color }) => (
+          {projects.map(({ title, color, thumbnail }) => (
             <Link
               key={title}
-              href={`/showcase/${title.split(".")[0]}`}
+              href={`/showcase/${title}`}
               className={
-                "group/item @container flex h-48 items-center justify-center rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10 transition-colors hover:from-(--project-color)/30 max-sm:from-(--project-color)/30"
+                "group/item @container relative flex aspect-video items-center justify-center overflow-hidden rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10 transition-colors hover:from-(--project-color)/30 max-sm:from-(--project-color)/30"
               }
               style={
                 {
@@ -106,9 +80,24 @@ export default async function HomePage() {
                 } as unknown as CSSProperties
               }
             >
+              {thumbnail && (
+                <div
+                  className={
+                    "absolute inset-0 -z-10 opacity-20 transition-opacity group-hover/item:opacity-50"
+                  }
+                >
+                  <Image
+                    src={thumbnail}
+                    alt={""}
+                    className={
+                      "size-full mask-radial-from-40% mask-radial-at-center object-cover object-top saturate-0"
+                    }
+                  />
+                </div>
+              )}
               <h3
                 className={
-                  "font-instrument text-[min(var(--text-6xl),_14.5cqw)] transition-colors group-hover/item:text-(--project-color) max-sm:text-(--project-color)/70"
+                  "font-instrument text-[min(var(--text-6xl),_14.5cqw)] text-(--project-color) transition-colors max-sm:text-(--project-color)"
                 }
               >
                 {title}

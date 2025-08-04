@@ -90,7 +90,7 @@ export default async function HomePage() {
                     src={thumbnail}
                     alt={""}
                     className={
-                      "size-full mask-radial-from-40% mask-radial-at-center object-cover object-top saturate-0"
+                      "size-full mask-radial-from-40% mask-radial-at-center object-cover object-top saturate-0 group-hover/item:motion-safe:animate-fake-scroll"
                     }
                   />
                 </div>

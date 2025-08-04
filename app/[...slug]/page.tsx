@@ -15,8 +15,6 @@ type ContentPageProps = {
 export async function generateStaticParams() {
   const pages = await getPages();
 
-  console.log(pages);
-
   return pages.map((page) => ({
     slug: page.slug,
   }));

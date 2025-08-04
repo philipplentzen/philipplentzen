@@ -10,6 +10,8 @@
   --secondary: #18aa99;
   --accent: #fcba03;
   --grid: none;
+  --success: #00a63e;
+  --error: #c10007;
 }
 
 html[data-theme="dark"] {
@@ -18,6 +20,8 @@ html[data-theme="dark"] {
   --primary: #bbe0fa;
   --secondary: #55e7d6;
   --accent: #fcba03;
+  --success: #00c950;
+  --error: #fb2c36;
 }
 
 @theme inline {
@@ -27,6 +31,8 @@ html[data-theme="dark"] {
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
   --color-accent: var(--accent);
+  --color-success: var(--success);
+  --color-error: var(--error);
 }
 
 @theme inline {
@@ -34,4 +40,50 @@ html[data-theme="dark"] {
   --font-mono: var(--font-fira), monospace;
   --font-caveat: var(--font-caveat), system-ui;
   --font-instrument: var(--font-instrument), system-ui;
+}
+
+@theme {
+  --animate-fake-scroll: fake-scroll 20s linear infinite;
+
+  @keyframes fake-scroll {
+    0% {
+      object-position: top center;
+    }
+    10% {
+      object-position: 10% center;
+    }
+    20% {
+      object-position: 10% center;
+    }
+    25% {
+      object-position: 18% center;
+    }
+    35% {
+      object-position: 18% center;
+    }
+    40% {
+      object-position: 40% center;
+    }
+    55% {
+      object-position: 40% center;
+    }
+    60% {
+      object-position: 70% center;
+    }
+    75% {
+      object-position: 70% center;
+    }
+    80% {
+      object-position: 80% center;
+    }
+    85% {
+      object-position: 80% center;
+    }
+    90% {
+      object-position: bottom center;
+    }
+    100% {
+      object-position: bottom center;
+    }
+  }
 }

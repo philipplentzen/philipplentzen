@@ -1,3 +1,4 @@
+import { getPages } from "@/app/api";
 import { CopyButton } from "@/components/copy-button";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/ui/section";
@@ -6,6 +7,7 @@ import HowIWork from "@/content/about-me/how-i-work.mdx";
 import WhatIDo from "@/content/about-me/what-i-do.mdx";
 import WhoIAm from "@/content/about-me/who-i-am.mdx";
 import { cn } from "@/lib/utils";
+import { sortBy } from "lodash";
 import {
   GithubIcon,
   InboxIcon,
@@ -14,13 +16,16 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { CSSProperties } from "react";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const projects = sortBy(await getPages("showcase"), "year").reverse();
+
   return (
     <>
       <div
         className={cn(
-          "relative flex flex-col gap-y-8 pt-64 pb-16 2xl:pt-96 2xl:pb-32",
+          "relative flex flex-col gap-y-8 pt-64 pb-4 sm:pb-16 2xl:pt-96 2xl:pb-32",
           "before:absolute before:-inset-x-(--padding-width) before:inset-y-0 before:bg-radial-[at_10%_10%] before:from-secondary/30 before:to-accent/10",
         )}
       >
@@ -53,6 +58,54 @@ export default function HomePage() {
           </h1>
         </div>
       </div>
+
+      <Section>
+        <H2 id={"showcase"}>Showcase</H2>
+
+        <div
+          className={
+            "grid gap-(--padding-width) text-accent sm:grid-cols-2 lg:grid-cols-3"
+          }
+        >
+          {projects.map(({ title, color, thumbnail }) => (
+            <Link
+              key={title}
+              href={`/showcase/${title}`}
+              className={
+                "group/item @container relative flex aspect-video items-center justify-center overflow-hidden rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10 transition-colors hover:from-(--project-color)/30 max-sm:from-(--project-color)/30"
+              }
+              style={
+                {
+                  "--project-color": color,
+                } as unknown as CSSProperties
+              }
+            >
+              {thumbnail && (
+                <div
+                  className={
+                    "absolute inset-0 -z-10 opacity-20 transition-opacity group-hover/item:opacity-50"
+                  }
+                >
+                  <Image
+                    src={thumbnail}
+                    alt={""}
+                    className={
+                      "size-full mask-radial-from-40% mask-radial-at-center object-cover object-top saturate-0 group-hover/item:motion-safe:animate-fake-scroll"
+                    }
+                  />
+                </div>
+              )}
+              <h3
+                className={
+                  "font-instrument text-[min(var(--text-6xl),_14.5cqw)] text-(--project-color) transition-colors max-sm:text-(--project-color)"
+                }
+              >
+                {title}
+              </h3>
+            </Link>
+          ))}
+        </div>
+      </Section>
 
       <Section>
         <div

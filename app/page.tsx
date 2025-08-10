@@ -83,7 +83,8 @@ export default async function HomePage() {
               <h3
                 className={cn(
                   "flex h-full shrink-0 flex-col justify-center font-instrument text-[min(var(--text-6xl),_14.5cqw)] text-(--project-color) max-sm:text-(--project-color)",
-                  thumbnail && "transition-[height] group-hover/item:h-1/2",
+                  thumbnail &&
+                    "transition-[height] group-hover/item:h-1/2 mobile:h-1/2",
                 )}
               >
                 {title}
@@ -91,7 +92,7 @@ export default async function HomePage() {
               {thumbnail && (
                 <div
                   className={
-                    "h-1/2 px-(--padding-width) saturate-0 transition-[filter] group-hover/item:saturate-100"
+                    "h-1/2 px-(--padding-width) saturate-0 transition-[filter] group-hover/item:saturate-100 mobile:saturate-100"
                   }
                 >
                   <Image

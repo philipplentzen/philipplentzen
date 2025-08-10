@@ -64,44 +64,48 @@ export default async function HomePage() {
 
         <div
           className={
-            "grid gap-(--padding-width) text-accent sm:grid-cols-2 lg:grid-cols-3"
+            "grid gap-(--padding-width) text-accent sm:grid-cols-2 xl:grid-cols-3"
           }
         >
           {projects.map(({ title, color, thumbnail }) => (
             <Link
               key={title}
               href={`/showcase/${title}`}
-              className={
-                "group/item @container relative flex aspect-video items-center justify-center overflow-hidden rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10 transition-colors hover:from-(--project-color)/30 max-sm:from-(--project-color)/30"
-              }
+              className={cn(
+                "group/item @container relative flex aspect-video flex-col items-center overflow-hidden rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10 transition-colors hover:from-(--project-color)/30 max-sm:from-(--project-color)/30",
+              )}
               style={
                 {
                   "--project-color": color,
                 } as unknown as CSSProperties
               }
             >
+              <h3
+                className={cn(
+                  "flex h-full shrink-0 flex-col justify-center font-instrument text-[min(var(--text-6xl),_14.5cqw)] text-(--project-color) max-sm:text-(--project-color)",
+                  thumbnail && "transition-[height] group-hover/item:h-1/2",
+                )}
+              >
+                {title}
+              </h3>
               {thumbnail && (
                 <div
                   className={
-                    "absolute inset-0 -z-10 opacity-20 transition-opacity group-hover/item:opacity-50"
+                    "h-1/2 px-(--padding-width) saturate-0 transition-[filter] group-hover/item:saturate-100"
                   }
                 >
                   <Image
                     src={thumbnail}
                     alt={""}
+                    sizes={
+                      "(min-width: 80rem) 33cqw, (min-width: 40rem) 50cqw, 100vw"
+                    }
                     className={
-                      "size-full mask-radial-from-40% mask-radial-at-center object-cover object-top saturate-0 group-hover/item:motion-safe:animate-fake-scroll"
+                      "size-full rounded-t border-x border-t border-text/20 object-cover object-top"
                     }
                   />
                 </div>
               )}
-              <h3
-                className={
-                  "font-instrument text-[min(var(--text-6xl),_14.5cqw)] text-(--project-color) transition-colors max-sm:text-(--project-color)"
-                }
-              >
-                {title}
-              </h3>
             </Link>
           ))}
         </div>
@@ -124,7 +128,7 @@ export default async function HomePage() {
               alt={""}
               width={294}
               height={280}
-              sizes={"300px"}
+              unoptimized
             />
           </div>
 

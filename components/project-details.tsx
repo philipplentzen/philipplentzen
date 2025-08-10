@@ -43,7 +43,7 @@ export const ProjectDetails = (props: {
         <span className={"text-sm text-current/60"}>Anstellung</span>
         {"Freiberuflich"}
       </div>
-      <div className={"flex flex-col"}>
+      <div className={"flex flex-col gap-2"}>
         <span className={"text-sm text-current/60"}>Status</span>
         <Badge
           className={cn(

@@ -36,7 +36,7 @@ export default async function ContentPage(props: ContentPageProps) {
 
       <div
         className={cn(
-          "relative flex flex-col gap-y-8 pt-64 pb-4 sm:pb-16 2xl:pt-96 2xl:pb-32",
+          "@container relative flex flex-col gap-y-8 pt-64 pb-4 sm:pb-16 2xl:pt-96 2xl:pb-32",
           "before:absolute before:-inset-x-(--padding-width) before:inset-y-0 before:bg-radial-[at_10%_10%] before:from-(--project-color)/30 before:to-accent/10",
         )}
         style={
@@ -56,22 +56,20 @@ export default async function ContentPage(props: ContentPageProps) {
               alt={""}
               width={294}
               height={280}
-              sizes={"300px"}
               className={"absolute w-full"}
+              unoptimized
             />
             <Image
               alt={""}
               src={page.thumbnail}
-              width={1029}
-              height={772}
-              sizes={"300px"}
+              sizes={"25cqw"}
               className={
-                "absolute top-[10%] left-[22.5%] h-[45%] w-[48%] animate-fake-scroll rounded object-cover object-top [animation-delay:3s]"
+                "absolute top-[10%] left-[22.5%] h-[45%] w-[48%] rounded object-cover object-top"
               }
             />
           </div>
         )}
-        <div className={"@container h-48 sm:w-[60%]"}>
+        <div className={"h-48 sm:w-[60%]"}>
           <H1
             className={
               "text-(--project-color) sm:text-[min(var(--text-8xl),_21cqw)]"
@@ -86,6 +84,31 @@ export default async function ContentPage(props: ContentPageProps) {
           </H1>
         </div>
       </div>
+
+      {page.thumbnail && (
+        <div
+          className={
+            "relative mx-auto mt-8 block aspect-[1.26] h-64 overflow-hidden sm:hidden"
+          }
+        >
+          <Image
+            src={"/images/your-new-website.png"}
+            alt={""}
+            width={294}
+            height={280}
+            className={"w-full"}
+            unoptimized
+          />
+          <Image
+            alt={""}
+            src={page.thumbnail}
+            sizes={"50cqw"}
+            className={
+              "absolute top-[10%] left-[22.5%] h-[45%] w-[48%] rounded object-cover object-top"
+            }
+          />
+        </div>
+      )}
 
       <Section>
         <page.Component />

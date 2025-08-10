@@ -97,7 +97,6 @@ export default async function ContentPage(props: ContentPageProps) {
             width={294}
             height={280}
             className={"w-full"}
-            unoptimized
           />
           <Image
             alt={""}

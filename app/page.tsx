@@ -128,7 +128,6 @@ export default async function HomePage() {
               alt={""}
               width={294}
               height={280}
-              unoptimized
             />
           </div>
 

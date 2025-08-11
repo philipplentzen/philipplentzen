@@ -86,7 +86,7 @@ export default async function HomePage() {
             >
               <h3
                 className={cn(
-                  "flex h-full shrink-0 flex-col justify-center font-instrument text-[min(var(--text-6xl),_14.5cqw)] text-(--project-color) max-sm:text-(--project-color)",
+                  "flex h-full shrink-0 flex-col justify-center font-instrument text-[min(var(--text-6xl),_14.5cqw)] text-(--project-color) transition-transform group-hover/item:scale-105 max-sm:text-(--project-color)",
                   thumbnail && "h-1/2",
                 )}
               >
@@ -101,7 +101,7 @@ export default async function HomePage() {
                       "(min-width: 80rem) 33cqw, (min-width: 40rem) 50cqw, 100vw"
                     }
                     className={
-                      "size-full rounded-t border-x border-t border-text/20 object-cover object-top"
+                      "size-full rounded-t border-x border-t border-text/20 object-cover object-top transition-transform group-hover/item:scale-105"
                     }
                   />
                 </div>

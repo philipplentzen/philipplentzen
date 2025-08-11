@@ -19,7 +19,7 @@ import Link from "next/link";
 import { CSSProperties } from "react";
 
 export default async function HomePage() {
-  const projects = await getPages("showcase");
+  const projects = await getPages("projects");
   const sortedProjects = sortBy(projects, "year").reverse();
   const featuredProjects = sortedProjects
     .filter(({ thumbnail }) => !!thumbnail)

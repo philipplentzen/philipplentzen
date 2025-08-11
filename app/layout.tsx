@@ -42,6 +42,25 @@ const baseURL = new URL(
   (process.env.COOLIFY_URL || "http://localhost:3000").split(",")[0],
 );
 
+const navigationItems = [
+  {
+    href: "/",
+    title: "Startseite",
+  },
+  {
+    href: "/#showcase",
+    title: "Showcase",
+  },
+  {
+    href: "/#about-me",
+    title: "Über mich",
+  },
+  {
+    href: "/#contact",
+    title: "Kontakt",
+  },
+];
+
 export const metadata: Metadata = {
   metadataBase: baseURL,
   title: {
@@ -160,6 +179,7 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
                     href={"/"}
                     title={"Startseite"}
                     aria-label={"Startseite"}
+                    tabIndex={0}
                     className={cn(
                       "block rounded transition-all",
                       "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none",
@@ -171,45 +191,19 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
                 <div className={"flex gap-4"}>
                   <Navigation className={"hidden lg:block"}>
                     <NavigationList>
-                      <NavigationItem>
-                        <Link
-                          href={"/"}
-                          title={"Startseite"}
-                          className={cn(buttonVariants({ variant: "ghost" }))}
-                        >
-                          Startseite
-                        </Link>
-                      </NavigationItem>
-                      <NavigationItem>
-                        <Link
-                          href={"/#showcase"}
-                          title={"Showcase"}
-                          aria-label={"Showcase"}
-                          className={cn(buttonVariants({ variant: "ghost" }))}
-                        >
-                          Showcase
-                        </Link>
-                      </NavigationItem>
-                      <NavigationItem>
-                        <Link
-                          href={"/#about-me"}
-                          title={"Über mich"}
-                          aria-label={"Über mich"}
-                          className={cn(buttonVariants({ variant: "ghost" }))}
-                        >
-                          Über mich
-                        </Link>
-                      </NavigationItem>
-                      <NavigationItem>
-                        <Link
-                          href={"/#contact"}
-                          title={"Kontakt"}
-                          aria-label={"Kontakt"}
-                          className={cn(buttonVariants({ variant: "ghost" }))}
-                        >
-                          Kontakt
-                        </Link>
-                      </NavigationItem>
+                      {navigationItems.map((item) => (
+                        <NavigationItem key={item.href}>
+                          <Link
+                            href={item.href}
+                            title={item.title}
+                            aria-label={item.title}
+                            tabIndex={0}
+                            className={cn(buttonVariants({ variant: "ghost" }))}
+                          >
+                            {item.title}
+                          </Link>
+                        </NavigationItem>
+                      ))}
                     </NavigationList>
                   </Navigation>
                   <div className={"hidden h-10 w-px bg-current/10 lg:block"} />
@@ -267,20 +261,23 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
               >
                 <div className={"flex flex-col justify-end"}>
                   <span className={"text-xs text-current/40"}>Erkunden</span>
-                  <ul>
-                    <li>
-                      <Link
-                        href={"/"}
-                        title={"Startseite"}
-                        aria-label={"Startseite"}
-                        className={cn(
-                          "rounded transition-all",
-                          "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none",
-                        )}
-                      >
-                        Startseite
-                      </Link>
-                    </li>
+                  <ul className={"space-y-px"}>
+                    {navigationItems.map((item) => (
+                      <li key={item.href}>
+                        <Link
+                          href={item.href}
+                          title={`Zu ${item.title} navigieren`}
+                          aria-label={`Zu ${item.title} navigieren`}
+                          tabIndex={0}
+                          className={cn(
+                            "rounded transition-colors hover:text-secondary",
+                            "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none",
+                          )}
+                        >
+                          {item.title}
+                        </Link>
+                      </li>
+                    ))}
                   </ul>
                 </div>
                 <div className={"flex flex-col justify-end"}>
@@ -290,9 +287,10 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
                       <Link
                         href={"/impressum"}
                         title={"Impressum"}
-                        aria-label={"Impressum"}
+                        aria-label={"Zu Impressum navigieren"}
+                        tabIndex={0}
                         className={cn(
-                          "rounded transition-all",
+                          "rounded transition-all hover:text-secondary",
                           "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none",
                         )}
                       >
@@ -309,8 +307,9 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
                         href={"mailto:kontakt@philipplentzen.dev"}
                         title={"E-Mail schreiben"}
                         aria-label={"E-Mail schreiben"}
+                        tabIndex={0}
                         className={cn(
-                          "rounded transition-all",
+                          "rounded transition-all hover:text-secondary",
                           "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none",
                         )}
                       >

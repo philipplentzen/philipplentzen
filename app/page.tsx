@@ -19,7 +19,11 @@ import Link from "next/link";
 import { CSSProperties } from "react";
 
 export default async function HomePage() {
-  const projects = sortBy(await getPages("showcase"), "year").reverse();
+  const projects = await getPages("showcase");
+  const sortedProjects = sortBy(projects, "year").reverse();
+  const featuredProjects = sortedProjects
+    .filter(({ thumbnail }) => !!thumbnail)
+    .slice(0, 6);
 
   return (
     <>
@@ -67,12 +71,12 @@ export default async function HomePage() {
             "grid gap-(--padding-width) text-accent sm:grid-cols-2 xl:grid-cols-3"
           }
         >
-          {projects.map(({ title, color, thumbnail }) => (
+          {featuredProjects.map(({ title, color, slug, thumbnail }) => (
             <Link
               key={title}
-              href={`/showcase/${title}`}
+              href={slug.join("/")}
               className={cn(
-                "group/item @container relative flex aspect-video flex-col items-center overflow-hidden rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10 transition-colors hover:from-(--project-color)/30 max-sm:from-(--project-color)/30",
+                "group/item @container relative flex aspect-video flex-col items-center overflow-hidden rounded border border-text/20 bg-radial-[at_10%_10%] from-(--project-color)/30 to-accent/10 max-sm:from-(--project-color)/30",
               )}
               style={
                 {
@@ -83,18 +87,13 @@ export default async function HomePage() {
               <h3
                 className={cn(
                   "flex h-full shrink-0 flex-col justify-center font-instrument text-[min(var(--text-6xl),_14.5cqw)] text-(--project-color) max-sm:text-(--project-color)",
-                  thumbnail &&
-                    "transition-[height] group-hover/item:h-1/2 mobile:h-1/2",
+                  thumbnail && "h-1/2",
                 )}
               >
                 {title}
               </h3>
               {thumbnail && (
-                <div
-                  className={
-                    "h-1/2 px-(--padding-width) saturate-0 transition-[filter] group-hover/item:saturate-100 mobile:saturate-100"
-                  }
-                >
+                <div className={"h-1/2 px-(--padding-width)"}>
                   <Image
                     src={thumbnail}
                     alt={""}

@@ -1,1 +1,1 @@
-[![Banner](https://philipplentzen.dev/opengraph-image "kreativer entwickler. informatik student. aus der kaiserstadt.")](https://philipplentzen.dev/)
+[![Schriftzug mit einer Karte von Aachen und dem Text "kreativer entwickler. digitaler tüftler & öcher jong" in der Mitte, daneben die initialen PL für Philipp Lentzen](https://philipplentzen.dev/opengraph-image.jpg "kreativer entwickler. digitaler tüftler & öcher jong")](https://philipplentzen.dev/)

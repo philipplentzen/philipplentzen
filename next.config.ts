@@ -5,11 +5,12 @@ const nextConfig: NextConfig = {
   output: "export",
   pageExtensions: [`js`, `jsx`, `ts`, `tsx`, `md`, `mdx`],
   experimental: {
-    mdxRs: true,
+    mdxRs: {
+      mdxType: "gfm",
+    },
   },
   images: {
-    loader: "custom",
-    loaderFile: "./lib/loader.ts",
+    unoptimized: true,
   },
 };
 

@@ -43,6 +43,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <Comp
         ref={ref}
+        tabIndex={0}
         className={cn(buttonVariants({ variant, size, className }))}
         {...otherProps}
       />

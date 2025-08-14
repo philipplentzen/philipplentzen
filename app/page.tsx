@@ -1,3 +1,4 @@
+import { getPages } from "@/app/api";
 import { CopyButton } from "@/components/copy-button";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/ui/section";
@@ -6,6 +7,7 @@ import HowIWork from "@/content/about-me/how-i-work.mdx";
 import WhatIDo from "@/content/about-me/what-i-do.mdx";
 import WhoIAm from "@/content/about-me/who-i-am.mdx";
 import { cn } from "@/lib/utils";
+import { sortBy } from "lodash";
 import {
   GithubIcon,
   InboxIcon,
@@ -14,13 +16,20 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { CSSProperties } from "react";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const projects = await getPages("projects");
+  const sortedProjects = sortBy(projects, "year").reverse();
+  const featuredProjects = sortedProjects
+    .filter(({ thumbnail }) => !!thumbnail)
+    .slice(0, 6);
+
   return (
     <>
       <div
         className={cn(
-          "relative flex flex-col gap-y-8 pt-64 pb-16 2xl:pt-96 2xl:pb-32",
+          "relative flex flex-col gap-y-8 pt-64 pb-4 sm:pb-16 2xl:pt-96 2xl:pb-32",
           "before:absolute before:-inset-x-(--padding-width) before:inset-y-0 before:bg-radial-[at_10%_10%] before:from-secondary/30 before:to-accent/10",
         )}
       >
@@ -55,6 +64,58 @@ export default function HomePage() {
       </div>
 
       <Section>
+        <H2 id={"showcase"}>Showcase</H2>
+
+        <div
+          className={
+            "grid gap-(--padding-width) text-accent sm:grid-cols-2 xl:grid-cols-3"
+          }
+        >
+          {featuredProjects.map(({ title, color, slug, thumbnail }) => (
+            <Link
+              key={title}
+              title={`Zu Projekt ${title} navigieren`}
+              aria-label={`Zu Projekt ${title} navigieren`}
+              tabIndex={0}
+              href={slug.join("/")}
+              className={cn(
+                "group/item @container relative flex aspect-video flex-col items-center overflow-hidden rounded border border-text/20 bg-radial-[at_10%_10%] from-(--project-color)/30 to-accent/10 max-sm:from-(--project-color)/30",
+                "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--project-color)",
+              )}
+              style={
+                {
+                  "--project-color": color,
+                } as unknown as CSSProperties
+              }
+            >
+              <h3
+                className={cn(
+                  "flex h-full shrink-0 flex-col justify-center font-instrument text-[min(var(--text-6xl),_14.5cqw)] text-(--project-color) transition-transform group-hover/item:scale-105 max-sm:text-(--project-color)",
+                  thumbnail && "h-1/2",
+                )}
+              >
+                {title}
+              </h3>
+              {thumbnail && (
+                <div className={"h-1/2 px-(--padding-width)"}>
+                  <Image
+                    src={thumbnail}
+                    alt={`Bildschirmfoto von Projekt ${title}`}
+                    sizes={
+                      "(min-width: 80rem) 33cqw, (min-width: 40rem) 50cqw, 100vw"
+                    }
+                    className={
+                      "size-full rounded-t border-x border-t border-text/20 object-cover object-top transition-transform group-hover/item:scale-105"
+                    }
+                  />
+                </div>
+              )}
+            </Link>
+          ))}
+        </div>
+      </Section>
+
+      <Section>
         <div
           className={
             "relative grid w-full gap-x-3 rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10 lg:grid-cols-3"
@@ -68,10 +129,9 @@ export default function HomePage() {
             <Image
               className={"object-contain drop-shadow-2xl"}
               src={"/images/your-new-website.png"}
-              alt={""}
+              alt={"Alter PC mit einem Fragezeichen auf dem Bildschirm"}
               width={294}
               height={280}
-              sizes={"300px"}
             />
           </div>
 
@@ -98,7 +158,11 @@ export default function HomePage() {
                 variant={"outline"}
                 className={"text-secondary sm:mt-4"}
               >
-                <Link href={"mailto:kontakt@philipplentzen.dev"}>
+                <Link
+                  href={"mailto:kontakt@philipplentzen.dev"}
+                  title={"Kontakt aufnehmen"}
+                  aria-label={"Kontakt aufnehmen"}
+                >
                   <SparklesIcon />
                   Lass uns loslegen!
                 </Link>
@@ -190,6 +254,9 @@ export default function HomePage() {
                   </div>
                   <Link
                     href={href}
+                    title={`Unter ${title} kontaktieren`}
+                    aria-label={`Unter ${title} kontaktieren`}
+                    tabIndex={0}
                     className={cn(
                       "rounded py-2 font-mono leading-4 transition-all hover:text-secondary",
                       "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none",
@@ -212,7 +279,7 @@ export default function HomePage() {
           >
             <Image
               src={"/images/map.png"}
-              alt={""}
+              alt={"Karte von Aachen"}
               width={1000}
               height={1000}
               sizes={"500px"}

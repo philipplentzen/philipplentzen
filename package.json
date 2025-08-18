@@ -24,9 +24,9 @@
     "@mdx-js/loader": "3.1.0",
     "@mdx-js/react": "3.1.0",
     "@next/mdx": "15.4.6",
-    "@radix-ui/react-navigation-menu": "^1.2.13",
+    "@radix-ui/react-navigation-menu": "^1.2.14",
     "@radix-ui/react-slot": "1.2.3",
-    "@tailwindcss/postcss": "^4.1.11",
+    "@tailwindcss/postcss": "^4.1.12",
     "@types/mdx": "2.0.13",
     "class-variance-authority": "0.7.1",
     "classnames": "2.5.1",
@@ -37,7 +37,7 @@
     "react": "19.1.1",
     "react-dom": "19.1.1",
     "tailwind-merge": "3.3.1",
-    "tailwindcss": "4.1.11",
+    "tailwindcss": "4.1.12",
     "tailwindcss-animate": "1.0.7"
   },
   "devDependencies": {

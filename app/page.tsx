@@ -90,7 +90,7 @@ export default async function HomePage() {
             >
               <h3
                 className={cn(
-                  "flex h-full shrink-0 flex-col justify-center font-instrument text-[min(var(--text-6xl),_14.5cqw)] text-(--project-color) transition-transform group-hover/item:scale-105 max-sm:text-(--project-color)",
+                  "flex h-full shrink-0 flex-col justify-center font-instrument text-[min(var(--text-6xl),_11.5cqw)] leading-none text-(--project-color) transition-transform group-hover/item:scale-105 max-sm:text-(--project-color)",
                   thumbnail && "h-1/2",
                 )}
               >

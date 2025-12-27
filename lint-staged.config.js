@@ -2,7 +2,7 @@
  * @type {import('lint-staged').Configuration}
  */
 const lintStagedConfig = {
-  "*.{ts,js,jsx,tsx}": ["eslint --fix", "prettier . --write"],
+  "*.{ts,js,jsx,tsx}": ["biome check --write --unsafe"],
 };
 
 export default lintStagedConfig;

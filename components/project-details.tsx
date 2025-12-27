@@ -19,7 +19,7 @@ export const ProjectDetails = (props: {
   status: "live" | "internal" | "archived";
   employment: "Freiberuflich";
 }) => {
-  const { client, tasks, tech, status, employment } = props;
+  const { client, tasks, tech, status, employment = "Freiberuflich" } = props;
 
   return (
     <div
@@ -41,7 +41,7 @@ export const ProjectDetails = (props: {
       </div>
       <div className={"flex flex-col"}>
         <span className={"text-sm text-current/60"}>Anstellung</span>
-        {"Freiberuflich"}
+        {employment}
       </div>
       <div className={"flex flex-col gap-2"}>
         <span className={"text-sm text-current/60"}>Status</span>

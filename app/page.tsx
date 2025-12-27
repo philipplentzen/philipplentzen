@@ -1,12 +1,3 @@
-import { getPages } from "@/app/api";
-import { CopyButton } from "@/components/copy-button";
-import { Button } from "@/components/ui/button";
-import { Section } from "@/components/ui/section";
-import { Article, H2, H3 } from "@/components/ui/typography";
-import HowIWork from "@/content/about-me/how-i-work.mdx";
-import WhatIDo from "@/content/about-me/what-i-do.mdx";
-import WhoIAm from "@/content/about-me/who-i-am.mdx";
-import { cn } from "@/lib/utils";
 import { sortBy } from "lodash";
 import {
   GithubIcon,
@@ -16,7 +7,16 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { CSSProperties } from "react";
+import type { CSSProperties } from "react";
+import { getPages } from "@/app/api";
+import { CopyButton } from "@/components/copy-button";
+import { Button } from "@/components/ui/button";
+import { Section } from "@/components/ui/section";
+import { Article, H2, H3 } from "@/components/ui/typography";
+import HowIWork from "@/content/about-me/how-i-work.mdx";
+import WhatIDo from "@/content/about-me/what-i-do.mdx";
+import WhoIAm from "@/content/about-me/who-i-am.mdx";
+import { cn } from "@/lib/utils";
 
 export default async function HomePage() {
   const projects = await getPages("projects");
@@ -37,7 +37,7 @@ export default async function HomePage() {
           <div className={"font-caveat text-current/30"}>h1</div>
           <h1
             className={
-              "@container relative font-instrument tracking-tight text-primary lowercase"
+              "@container relative font-instrument text-primary lowercase tracking-tight"
             }
           >
             <span
@@ -80,7 +80,7 @@ export default async function HomePage() {
               href={slug.join("/")}
               className={cn(
                 "group/item @container relative flex aspect-video flex-col items-center overflow-hidden rounded border border-text/20 bg-radial-[at_10%_10%] from-(--project-color)/30 to-accent/10 max-sm:from-(--project-color)/30",
-                "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--project-color)",
+                "focus-visible:outline-(--project-color) focus-visible:outline-2 focus-visible:outline-offset-2",
               )}
               style={
                 {
@@ -90,7 +90,7 @@ export default async function HomePage() {
             >
               <h3
                 className={cn(
-                  "flex h-full shrink-0 flex-col justify-center font-instrument text-[min(var(--text-6xl),_11.5cqw)] leading-none text-(--project-color) transition-transform group-hover/item:scale-105 max-sm:text-(--project-color)",
+                  "flex h-full shrink-0 flex-col justify-center font-instrument text-(--project-color) text-[min(var(--text-6xl),_11.5cqw)] leading-none transition-transform group-hover/item:scale-105 max-sm:text-(--project-color)",
                   thumbnail && "h-1/2",
                 )}
               >
@@ -105,7 +105,7 @@ export default async function HomePage() {
                       "(min-width: 80rem) 33cqw, (min-width: 40rem) 50cqw, 100vw"
                     }
                     className={
-                      "size-full rounded-t border-x border-t border-text/20 object-cover object-top transition-transform group-hover/item:scale-105"
+                      "size-full rounded-t border-text/20 border-x border-t object-cover object-top transition-transform group-hover/item:scale-105"
                     }
                   />
                 </div>
@@ -143,7 +143,7 @@ export default async function HomePage() {
             <Article className={"w-full"}>
               <H2
                 className={cn(
-                  "text-[min(var(--text-7xl),_14cqw)] leading-[0.833] text-accent",
+                  "text-[min(var(--text-7xl),_14cqw)] text-accent leading-[0.833]",
                 )}
               >
                 <i>Deine neue Webseite?</i>
@@ -190,7 +190,7 @@ export default async function HomePage() {
           </div>
           <div
             className={
-              "col-span-full flex justify-center border-t border-current/20 p-(--padding-width)"
+              "col-span-full flex justify-center border-current/20 border-t p-(--padding-width)"
             }
           >
             <WhoIAm />
@@ -220,7 +220,7 @@ export default async function HomePage() {
               </p>
             </Article>
 
-            <div role={"list"} className={"w-full divide-y divide-current/20"}>
+            <ul className={"w-full divide-y divide-current/20"}>
               {[
                 {
                   icon: InboxIcon,
@@ -238,16 +238,15 @@ export default async function HomePage() {
                   title: "@philipplentzen",
                 },
               ].map(({ icon: Icon, href, title }) => (
-                <div
+                <li
                   key={href}
-                  role={"listitem"}
                   className={
                     "flex w-full max-w-prose items-center gap-4 py-2 sm:gap-8"
                   }
                 >
                   <div
                     className={
-                      "flex size-10 items-center justify-center rounded bg-current/20 text-secondary [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-6"
+                      "flex size-10 items-center justify-center rounded bg-current/20 text-secondary [&_svg:not([class*='size-'])]:size-6 [&_svg]:pointer-events-none [&_svg]:shrink-0"
                     }
                   >
                     <Icon />
@@ -259,7 +258,7 @@ export default async function HomePage() {
                     tabIndex={0}
                     className={cn(
                       "rounded py-2 font-mono leading-4 transition-all hover:text-secondary",
-                      "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none",
+                      "focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 disabled:pointer-events-none",
                     )}
                   >
                     {title}
@@ -268,9 +267,9 @@ export default async function HomePage() {
                     value={href.replace("mailto:", "")}
                     className={"ml-auto hidden sm:flex"}
                   />
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
           <div
             className={
@@ -284,7 +283,7 @@ export default async function HomePage() {
               height={1000}
               sizes={"500px"}
               className={
-                "absolute -z-10 size-full mask-y-from-80% mask-x-from-80% mask-radial-from-40% mask-radial-at-center object-cover object-center opacity-60 saturate-0 dark:invert"
+                "mask-y-from-80% mask-x-from-80% mask-radial-from-40% mask-radial-at-center absolute -z-10 size-full object-cover object-center opacity-60 saturate-0 dark:invert"
               }
             />
           </div>

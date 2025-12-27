@@ -24,27 +24,27 @@ export const ProjectDetails = (props: {
   return (
     <div
       className={
-        "not-prose mb-8 grid gap-4 rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10 p-(--padding-width) text-text @lg:grid-cols-2"
+        "not-prose mb-8 grid @lg:grid-cols-2 gap-4 rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10 p-(--padding-width) text-text"
       }
     >
       <div className={"flex flex-col"}>
-        <span className={"text-sm text-current/60"}>Kunde</span>
+        <span className={"text-current/60 text-sm"}>Kunde</span>
         {client}
       </div>
       <div className={"flex flex-col"}>
-        <span className={"text-sm text-current/60"}>Aufgaben</span>
+        <span className={"text-current/60 text-sm"}>Aufgaben</span>
         {tasks.join(", ")}
       </div>
       <div className={"flex flex-col"}>
-        <span className={"text-sm text-current/60"}>Technologien</span>
+        <span className={"text-current/60 text-sm"}>Technologien</span>
         {tech.join(", ")}
       </div>
       <div className={"flex flex-col"}>
-        <span className={"text-sm text-current/60"}>Anstellung</span>
+        <span className={"text-current/60 text-sm"}>Anstellung</span>
         {employment}
       </div>
       <div className={"flex flex-col gap-2"}>
-        <span className={"text-sm text-current/60"}>Status</span>
+        <span className={"text-current/60 text-sm"}>Status</span>
         <Badge
           className={cn(
             status === "live" && "text-success",

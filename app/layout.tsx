@@ -10,11 +10,11 @@ import {
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
 import { SparklesIcon } from "lucide-react";
-import { Metadata } from "next";
-import { ThemeProvider } from "next-themes";
+import type { Metadata } from "next";
 import { Caveat, Fira_Code, Instrument_Serif, Inter } from "next/font/google";
 import Link from "next/link";
-import { PropsWithChildren } from "react";
+import { ThemeProvider } from "next-themes";
+import type { PropsWithChildren } from "react";
 
 const caveat = Caveat({
   variable: "--font-caveat",
@@ -108,7 +108,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
             className={cn(
               "[--divider-height:calc(var(--spacing)_*_8)] [--edge-width:calc(var(--spacing)_*_24)] [--header-height:calc(var(--spacing)_*_16_+_var(--divider-height))] [--padding-width:calc(var(--spacing)_*_4)] [--pattern-size:calc(var(--spacing)_*_2)]",
               "sm:[--padding-width:calc(var(--spacing)_*_6)] lg:[--padding-width:calc(var(--spacing)_*_8)]",
-              "isolate container mx-auto grid w-full",
+              "container isolate mx-auto grid w-full",
               "grid-rows-[var(--header-height)_minmax(calc(100dvh_-_(var(--header-height)_+_var(--divider-height))),1fr)_var(--divider-height)_auto]",
               "grid-cols-1 md:grid-cols-[var(--edge-width)_minmax(0,1fr)_var(--edge-width)]",
             )}
@@ -133,7 +133,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
               <div
                 className={cn(
                   "relative flex h-(--divider-height) flex-none items-center justify-between px-(--padding-width) text-current/60",
-                  "before:pointer-events-none before:absolute before:inset-0 before:bg-(image:--grid) before:mask-l-from-0 before:mask-l-to-96 before:bg-size-[var(--pattern-size)_var(--pattern-size)]",
+                  "before:bg-(image:--grid) before:mask-l-from-0 before:mask-l-to-96 before:pointer-events-none before:absolute before:inset-0 before:bg-size-[var(--pattern-size)_var(--pattern-size)]",
                 )}
               >
                 <div className={"font-mono text-[0.6rem]"}>
@@ -144,7 +144,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
                         title={"Status"}
                         className={cn(
                           "rounded transition-all",
-                          "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none",
+                          "focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 disabled:pointer-events-none",
                         )}
                       >
                         status
@@ -156,7 +156,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
                         title={"Staging"}
                         className={cn(
                           "rounded transition-all",
-                          "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none",
+                          "focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 disabled:pointer-events-none",
                         )}
                       >
                         staging
@@ -164,7 +164,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
                     </li>
                   </ul>
                 </div>
-                <Today className={"font-caveat leading-4 font-medium"} />
+                <Today className={"font-caveat font-medium leading-4"} />
               </div>
 
               <div
@@ -182,7 +182,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
                     tabIndex={0}
                     className={cn(
                       "block rounded transition-all",
-                      "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none",
+                      "focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 disabled:pointer-events-none",
                     )}
                   >
                     <Logo className={"h-8"} />
@@ -229,13 +229,13 @@ export default function RootLayout({ children }: PropsWithChildren) {
               >
                 <i
                   className={
-                    "relative block font-instrument text-[min(var(--text-5xl),_14cqw)] leading-[0.833] text-accent lowercase"
+                    "relative block font-instrument text-[min(var(--text-5xl),_14cqw)] text-accent lowercase leading-[0.833]"
                   }
                 >
                   Das war&apos;s von mir...
                 </i>
                 <span
-                  className={"mt-1 block text-sm text-primary lowercase italic"}
+                  className={"mt-1 block text-primary text-sm lowercase italic"}
                 >
                   ...Nun bist du dran!
                 </span>
@@ -256,11 +256,11 @@ export default function RootLayout({ children }: PropsWithChildren) {
               </div>
               <div
                 className={
-                  "grid grid-cols-2 gap-y-4 text-sm text-primary sm:grid-cols-3 lg:grid-cols-2 2xl:grid-cols-3"
+                  "grid grid-cols-2 gap-y-4 text-primary text-sm sm:grid-cols-3 lg:grid-cols-2 2xl:grid-cols-3"
                 }
               >
                 <div className={"flex flex-col justify-end"}>
-                  <span className={"text-xs text-current/40"}>Erkunden</span>
+                  <span className={"text-current/40 text-xs"}>Erkunden</span>
                   <ul className={"space-y-px"}>
                     {navigationItems.map((item) => (
                       <li key={item.href}>
@@ -271,7 +271,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
                           tabIndex={0}
                           className={cn(
                             "rounded transition-colors hover:text-secondary",
-                            "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none",
+                            "focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 disabled:pointer-events-none",
                           )}
                         >
                           {item.title}
@@ -281,7 +281,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
                   </ul>
                 </div>
                 <div className={"flex flex-col justify-end"}>
-                  <span className={"text-xs text-current/40"}>Rechtliches</span>
+                  <span className={"text-current/40 text-xs"}>Rechtliches</span>
                   <ul>
                     <li>
                       <Link
@@ -291,7 +291,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
                         tabIndex={0}
                         className={cn(
                           "rounded transition-all hover:text-secondary",
-                          "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none",
+                          "focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 disabled:pointer-events-none",
                         )}
                       >
                         Impressum
@@ -300,7 +300,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
                   </ul>
                 </div>
                 <div className={"flex flex-col justify-end"}>
-                  <span className={"text-xs text-current/40"}>Kontakt</span>
+                  <span className={"text-current/40 text-xs"}>Kontakt</span>
                   <ul>
                     <li>
                       <Link
@@ -310,7 +310,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
                         tabIndex={0}
                         className={cn(
                           "rounded transition-all hover:text-secondary",
-                          "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none",
+                          "focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 disabled:pointer-events-none",
                         )}
                       >
                         kontakt@philipplentzen.dev
@@ -322,7 +322,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
               <div className={"col-span-full flex h-16 justify-center"}>
                 <div
                   className={
-                    "aspect-square h-full bg-radial-[at_0%_0%] from-secondary to-accent mask-[url(/pl.svg)] mask-center mask-no-repeat"
+                    "mask-[url(/pl.svg)] mask-center mask-no-repeat aspect-square h-full bg-radial-[at_0%_0%] from-secondary to-accent"
                   }
                 ></div>
               </div>

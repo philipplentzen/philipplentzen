@@ -1,15 +1,15 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import { CheckIcon, CopyIcon } from "lucide-react";
 import {
-  ComponentPropsWithoutRef,
-  ComponentRef,
+  type ComponentPropsWithoutRef,
+  type ComponentRef,
   forwardRef,
   useCallback,
   useState,
 } from "react";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export const CopyButton = forwardRef<
   ComponentRef<typeof Button>,
@@ -30,7 +30,7 @@ export const CopyButton = forwardRef<
     } catch {
       console.error("Failed to copy text to clipboard");
     }
-  }, [setSuccess, value]);
+  }, [value]);
 
   return (
     <Button
@@ -45,9 +45,7 @@ export const CopyButton = forwardRef<
       }
       {...otherProps}
     >
-      {success ?
-        <CheckIcon />
-      : <CopyIcon />}
+      {success ? <CheckIcon /> : <CopyIcon />}
     </Button>
   );
 });

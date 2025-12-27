@@ -1,8 +1,8 @@
-import fs from "fs/promises";
-import { StaticImageData } from "next/image";
-import path from "path";
-import process from "process";
-import { ComponentType } from "react";
+import fs from "node:fs/promises";
+import path from "node:path";
+import process from "node:process";
+import type { StaticImageData } from "next/image";
+import type { ComponentType } from "react";
 
 type Page = {
   title: string;
@@ -33,7 +33,7 @@ export const getPages = async (...slug: string[]): Promise<Page[]> => {
 export const getPage = async (slug: string[]): Promise<Page | null> => {
   try {
     const contentDirPath = path.join(process.cwd(), "./content");
-    const filePath = path.join(contentDirPath, ...slug) + ".mdx";
+    const filePath = `${path.join(contentDirPath, ...slug)}.mdx`;
 
     const exists = await fs.stat(filePath).catch(() => false);
     if (!exists) return null;
@@ -74,7 +74,7 @@ const importThumbnail = async (filePath: string) => {
       contentDirPath,
       fileDir,
       "img",
-      fileName + ".jpg",
+      `${fileName}.jpg`,
     );
 
     const exists = await fs.stat(thumbnailPath).catch(() => false);

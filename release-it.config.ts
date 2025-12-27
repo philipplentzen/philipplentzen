@@ -1,16 +1,19 @@
-import { Config } from "release-it";
+import type { Config } from "release-it";
 
 const releaseItConfig: Config = {
   git: {
     requireBranch: "main",
     commit: true,
+    // biome-ignore lint/suspicious/noTemplateCurlyInString: release-it uses template literals internally
     commitMessage: "release: v${version}",
     tag: true,
+    // biome-ignore lint/suspicious/noTemplateCurlyInString: release-it uses template literals internally
     tagName: "v${version}",
     push: true,
   },
   github: {
     release: true,
+    // biome-ignore lint/suspicious/noTemplateCurlyInString: release-it uses template literals internally
     releaseName: "v${version}",
     web: true,
   },

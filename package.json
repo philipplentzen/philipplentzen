@@ -44,7 +44,6 @@
     "@commitlint/cli": "20.2.0",
     "@commitlint/config-conventional": "20.2.0",
     "@commitlint/types": "20.2.0",
-    "@eslint/eslintrc": "3.3.3",
     "@ianvs/prettier-plugin-sort-imports": "4.7.0",
     "@playwright/test": "1.57.0",
     "@release-it/conventional-changelog": "8.0.2",

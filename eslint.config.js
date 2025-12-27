@@ -1,12 +1,14 @@
-import { FlatCompat } from "@eslint/eslintrc";
+import next from "eslint-config-next";
+import nextCoreWebVitals from "eslint-config-next/core-web-vitals";
+import nextTypescript from "eslint-config-next/typescript";
+import eslintConfigPrettier from "eslint-config-prettier/flat";
 import * as mdx from "eslint-plugin-mdx";
 
-const compat = new FlatCompat({
-  baseDirectory: import.meta.dirname,
-});
-
 const eslintConfig = [
-  ...compat.extends("next", "prettier"),
+  ...nextCoreWebVitals,
+  ...nextTypescript,
+  ...next,
+  eslintConfigPrettier,
   {
     ...mdx.flat,
     processor: mdx.createRemarkProcessor({
@@ -14,6 +16,15 @@ const eslintConfig = [
     }),
   },
   mdx.flatCodeBlocks,
+  {
+    ignores: [
+      "node_modules/**",
+      ".next/**",
+      "out/**",
+      "build/**",
+      "next-env.d.ts",
+    ],
+  },
 ];
 
 export default eslintConfig;

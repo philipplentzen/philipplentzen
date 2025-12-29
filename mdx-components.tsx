@@ -1,8 +1,8 @@
+import type { MDXComponents } from "mdx/types";
+import Image, { type ImageProps } from "next/image";
+import Link, { type LinkProps } from "next/link";
+import type { ComponentProps } from "react";
 import { Article, H1, H2, H3 } from "@/components/ui/typography";
-import { MDXComponents } from "mdx/types";
-import Image, { ImageProps } from "next/image";
-import Link, { LinkProps } from "next/link";
-import { ComponentProps } from "react";
 import { cn } from "./lib/utils";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {

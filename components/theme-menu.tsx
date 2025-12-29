@@ -1,5 +1,7 @@
 "use client";
 
+import { MonitorIcon, MoonIcon, SunIcon, SunMoonIcon } from "lucide-react";
+import { useTheme } from "next-themes";
 import { buttonVariants } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -8,8 +10,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
-import { MonitorIcon, MoonIcon, SunIcon, SunMoonIcon } from "lucide-react";
-import { useTheme } from "next-themes";
 
 export const ThemeMenu = () => {
   const { setTheme } = useTheme();

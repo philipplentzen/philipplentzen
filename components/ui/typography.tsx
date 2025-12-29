@@ -1,10 +1,10 @@
-import { cn } from "@/lib/utils";
-import {
+import type {
   ComponentProps,
   ElementType,
   HTMLAttributes,
   HtmlHTMLAttributes,
 } from "react";
+import { cn } from "@/lib/utils";
 
 const Typography = <T,>(props: HTMLAttributes<T> & { as: ElementType }) => {
   const { as: Comp, className, children, ...otherProps } = props;
@@ -25,7 +25,7 @@ export const Article = (props: ComponentProps<"article">) => {
       className={cn(
         "@container prose w-full space-y-1",
         "prose-a:text-secondary",
-        "prose-headings:my-0 prose-headings:leading-none prose-headings:font-normal",
+        "prose-headings:my-0 prose-headings:font-normal prose-headings:leading-none",
         "prose-p:text-text",
         "prose-strong:text-secondary",
         "prose-table:text-text",
@@ -43,13 +43,13 @@ const H = (
 
   return (
     <div className={"flex w-full flex-col gap-2"}>
-      <span className={"font-caveat leading-4 text-text/30"}>
+      <span className={"font-caveat text-text/30 leading-4"}>
         {as as string}
       </span>
       <Typography<HTMLHeadingElement>
         as={as}
         className={cn(
-          "scroll-mt-[calc(var(--spacing)_*_6_+_var(--padding-width))] font-instrument tracking-tight lowercase transition-colors",
+          "scroll-mt-[calc(var(--spacing)_*_6_+_var(--padding-width))] font-instrument lowercase tracking-tight transition-colors",
           className,
         )}
         {...otherProps}
@@ -65,7 +65,7 @@ export const H1 = (props: ComponentProps<"h1">) => {
     <H
       as={"h1"}
       className={cn(
-        "relative text-[min(var(--text-8xl),_14.5cqw)] leading-18 text-primary",
+        "relative text-[min(var(--text-8xl),_14.5cqw)] text-primary leading-18",
         className,
       )}
       {...otherProps}
@@ -80,7 +80,7 @@ export const H2 = (props: ComponentProps<"h2">) => {
     <H
       as={"h2"}
       className={cn(
-        "relative text-[min(var(--text-7xl),_14.5cqw)] leading-12 text-primary",
+        "relative text-[min(var(--text-7xl),_14.5cqw)] text-primary leading-12",
         className,
       )}
       {...otherProps}
@@ -95,7 +95,7 @@ export const H3 = (props: ComponentProps<"h3">) => {
     <H
       as={"h3"}
       className={cn(
-        "relative text-[min(var(--text-5xl),_14.5cqw)] leading-[0.833] text-accent",
+        "relative text-[min(var(--text-5xl),_14.5cqw)] text-accent leading-[0.833]",
         className,
       )}
       {...otherProps}

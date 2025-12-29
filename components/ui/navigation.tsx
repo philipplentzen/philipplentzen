@@ -1,6 +1,10 @@
-import { cn } from "@/lib/utils";
 import { NavigationMenu } from "@base-ui-components/react";
-import { ComponentPropsWithoutRef, ComponentRef, forwardRef } from "react";
+import {
+  type ComponentPropsWithoutRef,
+  type ComponentRef,
+  forwardRef,
+} from "react";
+import { cn } from "@/lib/utils";
 
 export const Navigation = NavigationMenu.Root;
 

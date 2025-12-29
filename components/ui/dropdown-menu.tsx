@@ -1,6 +1,10 @@
-import { cn } from "@/lib/utils";
 import { Menu } from "@base-ui-components/react";
-import { ComponentPropsWithoutRef, ComponentRef, forwardRef } from "react";
+import {
+  type ComponentPropsWithoutRef,
+  type ComponentRef,
+  forwardRef,
+} from "react";
+import { cn } from "@/lib/utils";
 
 export const DropdownMenu = Menu.Root;
 
@@ -23,7 +27,7 @@ export const DropdownMenuContent = forwardRef<
         <Menu.Popup
           className={cn(
             "z-50 min-w-32 rounded border border-current/20 bg-background py-1 text-text outline-none",
-            "max-h-(--available-height) max-w-(--available-width) origin-(--transform-origin) transition-[transform,scale,opacity] data-[ending-style]:scale-90 data-[ending-style]:opacity-0 data-[starting-style]:scale-90 data-[starting-style]:opacity-0",
+            "max-h-(--available-height) max-w-(--available-width) origin-(--transform-origin) transition-[transform,scale,opacity] data-[ending-style]:scale-90 data-[starting-style]:scale-90 data-[ending-style]:opacity-0 data-[starting-style]:opacity-0",
             className,
           )}
         >
@@ -47,7 +51,7 @@ export const DropdownMenuItem = forwardRef<
     <Menu.Item
       ref={ref}
       className={cn(
-        "flex h-8 cursor-default items-center gap-2 rounded px-4 text-sm outline-hidden select-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "flex h-8 cursor-default select-none items-center gap-2 rounded px-4 text-sm outline-hidden [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0",
         "data-[highlighted]:relative data-[highlighted]:z-0 data-[highlighted]:text-secondary data-[highlighted]:before:absolute data-[highlighted]:before:inset-x-1 data-[highlighted]:before:inset-y-0 data-[highlighted]:before:z-[-1] data-[highlighted]:before:rounded-sm data-[highlighted]:before:bg-secondary/20",
         className,
       )}

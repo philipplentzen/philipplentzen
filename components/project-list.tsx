@@ -43,7 +43,7 @@ export const ProjectList = async ({
         >
           <h3
             className={cn(
-              "flex h-full shrink-0 flex-col justify-center font-instrument text-(--project-color) text-[min(var(--text-6xl),_11.5cqw)] leading-none transition-transform group-hover/item:scale-105 max-sm:text-(--project-color)",
+              "flex h-full shrink-0 flex-col justify-center font-instrument text-(--project-color) text-[min(var(--text-6xl),11.5cqw)] leading-none transition-transform group-hover/item:scale-105 max-sm:text-(--project-color)",
               thumbnail && "h-1/2",
             )}
           >
@@ -77,7 +77,7 @@ export const ProjectList = async ({
         >
           <h3
             className={cn(
-              "font-instrument text-[min(var(--text-6xl),_11.5cqw)] leading-none transition-transform group-hover/item:scale-105",
+              "font-instrument text-[min(var(--text-6xl),11.5cqw)] leading-none transition-transform group-hover/item:scale-105",
             )}
           >
             <i>mehr anschauen...</i>

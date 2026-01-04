@@ -14,7 +14,7 @@ export default async function ProjectsPage() {
         )}
       >
         <div className={"h-48 sm:w-[60%]"}>
-          <H1 className={"text-primary sm:text-[min(var(--text-8xl),_21cqw)]"}>
+          <H1 className={"text-primary sm:text-[min(var(--text-8xl),21cqw)]"}>
             Meine Projekte
           </H1>
         </div>

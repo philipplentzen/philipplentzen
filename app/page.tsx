@@ -29,7 +29,7 @@ export default async function HomePage() {
           >
             <span
               className={
-                "inline-block text-[min(var(--text-9xl),_14.5cqw)] leading-[0.833]"
+                "inline-block text-[min(var(--text-9xl),14.5cqw)] leading-[0.833]"
               }
             >
               {"Kreativer Entwickler,"}
@@ -37,7 +37,7 @@ export default async function HomePage() {
             <br />
             <span
               className={
-                "inline-block w-full text-[min(var(--text-7xl),_9.5cqw)] leading-[0.833]"
+                "inline-block w-full text-[min(var(--text-7xl),9.5cqw)] leading-[0.833]"
               }
             >
               <span className={"inline-block text-secondary"}>

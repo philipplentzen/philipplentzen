@@ -27,8 +27,8 @@ export const ProjectList = async ({
       {featuredProjects.map(({ title, color, slug, thumbnail }) => (
         <Link
           key={title}
-          title={`Zu Projekt ${title} navigieren`}
-          aria-label={`Zu Projekt ${title} navigieren`}
+          title={`Zu Projekt "${title}" navigieren`}
+          aria-label={`Zu Projekt "${title}" navigieren`}
           tabIndex={0}
           href={slug.join("/")}
           className={cn(
@@ -67,6 +67,8 @@ export const ProjectList = async ({
       ))}
       {limit && (
         <Link
+          title={"Zu allen Projekten navigieren"}
+          aria-label={"Zu allen Projekten navigieren"}
           href={"/projects"}
           className={cn(
             "group/item @container relative flex aspect-video flex-col items-center justify-center overflow-hidden rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10 max-sm:from-(--project-color)/30",
@@ -75,7 +77,7 @@ export const ProjectList = async ({
         >
           <h3
             className={cn(
-              "font-instrument text-(--project-color) text-[min(var(--text-6xl),_11.5cqw)] leading-none transition-transform group-hover/item:scale-105",
+              "font-instrument text-[min(var(--text-6xl),_11.5cqw)] leading-none transition-transform group-hover/item:scale-105",
             )}
           >
             <i>mehr anschauen...</i>

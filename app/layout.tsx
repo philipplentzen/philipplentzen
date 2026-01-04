@@ -108,10 +108,10 @@ export default function RootLayout({ children }: PropsWithChildren) {
         <ThemeProvider>
           <div
             className={cn(
-              "[--divider-height:calc(var(--spacing)_*_8)] [--edge-width:calc(var(--spacing)_*_24)] [--header-height:calc(var(--spacing)_*_16_+_var(--divider-height))] [--padding-width:calc(var(--spacing)_*_4)] [--pattern-size:calc(var(--spacing)_*_2)]",
-              "sm:[--padding-width:calc(var(--spacing)_*_6)] lg:[--padding-width:calc(var(--spacing)_*_8)]",
+              "[--divider-height:--spacing(8)] [--edge-width:--spacing(24)] [--header-height:calc(--spacing(16)+var(--divider-height))] [--padding-width:--spacing(4)] [--pattern-size:--spacing(2)]",
+              "sm:[--padding-width:--spacing(6)] lg:[--padding-width:--spacing(8)]",
               "container isolate mx-auto grid w-full",
-              "grid-rows-[var(--header-height)_minmax(calc(100dvh_-_(var(--header-height)_+_var(--divider-height))),1fr)_var(--divider-height)_auto]",
+              "grid-rows-[var(--header-height)_minmax(calc(100dvh-(var(--header-height)+var(--divider-height))),1fr)_var(--divider-height)_auto]",
               "grid-cols-1 md:grid-cols-[var(--edge-width)_minmax(0,1fr)_var(--edge-width)]",
             )}
           >
@@ -231,7 +231,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
               >
                 <i
                   className={
-                    "relative block font-instrument text-[min(var(--text-5xl),_14cqw)] text-accent lowercase leading-[0.833]"
+                    "relative block font-instrument text-[min(var(--text-5xl),14cqw)] text-accent lowercase leading-[0.833]"
                   }
                 >
                   Das war&apos;s von mir...

@@ -49,7 +49,7 @@ const H = (
       <Typography<HTMLHeadingElement>
         as={as}
         className={cn(
-          "scroll-mt-[calc(var(--spacing)_*_6_+_var(--padding-width))] font-instrument lowercase tracking-tight transition-colors",
+          "scroll-mt-[calc(--spacing(6)+var(--padding-width))] font-instrument lowercase tracking-tight transition-colors",
           className,
         )}
         {...otherProps}
@@ -65,7 +65,7 @@ export const H1 = (props: ComponentProps<"h1">) => {
     <H
       as={"h1"}
       className={cn(
-        "relative text-[min(var(--text-8xl),_14.5cqw)] text-primary leading-18",
+        "relative text-[min(var(--text-8xl),14.5cqw)] text-primary leading-18",
         className,
       )}
       {...otherProps}
@@ -80,7 +80,7 @@ export const H2 = (props: ComponentProps<"h2">) => {
     <H
       as={"h2"}
       className={cn(
-        "relative text-[min(var(--text-7xl),_14.5cqw)] text-primary leading-12",
+        "relative text-[min(var(--text-7xl),14.5cqw)] text-primary leading-12",
         className,
       )}
       {...otherProps}
@@ -95,7 +95,7 @@ export const H3 = (props: ComponentProps<"h3">) => {
     <H
       as={"h3"}
       className={cn(
-        "relative text-[min(var(--text-5xl),_14.5cqw)] text-accent leading-[0.833]",
+        "relative text-[min(var(--text-5xl),14.5cqw)] text-accent leading-[0.833]",
         className,
       )}
       {...otherProps}

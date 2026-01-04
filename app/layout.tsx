@@ -103,6 +103,8 @@ export default function RootLayout({ children }: PropsWithChildren) {
             <span className={"hidden 2xl:inline-block"}>2xl</span>
           </div>
         )}
+        <div hidden />
+
         <ThemeProvider>
           <div
             className={cn(

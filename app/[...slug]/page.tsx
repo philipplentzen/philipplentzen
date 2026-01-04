@@ -32,8 +32,6 @@ export default async function ContentPage(props: ContentPageProps) {
 
   return (
     <>
-      <div hidden />
-
       <div
         className={cn(
           "@container relative flex flex-col gap-y-8 pt-64 pb-4 sm:pb-16 2xl:pt-96 2xl:pb-32",

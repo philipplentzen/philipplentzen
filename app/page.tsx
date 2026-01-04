@@ -7,9 +7,8 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import type { CSSProperties } from "react";
-import { getPages } from "@/app/api";
 import { CopyButton } from "@/components/copy-button";
+import { ProjectList } from "@/components/project-list";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/ui/section";
 import { Article, H2, H3 } from "@/components/ui/typography";
@@ -19,12 +18,6 @@ import WhoIAm from "@/content/about-me/who-i-am.mdx";
 import { cn } from "@/lib/utils";
 
 export default async function HomePage() {
-  const projects = await getPages("projects");
-  const sortedProjects = sortBy(projects, "year").reverse();
-  const featuredProjects = sortedProjects
-    .filter(({ thumbnail }) => !!thumbnail)
-    .slice(0, 6);
-
   return (
     <>
       <div
@@ -66,53 +59,7 @@ export default async function HomePage() {
       <Section>
         <H2 id={"showcase"}>Showcase</H2>
 
-        <div
-          className={
-            "grid gap-(--padding-width) text-accent sm:grid-cols-2 xl:grid-cols-3"
-          }
-        >
-          {featuredProjects.map(({ title, color, slug, thumbnail }) => (
-            <Link
-              key={title}
-              title={`Zu Projekt ${title} navigieren`}
-              aria-label={`Zu Projekt ${title} navigieren`}
-              tabIndex={0}
-              href={slug.join("/")}
-              className={cn(
-                "group/item @container relative flex aspect-video flex-col items-center overflow-hidden rounded border border-text/20 bg-radial-[at_10%_10%] from-(--project-color)/30 to-accent/10 max-sm:from-(--project-color)/30",
-                "focus-visible:outline-(--project-color) focus-visible:outline-2 focus-visible:outline-offset-2",
-              )}
-              style={
-                {
-                  "--project-color": color,
-                } as unknown as CSSProperties
-              }
-            >
-              <h3
-                className={cn(
-                  "flex h-full shrink-0 flex-col justify-center font-instrument text-(--project-color) text-[min(var(--text-6xl),_11.5cqw)] leading-none transition-transform group-hover/item:scale-105 max-sm:text-(--project-color)",
-                  thumbnail && "h-1/2",
-                )}
-              >
-                {title}
-              </h3>
-              {thumbnail && (
-                <div className={"h-1/2 px-(--padding-width)"}>
-                  <Image
-                    src={thumbnail}
-                    alt={`Bildschirmfoto von Projekt ${title}`}
-                    sizes={
-                      "(min-width: 80rem) 33cqw, (min-width: 40rem) 50cqw, 100vw"
-                    }
-                    className={
-                      "size-full rounded-t border-text/20 border-x border-t object-cover object-top transition-transform group-hover/item:scale-105"
-                    }
-                  />
-                </div>
-              )}
-            </Link>
-          ))}
-        </div>
+        <ProjectList filter={({ thumbnail }) => !!thumbnail} limit={5} />
       </Section>
 
       <Section>

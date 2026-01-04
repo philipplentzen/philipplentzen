@@ -70,7 +70,7 @@ export default async function ContentPage(props: ContentPageProps) {
         <div className={"h-48 sm:w-[60%]"}>
           <H1
             className={
-              "text-(--project-color) sm:text-[min(var(--text-8xl),_21cqw)]"
+              "text-(--project-color) sm:text-[min(var(--text-8xl),21cqw)]"
             }
             style={
               {

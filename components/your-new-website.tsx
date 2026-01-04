@@ -34,7 +34,7 @@ export const YourNewWebsite = () => {
         <Article className={"w-full"}>
           <H2
             className={cn(
-              "text-[min(var(--text-7xl),_14cqw)] text-accent leading-[0.833]",
+              "text-[min(var(--text-7xl),14cqw)] text-accent leading-[0.833]",
             )}
           >
             <i>Deine neue Webseite?</i>

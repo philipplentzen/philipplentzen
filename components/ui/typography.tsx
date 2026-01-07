@@ -23,7 +23,7 @@ export const Article = (props: ComponentProps<"article">) => {
     <Typography
       as={"article"}
       className={cn(
-        "@container prose w-full space-y-1",
+        "@container prose w-full max-w-none space-y-1 [&_>_*:not(.not-prose)]:max-w-prose",
         "prose-a:text-secondary",
         "prose-headings:my-0 prose-headings:font-normal prose-headings:leading-none",
         "prose-p:text-text",

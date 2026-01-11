@@ -13,21 +13,21 @@
     "@tailwindcss/typography": "0.5.19",
     "class-variance-authority": "0.7.1",
     "classnames": "2.5.1",
-    "lucide-react": "0.562.0",
+    "lucide-react": "catalog:",
     "next-themes": "0.4.6",
-    "react": "19.2.3",
-    "react-dom": "19.2.3",
+    "react": "catalog:",
+    "react-dom": "catalog:",
     "tailwind-merge": "3.4.0"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "4.1.18",
+    "@tailwindcss/postcss": "catalog:",
     "@turbo/gen": "^2.5.5",
     "@types/node": "25.0.3",
-    "@types/react": "19.2.7",
-    "@types/react-dom": "19.2.3",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
     "@workspace/typescript-config": "workspace:*",
     "tailwindcss": "4.1.18",
-    "typescript": "5.9.3"
+    "typescript": "catalog:"
   },
   "exports": {
     ".": "./src/index.ts",

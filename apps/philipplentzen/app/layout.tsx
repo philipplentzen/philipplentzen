@@ -1,14 +1,15 @@
 import { Logo } from "@/components/logo";
 import { ThemeMenu } from "@/components/theme-menu";
 import { Today } from "@/components/today";
-import { Button, buttonVariants } from "@/components/ui/button";
+import "@philipplentzen/ui/globals.css";
 import {
+  Button,
+  buttonVariants,
   Navigation,
   NavigationItem,
   NavigationList,
-} from "@/components/ui/navigation";
-import { cn } from "@/lib/utils";
-import "@/styles/globals.css";
+} from "@philipplentzen/ui";
+import { cn } from "@philipplentzen/ui/lib";
 import { SparklesIcon } from "lucide-react";
 import type { Metadata } from "next";
 import { Caveat, Fira_Code, Instrument_Serif, Inter } from "next/font/google";

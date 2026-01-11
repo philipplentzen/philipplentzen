@@ -1,6 +1,6 @@
+import { cn } from "@philipplentzen/ui/lib";
 import { cva, type VariantProps } from "class-variance-authority";
 import { type ComponentPropsWithoutRef, forwardRef } from "react";
-import { cn } from "@/lib/utils";
 
 const sectionVariants = cva(
   [

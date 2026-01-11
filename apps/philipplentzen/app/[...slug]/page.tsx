@@ -1,10 +1,9 @@
+import { H1, Section } from "@philipplentzen/ui";
+import { cn } from "@philipplentzen/ui/lib";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { CSSProperties } from "react";
 import { getPage, getPages } from "@/app/api";
-import { Section } from "@/components/ui/section";
-import { H1 } from "@/components/ui/typography";
-import { cn } from "@/lib/utils";
 
 type ContentPageProps = {
   params: Promise<{

@@ -1,10 +1,10 @@
 import { Menu } from "@base-ui-components/react";
+import { cn } from "@philipplentzen/ui/lib";
 import {
   type ComponentPropsWithoutRef,
   type ComponentRef,
   forwardRef,
 } from "react";
-import { cn } from "@/lib/utils";
 
 export const DropdownMenu = Menu.Root;
 

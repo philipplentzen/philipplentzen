@@ -1,15 +1,14 @@
+import { Article, H2, H3, Section } from "@philipplentzen/ui";
+import { cn } from "@philipplentzen/ui/lib";
 import { GithubIcon, InboxIcon, LinkedinIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { CopyButton } from "@/components/copy-button";
 import { ProjectList } from "@/components/project-list";
-import { Section } from "@/components/ui/section";
-import { Article, H2, H3 } from "@/components/ui/typography";
 import { YourNewWebsite } from "@/components/your-new-website";
 import HowIWork from "@/content/about-me/how-i-work.mdx";
 import WhatIDo from "@/content/about-me/what-i-do.mdx";
 import WhoIAm from "@/content/about-me/who-i-am.mdx";
-import { cn } from "@/lib/utils";
 
 export default async function HomePage() {
   return (

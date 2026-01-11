@@ -1,5 +1,5 @@
-import { Badge } from "@/components/ui/badge";
-import { cn } from "@/lib/utils";
+import { Badge } from "@philipplentzen/ui";
+import { cn } from "@philipplentzen/ui/lib";
 
 export const ProjectDetails = (props: {
   client: string;

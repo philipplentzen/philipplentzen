@@ -1,10 +1,10 @@
+import { cn } from "@philipplentzen/ui/lib";
 import type {
   ComponentProps,
   ElementType,
   HTMLAttributes,
   HtmlHTMLAttributes,
 } from "react";
-import { cn } from "@/lib/utils";
 
 const Typography = <T,>(props: HTMLAttributes<T> & { as: ElementType }) => {
   const { as: Comp, className, children, ...otherProps } = props;

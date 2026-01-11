@@ -1,9 +1,8 @@
+import { Article, Button, H2 } from "@philipplentzen/ui";
+import { cn } from "@philipplentzen/ui/lib";
 import { SparklesIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
-import { Button } from "./ui/button";
-import { Article, H2 } from "./ui/typography";
 
 export const YourNewWebsite = () => {
   return (

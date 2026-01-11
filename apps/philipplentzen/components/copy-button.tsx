@@ -1,5 +1,7 @@
 "use client";
 
+import { Button } from "@philipplentzen/ui";
+import { cn } from "@philipplentzen/ui/lib";
 import { CheckIcon, CopyIcon } from "lucide-react";
 import {
   type ComponentPropsWithoutRef,
@@ -8,8 +10,6 @@ import {
   useCallback,
   useState,
 } from "react";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 export const CopyButton = forwardRef<
   ComponentRef<typeof Button>,

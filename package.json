@@ -4,7 +4,7 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
-    "format": "turbo run format",
+    "format": "biome check --write --unsafe",
     "prepare": "husky"
   },
   "devDependencies": {

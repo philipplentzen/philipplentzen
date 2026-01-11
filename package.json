@@ -2,7 +2,9 @@
   "name": "philipplentzen",
   "private": true,
   "scripts": {
-    "format": "biome check --write --unsafe",
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "format": "turbo run format",
     "prepare": "husky"
   },
   "devDependencies": {
@@ -12,6 +14,7 @@
     "@commitlint/types": "20.2.0",
     "husky": "9.1.7",
     "lint-staged": "16.2.7",
+    "turbo": "^2.7.3",
     "typescript": "5.9.3"
   },
   "packageManager": "pnpm@10.8.1"

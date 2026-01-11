@@ -40,7 +40,7 @@ const inter = Inter({
 });
 
 const baseURL = new URL(
-  (process.env.COOLIFY_URL || "http://localhost:3000").split(",")[0],
+  process.env.COOLIFY_URL?.split(",")[0] ?? "http://localhost:3000",
 );
 
 const navigationItems = [

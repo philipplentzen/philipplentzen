@@ -4,7 +4,6 @@ import type { CSSProperties } from "react";
 import { getPage, getPages } from "@/app/api";
 import { Section } from "@/components/ui/section";
 import { H1 } from "@/components/ui/typography";
-import { YourNewWebsite } from "@/components/your-new-website";
 import { cn } from "@/lib/utils";
 
 type ContentPageProps = {

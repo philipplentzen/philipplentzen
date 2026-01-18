@@ -17,9 +17,25 @@ jobs:
       options: --user 1001
     steps:
       - name: 👀 Acknowledge Request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh api repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions \
-            -f content='+1'
+          curl --request POST \
+            --url "https://api.github.com/repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions" \
+            --header "Authorization: Bearer $GH_TOKEN" \
+            --header "Accept: application/vnd.github+json" \
+            --data '{"content":"+1"}'
+
+      - name: 🔍 Get PR Details
+        uses: octokit/request-action@v2.x
+        id: get_pr_data
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          route: GET /repos/{owner}/{repo}/pulls/{pull_number}
+          owner: ${{ github.repository_owner }}
+          repo: ${{ github.event.repository.name }}
+          pull_number: ${{ github.event.issue.number }}
 
       - name: 🚚 Checkout
         uses: actions/checkout@v5
@@ -36,30 +52,37 @@ jobs:
       - name: 🔄 Commit and Push Changes
         if: success()
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TARGET_BRANCH: ${{ fromJson(steps.get_pr_data.outputs.data).head.ref }}
+        shell: bash
         run: |
-          COMMENTER_NAME="${{ github.event.comment.user.login }}"
-          COMMENTER_ID="${{ github.event.comment.user.id }}"
-          
-          git config --global user.name "$COMMENTER_NAME"
-          git config --global user.email "$COMMENTER_ID+$COMMENTER_NAME@users.noreply.github.com"
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           
           if [[ -n $(git status -s) ]]; then
             git add .
             git commit -m "chore: update playwright snapshots"
-            git push
+            git push origin HEAD:refs/heads/$TARGET_BRANCH
           
-            gh api repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions \
-              -f content='rocket'
+            curl --request POST \
+              --url "https://api.github.com/repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions" \
+              --header "Authorization: Bearer $GH_TOKEN" \
+              --header "Accept: application/vnd.github+json" \
+              --data '{"content":"rocket"}'
           else
-            gh api repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions \
-              -f content='eyes'
+            curl --request POST \
+              --url "https://api.github.com/repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions" \
+              --header "Authorization: Bearer $GH_TOKEN" \
+              --header "Accept: application/vnd.github+json" \
+              --data '{"content":"eyes"}'
           fi
       - name: ❌ Notify Failure
         if: failure()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh api repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions \
-            -f content='confused'
+          curl --request POST \
+            --url "https://api.github.com/repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions" \
+            --header "Authorization: Bearer $GH_TOKEN" \
+            --header "Accept: application/vnd.github+json" \
+            --data '{"content":"confused"}'

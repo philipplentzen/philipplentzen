@@ -6,12 +6,16 @@
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
-    "//#format": {
-      "cache": false
-    },
     "dev": {
       "cache": false,
       "persistent": true
+    },
+    "e2e": {
+      "passThroughEnv": ["PLAYWRIGHT_*"],
+      "dependsOn": ["^build"]
+    },
+    "//#format": {
+      "cache": false
     }
   }
 }

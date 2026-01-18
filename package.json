@@ -4,6 +4,7 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
+    "e2e": "turbo run e2e",
     "format": "biome check --write --unsafe",
     "prepare": "husky"
   },

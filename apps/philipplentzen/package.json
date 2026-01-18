@@ -1,5 +1,5 @@
 {
-  "name": "philipplentzen",
+  "name": "@philipplentzen/philipplentzen",
   "version": "1.15.0",
   "type": "module",
   "private": true,
@@ -8,11 +8,7 @@
     "build": "next build",
     "start": "next start",
     "release": "release-it --config release-it.config.ts",
-    "test": "playwright test",
-    "test:dev:chromium": "playwright test --debug --project=chromium",
-    "test:dev:firefox": "playwright test --debug --project=firefox",
-    "test:dev:webkit": "playwright test --debug --project=webkit",
-    "test:results": "playwright show-report"
+    "e2e": "playwright test"
   },
   "dependencies": {
     "@mdx-js/loader": "3.1.1",

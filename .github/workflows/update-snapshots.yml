@@ -1,0 +1,65 @@
+name: 📸 Update Snapshots
+on:
+  issue_comment:
+    types:
+      - created
+
+jobs:
+  update:
+    name: 📸 Update Snapshots
+    if: ${{ github.event.issue.pull_request && contains(github.event.comment.body, 'update snapshots') }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    container:
+      image: mcr.microsoft.com/playwright:v1.57.0-noble
+      options: --user 1001
+    steps:
+      - name: 👀 Acknowledge Request
+        run: |
+          gh api repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions \
+            -f content='+1'
+
+      - name: 🚚 Checkout
+        uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: refs/pull/${{ github.event.issue.number }}/head
+
+      - name: 🛠️ Setup
+        uses: ./.github/actions/setup
+
+      - name: 📸 Update Snapshots
+        run: pnpm run e2e -- --update-snapshots
+
+      - name: 🔄 Commit and Push Changes
+        if: success()
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          COMMENTER_NAME="${{ github.event.comment.user.login }}"
+          COMMENTER_ID="${{ github.event.comment.user.id }}"
+          
+          git config --global user.name "$COMMENTER_NAME"
+          git config --global user.email "$COMMENTER_ID+$COMMENTER_NAME@users.noreply.github.com"
+          
+          if [[ -n $(git status -s) ]]; then
+            git add .
+            git commit -m "chore: update playwright snapshots"
+            git push
+          
+            gh api repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions \
+              -f content='rocket'
+          else
+            gh api repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions \
+              -f content='eyes'
+          fi
+      - name: ❌ Notify Failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh api repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions \
+            -f content='confused'

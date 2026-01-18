@@ -1,0 +1,24 @@
+name: 🛠️ Setup
+author: philipplentzen
+description: setup
+
+inputs:
+  node-version:
+    description: 'Node.js version'
+    default: '25.3.0'
+
+runs:
+  using: "composite"
+  steps:
+    - name: 🛠️ Setup pnpm
+      uses: pnpm/action-setup@v4
+
+    - name: 🛠️ Use node.js
+      uses: actions/setup-node@v5
+      with:
+        node-version: ${{ inputs.node-version }}
+        cache: "pnpm"
+
+    - name: 📦 Install dependencies
+      shell: bash
+      run: pnpm install

@@ -12,35 +12,68 @@
 }
 
 :root {
-  --text: #0f1e29;
   --background: #f5faff;
+  --foreground: #0f1e29;
+  --card: #f5faff;
+  --card-foreground: #0f1e29;
+  --popover: #f5faff;
+  --popover-foreground: #0f1e29;
   --primary: #1e3f57;
+  --primary-foreground: #f5faff;
   --secondary: #18aa99;
+  --secondary-foreground: #ffffff;
+  --muted: #e5f1fa;
+  --muted-foreground: #4b5e6d;
   --accent: #fcba03;
-  --grid: none;
-  --success: #00a63e;
-  --error: #c10007;
+  --accent-foreground: #0f1e29;
+  --destructive: #c10007;
+  --destructive-foreground: #ffffff;
+  --border: color-mix(in oklab, currentcolor 10%, transparent);
+  --input: #d1e1ed;
+  --ring: #1e3f57;
 }
 
 html[data-theme="dark"] {
-  --text: #d6e5f0;
   --background: #00050a;
+  --foreground: #d6e5f0;
+  --card: #00050a;
+  --card-foreground: #d6e5f0;
+  --popover: #00050a;
+  --popover-foreground: #d6e5f0;
   --primary: #bbe0fa;
+  --primary-foreground: #00050a;
   --secondary: #55e7d6;
+  --secondary-foreground: #00050a;
+  --muted: #121e29;
+  --muted-foreground: #94a3b8;
   --accent: #fcba03;
-  --success: #00c950;
-  --error: #fb2c36;
+  --accent-foreground: #00050a;
+  --destructive: #fb2c36;
+  --destructive-foreground: #ffffff;
+  --input: #1e2f3d;
+  --ring: #bbe0fa;
 }
 
 @theme inline {
-  --color-*: initial;
   --color-background: var(--background);
-  --color-text: var(--text);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
-  --color-success: var(--success);
-  --color-error: var(--error);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
 }
 
 @theme inline {

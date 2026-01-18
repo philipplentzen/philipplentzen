@@ -83,7 +83,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html
       className={cn(
-        "max-w-dvw overflow-x-hidden scroll-smooth bg-background text-text antialiased transition-colors selection:bg-accent selection:text-secondary",
+        "max-w-dvw overflow-x-hidden scroll-smooth bg-background text-foreground antialiased transition-colors selection:bg-accent selection:text-secondary",
         "before:fixed before:inset-0 before:bg-[url(/images/noise.png)] before:opacity-70",
         caveat.variable,
         fira.variable,
@@ -119,24 +119,21 @@ export default function RootLayout({ children }: PropsWithChildren) {
             <div
               className={cn(
                 "relative col-start-1 row-span-full hidden md:block",
-                "bg-(image:--grid) bg-size-[var(--pattern-size)_var(--pattern-size)]",
-                "before:absolute before:left-0 before:h-full before:w-px before:bg-current/10",
-                "after:absolute after:right-0 after:h-full after:w-px after:bg-current/10",
+                "before:absolute before:left-0 before:h-full before:w-px before:bg-border",
+                "after:absolute after:right-0 after:h-full after:w-px after:bg-border",
               )}
             />
             <div
               className={cn(
                 "relative col-start-3 row-span-full hidden md:block",
-                "bg-(image:--grid) bg-size-[var(--pattern-size)_var(--pattern-size)]",
-                "before:absolute before:left-0 before:h-full before:w-px before:bg-current/10",
-                "after:absolute after:right-0 after:h-full after:w-px after:bg-current/10",
+                "before:absolute before:left-0 before:h-full before:w-px before:bg-border",
+                "after:absolute after:right-0 after:h-full after:w-px after:bg-border",
               )}
             />
             <header className={cn("relative flex flex-col")}>
               <div
                 className={cn(
                   "relative flex h-(--divider-height) flex-none items-center justify-between px-(--padding-width) text-current/60",
-                  "before:bg-(image:--grid) before:mask-l-from-0 before:mask-l-to-96 before:pointer-events-none before:absolute before:inset-0 before:bg-size-[var(--pattern-size)_var(--pattern-size)]",
                 )}
               >
                 <div className={"font-mono text-[0.6rem]"}>
@@ -173,8 +170,8 @@ export default function RootLayout({ children }: PropsWithChildren) {
               <div
                 className={cn(
                   "relative flex h-full items-center justify-between px-(--padding-width)",
-                  "before:absolute before:top-0 before:left-[-100vw] before:h-px before:w-[200vw] before:bg-current/10",
-                  "after:absolute after:bottom-0 after:left-[-100vw] after:h-px after:w-[200vw] after:bg-current/10",
+                  "before:absolute before:top-0 before:left-[-100vw] before:h-px before:w-[200vw] before:bg-border",
+                  "after:absolute after:bottom-0 after:left-[-100vw] after:h-px after:w-[200vw] after:bg-border",
                 )}
               >
                 <div className={"-ml-2 p-2"}>
@@ -209,7 +206,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
                       ))}
                     </NavigationList>
                   </Navigation>
-                  <div className={"hidden h-10 w-px bg-current/10 lg:block"} />
+                  <div className={"hidden h-10 w-px bg-border lg:block"} />
                   <ThemeMenu />
                 </div>
               </div>
@@ -220,8 +217,8 @@ export default function RootLayout({ children }: PropsWithChildren) {
             <div
               className={cn(
                 "relative",
-                "before:absolute before:top-0 before:left-[-100vw] before:h-px before:w-[200vw] before:bg-current/10",
-                "after:absolute after:bottom-0 after:left-[-100vw] after:h-px after:w-[200vw] after:bg-current/10",
+                "before:absolute before:top-0 before:left-[-100vw] before:h-px before:w-[200vw] before:bg-border",
+                "after:absolute after:bottom-0 after:left-[-100vw] after:h-px after:w-[200vw] after:bg-border",
               )}
             />
             <footer className={"grid gap-8 p-(--padding-width) lg:grid-cols-2"}>

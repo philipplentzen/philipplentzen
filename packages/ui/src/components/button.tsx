@@ -13,7 +13,7 @@ export const buttonVariants = cva(
       variant: {
         default: "bg-primary text-background",
         outline:
-          "border border-current/40 bg-current/10 hover:bg-current/20 data-[pressed]:text-secondary",
+          "border border-current/40 bg-border hover:bg-current/20 data-[pressed]:text-secondary",
         ghost:
           "hover:bg-current/20 hover:text-secondary data-[pressed]:bg-current/20 data-[pressed]:text-secondary",
       },

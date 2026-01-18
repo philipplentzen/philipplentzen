@@ -5,7 +5,6 @@ import { type ComponentPropsWithoutRef, forwardRef } from "react";
 const sectionVariants = cva(
   [
     "group/section relative flex flex-col gap-y-6 pt-[calc(var(--divider-height)_+_var(--padding-width))] pb-(--divider-height)",
-    // "before:bg-current/10 before:absolute before:left-[-100vw] before:top-0 before:h-px before:w-[200vw]",
   ],
   {
     variants: {
@@ -35,8 +34,8 @@ export const Section = forwardRef<HTMLElement, SectionProps>((props, ref) => {
         className={cn(
           "absolute -inset-x-(--padding-width) top-0 h-(--divider-height)",
           "bg-(image:--grid) bg-size-[var(--pattern-size)_var(--pattern-size)]",
-          "before:absolute before:top-0 before:left-[-100vw] before:h-px before:w-[200vw] before:bg-current/10",
-          "after:absolute after:bottom-0 after:left-[-100vw] after:h-px after:w-[200vw] after:bg-current/10",
+          "before:absolute before:top-0 before:left-[-100vw] before:h-px before:w-[200vw] before:bg-border",
+          "after:absolute after:bottom-0 after:left-[-100vw] after:h-px after:w-[200vw] after:bg-border",
         )}
       />
       {children}

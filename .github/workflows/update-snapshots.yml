@@ -17,9 +17,14 @@ jobs:
       options: --user 1001
     steps:
       - name: 👀 Acknowledge Request
-        run: |
-          gh api repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions \
-            -f content='+1'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          run: |
+            curl --request POST \
+              --url "https://api.github.com/repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions" \
+              --header "Authorization: Bearer $GH_TOKEN" \
+              --header "Accept: application/vnd.github+json" \
+              --data '{"content":"+1"}'
 
       - name: 🚚 Checkout
         uses: actions/checkout@v5
@@ -36,7 +41,6 @@ jobs:
       - name: 🔄 Commit and Push Changes
         if: success()
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           COMMENTER_NAME="${{ github.event.comment.user.login }}"
@@ -50,16 +54,25 @@ jobs:
             git commit -m "chore: update playwright snapshots"
             git push
           
-            gh api repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions \
-              -f content='rocket'
+            curl --request POST \
+              --url "https://api.github.com/repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions" \
+              --header "Authorization: Bearer $GH_TOKEN" \
+              --header "Accept: application/vnd.github+json" \
+              --data '{"content":"rocket"}'
           else
-            gh api repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions \
-              -f content='eyes'
+            curl --request POST \
+              --url "https://api.github.com/repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions" \
+              --header "Authorization: Bearer $GH_TOKEN" \
+              --header "Accept: application/vnd.github+json" \
+              --data '{"content":"eyes"}'
           fi
       - name: ❌ Notify Failure
         if: failure()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh api repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions \
-            -f content='confused'
+          curl --request POST \
+            --url "https://api.github.com/repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions" \
+            --header "Authorization: Bearer $GH_TOKEN" \
+            --header "Accept: application/vnd.github+json" \
+            --data '{"content":"confused"}'

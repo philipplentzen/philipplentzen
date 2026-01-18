@@ -141,9 +141,9 @@ dist
 /playwright/.cache/
 
 # Playwright
-/test-results/
-/playwright-report/
-/playwright/.cache/
+test-results/
+playwright-report/
+playwright/.cache/
 
 # Contentlayer
 .contentlayer

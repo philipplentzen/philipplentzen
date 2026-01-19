@@ -38,7 +38,7 @@ jobs:
           pull_number: ${{ github.event.issue.number }}
 
       - name: 🚚 Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           ref: refs/pull/${{ github.event.issue.number }}/head

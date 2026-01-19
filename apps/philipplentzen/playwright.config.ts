@@ -13,7 +13,7 @@ export default defineConfig({
   reporter: process.env.CI ? `github` : `html`,
   outputDir: "test-results/",
   webServer: {
-    command: "pnpm --filter=@philipplentzen/philipplentzen dev",
+    command: `pnpm dlx serve@latest out -p ${PORT}`,
     url: baseURL,
     timeout: 120 * 1000,
     reuseExistingServer: !process.env.CI,

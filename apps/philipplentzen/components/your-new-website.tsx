@@ -1,19 +1,15 @@
-import { Article, Button, H2 } from "@philipplentzen/ui";
-import { cn } from "@philipplentzen/ui/lib";
-import { SparklesIcon } from "lucide-react";
+import {Article, Button, Card, H2} from "@philipplentzen/ui";
+import {cn} from "@philipplentzen/ui/lib";
+import {SparklesIcon} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 export const YourNewWebsite = () => {
   return (
-    <div
-      className={
-        "relative grid w-full gap-x-3 rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10 lg:grid-cols-3"
-      }
-    >
+    <Card className={"lg:grid-cols-3"}>
       <div
         className={
-          "flex size-64 items-center justify-center justify-self-center border-text/20 p-(--padding-width) lg:size-full lg:border-r"
+          "flex size-64 items-center justify-center justify-self-center p-(--padding-width) lg:size-full lg:border-r"
         }
       >
         <Image
@@ -27,7 +23,7 @@ export const YourNewWebsite = () => {
 
       <div
         className={
-          "flex size-full flex-col justify-center border-text/20 p-(--padding-width) text-primary max-lg:border-t lg:col-span-2"
+          "flex size-full flex-col justify-center p-(--padding-width) text-primary max-lg:border-t lg:col-span-2"
         }
       >
         <Article className={"w-full"}>
@@ -59,6 +55,6 @@ export const YourNewWebsite = () => {
           </Button>
         </Article>
       </div>
-    </div>
+    </Card>
   );
 };

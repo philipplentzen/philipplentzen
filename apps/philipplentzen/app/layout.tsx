@@ -1,21 +1,15 @@
-import { Logo } from "@/components/logo";
-import { ThemeMenu } from "@/components/theme-menu";
-import { Today } from "@/components/today";
+import {Logo} from "@/components/logo";
+import {ThemeMenu} from "@/components/theme-menu";
+import {Today} from "@/components/today";
 import "@philipplentzen/ui/globals.css";
-import {
-  Button,
-  buttonVariants,
-  Navigation,
-  NavigationItem,
-  NavigationList,
-} from "@philipplentzen/ui";
-import { cn } from "@philipplentzen/ui/lib";
-import { SparklesIcon } from "lucide-react";
-import type { Metadata } from "next";
-import { Caveat, Fira_Code, Instrument_Serif, Inter } from "next/font/google";
+import {Button, buttonVariants, Navigation, NavigationItem, NavigationList,} from "@philipplentzen/ui";
+import {cn} from "@philipplentzen/ui/lib";
+import {SparklesIcon} from "lucide-react";
+import type {Metadata} from "next";
+import {Caveat, Fira_Code, Instrument_Serif, Inter} from "next/font/google";
 import Link from "next/link";
-import { ThemeProvider } from "next-themes";
-import type { PropsWithChildren } from "react";
+import {ThemeProvider} from "next-themes";
+import type {PropsWithChildren} from "react";
 
 const caveat = Caveat({
   variable: "--font-caveat",
@@ -133,7 +127,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
             <header className={cn("relative flex flex-col")}>
               <div
                 className={cn(
-                  "relative flex h-(--divider-height) flex-none items-center justify-between px-(--padding-width) text-current/60",
+                  "relative flex h-(--divider-height) flex-none items-center justify-between px-(--padding-width) text-muted-foreground",
                 )}
               >
                 <div className={"font-mono text-[0.6rem]"}>
@@ -260,7 +254,9 @@ export default function RootLayout({ children }: PropsWithChildren) {
                 }
               >
                 <div className={"flex flex-col justify-end"}>
-                  <span className={"text-current/40 text-xs"}>Erkunden</span>
+                  <span className={"text-muted-foreground text-xs"}>
+                    Erkunden
+                  </span>
                   <ul className={"space-y-px"}>
                     {navigationItems.map((item) => (
                       <li key={item.href}>
@@ -281,7 +277,9 @@ export default function RootLayout({ children }: PropsWithChildren) {
                   </ul>
                 </div>
                 <div className={"flex flex-col justify-end"}>
-                  <span className={"text-current/40 text-xs"}>Rechtliches</span>
+                  <span className={"text-muted-foreground text-xs"}>
+                    Rechtliches
+                  </span>
                   <ul>
                     <li>
                       <Link
@@ -300,7 +298,9 @@ export default function RootLayout({ children }: PropsWithChildren) {
                   </ul>
                 </div>
                 <div className={"flex flex-col justify-end"}>
-                  <span className={"text-current/40 text-xs"}>Kontakt</span>
+                  <span className={"text-muted-foreground text-xs"}>
+                    Kontakt
+                  </span>
                   <ul>
                     <li>
                       <Link

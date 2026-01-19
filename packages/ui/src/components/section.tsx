@@ -1,6 +1,6 @@
-import { cn } from "@philipplentzen/ui/lib";
-import { cva, type VariantProps } from "class-variance-authority";
-import { type ComponentPropsWithoutRef, forwardRef } from "react";
+import {cn} from "@philipplentzen/ui/lib";
+import {cva, type VariantProps} from "class-variance-authority";
+import {type ComponentPropsWithoutRef, forwardRef} from "react";
 
 const sectionVariants = cva(
   [
@@ -33,7 +33,6 @@ export const Section = forwardRef<HTMLElement, SectionProps>((props, ref) => {
       <div
         className={cn(
           "absolute -inset-x-(--padding-width) top-0 h-(--divider-height)",
-          "bg-(image:--grid) bg-size-[var(--pattern-size)_var(--pattern-size)]",
           "before:absolute before:top-0 before:left-[-100vw] before:h-px before:w-[200vw] before:bg-border",
           "after:absolute after:bottom-0 after:left-[-100vw] after:h-px after:w-[200vw] after:bg-border",
         )}
@@ -41,22 +40,22 @@ export const Section = forwardRef<HTMLElement, SectionProps>((props, ref) => {
       {children}
       <div
         className={
-          "absolute top-(--divider-height) -left-(--padding-width) mt-2 ml-2 hidden size-2 border-current/20 border-t border-l sm:block"
+          "absolute top-(--divider-height) -left-(--padding-width) mt-2 ml-2 hidden size-2 border-t border-l sm:block"
         }
       />
       <div
         className={
-          "absolute top-(--divider-height) -right-(--padding-width) mt-2 mr-2 hidden size-2 border-current/20 border-t border-r sm:block"
+          "absolute top-(--divider-height) -right-(--padding-width) mt-2 mr-2 hidden size-2 border-t border-r sm:block"
         }
       />
       <div
         className={
-          "absolute -right-(--padding-width) bottom-0 mr-2 mb-2 hidden size-2 border-current/20 border-r border-b sm:block"
+          "absolute -right-(--padding-width) bottom-0 mr-2 mb-2 hidden size-2 border-r border-b sm:block"
         }
       />
       <div
         className={
-          "absolute bottom-0 -left-(--padding-width) mb-2 ml-2 hidden size-2 border-current/20 border-b border-l sm:block"
+          "absolute bottom-0 -left-(--padding-width) mb-2 ml-2 hidden size-2 border-b border-l sm:block"
         }
       />
     </section>

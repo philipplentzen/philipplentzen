@@ -1,5 +1,5 @@
-import { Badge } from "@philipplentzen/ui";
-import { cn } from "@philipplentzen/ui/lib";
+import {Badge, Card} from "@philipplentzen/ui";
+import {cn} from "@philipplentzen/ui/lib";
 
 export const ProjectDetails = (props: {
   client: string;
@@ -22,29 +22,27 @@ export const ProjectDetails = (props: {
   const { client, tasks, tech, status, employment = "Freiberuflich" } = props;
 
   return (
-    <div
-      className={
-        "not-prose mb-8 grid @lg:grid-cols-2 gap-4 rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10 p-(--padding-width) text-text"
-      }
+    <Card
+      className={"not-prose mb-8 @lg:grid-cols-2 gap-4 p-(--padding-width)"}
     >
       <div className={"flex flex-col"}>
-        <span className={"text-current/60 text-sm"}>Kunde</span>
+        <span className={"text-muted-foreground text-sm"}>Kunde</span>
         {client}
       </div>
       <div className={"flex flex-col"}>
-        <span className={"text-current/60 text-sm"}>Aufgaben</span>
+        <span className={"text-muted-foreground text-sm"}>Aufgaben</span>
         {tasks.join(", ")}
       </div>
       <div className={"flex flex-col"}>
-        <span className={"text-current/60 text-sm"}>Technologien</span>
+        <span className={"text-muted-foreground text-sm"}>Technologien</span>
         {tech.join(", ")}
       </div>
       <div className={"flex flex-col"}>
-        <span className={"text-current/60 text-sm"}>Anstellung</span>
+        <span className={"text-muted-foreground text-sm"}>Anstellung</span>
         {employment}
       </div>
       <div className={"flex flex-col gap-2"}>
-        <span className={"text-current/60 text-sm"}>Status</span>
+        <span className={"text-muted-foreground text-sm"}>Status</span>
         <Badge
           className={cn(
             status === "live" && "text-success",
@@ -65,6 +63,6 @@ export const ProjectDetails = (props: {
           {status}
         </Badge>
       </div>
-    </div>
+    </Card>
   );
 };

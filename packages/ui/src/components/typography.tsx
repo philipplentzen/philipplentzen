@@ -1,10 +1,5 @@
-import { cn } from "@philipplentzen/ui/lib";
-import type {
-  ComponentProps,
-  ElementType,
-  HTMLAttributes,
-  HtmlHTMLAttributes,
-} from "react";
+import {cn} from "@philipplentzen/ui/lib";
+import type {ComponentProps, ElementType, HTMLAttributes, HtmlHTMLAttributes,} from "react";
 
 const Typography = <T,>(props: HTMLAttributes<T> & { as: ElementType }) => {
   const { as: Comp, className, children, ...otherProps } = props;
@@ -26,7 +21,7 @@ export const Article = (props: ComponentProps<"article">) => {
         "@container prose w-full max-w-none space-y-1 [&_>_*:not(.not-prose)]:max-w-prose",
         "prose-a:text-secondary",
         "prose-headings:my-0 prose-headings:font-normal prose-headings:leading-none",
-        "prose-p:text-text",
+        "prose-p:text-foreground",
         "prose-strong:text-secondary",
         "prose-table:text-text",
         className,
@@ -43,7 +38,7 @@ const H = (
 
   return (
     <div className={"flex w-full flex-col gap-2"}>
-      <span className={"font-caveat text-text/30 leading-4"}>
+      <span className={"font-caveat text-muted-foreground leading-4"}>
         {as as string}
       </span>
       <Typography<HTMLHeadingElement>

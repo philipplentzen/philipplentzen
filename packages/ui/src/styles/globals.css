@@ -14,21 +14,25 @@
 :root {
   --background: #f5faff;
   --foreground: #0f1e29;
-  --card: #f5faff;
-  --card-foreground: #0f1e29;
+  --card: radial-gradient(
+    at 10% 10%,
+    oklch(from var(--secondary) l c h / 0.3),
+    oklch(from var(--accent) l c h / 0.1)
+  );
+  --card-foreground: var(--foreground);
   --popover: #f5faff;
-  --popover-foreground: #0f1e29;
+  --popover-foreground: var(--foreground);
   --primary: #1e3f57;
   --primary-foreground: #f5faff;
   --secondary: #18aa99;
   --secondary-foreground: #ffffff;
   --muted: #e5f1fa;
-  --muted-foreground: #4b5e6d;
+  --muted-foreground: color-mix(in oklab, var(--foreground) 30%, transparent);
   --accent: #fcba03;
   --accent-foreground: #0f1e29;
   --destructive: #c10007;
   --destructive-foreground: #ffffff;
-  --border: color-mix(in oklab, currentcolor 10%, transparent);
+  --border: color-mix(in oklab, var(--foreground) 10%, transparent);
   --input: #d1e1ed;
   --ring: #1e3f57;
 }
@@ -36,16 +40,12 @@
 html[data-theme="dark"] {
   --background: #00050a;
   --foreground: #d6e5f0;
-  --card: #00050a;
-  --card-foreground: #d6e5f0;
   --popover: #00050a;
-  --popover-foreground: #d6e5f0;
   --primary: #bbe0fa;
   --primary-foreground: #00050a;
   --secondary: #55e7d6;
   --secondary-foreground: #00050a;
   --muted: #121e29;
-  --muted-foreground: #94a3b8;
   --accent: #fcba03;
   --accent-foreground: #00050a;
   --destructive: #fb2c36;
@@ -57,7 +57,7 @@ html[data-theme="dark"] {
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-card: var(--card);
+  /*--color-card: var(--card);*/
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
@@ -81,4 +81,14 @@ html[data-theme="dark"] {
   --font-mono: var(--font-fira), monospace;
   --font-caveat: var(--font-caveat), system-ui;
   --font-instrument: var(--font-instrument), system-ui;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+}
+
+@utility bg-card {
+  background-image: var(--card);
 }

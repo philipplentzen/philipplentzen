@@ -1,11 +1,11 @@
-import { Article, H2, H3, Section } from "@philipplentzen/ui";
-import { cn } from "@philipplentzen/ui/lib";
-import { GithubIcon, InboxIcon, LinkedinIcon } from "lucide-react";
+import {Article, Card, H2, H3, Section} from "@philipplentzen/ui";
+import {cn} from "@philipplentzen/ui/lib";
+import {GithubIcon, InboxIcon, LinkedinIcon} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { CopyButton } from "@/components/copy-button";
-import { ProjectList } from "@/components/project-list";
-import { YourNewWebsite } from "@/components/your-new-website";
+import {CopyButton} from "@/components/copy-button";
+import {ProjectList} from "@/components/project-list";
+import {YourNewWebsite} from "@/components/your-new-website";
 import HowIWork from "@/content/about-me/how-i-work.mdx";
 import WhatIDo from "@/content/about-me/what-i-do.mdx";
 import WhoIAm from "@/content/about-me/who-i-am.mdx";
@@ -16,11 +16,11 @@ export default async function HomePage() {
       <div
         className={cn(
           "relative flex flex-col gap-y-8 pt-64 pb-4 sm:pb-16 2xl:pt-96 2xl:pb-32",
-          "before:absolute before:-inset-x-(--padding-width) before:inset-y-0 before:bg-radial-[at_10%_10%] before:from-secondary/30 before:to-accent/10",
+          "before:absolute before:-inset-x-(--padding-width) before:inset-y-0 before:bg-card",
         )}
       >
         <div className={"h-48"}>
-          <div className={"font-caveat text-current/30"}>h1</div>
+          <div className={"font-caveat text-muted-foreground"}>h1</div>
           <h1
             className={
               "@container relative font-instrument text-primary lowercase tracking-tight"
@@ -62,37 +62,27 @@ export default async function HomePage() {
       <Section>
         <H2 id={"about-me"}>Über Mich</H2>
 
-        <div
-          className={
-            "grid rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10 lg:grid-cols-2"
-          }
-        >
-          <div className={"border-current/20 p-(--padding-width) lg:border-r"}>
+        <Card className={"lg:grid-cols-2"}>
+          <div className={"p-(--padding-width) lg:border-r"}>
             <WhatIDo />
           </div>
-          <div
-            className={"border-current/20 p-(--padding-width) max-lg:border-t"}
-          >
+          <div className={"p-(--padding-width) max-lg:border-t"}>
             <HowIWork />
           </div>
           <div
             className={
-              "col-span-full flex justify-center border-current/20 border-t p-(--padding-width)"
+              "col-span-full flex justify-center border-t p-(--padding-width)"
             }
           >
             <WhoIAm />
           </div>
-        </div>
+        </Card>
       </Section>
 
       <Section>
         <H2 id={"contact"}>Kontakt</H2>
 
-        <div
-          className={
-            "grid overflow-hidden rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10 lg:grid-cols-3"
-          }
-        >
+        <Card className={"lg:grid-cols-3"}>
           <div className={"space-y-8 p-(--padding-width) lg:col-span-2"}>
             <Article>
               <H3>Meld dich mal!</H3>
@@ -107,7 +97,7 @@ export default async function HomePage() {
               </p>
             </Article>
 
-            <ul className={"w-full divide-y divide-current/20"}>
+            <ul className={"w-full divide-y"}>
               {[
                 {
                   icon: InboxIcon,
@@ -160,7 +150,7 @@ export default async function HomePage() {
           </div>
           <div
             className={
-              "relative size-full min-h-64 overflow-hidden border-current/20 max-lg:border-t lg:border-l"
+              "relative size-full min-h-64 overflow-hidden max-lg:border-t lg:border-l"
             }
           >
             <Image
@@ -174,7 +164,7 @@ export default async function HomePage() {
               }
             />
           </div>
-        </div>
+        </Card>
       </Section>
     </>
   );

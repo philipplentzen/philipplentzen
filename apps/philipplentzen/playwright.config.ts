@@ -1,4 +1,4 @@
-import { defineConfig, devices } from "@playwright/test";
+import {defineConfig, devices} from "@playwright/test";
 
 const PORT = process.env.PORT || 3000;
 
@@ -10,7 +10,7 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   workers: process.env.CI ? 1 : undefined,
-  reporter: process.env.CI ? `github` : `html`,
+  reporter: `html`,
   outputDir: "test-results/",
   webServer: {
     command: `pnpm dlx serve@latest out -p ${PORT}`,

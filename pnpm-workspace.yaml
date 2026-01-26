@@ -4,9 +4,9 @@ packages:
 
 catalog:
   "@tailwindcss/postcss": 4.1.18
-  "@types/react": 19.2.8
+  "@types/react": 19.2.9
   "@types/react-dom": 19.2.3
-  lucide-react: 0.562.0
+  lucide-react: 0.563.0
   react: 19.2.3
   react-dom: 19.2.3
   typescript: 5.9.3

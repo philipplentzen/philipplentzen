@@ -18,8 +18,8 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "catalog:",
-    "@turbo/gen": "^2.7.5",
-    "@types/node": "25.0.9",
+    "@turbo/gen": "^2.8.0",
+    "@types/node": "25.1.0",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@workspace/typescript-config": "workspace:*",

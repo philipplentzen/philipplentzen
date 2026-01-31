@@ -1,6 +1,6 @@
 "use client";
 
-import {type ComponentPropsWithoutRef, forwardRef} from "react";
+import { type ComponentPropsWithoutRef, forwardRef } from "react";
 
 export const Today = forwardRef<
   HTMLSpanElement,

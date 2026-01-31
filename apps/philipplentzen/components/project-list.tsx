@@ -42,8 +42,10 @@ export const ProjectList = async ({
             tabIndex={0}
             href={slug.join("/")}
             className={cn(
-              "group/item @container relative flex aspect-video w-full flex-col items-center overflow-hidden border-text/20 bg-radial-[at_10%_10%] to-accent/10",
-              color ? "from-(--project-color)/30" : "from-secondary/30",
+              "group/item @container relative flex aspect-video w-full flex-col items-center overflow-hidden border-text/20 bg-radial-[at_10%_10%] to-accent/10 outline-none transition-all",
+              color
+                ? "from-(--project-color)/30 text-(--project-color)"
+                : "from-secondary/30",
               "border-b border-l first:rounded-tl last:rounded-br last:border-r max-sm:border-r max-sm:last:rounded-bl max-sm:first:rounded-tr sm:max-xl:even:border-r",
               index % 3 === 2 && "xl:border-r",
               index === 1 && "sm:max-xl:rounded-tr",
@@ -57,7 +59,7 @@ export const ProjectList = async ({
               index ===
                 featuredProjects.length - (featuredProjects.length % 3) - 1 &&
                 "xl:rounded-br",
-              "focus-visible:outline-(--project-color) focus-visible:outline-2 focus-visible:outline-offset-2",
+              "focus-visible:border-current focus-visible:ring-[3px] focus-visible:ring-current/50",
             )}
             style={
               {
@@ -68,7 +70,6 @@ export const ProjectList = async ({
             <h3
               className={cn(
                 "flex h-full shrink-0 flex-col justify-center font-instrument text-[min(var(--text-6xl),11.5cqw)] lowercase leading-none transition-transform group-hover/item:scale-105 max-sm:text-(--project-color)",
-                color && "text-(--project-color)",
                 thumbnail && "h-1/2",
               )}
             >

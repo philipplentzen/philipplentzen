@@ -2,7 +2,14 @@ import {Logo} from "@/components/logo";
 import {ThemeMenu} from "@/components/theme-menu";
 import {Today} from "@/components/today";
 import "@philipplentzen/ui/globals.css";
-import {Button, buttonVariants, Navigation, NavigationItem, NavigationList,} from "@philipplentzen/ui";
+import {
+    Button,
+    NavigationMenu,
+    NavigationMenuItem,
+    NavigationMenuLink,
+    NavigationMenuList,
+    navigationMenuTriggerStyle,
+} from "@philipplentzen/ui";
 import {cn} from "@philipplentzen/ui/lib";
 import {SparklesIcon} from "lucide-react";
 import type {Metadata} from "next";
@@ -105,7 +112,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
             className={cn(
               "[--divider-height:--spacing(8)] [--edge-width:--spacing(24)] [--header-height:calc(--spacing(16)+var(--divider-height))] [--padding-width:--spacing(4)] [--pattern-size:--spacing(2)]",
               "sm:[--padding-width:--spacing(6)] lg:[--padding-width:--spacing(8)]",
-              "container isolate mx-auto grid w-full",
+              "container relative isolate mx-auto grid w-full",
               "grid-rows-[var(--header-height)_minmax(calc(100dvh-(var(--header-height)+var(--divider-height))),1fr)_var(--divider-height)_auto]",
               "grid-cols-1 md:grid-cols-[var(--edge-width)_minmax(0,1fr)_var(--edge-width)]",
             )}
@@ -127,34 +134,40 @@ export default function RootLayout({ children }: PropsWithChildren) {
             <header className={cn("relative flex flex-col")}>
               <div
                 className={cn(
-                  "relative flex h-(--divider-height) flex-none items-center justify-between px-(--padding-width) text-muted-foreground",
+                  "relative flex h-(--divider-height) flex-none items-center justify-between px-(--padding-width) text-foreground/30",
                 )}
               >
-                <div className={"font-mono text-[0.6rem]"}>
+                <div className={"font-mono"}>
                   <ul className={"flex gap-x-2"}>
                     <li>
-                      <Link
-                        href={"https://status.philipplentzen.dev"}
-                        title={"Status"}
-                        className={cn(
-                          "rounded transition-all",
-                          "focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 disabled:pointer-events-none",
-                        )}
+                      <Button
+                        size={"xs"}
+                        variant={"ghost"}
+                        nativeButton={false}
+                        render={
+                          <Link
+                            href={"https://status.philipplentzen.dev"}
+                            title={"Status"}
+                          />
+                        }
                       >
                         status
-                      </Link>
+                      </Button>
                     </li>
                     <li>
-                      <Link
-                        href={"https://staging.philipplentzen.dev"}
-                        title={"Staging"}
-                        className={cn(
-                          "rounded transition-all",
-                          "focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 disabled:pointer-events-none",
-                        )}
+                      <Button
+                        size={"xs"}
+                        variant={"ghost"}
+                        nativeButton={false}
+                        render={
+                          <Link
+                            href={"https://staging.philipplentzen.dev"}
+                            title={"Staging"}
+                          />
+                        }
                       >
                         staging
-                      </Link>
+                      </Button>
                     </li>
                   </ul>
                 </div>
@@ -168,38 +181,41 @@ export default function RootLayout({ children }: PropsWithChildren) {
                   "after:absolute after:bottom-0 after:left-[-100vw] after:h-px after:w-[200vw] after:bg-border",
                 )}
               >
-                <div className={"-ml-2 p-2"}>
+                <div className={"-ml-2"}>
                   <Link
                     href={"/"}
                     title={"Startseite"}
                     aria-label={"Startseite"}
                     tabIndex={0}
                     className={cn(
-                      "block rounded transition-all",
-                      "focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 disabled:pointer-events-none",
+                      "block rounded p-2 transition-all",
+                      "border border-transparent outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50",
                     )}
                   >
                     <Logo className={"h-8"} />
                   </Link>
                 </div>
-                <div className={"flex gap-4"}>
-                  <Navigation className={"hidden lg:block"}>
-                    <NavigationList>
+                <div className={"flex items-center gap-4"}>
+                  <NavigationMenu className={"hidden lg:flex"}>
+                    <NavigationMenuList>
                       {navigationItems.map((item) => (
-                        <NavigationItem key={item.href}>
-                          <Link
-                            href={item.href}
-                            title={item.title}
-                            aria-label={item.title}
-                            tabIndex={0}
-                            className={cn(buttonVariants({ variant: "ghost" }))}
+                        <NavigationMenuItem key={item.href}>
+                          <NavigationMenuLink
+                            className={navigationMenuTriggerStyle()}
+                            render={
+                              <Link
+                                href={item.href}
+                                title={item.title}
+                                aria-label={item.title}
+                              />
+                            }
                           >
                             {item.title}
-                          </Link>
-                        </NavigationItem>
+                          </NavigationMenuLink>
+                        </NavigationMenuItem>
                       ))}
-                    </NavigationList>
-                  </Navigation>
+                    </NavigationMenuList>
+                  </NavigationMenu>
                   <div className={"hidden h-10 w-px bg-border lg:block"} />
                   <ThemeMenu />
                 </div>
@@ -234,18 +250,19 @@ export default function RootLayout({ children }: PropsWithChildren) {
                   ...Nun bist du dran!
                 </span>
                 <Button
-                  asChild
                   variant={"outline"}
-                  className={"mt-4 text-secondary"}
+                  className={"mt-2"}
+                  nativeButton={false}
+                  render={
+                    <Link
+                      href={"mailto:kontakt@philipplentzen.dev"}
+                      title={"E-Mail schreiben"}
+                      aria-label={"E-Mail schreiben"}
+                    />
+                  }
                 >
-                  <Link
-                    href={"mailto:kontakt@philipplentzen.dev"}
-                    title={"E-Mail schreiben"}
-                    aria-label={"E-Mail schreiben"}
-                  >
-                    <SparklesIcon />
-                    Lass uns loslegen!
-                  </Link>
+                  <SparklesIcon />
+                  Lass uns loslegen!
                 </Button>
               </div>
               <div
@@ -254,9 +271,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
                 }
               >
                 <div className={"flex flex-col justify-end"}>
-                  <span className={"text-muted-foreground text-xs"}>
-                    Erkunden
-                  </span>
+                  <span className={"text-secondary text-xs"}>Erkunden</span>
                   <ul className={"space-y-px"}>
                     {navigationItems.map((item) => (
                       <li key={item.href}>
@@ -277,9 +292,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
                   </ul>
                 </div>
                 <div className={"flex flex-col justify-end"}>
-                  <span className={"text-muted-foreground text-xs"}>
-                    Rechtliches
-                  </span>
+                  <span className={"text-secondary text-xs"}>Rechtliches</span>
                   <ul>
                     <li>
                       <Link
@@ -298,9 +311,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
                   </ul>
                 </div>
                 <div className={"flex flex-col justify-end"}>
-                  <span className={"text-muted-foreground text-xs"}>
-                    Kontakt
-                  </span>
+                  <span className={"text-secondary text-xs"}>Kontakt</span>
                   <ul>
                     <li>
                       <Link

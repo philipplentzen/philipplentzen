@@ -1,5 +1,10 @@
-import {cn} from "@philipplentzen/ui/lib";
-import type {ComponentProps, ElementType, HTMLAttributes, HtmlHTMLAttributes,} from "react";
+import { cn } from "@philipplentzen/ui/lib";
+import type {
+  ComponentProps,
+  ElementType,
+  HTMLAttributes,
+  HtmlHTMLAttributes,
+} from "react";
 
 const Typography = <T,>(props: HTMLAttributes<T> & { as: ElementType }) => {
   const { as: Comp, className, children, ...otherProps } = props;
@@ -38,7 +43,7 @@ const H = (
 
   return (
     <div className={"flex w-full flex-col gap-2"}>
-      <span className={"font-caveat text-muted-foreground leading-4"}>
+      <span className={"font-caveat text-foreground/30 leading-4"}>
         {as as string}
       </span>
       <Typography<HTMLHeadingElement>

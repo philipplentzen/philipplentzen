@@ -1,6 +1,6 @@
-import {Article, Button, Card, H2} from "@philipplentzen/ui";
-import {cn} from "@philipplentzen/ui/lib";
-import {SparklesIcon} from "lucide-react";
+import { Article, Button, Card, H2 } from "@philipplentzen/ui";
+import { cn } from "@philipplentzen/ui/lib";
+import { SparklesIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -40,18 +40,18 @@ export const YourNewWebsite = () => {
             Und mit Spaß an der Sache.
           </p>
           <Button
-            asChild
+            render={
+              <Link
+                href={"mailto:kontakt@philipplentzen.dev"}
+                title={"Kontakt aufnehmen"}
+                aria-label={"Kontakt aufnehmen"}
+              />
+            }
+            nativeButton={false}
             variant={"outline"}
-            className={"text-secondary sm:mt-4"}
           >
-            <Link
-              href={"mailto:kontakt@philipplentzen.dev"}
-              title={"Kontakt aufnehmen"}
-              aria-label={"Kontakt aufnehmen"}
-            >
-              <SparklesIcon />
-              Lass uns loslegen!
-            </Link>
+            <SparklesIcon />
+            Lass uns loslegen!
           </Button>
         </Article>
       </div>

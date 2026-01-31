@@ -1,5 +1,5 @@
-import {cn} from "@philipplentzen/ui/lib";
-import type {ComponentProps} from "react";
+import { cn } from "@philipplentzen/ui/lib";
+import type { ComponentProps } from "react";
 
 export function Card({ className, ...props }: ComponentProps<"div">) {
   return (

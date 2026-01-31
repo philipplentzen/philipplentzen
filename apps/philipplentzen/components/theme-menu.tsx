@@ -1,13 +1,12 @@
 "use client";
 
 import {
-  buttonVariants,
+  Button,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@philipplentzen/ui";
-import { cn } from "@philipplentzen/ui/lib";
 import { MonitorIcon, MoonIcon, SunIcon, SunMoonIcon } from "lucide-react";
 import { useTheme } from "next-themes";
 
@@ -16,9 +15,7 @@ export const ThemeMenu = () => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger
-        className={cn(buttonVariants({ size: "square", variant: "ghost" }))}
-      >
+      <DropdownMenuTrigger render={<Button size="icon-lg" variant="ghost" />}>
         <SunMoonIcon />
       </DropdownMenuTrigger>
       <DropdownMenuContent align={"end"}>

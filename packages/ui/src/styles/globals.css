@@ -1,7 +1,6 @@
 @import "tailwindcss";
-@source "../../../apps/**/*.{ts,tsx}";
-@source "../../../components/**/*.{ts,tsx}";
-@source "../**/*.{ts,tsx}";
+@source "../components/*.{ts,tsx}";
+@source "../../../../apps/**/*.{ts,tsx}";
 @plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
@@ -23,18 +22,21 @@
   --popover: #f5faff;
   --popover-foreground: var(--foreground);
   --primary: #1e3f57;
-  --primary-foreground: #f5faff;
+  --primary-foreground: var(--background);
   --secondary: #18aa99;
-  --secondary-foreground: #ffffff;
-  --muted: #e5f1fa;
-  --muted-foreground: color-mix(in oklab, var(--foreground) 30%, transparent);
+  --secondary-foreground: var(--background);
+  --muted: --alpha(var(--foreground) / 5%);
+  --muted-foreground: var(--foreground);
   --accent: #fcba03;
-  --accent-foreground: #0f1e29;
-  --destructive: #c10007;
-  --destructive-foreground: #ffffff;
-  --border: color-mix(in oklab, var(--foreground) 10%, transparent);
+  --accent-foreground: var(--foreground);
+  --destructive: var(--color-red-500);
+  --destructive-foreground: var(--color-red-700);
+  --info: var(--color-blue-500);
+  --success: var(--color-emerald-500);
+  --warning: var(--accent);
+  --border: --alpha(var(--foreground) / 10%);
   --input: #d1e1ed;
-  --ring: #1e3f57;
+  --ring: var(--accent);
 }
 
 html[data-theme="dark"] {
@@ -42,16 +44,17 @@ html[data-theme="dark"] {
   --foreground: #d6e5f0;
   --popover: #00050a;
   --primary: #bbe0fa;
-  --primary-foreground: #00050a;
   --secondary: #55e7d6;
-  --secondary-foreground: #00050a;
-  --muted: #121e29;
+  --muted: --alpha(var(--foreground) / 10%);
   --accent: #fcba03;
-  --accent-foreground: #00050a;
-  --destructive: #fb2c36;
-  --destructive-foreground: #ffffff;
+  --accent-foreground: var(--background);
+  --destructive: color-mix(
+    in srgb,
+    var(--color-red-500) 90%,
+    var(--color-white)
+  );
+  --destructive-foreground: var(--color-red-400);
   --input: #1e2f3d;
-  --ring: #bbe0fa;
 }
 
 @theme inline {
@@ -71,6 +74,9 @@ html[data-theme="dark"] {
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
+  --color-info: var(--info);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);

@@ -1,11 +1,11 @@
-import {Article, Card, H2, H3, Section} from "@philipplentzen/ui";
-import {cn} from "@philipplentzen/ui/lib";
-import {GithubIcon, InboxIcon, LinkedinIcon} from "lucide-react";
+import { Article, Button, Card, H2, H3, Section } from "@philipplentzen/ui";
+import { cn } from "@philipplentzen/ui/lib";
+import { GithubIcon, InboxIcon, LinkedinIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import {CopyButton} from "@/components/copy-button";
-import {ProjectList} from "@/components/project-list";
-import {YourNewWebsite} from "@/components/your-new-website";
+import { CopyButton } from "@/components/copy-button";
+import { ProjectList } from "@/components/project-list";
+import { YourNewWebsite } from "@/components/your-new-website";
 import HowIWork from "@/content/about-me/how-i-work.mdx";
 import WhatIDo from "@/content/about-me/what-i-do.mdx";
 import WhoIAm from "@/content/about-me/who-i-am.mdx";
@@ -20,7 +20,7 @@ export default async function HomePage() {
         )}
       >
         <div className={"h-48"}>
-          <div className={"font-caveat text-muted-foreground"}>h1</div>
+          <div className={"font-caveat text-foreground/30"}>h1</div>
           <h1
             className={
               "@container relative font-instrument text-primary lowercase tracking-tight"
@@ -121,13 +121,13 @@ export default async function HomePage() {
                     "flex w-full max-w-prose items-center gap-4 py-2 sm:gap-8"
                   }
                 >
-                  <div
-                    className={
-                      "flex size-10 items-center justify-center rounded bg-current/20 text-secondary [&_svg:not([class*='size-'])]:size-6 [&_svg]:pointer-events-none [&_svg]:shrink-0"
-                    }
+                  <Button
+                    size={"icon-lg"}
+                    nativeButton={false}
+                    render={<div />}
                   >
                     <Icon />
-                  </div>
+                  </Button>
                   <Link
                     href={href}
                     title={`Unter ${title} kontaktieren`}

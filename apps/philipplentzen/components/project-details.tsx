@@ -1,5 +1,5 @@
-import {Badge, Card} from "@philipplentzen/ui";
-import {cn} from "@philipplentzen/ui/lib";
+import { Badge, Card } from "@philipplentzen/ui";
+import { cn } from "@philipplentzen/ui/lib";
 
 export const ProjectDetails = (props: {
   client: string;
@@ -26,28 +26,30 @@ export const ProjectDetails = (props: {
       className={"not-prose mb-8 @lg:grid-cols-2 gap-4 p-(--padding-width)"}
     >
       <div className={"flex flex-col"}>
-        <span className={"text-muted-foreground text-sm"}>Kunde</span>
+        <span className={"text-secondary text-xs"}>Kunde</span>
         {client}
       </div>
       <div className={"flex flex-col"}>
-        <span className={"text-muted-foreground text-sm"}>Aufgaben</span>
+        <span className={"text-secondary text-xs"}>Aufgaben</span>
         {tasks.join(", ")}
       </div>
       <div className={"flex flex-col"}>
-        <span className={"text-muted-foreground text-sm"}>Technologien</span>
+        <span className={"text-secondary text-xs"}>Technologien</span>
         {tech.join(", ")}
       </div>
       <div className={"flex flex-col"}>
-        <span className={"text-muted-foreground text-sm"}>Anstellung</span>
+        <span className={"text-secondary text-xs"}>Anstellung</span>
         {employment}
       </div>
       <div className={"flex flex-col gap-2"}>
-        <span className={"text-muted-foreground text-sm"}>Status</span>
+        <span className={"text-secondary text-xs"}>Status</span>
         <Badge
+          variant={"outline"}
           className={cn(
+            "border-current bg-current/20",
             status === "live" && "text-success",
             status === "internal" && "text-accent",
-            status === "archived" && "text-error",
+            status === "archived" && "text-destructive",
           )}
         >
           <div className={`relative mr-1 inline-flex size-2`}>

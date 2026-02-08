@@ -1,11 +1,11 @@
-import { Article, Button, Card, H2, H3, Section } from "@philipplentzen/ui";
-import { cn } from "@philipplentzen/ui/lib";
-import { GithubIcon, InboxIcon, LinkedinIcon } from "lucide-react";
+import {Article, Button, Card, CardTile, H2, H3, Section,} from "@philipplentzen/ui";
+import {cn} from "@philipplentzen/ui/lib";
+import {GithubIcon, InboxIcon, LinkedinIcon} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { CopyButton } from "@/components/copy-button";
-import { ProjectList } from "@/components/project-list";
-import { YourNewWebsite } from "@/components/your-new-website";
+import {CopyButton} from "@/components/copy-button";
+import {ProjectList} from "@/components/project-list";
+import {YourNewWebsite} from "@/components/your-new-website";
 import HowIWork from "@/content/about-me/how-i-work.mdx";
 import WhatIDo from "@/content/about-me/what-i-do.mdx";
 import WhoIAm from "@/content/about-me/who-i-am.mdx";
@@ -62,28 +62,24 @@ export default async function HomePage() {
       <Section>
         <H2 id={"about-me"}>Über Mich</H2>
 
-        <Card className={"lg:grid-cols-2"}>
-          <div className={"p-(--padding-width) lg:border-r"}>
+        <div className={"grid gap-4 lg:grid-cols-2"}>
+          <Card>
             <WhatIDo />
-          </div>
-          <div className={"p-(--padding-width) max-lg:border-t"}>
+          </Card>
+          <Card>
             <HowIWork />
-          </div>
-          <div
-            className={
-              "col-span-full flex justify-center border-t p-(--padding-width)"
-            }
-          >
+          </Card>
+          <Card className={"col-span-full"}>
             <WhoIAm />
-          </div>
-        </Card>
+          </Card>
+        </div>
       </Section>
 
       <Section>
         <H2 id={"contact"}>Kontakt</H2>
 
         <Card className={"lg:grid-cols-3"}>
-          <div className={"space-y-8 p-(--padding-width) lg:col-span-2"}>
+          <CardTile className={"gap-y-8 lg:col-span-2"}>
             <Article>
               <H3>Meld dich mal!</H3>
               <p>
@@ -121,11 +117,7 @@ export default async function HomePage() {
                     "flex w-full max-w-prose items-center gap-4 py-2 sm:gap-8"
                   }
                 >
-                  <Button
-                    size={"icon-lg"}
-                    nativeButton={false}
-                    render={<div />}
-                  >
+                  <Button size={"icon"} nativeButton={false} render={<div />}>
                     <Icon />
                   </Button>
                   <Link
@@ -147,10 +139,10 @@ export default async function HomePage() {
                 </li>
               ))}
             </ul>
-          </div>
-          <div
+          </CardTile>
+          <CardTile
             className={
-              "relative size-full min-h-64 overflow-hidden max-lg:border-t lg:border-l"
+              "size-full min-h-64 overflow-hidden max-lg:border-t lg:border-l"
             }
           >
             <Image
@@ -163,7 +155,7 @@ export default async function HomePage() {
                 "mask-y-from-80% mask-x-from-80% mask-radial-from-40% mask-radial-at-center absolute -z-10 size-full object-cover object-center opacity-60 saturate-0 dark:invert"
               }
             />
-          </div>
+          </CardTile>
         </Card>
       </Section>
     </>

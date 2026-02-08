@@ -4,6 +4,7 @@ import {Today} from "@/components/today";
 import "@philipplentzen/ui/globals.css";
 import {
     Button,
+    Card,
     NavigationMenu,
     NavigationMenuItem,
     NavigationMenuLink,
@@ -16,7 +17,7 @@ import type {Metadata} from "next";
 import {Caveat, Fira_Code, Instrument_Serif, Inter} from "next/font/google";
 import Link from "next/link";
 import {ThemeProvider} from "next-themes";
-import type {PropsWithChildren} from "react";
+import {Children, type PropsWithChildren} from "react";
 
 const caveat = Caveat({
   variable: "--font-caveat",
@@ -81,6 +82,8 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {
+  console.log(Children.toArray(children));
+
   return (
     <html
       className={cn(
@@ -134,7 +137,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
             <header className={cn("relative flex flex-col")}>
               <div
                 className={cn(
-                  "relative flex h-(--divider-height) flex-none items-center justify-between px-(--padding-width) text-foreground/30",
+                  "relative flex h-(--divider-height) flex-none items-center justify-between px-(--padding-width) text-muted-foreground",
                 )}
               >
                 <div className={"font-mono"}>
@@ -232,11 +235,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
               )}
             />
             <footer className={"grid gap-8 p-(--padding-width) lg:grid-cols-2"}>
-              <div
-                className={
-                  "@container rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10 p-4 sm:p-8"
-                }
-              >
+              <Card className={"p-4 sm:p-8"}>
                 <i
                   className={
                     "relative block font-instrument text-[min(var(--text-5xl),14cqw)] text-accent lowercase leading-[0.833]"
@@ -251,7 +250,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
                 </span>
                 <Button
                   variant={"outline"}
-                  className={"mt-2"}
+                  className={"mt-2 w-fit"}
                   nativeButton={false}
                   render={
                     <Link
@@ -264,7 +263,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
                   <SparklesIcon />
                   Lass uns loslegen!
                 </Button>
-              </div>
+              </Card>
               <div
                 className={
                   "grid grid-cols-2 gap-y-4 text-primary text-sm sm:grid-cols-3 lg:grid-cols-2 2xl:grid-cols-3"

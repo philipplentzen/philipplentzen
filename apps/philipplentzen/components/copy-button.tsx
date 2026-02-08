@@ -1,14 +1,8 @@
 "use client";
 
-import { Button } from "@philipplentzen/ui";
-import { CheckIcon, CopyIcon } from "lucide-react";
-import {
-  type ComponentPropsWithoutRef,
-  type ComponentRef,
-  forwardRef,
-  useCallback,
-  useState,
-} from "react";
+import {Button, useCopyToClipboard} from "@philipplentzen/ui";
+import {CheckIcon, CopyIcon} from "lucide-react";
+import {type ComponentPropsWithoutRef, type ComponentRef, forwardRef, useMemo,} from "react";
 
 export const CopyButton = forwardRef<
   ComponentRef<typeof Button>,
@@ -20,23 +14,15 @@ export const CopyButton = forwardRef<
   }
 >((props, ref) => {
   const { variant = "ghost", value, ...otherProps } = props;
-  const [success, setSuccess] = useState(false);
-
-  const handleCopy = useCallback(async () => {
-    try {
-      await navigator.clipboard.writeText(value);
-      setSuccess(true);
-    } catch {
-      console.error("Failed to copy text to clipboard");
-    }
-  }, [value]);
+  const [copiedText, copyToClipboard] = useCopyToClipboard();
+  const success = useMemo(() => !!copiedText, [copiedText]);
 
   return (
     <Button
       ref={ref}
       variant={success ? "default" : variant}
       size={"icon"}
-      onClick={handleCopy}
+      onClick={() => copyToClipboard(value)}
       title={success ? "Kopiert!" : `"${value}" in die Zwischenablage kopieren`}
       aria-label={
         success ? "Kopiert!" : `"${value}" in die Zwischenablage kopieren`

@@ -1,23 +1,23 @@
-import {Logo} from "@/components/logo";
-import {ThemeMenu} from "@/components/theme-menu";
-import {Today} from "@/components/today";
+import { Logo } from "@/components/logo";
+import { ThemeMenu } from "@/components/theme-menu";
+import { Today } from "@/components/today";
 import "@philipplentzen/ui/globals.css";
 import {
-    Button,
-    Card,
-    NavigationMenu,
-    NavigationMenuItem,
-    NavigationMenuLink,
-    NavigationMenuList,
-    navigationMenuTriggerStyle,
+  Button,
+  Card,
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  navigationMenuTriggerStyle,
 } from "@philipplentzen/ui";
-import {cn} from "@philipplentzen/ui/lib";
-import {SparklesIcon} from "lucide-react";
-import type {Metadata} from "next";
-import {Caveat, Fira_Code, Instrument_Serif, Inter} from "next/font/google";
+import { cn } from "@philipplentzen/ui/lib";
+import { SparklesIcon } from "lucide-react";
+import type { Metadata } from "next";
+import { Caveat, Fira_Code, Instrument_Serif, Inter } from "next/font/google";
 import Link from "next/link";
-import {ThemeProvider} from "next-themes";
-import {Children, type PropsWithChildren} from "react";
+import { ThemeProvider } from "next-themes";
+import type { PropsWithChildren } from "react";
 
 const caveat = Caveat({
   variable: "--font-caveat",
@@ -82,8 +82,6 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {
-  console.log(Children.toArray(children));
-
   return (
     <html
       className={cn(

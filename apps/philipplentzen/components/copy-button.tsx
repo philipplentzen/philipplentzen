@@ -1,8 +1,13 @@
 "use client";
 
-import {Button, useCopyToClipboard} from "@philipplentzen/ui";
-import {CheckIcon, CopyIcon} from "lucide-react";
-import {type ComponentPropsWithoutRef, type ComponentRef, forwardRef, useMemo,} from "react";
+import { Button, useCopyToClipboard } from "@philipplentzen/ui";
+import { CheckIcon, CopyIcon } from "lucide-react";
+import {
+  type ComponentPropsWithoutRef,
+  type ComponentRef,
+  forwardRef,
+  useMemo,
+} from "react";
 
 export const CopyButton = forwardRef<
   ComponentRef<typeof Button>,

@@ -1,8 +1,8 @@
-import {NavigationMenu as NavigationMenuPrimitive} from "@base-ui/react/navigation-menu";
-import {cn} from "@philipplentzen/ui/lib";
-import {cva} from "class-variance-authority";
-import {ChevronDownIcon} from "lucide-react";
-import type {ComponentPropsWithRef} from "react";
+import { NavigationMenu as NavigationMenuPrimitive } from "@base-ui/react/navigation-menu";
+import { cn } from "@philipplentzen/ui/lib";
+import { cva } from "class-variance-authority";
+import { ChevronDownIcon } from "lucide-react";
+import type { ComponentPropsWithRef } from "react";
 
 function NavigationMenu({
   align = "start",

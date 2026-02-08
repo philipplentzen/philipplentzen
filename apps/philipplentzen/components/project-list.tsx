@@ -1,9 +1,9 @@
-import {cn} from "@philipplentzen/ui/lib";
-import {sortBy} from "lodash";
+import { cn } from "@philipplentzen/ui/lib";
+import { sortBy } from "lodash";
 import Image from "next/image";
 import Link from "next/link";
-import type {CSSProperties} from "react";
-import {getPages} from "@/app/api";
+import type { CSSProperties } from "react";
+import { getPages } from "@/app/api";
 
 type ProjectListProps = {
   filter?: Parameters<Awaited<ReturnType<typeof getPages>>["filter"]>[0];

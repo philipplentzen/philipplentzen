@@ -1,6 +1,6 @@
 "use client";
 
-import {useCallback, useState} from "react";
+import { useCallback, useState } from "react";
 
 export function useCopyToClipboard() {
   const [state, setState] = useState<string | null>(null);

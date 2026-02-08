@@ -1,6 +1,6 @@
-import {Article, Button, Card, CardTile, H2} from "@philipplentzen/ui";
-import {cn} from "@philipplentzen/ui/lib";
-import {SparklesIcon} from "lucide-react";
+import { Article, Button, Card, CardTile, H2 } from "@philipplentzen/ui";
+import { cn } from "@philipplentzen/ui/lib";
+import { SparklesIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 

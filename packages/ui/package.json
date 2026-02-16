@@ -14,7 +14,7 @@
     "next-themes": "0.4.6",
     "react": "catalog:",
     "react-dom": "catalog:",
-    "tailwind-merge": "3.4.0"
+    "tailwind-merge": "3.4.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "catalog:",

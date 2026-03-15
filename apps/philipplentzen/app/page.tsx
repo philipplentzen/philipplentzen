@@ -1,4 +1,12 @@
-import { Article, H2, H3, Section } from "@philipplentzen/ui";
+import {
+  Article,
+  Button,
+  Card,
+  CardTile,
+  H2,
+  H3,
+  Section,
+} from "@philipplentzen/ui";
 import { cn } from "@philipplentzen/ui/lib";
 import { GithubIcon, InboxIcon, LinkedinIcon } from "lucide-react";
 import Image from "next/image";
@@ -16,11 +24,11 @@ export default async function HomePage() {
       <div
         className={cn(
           "relative flex flex-col gap-y-8 pt-64 pb-4 sm:pb-16 2xl:pt-96 2xl:pb-32",
-          "before:absolute before:-inset-x-(--padding-width) before:inset-y-0 before:bg-radial-[at_10%_10%] before:from-secondary/30 before:to-accent/10",
+          "before:absolute before:-inset-x-(--padding-width) before:inset-y-0 before:bg-card",
         )}
       >
         <div className={"h-48"}>
-          <div className={"font-caveat text-current/30"}>h1</div>
+          <div className={"font-caveat text-foreground/30"}>h1</div>
           <h1
             className={
               "@container relative font-instrument text-primary lowercase tracking-tight"
@@ -62,38 +70,24 @@ export default async function HomePage() {
       <Section>
         <H2 id={"about-me"}>Über Mich</H2>
 
-        <div
-          className={
-            "grid rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10 lg:grid-cols-2"
-          }
-        >
-          <div className={"border-current/20 p-(--padding-width) lg:border-r"}>
+        <div className={"grid gap-4 lg:grid-cols-2"}>
+          <Card>
             <WhatIDo />
-          </div>
-          <div
-            className={"border-current/20 p-(--padding-width) max-lg:border-t"}
-          >
+          </Card>
+          <Card>
             <HowIWork />
-          </div>
-          <div
-            className={
-              "col-span-full flex justify-center border-current/20 border-t p-(--padding-width)"
-            }
-          >
+          </Card>
+          <Card className={"col-span-full"}>
             <WhoIAm />
-          </div>
+          </Card>
         </div>
       </Section>
 
       <Section>
         <H2 id={"contact"}>Kontakt</H2>
 
-        <div
-          className={
-            "grid overflow-hidden rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10 lg:grid-cols-3"
-          }
-        >
-          <div className={"space-y-8 p-(--padding-width) lg:col-span-2"}>
+        <Card className={"lg:grid-cols-3"}>
+          <CardTile className={"gap-y-8 lg:col-span-2"}>
             <Article>
               <H3>Meld dich mal!</H3>
               <p>
@@ -107,7 +101,7 @@ export default async function HomePage() {
               </p>
             </Article>
 
-            <ul className={"w-full divide-y divide-current/20"}>
+            <ul className={"w-full divide-y"}>
               {[
                 {
                   icon: InboxIcon,
@@ -131,13 +125,9 @@ export default async function HomePage() {
                     "flex w-full max-w-prose items-center gap-4 py-2 sm:gap-8"
                   }
                 >
-                  <div
-                    className={
-                      "flex size-10 items-center justify-center rounded bg-current/20 text-secondary [&_svg:not([class*='size-'])]:size-6 [&_svg]:pointer-events-none [&_svg]:shrink-0"
-                    }
-                  >
+                  <Button size={"icon"} nativeButton={false} render={<div />}>
                     <Icon />
-                  </div>
+                  </Button>
                   <Link
                     href={href}
                     title={`Unter ${title} kontaktieren`}
@@ -157,10 +147,10 @@ export default async function HomePage() {
                 </li>
               ))}
             </ul>
-          </div>
-          <div
+          </CardTile>
+          <CardTile
             className={
-              "relative size-full min-h-64 overflow-hidden border-current/20 max-lg:border-t lg:border-l"
+              "size-full min-h-64 overflow-hidden max-lg:border-t lg:border-l"
             }
           >
             <Image
@@ -173,8 +163,8 @@ export default async function HomePage() {
                 "mask-y-from-80% mask-x-from-80% mask-radial-from-40% mask-radial-at-center absolute -z-10 size-full object-cover object-center opacity-60 saturate-0 dark:invert"
               }
             />
-          </div>
-        </div>
+          </CardTile>
+        </Card>
       </Section>
     </>
   );

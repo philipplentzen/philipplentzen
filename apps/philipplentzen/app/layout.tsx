@@ -4,10 +4,12 @@ import { Today } from "@/components/today";
 import "@philipplentzen/ui/globals.css";
 import {
   Button,
-  buttonVariants,
-  Navigation,
-  NavigationItem,
-  NavigationList,
+  Card,
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  navigationMenuTriggerStyle,
 } from "@philipplentzen/ui";
 import { cn } from "@philipplentzen/ui/lib";
 import { SparklesIcon } from "lucide-react";
@@ -83,7 +85,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html
       className={cn(
-        "max-w-dvw overflow-x-hidden scroll-smooth bg-background text-text antialiased transition-colors selection:bg-accent selection:text-secondary",
+        "max-w-dvw overflow-x-hidden scroll-smooth bg-background text-foreground antialiased transition-colors selection:bg-accent selection:text-secondary",
         "before:fixed before:inset-0 before:bg-[url(/images/noise.png)] before:opacity-70",
         caveat.variable,
         fira.variable,
@@ -111,7 +113,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
             className={cn(
               "[--divider-height:--spacing(8)] [--edge-width:--spacing(24)] [--header-height:calc(--spacing(16)+var(--divider-height))] [--padding-width:--spacing(4)] [--pattern-size:--spacing(2)]",
               "sm:[--padding-width:--spacing(6)] lg:[--padding-width:--spacing(8)]",
-              "container isolate mx-auto grid w-full",
+              "container relative isolate mx-auto grid w-full",
               "grid-rows-[var(--header-height)_minmax(calc(100dvh-(var(--header-height)+var(--divider-height))),1fr)_var(--divider-height)_auto]",
               "grid-cols-1 md:grid-cols-[var(--edge-width)_minmax(0,1fr)_var(--edge-width)]",
             )}
@@ -119,51 +121,54 @@ export default function RootLayout({ children }: PropsWithChildren) {
             <div
               className={cn(
                 "relative col-start-1 row-span-full hidden md:block",
-                "bg-(image:--grid) bg-size-[var(--pattern-size)_var(--pattern-size)]",
-                "before:absolute before:left-0 before:h-full before:w-px before:bg-current/10",
-                "after:absolute after:right-0 after:h-full after:w-px after:bg-current/10",
+                "before:absolute before:left-0 before:h-full before:w-px before:bg-border",
+                "after:absolute after:right-0 after:h-full after:w-px after:bg-border",
               )}
             />
             <div
               className={cn(
                 "relative col-start-3 row-span-full hidden md:block",
-                "bg-(image:--grid) bg-size-[var(--pattern-size)_var(--pattern-size)]",
-                "before:absolute before:left-0 before:h-full before:w-px before:bg-current/10",
-                "after:absolute after:right-0 after:h-full after:w-px after:bg-current/10",
+                "before:absolute before:left-0 before:h-full before:w-px before:bg-border",
+                "after:absolute after:right-0 after:h-full after:w-px after:bg-border",
               )}
             />
             <header className={cn("relative flex flex-col")}>
               <div
                 className={cn(
-                  "relative flex h-(--divider-height) flex-none items-center justify-between px-(--padding-width) text-current/60",
-                  "before:bg-(image:--grid) before:mask-l-from-0 before:mask-l-to-96 before:pointer-events-none before:absolute before:inset-0 before:bg-size-[var(--pattern-size)_var(--pattern-size)]",
+                  "relative flex h-(--divider-height) flex-none items-center justify-between px-(--padding-width) text-muted-foreground",
                 )}
               >
-                <div className={"font-mono text-[0.6rem]"}>
+                <div className={"font-mono"}>
                   <ul className={"flex gap-x-2"}>
                     <li>
-                      <Link
-                        href={"https://status.philipplentzen.dev"}
-                        title={"Status"}
-                        className={cn(
-                          "rounded transition-all",
-                          "focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 disabled:pointer-events-none",
-                        )}
+                      <Button
+                        size={"xs"}
+                        variant={"ghost"}
+                        nativeButton={false}
+                        render={
+                          <Link
+                            href={"https://status.philipplentzen.dev"}
+                            title={"Status"}
+                          />
+                        }
                       >
                         status
-                      </Link>
+                      </Button>
                     </li>
                     <li>
-                      <Link
-                        href={"https://staging.philipplentzen.dev"}
-                        title={"Staging"}
-                        className={cn(
-                          "rounded transition-all",
-                          "focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 disabled:pointer-events-none",
-                        )}
+                      <Button
+                        size={"xs"}
+                        variant={"ghost"}
+                        nativeButton={false}
+                        render={
+                          <Link
+                            href={"https://staging.philipplentzen.dev"}
+                            title={"Staging"}
+                          />
+                        }
                       >
                         staging
-                      </Link>
+                      </Button>
                     </li>
                   </ul>
                 </div>
@@ -173,43 +178,46 @@ export default function RootLayout({ children }: PropsWithChildren) {
               <div
                 className={cn(
                   "relative flex h-full items-center justify-between px-(--padding-width)",
-                  "before:absolute before:top-0 before:left-[-100vw] before:h-px before:w-[200vw] before:bg-current/10",
-                  "after:absolute after:bottom-0 after:left-[-100vw] after:h-px after:w-[200vw] after:bg-current/10",
+                  "before:absolute before:top-0 before:left-[-100vw] before:h-px before:w-[200vw] before:bg-border",
+                  "after:absolute after:bottom-0 after:left-[-100vw] after:h-px after:w-[200vw] after:bg-border",
                 )}
               >
-                <div className={"-ml-2 p-2"}>
+                <div className={"-ml-2"}>
                   <Link
                     href={"/"}
                     title={"Startseite"}
                     aria-label={"Startseite"}
                     tabIndex={0}
                     className={cn(
-                      "block rounded transition-all",
-                      "focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 disabled:pointer-events-none",
+                      "block rounded p-2 transition-all",
+                      "border border-transparent outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50",
                     )}
                   >
                     <Logo className={"h-8"} />
                   </Link>
                 </div>
-                <div className={"flex gap-4"}>
-                  <Navigation className={"hidden lg:block"}>
-                    <NavigationList>
+                <div className={"flex items-center gap-4"}>
+                  <NavigationMenu className={"hidden lg:flex"}>
+                    <NavigationMenuList>
                       {navigationItems.map((item) => (
-                        <NavigationItem key={item.href}>
-                          <Link
-                            href={item.href}
-                            title={item.title}
-                            aria-label={item.title}
-                            tabIndex={0}
-                            className={cn(buttonVariants({ variant: "ghost" }))}
+                        <NavigationMenuItem key={item.href}>
+                          <NavigationMenuLink
+                            className={navigationMenuTriggerStyle()}
+                            render={
+                              <Link
+                                href={item.href}
+                                title={item.title}
+                                aria-label={item.title}
+                              />
+                            }
                           >
                             {item.title}
-                          </Link>
-                        </NavigationItem>
+                          </NavigationMenuLink>
+                        </NavigationMenuItem>
                       ))}
-                    </NavigationList>
-                  </Navigation>
-                  <div className={"hidden h-10 w-px bg-current/10 lg:block"} />
+                    </NavigationMenuList>
+                  </NavigationMenu>
+                  <div className={"hidden h-10 w-px bg-border lg:block"} />
                   <ThemeMenu />
                 </div>
               </div>
@@ -220,16 +228,12 @@ export default function RootLayout({ children }: PropsWithChildren) {
             <div
               className={cn(
                 "relative",
-                "before:absolute before:top-0 before:left-[-100vw] before:h-px before:w-[200vw] before:bg-current/10",
-                "after:absolute after:bottom-0 after:left-[-100vw] after:h-px after:w-[200vw] after:bg-current/10",
+                "before:absolute before:top-0 before:left-[-100vw] before:h-px before:w-[200vw] before:bg-border",
+                "after:absolute after:bottom-0 after:left-[-100vw] after:h-px after:w-[200vw] after:bg-border",
               )}
             />
             <footer className={"grid gap-8 p-(--padding-width) lg:grid-cols-2"}>
-              <div
-                className={
-                  "@container rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10 p-4 sm:p-8"
-                }
-              >
+              <Card className={"p-4 sm:p-8"}>
                 <i
                   className={
                     "relative block font-instrument text-[min(var(--text-5xl),14cqw)] text-accent lowercase leading-[0.833]"
@@ -243,27 +247,28 @@ export default function RootLayout({ children }: PropsWithChildren) {
                   ...Nun bist du dran!
                 </span>
                 <Button
-                  asChild
                   variant={"outline"}
-                  className={"mt-4 text-secondary"}
+                  className={"mt-2 w-fit"}
+                  nativeButton={false}
+                  render={
+                    <Link
+                      href={"mailto:kontakt@philipplentzen.dev"}
+                      title={"E-Mail schreiben"}
+                      aria-label={"E-Mail schreiben"}
+                    />
+                  }
                 >
-                  <Link
-                    href={"mailto:kontakt@philipplentzen.dev"}
-                    title={"E-Mail schreiben"}
-                    aria-label={"E-Mail schreiben"}
-                  >
-                    <SparklesIcon />
-                    Lass uns loslegen!
-                  </Link>
+                  <SparklesIcon />
+                  Lass uns loslegen!
                 </Button>
-              </div>
+              </Card>
               <div
                 className={
                   "grid grid-cols-2 gap-y-4 text-primary text-sm sm:grid-cols-3 lg:grid-cols-2 2xl:grid-cols-3"
                 }
               >
                 <div className={"flex flex-col justify-end"}>
-                  <span className={"text-current/40 text-xs"}>Erkunden</span>
+                  <span className={"text-secondary text-xs"}>Erkunden</span>
                   <ul className={"space-y-px"}>
                     {navigationItems.map((item) => (
                       <li key={item.href}>
@@ -284,7 +289,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
                   </ul>
                 </div>
                 <div className={"flex flex-col justify-end"}>
-                  <span className={"text-current/40 text-xs"}>Rechtliches</span>
+                  <span className={"text-secondary text-xs"}>Rechtliches</span>
                   <ul>
                     <li>
                       <Link
@@ -303,7 +308,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
                   </ul>
                 </div>
                 <div className={"flex flex-col justify-end"}>
-                  <span className={"text-current/40 text-xs"}>Kontakt</span>
+                  <span className={"text-secondary text-xs"}>Kontakt</span>
                   <ul>
                     <li>
                       <Link

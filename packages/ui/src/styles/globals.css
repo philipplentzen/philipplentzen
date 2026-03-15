@@ -1,7 +1,6 @@
 @import "tailwindcss";
-@source "../../../apps/**/*.{ts,tsx}";
-@source "../../../components/**/*.{ts,tsx}";
-@source "../**/*.{ts,tsx}";
+@source "../components/*.{ts,tsx}";
+@source "../../../../apps/**/*.{ts,tsx}";
 @plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
@@ -12,35 +11,88 @@
 }
 
 :root {
-  --text: #0f1e29;
-  --background: #f5faff;
-  --primary: #1e3f57;
-  --secondary: #18aa99;
-  --accent: #fcba03;
-  --grid: none;
-  --success: #00a63e;
-  --error: #c10007;
+  --background: var(--color-slate-50);
+  --foreground: var(--color-gray-900);
+  --card: radial-gradient(
+    at 10% 10%,
+    oklch(from var(--secondary) l c h / 0.2),
+    oklch(from var(--accent) l c h / 0.1)
+  );
+  --card-foreground: var(--foreground);
+  --popover: var(--background);
+  --popover-foreground: var(--foreground);
+  --primary: var(--color-cyan-900);
+  --primary-foreground: var(--background);
+  --secondary: var(--color-teal-500);
+  --secondary-foreground: var(--background);
+  --muted: --alpha(var(--foreground) / 5%);
+  --muted-foreground: color-mix(
+    in srgb,
+    var(--color-foreground) 40%,
+    var(--color-background)
+  );
+  --accent: var(--color-amber-400);
+  --accent-foreground: var(--foreground);
+  --destructive: var(--color-red-500);
+  --destructive-foreground: var(--color-red-700);
+  --info: var(--color-blue-500);
+  --info-foreground: var(--color-blue-700);
+  --success: var(--color-emerald-500);
+  --success-foreground: var(--color-emerald-700);
+  --warning: var(--color-amber-500);
+  --warning-foreground: var(--color-amber-700);
+  --border: --alpha(var(--foreground) / 10%);
+  --input: #d1e1ed;
+  --ring: var(--secondary);
 }
 
 html[data-theme="dark"] {
-  --text: #d6e5f0;
-  --background: #00050a;
-  --primary: #bbe0fa;
-  --secondary: #55e7d6;
-  --accent: #fcba03;
-  --success: #00c950;
-  --error: #fb2c36;
+  --background: var(--color-gray-950);
+  --foreground: var(--color-slate-200);
+  --primary: var(--color-sky-200);
+  --secondary: var(--color-teal-300);
+  --muted: --alpha(var(--foreground) / 10%);
+  --accent-foreground: var(--background);
+  --destructive: color-mix(
+    in srgb,
+    var(--color-red-500) 90%,
+    var(--color-white)
+  );
+  --destructive-foreground: var(--color-red-400);
+  --info: var(--color-blue-500);
+  --info-foreground: var(--color-blue-400);
+  --success: var(--color-emerald-500);
+  --success-foreground: var(--color-emerald-400);
+  --warning: var(--color-amber-500);
+  --warning-foreground: var(--color-amber-400);
+  --input: #1e2f3d;
 }
 
 @theme inline {
-  --color-*: initial;
   --color-background: var(--background);
-  --color-text: var(--text);
+  --color-foreground: var(--foreground);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
   --color-success: var(--success);
-  --color-error: var(--error);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
 }
 
 @theme inline {
@@ -48,4 +100,14 @@ html[data-theme="dark"] {
   --font-mono: var(--font-fira), monospace;
   --font-caveat: var(--font-caveat), system-ui;
   --font-instrument: var(--font-instrument), system-ui;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+}
+
+@utility bg-card {
+  background-image: var(--card);
 }

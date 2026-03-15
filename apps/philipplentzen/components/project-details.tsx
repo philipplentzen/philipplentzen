@@ -1,4 +1,4 @@
-import { Badge } from "@philipplentzen/ui";
+import { Badge, Card } from "@philipplentzen/ui";
 import { cn } from "@philipplentzen/ui/lib";
 
 export const ProjectDetails = (props: {
@@ -22,34 +22,34 @@ export const ProjectDetails = (props: {
   const { client, tasks, tech, status, employment = "Freiberuflich" } = props;
 
   return (
-    <div
-      className={
-        "not-prose mb-8 grid @lg:grid-cols-2 gap-4 rounded border border-text/20 bg-radial-[at_10%_10%] from-secondary/30 to-accent/10 p-(--padding-width) text-text"
-      }
+    <Card
+      className={"not-prose mb-8 @lg:grid-cols-2 gap-4 p-(--padding-width)"}
     >
       <div className={"flex flex-col"}>
-        <span className={"text-current/60 text-sm"}>Kunde</span>
+        <span className={"text-secondary text-xs"}>Kunde</span>
         {client}
       </div>
       <div className={"flex flex-col"}>
-        <span className={"text-current/60 text-sm"}>Aufgaben</span>
+        <span className={"text-secondary text-xs"}>Aufgaben</span>
         {tasks.join(", ")}
       </div>
       <div className={"flex flex-col"}>
-        <span className={"text-current/60 text-sm"}>Technologien</span>
+        <span className={"text-secondary text-xs"}>Technologien</span>
         {tech.join(", ")}
       </div>
       <div className={"flex flex-col"}>
-        <span className={"text-current/60 text-sm"}>Anstellung</span>
+        <span className={"text-secondary text-xs"}>Anstellung</span>
         {employment}
       </div>
       <div className={"flex flex-col gap-2"}>
-        <span className={"text-current/60 text-sm"}>Status</span>
+        <span className={"text-secondary text-xs"}>Status</span>
         <Badge
+          variant={"outline"}
           className={cn(
+            "border-current bg-current/20",
             status === "live" && "text-success",
             status === "internal" && "text-accent",
-            status === "archived" && "text-error",
+            status === "archived" && "text-destructive",
           )}
         >
           <div className={`relative mr-1 inline-flex size-2`}>
@@ -65,6 +65,6 @@ export const ProjectDetails = (props: {
           {status}
         </Badge>
       </div>
-    </div>
+    </Card>
   );
 };

@@ -6,10 +6,12 @@
     "dev": "turbo run dev",
     "e2e": "NEXT_PUBLIC_IS_E2E=1 turbo run e2e",
     "format": "biome check --write --unsafe",
+    "changeset": "changeset",
     "prepare": "husky"
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.6",
+    "@changesets/cli": "^2.30.0",
     "@commitlint/cli": "20.4.3",
     "@commitlint/config-conventional": "20.4.3",
     "@commitlint/types": "20.4.3",

@@ -1,0 +1,23 @@
+name: 📦 Changelog Check
+on:
+  pull_request:
+    branches:
+      - staging
+
+jobs:
+  check:
+    name: 📝 Changeset
+    runs-on: ubuntu-latest
+    if: github.actor != 'dependabot[bot]'
+    steps:
+      - name: 🚚 Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: 🔍 Verify Changeset Exists
+        run: |
+          if ! git diff --name-only origin/${{ github.base_ref }} HEAD | grep -q "^\.changeset/.*\.md$"; then
+            echo "❌ No changeset found! Run 'pnpm changeset' locally, choose your bump, and commit the file."
+            exit 1
+          fi

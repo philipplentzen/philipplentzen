@@ -6,6 +6,7 @@
     "dev": "turbo run dev",
     "e2e": "NEXT_PUBLIC_IS_E2E=1 turbo run e2e",
     "format": "biome check --write --unsafe",
+    "changeset": "changeset",
     "prepare": "husky"
   },
   "devDependencies": {

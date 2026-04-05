@@ -16,12 +16,12 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "catalog:",
-    "@turbo/gen": "^2.8.17",
+    "@turbo/gen": "^2.8.20",
     "@types/node": "25.5.0",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@workspace/typescript-config": "workspace:*",
-    "tailwindcss": "4.2.1",
+    "tailwindcss": "4.2.2",
     "typescript": "catalog:"
   },
   "exports": {

@@ -6,6 +6,10 @@ jobs:
   quality:
     name: ✨Biome
     runs-on: ubuntu-latest
+    env:
+      TURBO_API: ${{ secrets.TURBO_API }}
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
     permissions:
       contents: read
     steps:

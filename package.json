@@ -3,11 +3,12 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
+    "changeset": "changeset",
     "dev": "turbo run dev",
     "e2e": "NEXT_PUBLIC_IS_E2E=1 turbo run e2e",
     "format": "biome check --write --unsafe",
-    "changeset": "changeset",
-    "prepare": "husky"
+    "prepare": "husky",
+    "version": "changeset version && pnpm install --no-frozen-lockfile"
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.8",

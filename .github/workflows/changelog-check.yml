@@ -2,7 +2,7 @@ name: 📦 Changelog Check
 on:
   pull_request:
     branches:
-      - staging
+      - main
 
 jobs:
   check:
@@ -15,9 +15,8 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: 🛠️ Setup
+        uses: ./.github/actions/setup
+
       - name: 🔍 Verify Changeset Exists
-        run: |
-          if ! git diff --name-only origin/${{ github.base_ref }} HEAD | grep -q "^\.changeset/.*\.md$"; then
-            echo "❌ No changeset found! Run 'pnpm changeset' locally, choose your bump, and commit the file."
-            exit 1
-          fi
+        run: pnpm changeset status --since=main

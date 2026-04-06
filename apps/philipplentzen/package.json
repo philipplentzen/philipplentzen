@@ -7,7 +7,6 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "release": "release-it --config release-it.config.ts",
     "e2e": "playwright test"
   },
   "dependencies": {
@@ -26,14 +25,12 @@
   },
   "devDependencies": {
     "@playwright/test": "1.58.2",
-    "@release-it/conventional-changelog": "8.0.2",
     "@tailwindcss/postcss": "catalog:",
     "@types/lodash": "4.17.24",
     "@types/node": "25.5.0",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@workspace/typescript-config": "workspace:*",
-    "release-it": "19.2.4",
     "typescript": "catalog:"
   }
 }

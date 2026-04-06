@@ -1,4 +1,7 @@
-const { getInfo, getInfoFromPullRequest } = require("@changesets/get-github-info");
+const {
+  getInfo,
+  getInfoFromPullRequest,
+} = require("@changesets/get-github-info");
 
 const typeMap = {
   feat: "✨ Features",
@@ -36,14 +39,19 @@ async function getGitHubLinks(changeset, options) {
     });
 
   if (prFromSummary !== undefined) {
-    const { links } = await getInfoFromPullRequest({ repo, pull: prFromSummary });
+    const { links } = await getInfoFromPullRequest({
+      repo,
+      pull: prFromSummary,
+    });
     return {
       ...links,
       commit: commitFromSummary
         ? `[\`${commitFromSummary.slice(0, 7)}\`](https://github.com/${repo}/commit/${commitFromSummary})`
         : links.commit,
       user: usersFromSummary.length
-        ? usersFromSummary.map((u) => `[@${u}](https://github.com/${u})`).join(", ")
+        ? usersFromSummary
+            .map((u) => `[@${u}](https://github.com/${u})`)
+            .join(", ")
         : links.user,
     };
   }
@@ -54,7 +62,9 @@ async function getGitHubLinks(changeset, options) {
     return {
       ...links,
       user: usersFromSummary.length
-        ? usersFromSummary.map((u) => `[@${u}](https://github.com/${u})`).join(", ")
+        ? usersFromSummary
+            .map((u) => `[@${u}](https://github.com/${u})`)
+            .join(", ")
         : links.user,
     };
   }
@@ -71,24 +81,32 @@ async function getReleaseLine(changeset, _type, options) {
     .replace(/^\s*(?:author|user):\s*@?[^\s]+/gim, "")
     .trim();
 
-  const lines = summary
-    .split("\n")
-    .map((l) => l.trim())
-    .filter(Boolean);
-
+  const lines = summary.split("\n").filter((l) => l.trim().length > 0);
   const groups = {};
   const ungrouped = [];
 
   for (const line of lines) {
-    const cleaned = line.replace(/^-\s*/, "");
-    const match = cleaned.match(/^(\w+):\s*(.+)/);
+    const cleaned = line.replace(/^-\s*/, "").trim();
+    // Regex to match "feat: message" or "fix(scope): message"
+    const match = cleaned.match(/^(\w+)(?:\(.+\))?:\s*(.+)/);
+
     if (match && typeMap[match[1]]) {
-      if (!groups[match[1]]) groups[match[1]] = [];
-      groups[match[1]].push(match[2]);
+      const type = match[1];
+      if (!groups[type]) groups[type] = [];
+      groups[type].push(match[2]);
     } else {
       ungrouped.push(cleaned);
     }
   }
+
+  const parts = [];
+
+  for (const [type, items] of Object.entries(groups)) {
+    parts.push(`**${typeMap[type]}**`);
+    items.map((item) => parts.push(`- ${item}`));
+  }
+
+  ungrouped.map((item) => parts.push(`- ${item}`));
 
   const suffix = [
     links.pull,
@@ -98,27 +116,18 @@ async function getReleaseLine(changeset, _type, options) {
     .filter(Boolean)
     .join(" ");
 
-  const parts = [];
-
-  for (const [type, items] of Object.entries(groups)) {
-    parts.push(`  **${typeMap[type]}**`);
-    for (const item of items) {
-      parts.push(`  - ${item}`);
-    }
-  }
-
-  for (const item of ungrouped) {
-    parts.push(`  - ${item}`);
-  }
-
   if (suffix) {
-    parts.push(`  ${suffix}`);
+    parts.push(`&nbsp;&nbsp;${suffix}`);
   }
 
-  return "\n" + parts.join("\n");
+  return `\n\n${parts.join("\n")}`;
 }
 
-async function getDependencyReleaseLine(changesets, dependenciesUpdated, options) {
+async function getDependencyReleaseLine(
+  changesets,
+  dependenciesUpdated,
+  options,
+) {
   if (dependenciesUpdated.length === 0) return "";
 
   const repo = options?.repo;
@@ -128,7 +137,7 @@ async function getDependencyReleaseLine(changesets, dependenciesUpdated, options
         const { links } = await getInfo({ repo, commit: cs.commit });
         return links.commit;
       }
-    })
+    }),
   );
 
   const linkText = commitLinks.filter(Boolean).join(", ");
@@ -137,10 +146,10 @@ async function getDependencyReleaseLine(changesets, dependenciesUpdated, options
     : "- Updated dependencies:";
 
   const lines = dependenciesUpdated.map(
-    (dep) => `  - ${dep.name}@${dep.newVersion}`
+    (dep) => `  - ${dep.name}@${dep.newVersion}`,
   );
 
-  return ["\n" + header, ...lines].join("\n");
+  return [`\n${header}`, ...lines].join("\n");
 }
 
 module.exports = { getReleaseLine, getDependencyReleaseLine };

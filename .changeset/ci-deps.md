@@ -5,4 +5,5 @@
 - feat: add end-to-end testing with Playwright for all pages
 - ci: add GitHub Actions caching and artifact uploads
 - ci: use own turbo remote cache
+- ci: enter changeset pre mode
 - chore: setup changesets and automated release actions

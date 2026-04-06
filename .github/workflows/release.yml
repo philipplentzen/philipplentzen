@@ -30,6 +30,8 @@ jobs:
         with:
           version: pnpm run version
           publish: echo "Release cycle complete"
+          commit: "chore: version packages"
+          title: "chore: version packages"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

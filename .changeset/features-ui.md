@@ -6,3 +6,4 @@
 - feat: enable full width elements in mdx content
 - feat: match project grid to overall styling
 - feat: improve and consolidate CSS variables
+- feat: remove link to staging env

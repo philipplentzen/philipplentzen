@@ -14,6 +14,16 @@ jobs:
       image: mcr.microsoft.com/playwright:v1.58.0-noble
       options: --user 1001
     steps:
+      - name: 🔍 Verify Environment
+        shell: bash
+        run: |
+          echo "TURBO_API: $TURBO_API"
+          echo "TURBO_TEAM: $TURBO_TEAM"
+          if [ -n "$TURBO_TOKEN" ]; then
+            echo "TURBO_TOKEN is set (length: ${#TURBO_TOKEN})"
+          else
+            echo "TURBO_TOKEN IS NOT SET"
+          fi
       - name: 🚚 Checkout
         uses: actions/checkout@v6
 

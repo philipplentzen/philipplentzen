@@ -6,4 +6,5 @@
 - ci: add GitHub Actions caching and artifact uploads
 - ci: use own turbo remote cache
 - ci: enter changeset pre mode
+- ci: add release workflow
 - chore: setup changesets and automated release actions

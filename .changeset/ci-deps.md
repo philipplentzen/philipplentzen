@@ -8,3 +8,4 @@
 - ci: enter changeset pre mode
 - ci: add release workflow
 - chore: setup changesets and automated release actions
+- chore: custom changeset script

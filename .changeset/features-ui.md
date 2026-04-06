@@ -1,5 +1,5 @@
 ---
-"apps/philipplentzen": minor
+"@philipplentzen/philipplentzen": minor
 ---
 
 - feat: add custom not-found page

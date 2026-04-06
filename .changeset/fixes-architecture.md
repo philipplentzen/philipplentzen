@@ -1,5 +1,5 @@
 ---
-"apps/philipplentzen": patch
+"@philipplentzen/philipplentzen": patch
 ---
 
 - fix: resolve type checking issues

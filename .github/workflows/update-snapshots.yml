@@ -9,6 +9,10 @@ jobs:
     name: 📸 Update Snapshots
     if: ${{ github.event.issue.pull_request && contains(github.event.comment.body, 'update snapshots') }}
     runs-on: ubuntu-latest
+    env:
+      TURBO_API: ${{ secrets.TURBO_API }}
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
     permissions:
       contents: write
       pull-requests: write

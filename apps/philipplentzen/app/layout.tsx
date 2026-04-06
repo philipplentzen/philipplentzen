@@ -155,21 +155,6 @@ export default function RootLayout({ children }: PropsWithChildren) {
                         status
                       </Button>
                     </li>
-                    <li>
-                      <Button
-                        size={"xs"}
-                        variant={"ghost"}
-                        nativeButton={false}
-                        render={
-                          <Link
-                            href={"https://staging.philipplentzen.dev"}
-                            title={"Staging"}
-                          />
-                        }
-                      >
-                        staging
-                      </Button>
-                    </li>
                   </ul>
                 </div>
                 <Today className={"font-caveat font-medium leading-4"} />

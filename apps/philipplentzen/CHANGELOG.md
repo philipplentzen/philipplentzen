@@ -1,5 +1,13 @@
 # @philipplentzen/philipplentzen
 
+## 1.17.0
+
+### Minor Changes
+
+**✨ Features**
+
+- add version string to footer
+
 ## 1.16.0
 
 ### Minor Changes

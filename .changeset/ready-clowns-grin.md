@@ -1,0 +1,4 @@
+---
+---
+
+ci: remove release workflow

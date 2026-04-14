@@ -18,6 +18,7 @@ import { Caveat, Fira_Code, Instrument_Serif, Inter } from "next/font/google";
 import Link from "next/link";
 import { ThemeProvider } from "next-themes";
 import type { PropsWithChildren } from "react";
+import { Version } from "@/components/version";
 
 const caveat = Caveat({
   variable: "--font-caveat",
@@ -312,12 +313,17 @@ export default function RootLayout({ children }: PropsWithChildren) {
                   </ul>
                 </div>
               </div>
-              <div className={"col-span-full flex h-16 justify-center"}>
+              <div
+                className={
+                  "col-span-full flex flex-col items-center justify-center gap-2"
+                }
+              >
                 <div
                   className={
-                    "mask-[url(/pl.svg)] mask-center mask-no-repeat aspect-square h-full bg-radial-[at_0%_0%] from-secondary to-accent"
+                    "mask-[url(/pl.svg)] mask-center mask-no-repeat aspect-square h-16 bg-radial-[at_0%_0%] from-secondary to-accent"
                   }
                 ></div>
+                <Version />
               </div>
             </footer>
           </div>

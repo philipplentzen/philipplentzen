@@ -1,0 +1,38 @@
+name: 🚢 Deploy
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+  deployments: write
+
+jobs:
+  deploy:
+    name: 🚀 Production Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🏗️ Create GitHub Deployment
+        id: deployment
+        uses: chrnorm/deployment-action@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment: production
+          environment-url: https://philipplentzen.dev
+          initial-status: in_progress
+
+      - name: 📡 Trigger Production Deployment
+        run: |
+          curl -sf -X POST "${{ secrets.DEPLOY_API }}?uuid=${{ secrets.DEPLOY_UUID }}" \
+            -H "Authorization: Bearer ${{ secrets.DEPLOY_TOKEN }}" \
+            -H "Content-Type: application/json"
+
+      - name: ✅ Update Deployment Status
+        if: always()
+        uses: chrnorm/deployment-action@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment: production
+          status: ${{ job.status == 'success' && 'success' || 'failure' }}
+          deployment-id: ${{ steps.deployment.outputs.deployment_id }}

@@ -1,0 +1,36 @@
+name: 🚀 Versioning
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  version:
+    name: 📦 Version Packages
+    runs-on: ubuntu-latest
+    env:
+      TURBO_API: ${{ secrets.TURBO_API }}
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+    steps:
+      - name: 🚚 Checkout
+        uses: actions/checkout@v6
+
+      - name: 🛠️ Setup
+        uses: ./.github/actions/setup
+
+      - name: 📦 Create Release PR or Publish
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          version: pnpm run version
+          publish: echo "Release cycle complete"
+          commit: "chore: version packages"
+          title: "chore: version packages"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

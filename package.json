@@ -11,15 +11,15 @@
     "version": "changeset version && pnpm install --no-frozen-lockfile"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.12",
-    "@changesets/cli": "^2.30.0",
+    "@biomejs/biome": "2.4.14",
+    "@changesets/cli": "^2.31.0",
     "@changesets/types": "^6.1.0",
-    "@commitlint/cli": "20.5.0",
-    "@commitlint/config-conventional": "20.5.0",
-    "@commitlint/types": "20.5.0",
+    "@commitlint/cli": "21.0.0",
+    "@commitlint/config-conventional": "21.0.0",
+    "@commitlint/types": "21.0.0",
     "husky": "9.1.7",
-    "lint-staged": "16.4.0",
-    "turbo": "2.9.6",
+    "lint-staged": "17.0.3",
+    "turbo": "2.9.11",
     "typescript": "catalog:"
   },
   "packageManager": "pnpm@10.28.0"

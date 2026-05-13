@@ -163,6 +163,6 @@ export {
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
   NavigationMenuPositioner,
+  NavigationMenuTrigger,
 };

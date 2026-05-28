@@ -19,7 +19,7 @@
     "@commitlint/types": "21.0.1",
     "husky": "9.1.7",
     "lint-staged": "17.0.4",
-    "turbo": "2.9.12",
+    "turbo": "2.9.14",
     "typescript": "catalog:"
   },
   "packageManager": "pnpm@10.28.0"

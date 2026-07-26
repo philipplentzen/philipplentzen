@@ -1,51 +1,69 @@
 name: 📸 Update Snapshots
 on:
-  issue_comment:
+  pull_request:
     types:
-      - created
+      - labeled
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: "PR number to regenerate snapshots for"
+        required: true
+
+concurrency:
+  group: snapshots-${{ github.event.pull_request.number || github.event.inputs.pr }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
 
 jobs:
   update:
     name: 📸 Update Snapshots
-    if: ${{ github.event.issue.pull_request && contains(github.event.comment.body, 'update snapshots') }}
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.label.name == 'update-snapshots' }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     env:
       TURBO_API: ${{ secrets.TURBO_API }}
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
-    permissions:
-      contents: write
-      pull-requests: write
+      PLAYWRIGHT_VERSION: "1.60.0"
     container:
       image: mcr.microsoft.com/playwright:v1.60.0-noble
       options: --user 1001
     steps:
-      - name: 👀 Acknowledge Request
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          curl --request POST \
-            --url "https://api.github.com/repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions" \
-            --header "Authorization: Bearer $GH_TOKEN" \
-            --header "Accept: application/vnd.github+json" \
-            --data '{"content":"+1"}'
-
-      - name: 🔍 Get PR Details
-        uses: octokit/request-action@v2.x
-        id: get_pr_data
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: 🔍 Resolve PR
+        id: pr
+        uses: actions/github-script@v7
         with:
-          route: GET /repos/{owner}/{repo}/pulls/{pull_number}
-          owner: ${{ github.repository_owner }}
-          repo: ${{ github.event.repository.name }}
-          pull_number: ${{ github.event.issue.number }}
+          github-token: ${{ secrets.SNAPSHOTS_TOKEN || secrets.GITHUB_TOKEN }}
+          script: |
+            const number = context.eventName === 'workflow_dispatch'
+              ? Number(context.payload.inputs.pr)
+              : context.payload.pull_request.number;
+            const { data: pr } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: number,
+            });
+            core.setOutput('number', String(number));
+            core.setOutput('head_ref', pr.head.ref);
 
       - name: 🚚 Checkout
         uses: actions/checkout@v7
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          ref: refs/pull/${{ github.event.issue.number }}/head
+          token: ${{ secrets.SNAPSHOTS_TOKEN || secrets.GITHUB_TOKEN }}
+          ref: ${{ steps.pr.outputs.head_ref }}
+
+      - name: 🔒 Verify Playwright version matches container
+        shell: bash
+        run: |
+          got="$(node -p "require('./apps/philipplentzen/package.json').devDependencies['@playwright/test']")"
+          if [ "$PLAYWRIGHT_VERSION" != "$got" ]; then
+            echo "::error::Container Playwright ($PLAYWRIGHT_VERSION) != @playwright/test ($got). Update the container tag and PLAYWRIGHT_VERSION together."
+            exit 1
+          fi
 
       - name: 🛠️ Setup
         uses: ./.github/actions/setup
@@ -53,40 +71,74 @@ jobs:
       - name: 📸 Update Snapshots
         run: pnpm run e2e -- --update-snapshots
 
-      - name: 🔄 Commit and Push Changes
-        if: success()
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TARGET_BRANCH: ${{ fromJson(steps.get_pr_data.outputs.data).head.ref }}
+      - name: 🔄 Commit and push
+        id: commit
         shell: bash
         run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          
-          if [[ -n $(git status -s) ]]; then
-            git add .
-            git commit -m "chore: update playwright snapshots"
-            git push origin HEAD:refs/heads/$TARGET_BRANCH
-          
-            curl --request POST \
-              --url "https://api.github.com/repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions" \
-              --header "Authorization: Bearer $GH_TOKEN" \
-              --header "Accept: application/vnd.github+json" \
-              --data '{"content":"rocket"}'
+
+          git add 'apps/philipplentzen/**/*-snapshots/**' || true
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
           else
-            curl --request POST \
-              --url "https://api.github.com/repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions" \
-              --header "Authorization: Bearer $GH_TOKEN" \
-              --header "Accept: application/vnd.github+json" \
-              --data '{"content":"eyes"}'
+            {
+              echo "files<<EOF"
+              git diff --cached --name-only
+              echo "EOF"
+            } >> "$GITHUB_OUTPUT"
+            git commit -m "chore: update playwright snapshots"
+            git push origin "HEAD:refs/heads/${{ steps.pr.outputs.head_ref }}"
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
-      - name: ❌ Notify Failure
-        if: failure()
+
+      - name: 💬 Report result
+        if: ${{ !cancelled() }}
+        uses: actions/github-script@v7
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          curl --request POST \
-            --url "https://api.github.com/repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions" \
-            --header "Authorization: Bearer $GH_TOKEN" \
-            --header "Accept: application/vnd.github+json" \
-            --data '{"content":"confused"}'
+          PR_NUMBER: ${{ steps.pr.outputs.number }}
+          CHANGED: ${{ steps.commit.outputs.changed }}
+          FILES: ${{ steps.commit.outputs.files }}
+          JOB_STATUS: ${{ job.status }}
+        with:
+          github-token: ${{ secrets.SNAPSHOTS_TOKEN || secrets.GITHUB_TOKEN }}
+          script: |
+            const number = Number(process.env.PR_NUMBER);
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+
+            // Best-effort: remove the trigger label so re-labeling can re-run.
+            if (context.eventName === 'pull_request') {
+              try {
+                await github.rest.issues.removeLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: number,
+                  name: 'update-snapshots',
+                });
+              } catch (e) {
+                core.info(`label removal skipped: ${e.message}`);
+              }
+            }
+
+            let body;
+            if (process.env.JOB_STATUS !== 'success') {
+              body = `📸 Snapshot update **failed** — see the [run](${runUrl}).`;
+            } else if (process.env.CHANGED === 'true') {
+              const files = (process.env.FILES || '')
+                .trim()
+                .split('\n')
+                .filter(Boolean)
+                .map((f) => `- \`${f}\``)
+                .join('\n');
+              body = `📸 Updated snapshots and pushed to this PR ([run](${runUrl})):\n\n${files}`;
+            } else {
+              body = `📸 No snapshot changes were needed ([run](${runUrl})).`;
+            }
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: number,
+              body,
+            });

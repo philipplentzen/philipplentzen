@@ -7,6 +7,8 @@ import type { ComponentType } from "react";
 type Page = {
   title: string;
   color?: string;
+  year?: number;
+  tasks?: string[];
   thumbnail?: StaticImageData;
   slug: string[];
   Component: ComponentType;
@@ -55,6 +57,8 @@ const importPage = async (filePath: string): Promise<Page | null | never> => {
     return {
       title: page.title,
       color: page.color,
+      year: page.year,
+      tasks: page.tasks,
       thumbnail,
       slug: filePath.replace(/\.mdx$/, "").split("/"),
       Component: page.default,

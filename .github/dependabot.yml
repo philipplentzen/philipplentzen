@@ -18,6 +18,11 @@ updates:
     target-branch: "main"
     labels:
       - "dependencies"
+    ignore:
+      # Held back for now: TypeScript 6 drops automatic global @types inclusion,
+      # which breaks the @types/mdx `declare module "*.mdx"` used by MDX imports.
+      - dependency-name: "typescript"
+      - dependency-name: "lucide-react"
     groups:
       production-dependencies:
         dependency-type: "production"

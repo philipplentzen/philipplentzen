@@ -1,7 +1,7 @@
 {
   "extends": "@workspace/typescript-config/tsconfig.next.json",
   "compilerOptions": {
-    "baseUrl": ".",
+    "types": ["node", "mdx"],
     "paths": {
       "@/*": ["./*"]
     },

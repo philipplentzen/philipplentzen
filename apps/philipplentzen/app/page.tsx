@@ -12,7 +12,7 @@ import { GithubIcon, InboxIcon, LinkedinIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { CopyButton } from "@/components/copy-button";
-import { ProjectList } from "@/components/project-list";
+import { ProjectList } from "@/components/project/list";
 import { YourNewWebsite } from "@/components/your-new-website";
 import HowIWork from "@/content/about-me/how-i-work.mdx";
 import WhatIDo from "@/content/about-me/what-i-do.mdx";

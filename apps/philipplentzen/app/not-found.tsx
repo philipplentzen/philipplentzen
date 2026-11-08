@@ -2,7 +2,7 @@ import { H1, H2, Section } from "@philipplentzen/ui";
 import { cn } from "@philipplentzen/ui/lib";
 import Image from "next/image";
 import Link from "next/link";
-import { ProjectList } from "@/components/project-list";
+import { ProjectList } from "@/components/project/list";
 
 export default function NotFoundPage() {
   return (
